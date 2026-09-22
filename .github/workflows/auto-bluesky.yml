@@ -1,0 +1,39 @@
+name: Auto Post to Bluesky
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'js/data.js'
+  workflow_dispatch:
+
+jobs:
+  bluesky-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Post Latest Article to Bluesky
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE || 'imtechboss.bsky.social' }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD || 'sz7o-o56n-monc-m4px' }}
+        run: node scripts/auto-bluesky.js
+
+      - name: Commit tracked state
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .last_bluesky_id.txt || true
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update last bluesky post ID [skip ci]" && git push)
