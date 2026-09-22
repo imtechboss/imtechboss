@@ -1,0 +1,20 @@
+{
+  "name": "Tech Boss — AI & Gaming Journal",
+  "short_name": "Tech Boss",
+  "description": "Tech Boss - Curated AI technology, smartphone reviews, and gaming guides.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "technology", "news"]
+}

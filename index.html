@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    if (window.location.hostname.includes('binodbhatt.com.np')) {
+      window.location.replace('https://imtechboss.com' + window.location.pathname + window.location.search + window.location.hash);
+    }
+  </script>
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQDRHTFW7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HQDRHTFW7Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Boss | AI &amp; Gaming</title>
+  <meta name="description" content="Tech Boss - The pulse of AI technology, smartphone reviews, software utilities, and gaming guides.">
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="og-image.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://imtechboss.com/">
+  <link rel="alternate" type="application/rss+xml" title="Tech Boss RSS Feed" href="https://imtechboss.com/feed.xml">
+
+  <!-- Structured Data: WebSite + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Tech Boss",
+    "url": "https://imtechboss.com",
+    "description": "The pulse of AI technology, smartphone reviews, software utilities, and gaming guides.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tech Boss",
+      "url": "https://imtechboss.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://imtechboss.com/og-image.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://imtechboss.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tech Boss">
+  <meta property="og:url" content="https://imtechboss.com/">
+  <meta property="og:title" content="Tech Boss | AI &amp; Gaming">
+  <meta property="og:description" content="Discover cutting-edge AI technology, smartphone reviews, software tools, and gaming articles on Tech Boss.">
+  <meta property="og:image" content="https://imtechboss.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@imtechboss">
+  <meta name="twitter:url" content="https://imtechboss.com/">
+  <meta name="twitter:title" content="Tech Boss | AI &amp; Gaming">
+  <meta name="twitter:description" content="Discover cutting-edge AI technology, smartphone reviews, software tools, and gaming articles on Tech Boss.">
+  <meta name="twitter:image" content="https://imtechboss.com/og-image.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Google AdSense Account Verification -->
+  <meta name="google-adsense-account" content="ca-pub-1043419685176632">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1043419685176632" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN with configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css?v=5.8">
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-200">
+
+  <!-- Skip to Content (Accessibility) -->
+  <a href="#mainContent" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:text-sm focus:font-bold">Skip to main content</a>
+
+  <!-- Noscript Fallback -->
+  <noscript>
+    <div style="padding:2rem;text-align:center;font-family:sans-serif;background:#fef2f2;color:#991b1b;border-bottom:2px solid #fca5a5;">
+      <strong>JavaScript is required.</strong> Please enable JavaScript in your browser to use Tech Boss.
+    </div>
+  </noscript>
+
+  <!-- Top Breaking News Bar -->
+  <div class="bg-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 flex-shrink-0 z-10 bg-slate-900 pr-3">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-red-600 text-white font-bold uppercase tracking-wider text-[10px] animate-pulse">
+          Breaking
+        </span>
+      </div>
+      <div class="overflow-hidden relative w-full mx-4">
+        <div id="tickerContent" class="ticker-track text-gray-300">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      <div id="currentDateTime" class="hidden md:flex items-center gap-1.5 text-gray-400 flex-shrink-0 tabular-nums font-mono text-xs">
+        <!-- Live Date & Time -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 glass-nav border-b border-gray-200 dark:border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Brand -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
+              TB
+            </div>
+            <div>
+              <span class="text-2xl font-extrabold tracking-tight font-sans text-gray-950 dark:text-white">
+                Tech<span class="text-blue-600">Boss</span>
+              </span>
+              <span class="block text-[10px] uppercase font-semibold tracking-widest text-gray-500 dark:text-gray-400 -mt-0.5">
+                AI &amp; Gaming Journal
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+          <div class="relative w-full">
+            <input 
+              type="text" 
+              id="desktopSearchInput"
+              placeholder="Search articles, stories, tags..."
+              aria-label="Search articles, stories, and tags"
+              class="w-full pl-10 pr-4 py-2 text-sm rounded-full bg-gray-100 dark:bg-slate-800/80 border border-transparent focus:border-blue-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none transition-all placeholder-gray-500 dark:placeholder-gray-400"
+            >
+            <svg class="w-4 h-4 absolute left-3.5 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <button id="clearSearchBtn" aria-label="Clear search query" class="hidden absolute right-3 top-2.5 text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+              &times;
+            </button>
+          </div>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="flex items-center gap-2 sm:gap-2.5">
+          <!-- Social Links (Desktop) -->
+          <div class="hidden lg:flex items-center gap-1 border-r border-gray-200 dark:border-slate-800 pr-2.5">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="p-2 rounded-full text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="Facebook">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://github.com/binodbhatt" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:binodbhatt500k@gmail.com" class="p-2 rounded-full text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="Email Binod">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </a>
+          </div>
+
+          <!-- Contact Us Button -->
+          <button 
+            class="page-trigger inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow transition-all active:scale-95"
+            data-page="contact"
+            title="Get in touch with Tech Boss"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <span class="hidden sm:inline">Contact Us</span>
+          </button>
+
+          <!-- Bookmarks Filter Trigger -->
+          <button 
+            id="bookmarksFilterBtn"
+            class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors relative"
+            title="Saved Articles"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+            </svg>
+            <span id="bookmarksCountBadge" class="hidden absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </button>
+
+          <!-- Dark / Light Mode Toggle -->
+          <button 
+            id="themeToggleBtn"
+            class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+            title="Toggle theme"
+            aria-label="Toggle theme"
+          >
+            <!-- Sun Icon (shown in dark mode) -->
+            <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <!-- Moon Icon (shown in light mode) -->
+            <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button 
+            id="mobileMenuBtn"
+            class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+            title="Toggle menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation menu"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Search Input (Visible only on mobile) -->
+      <div class="md:hidden pb-3">
+        <div class="relative w-full">
+          <input 
+            type="text" 
+            id="mobileSearchInput"
+            placeholder="Search stories..."
+            aria-label="Search stories"
+            class="w-full pl-10 pr-4 py-2 text-sm rounded-full bg-gray-100 dark:bg-slate-800 border border-transparent focus:border-blue-500 focus:outline-none transition-all placeholder-gray-500 dark:placeholder-gray-400"
+          >
+          <svg class="w-4 h-4 absolute left-3.5 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Navigation Categories Bar -->
+      <nav id="categoryNavBar" class="hidden md:flex items-center gap-1 border-t border-gray-100 dark:border-slate-800/80 py-2.5 overflow-x-auto">
+        <!-- Categories injected dynamically -->
+      </nav>
+
+    </div>
+
+    <!-- Mobile Drawer Dropdown -->
+    <div id="mobileDrawer" class="hidden md:hidden border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-4 space-y-3">
+      <div class="font-semibold text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">Categories</div>
+      <div id="mobileCategoryList" class="flex flex-col space-y-1">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main id="mainContent" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2 w-full">
+    
+    <!-- Hero / Top Stories Section -->
+    <section id="heroSection" class="mb-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Big Featured Lead Story -->
+        <div class="lg:col-span-8 group cursor-pointer" id="featuredArticleContainer">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Trending Highlights Side Column -->
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div class="border-b-2 border-slate-900 dark:border-blue-500 pb-2 mb-4 flex items-center justify-between">
+            <h2 class="text-lg font-bold uppercase tracking-wider flex items-center gap-2">
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.316.492-.53 1.05-.69 1.636-.21.767-.32 1.554-.37 2.34-.1.085-.198.175-.294.27-.893.89-1.47 2.115-1.47 3.47 0 2.762 2.238 5 5 5s5-2.238 5-5c0-1.802-.958-3.38-2.39-4.267-.282-.175-.583-.32-.897-.433-.61-.22-1.258-.337-1.917-.348a6.97 6.97 0 00-.79-3.763zM10 16a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+              </svg>
+              Trending Stories
+            </h2>
+            <span class="text-xs text-gray-500 dark:text-gray-400">Updated Live</span>
+          </div>
+
+          <div id="trendingListContainer" class="space-y-4">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Google AdSense Mid-Page Leaderboard Ad -->
+    <div class="ad-slot-box my-6 sm:my-8 text-center bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-4 border border-gray-200/80 dark:border-slate-800 shadow-sm overflow-hidden not-prose">
+      <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mb-1.5">Sponsored / Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1043419685176632"
+           data-ad-slot="6665664396"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Category Filter Bar & Content Header -->
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-6 mb-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h2 id="sectionTitle" class="text-2xl sm:text-3xl font-bold font-serif-heading">Latest Stories</h2>
+          <p id="sectionSubtitle" class="text-sm text-gray-500 dark:text-gray-400 mt-1">Explore all curated analyses and stories from our newsroom.</p>
+        </div>
+
+        <!-- Filter Pill Chips -->
+        <div id="filterPillsContainer" class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Content & Sidebar Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Article Cards Grid -->
+      <div class="lg:col-span-8">
+        <div id="articlesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 p-8">
+          <div class="w-16 h-16 mx-auto mb-4 text-gray-400 dark:text-gray-600">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">No articles found</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Try searching for a different keyword or check other categories.</p>
+          <button id="resetSearchBtn" class="px-4 py-2 text-xs font-semibold rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+            Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-6">
+        
+        <!-- Newsletter Box -->
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-2xl p-6 shadow-md relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-blue-200 block mb-1">Tech Boss Dispatch</span>
+          <h3 class="text-base font-extrabold mb-1.5">Tech Boss Newsletter</h3>
+          <p class="text-blue-100 text-xs mb-3.5 leading-relaxed">
+            Get curated AI innovations, smartphone reviews, and pro gaming guides delivered to your inbox.
+          </p>
+          <form id="newsletterForm" class="space-y-2">
+            <input 
+              type="email" 
+              id="newsletterEmail" 
+              required
+              placeholder="Enter your email address..."
+              aria-label="Email address"
+              class="w-full px-3.5 py-2 text-xs text-gray-900 bg-white rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            >
+            <button 
+              type="submit" 
+              class="w-full py-2 px-4 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl shadow transition-all active:scale-98"
+            >
+              Subscribe Free
+            </button>
+          </form>
+        </div>
+
+        <!-- Trending Topics / Tags -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-gray-200 dark:border-slate-800">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
+            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+            </svg>
+            Popular Topics
+          </h3>
+          <div id="trendingTagsContainer" class="flex flex-wrap gap-1.5">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <!-- Google AdSense Display Ad (Sticky for high viewability) -->
+        <div class="ad-slot-box bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-200 dark:border-slate-800 text-center overflow-hidden shadow-sm sticky top-24 z-10">
+          <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Ad</span>
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-1043419685176632"
+               data-ad-slot="3499498328"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!-- Social Media & Connect Box -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-gray-200 dark:border-slate-800">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-2 flex items-center gap-2">
+            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            Follow &amp; Connect
+          </h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Stay updated with AI trends, gaming guides, and tech reviews.</p>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-semibold hover:bg-blue-100 dark:hover:bg-slate-700 transition-colors">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a href="https://github.com/binodbhatt" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="mailto:binodbhatt500k@gmail.com" class="flex items-center gap-2 p-2 rounded-xl bg-red-50 dark:bg-slate-800 text-red-600 dark:text-red-400 font-semibold hover:bg-red-100 dark:hover:bg-slate-700 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Email</span>
+            </a>
+            <a href="https://imtechboss.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-xl bg-indigo-50 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-100 dark:hover:bg-slate-700 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+              <span>Website</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- About The Portal -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-gray-200 dark:border-slate-800">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-2">About Tech Boss</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+            Curated digital journal by Tech Boss. Featuring cutting-edge AI technology, gaming insights, and gadget reviews.
+          </p>
+          <div class="flex items-center justify-between pt-1 border-t border-gray-100 dark:border-slate-800">
+            <button class="page-trigger text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1" data-page="about">
+              About Tech Boss &rarr;
+            </button>
+            <span class="text-[10px] text-gray-400">imtechboss.com</span>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 mt-6 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-extrabold text-xs cursor-pointer select-none secret-admin-trigger" title="Tech Boss">TB</div>
+            <span class="text-xl font-extrabold font-sans text-gray-950 dark:text-white">Tech<span class="text-blue-600">Boss</span></span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-400 max-w-sm leading-relaxed">
+            Tech Boss &mdash; Premier digital portal for engineering semester notes, programming guides, software utilities, and gaming insights.
+          </p>
+          <div class="text-xs text-gray-400">
+            Curated &amp; Maintained by Tech Boss Editorial.
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-3">Categories</h4>
+          <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+            <li><button class="footer-cat-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-left" data-category="Education & Notes">Education &amp; Notes</button></li>
+            <li><button class="footer-cat-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-left" data-category="Gaming & Apps">Gaming &amp; Apps</button></li>
+            <li><button class="footer-cat-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-left" data-category="Software & Tech">Software &amp; Tech</button></li>
+            <li><button class="footer-cat-btn hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-left" data-category="General">General</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-3">Connect &amp; Contact</h4>
+          <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+            <li><a href="mailto:binodbhatt500k@gmail.com" class="hover:text-blue-600 transition-colors flex items-center gap-2"><span>&#9993;</span> Email: binodbhatt500k@gmail.com</a></li>
+            <li><a href="https://imtechboss.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors flex items-center gap-2"><span>&#127760;</span> Portal: imtechboss.com</a></li>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors flex items-center gap-2"><span>&#128216;</span> Facebook Page</a></li>
+            <li><a href="https://github.com/binodbhatt" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors flex items-center gap-2"><span>&#128187;</span> GitHub: @binodbhatt</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-100 dark:border-slate-800 mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <p id="secretAdminTrigger" class="cursor-default select-none" title="Tech Boss Journal">&copy; 2026 Tech Boss. All rights reserved.</p>
+        <div class="flex flex-wrap gap-4 mt-4 sm:mt-0 font-medium">
+          <button class="page-trigger hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors" data-page="about">About Us</button>
+          <button class="page-trigger hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors" data-page="contact">Contact Us</button>
+          <button class="page-trigger hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors" data-page="privacy">Privacy Policy</button>
+          <button class="page-trigger hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors" data-page="disclaimer">Disclaimer</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Static Page Modal (About Us, Contact, Privacy Policy, Disclaimer) -->
+  <div id="pageModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto bg-black/60 backdrop-blur-sm">
+    <div class="relative bg-white dark:bg-slate-900 w-full max-w-3xl rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-800 my-auto overflow-hidden">
+      <!-- Close Button -->
+      <button id="closePageModalBtn" aria-label="Close modal" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 flex items-center justify-center transition-colors shadow">
+        &times;
+      </button>
+      <div id="pageModalContent" class="max-h-[85vh] overflow-y-auto p-6 sm:p-8">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Spotlight Search Modal (Ctrl + K) -->
+  <div id="searchModal" class="fixed inset-0 z-50 hidden flex items-start justify-center pt-16 sm:pt-24 p-4 bg-black/75 backdrop-blur-sm">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[80vh]">
+      <div class="p-4 border-b border-gray-200 dark:border-slate-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input 
+          type="text" 
+          id="spotlightSearchInput" 
+          placeholder="Type to search stories, notes, reviews... (ESC to close)" 
+          aria-label="Search stories, notes, and reviews"
+          class="w-full bg-transparent text-sm sm:text-base text-gray-900 dark:text-white focus:outline-none font-medium"
+        >
+        <button id="closeSearchModalBtn" aria-label="Close modal" class="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-slate-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">ESC</button>
+      </div>
+      <div id="spotlightSearchResults" class="p-3 overflow-y-auto space-y-1 divide-y divide-gray-100 dark:divide-slate-800/40 text-xs">
+        <p class="text-gray-400 text-center py-8">Type keywords above to search 230+ articles...</p>
+      </div>
+      <div class="p-3 bg-gray-50 dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-gray-500">
+        <span>Shortcut: Press <kbd class="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-slate-800 font-mono">Ctrl + K</kbd> anytime</span>
+        <span id="spotlightCountBadge">230+ stories</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification -->
+  <div id="toastNotification" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none flex items-center gap-2.5 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl text-xs font-semibold">
+    <span id="toastIcon">&#10003;</span>
+    <span id="toastMessage">Action completed</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js?v=6.5"></script>
+  <script src="js/pages.js?v=6.5"></script>
+  <script src="js/app.js?v=6.5"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+      if (window.caches) {
+        caches.keys().then(keys => {
+          for (let k of keys) caches.delete(k);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

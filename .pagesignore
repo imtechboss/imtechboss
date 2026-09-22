@@ -1,0 +1,5 @@
+.vercel/
+Blogger/
+scratch/
+scripts/
+generate_rss.py

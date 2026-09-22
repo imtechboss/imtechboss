@@ -1,0 +1,12 @@
+# Dependencies & Build artifacts
+node_modules/
+.wrangler/
+.vercel/
+
+# Scratch & Temporary local files
+scratch/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
