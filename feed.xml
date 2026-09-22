@@ -5,8 +5,16 @@
   <link>https://imtechboss.com</link>
   <description>Latest technology news, reviews, tutorials, and guides from Tech Boss.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 22 Sep 2026 15:33:38 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 22 Sep 2026 15:36:53 GMT</lastBuildDate>
   <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The 2026 Gaming Rush: 5 Massive Blockbusters Dropping Before GTA 6 &amp; The Handheld PC Wars</title>
+    <link>https://imtechboss.com/post?id=the-2026-gaming-rush-blockbusters-before-gta-6-handheld-wars</link>
+    <guid isPermaLink="true">https://imtechboss.com/post?id=the-2026-gaming-rush-blockbusters-before-gta-6-handheld-wars</guid>
+    <pubDate>Tue, 22 Sep 2026 15:36:53 GMT</pubDate>
+    <description>With Grand Theft Auto VI looming on the horizon, the global games industry has unleashed an unprecedented tidal wave of blockbuster releases in September 2026. From Marvel's Wolverine to the brutal handheld console showdown between Switch 2 and Steam Deck, here is your definitive gaming dispatch.</description>
+    <category>Gaming &amp; Esports</category>
+  </item>
   <item>
     <title>Apple iPhone 18 Pro Max Global Launch: A20 Pro 2nm Chip, Variable Aperture &amp; Satellite 5G Tested</title>
     <link>https://imtechboss.com/post?id=apple-iphone-18-pro-max-official-review-specs-2026</link>
@@ -158,14 +166,6 @@
     <pubDate>Mon, 21 Sep 2026 15:00:00 GMT</pubDate>
     <description>The battle of the heavyweights: Apple's A20 Bionic vs Qualcomm's Snapdragon 8 Gen 5. We test battery, cameras, and gaming performance.</description>
     <category>Tech Reviews</category>
-  </item>
-  <item>
-    <title>GTA VI Settings Optimization: Get 120 FPS on Mid-Range PCs</title>
-    <link>https://imtechboss.com/post?id=gta-6-settings-optimization-120fps</link>
-    <guid isPermaLink="true">https://imtechboss.com/post?id=gta-6-settings-optimization-120fps</guid>
-    <pubDate>Mon, 21 Sep 2026 14:00:00 GMT</pubDate>
-    <description>Struggling to run GTA VI smoothly on your PC? Here are the absolute best graphics settings to balance visual fidelity with maximum frame rates.</description>
-    <category>Tech Guides</category>
   </item>
 </channel>
 </rss>
