@@ -1,0 +1,39 @@
+name: Auto Post to Mastodon
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'js/data.js'
+  workflow_dispatch:
+
+jobs:
+  mastodon-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Post Latest Article to Mastodon
+        env:
+          MASTODON_INSTANCE: 'https://mastodon.social'
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN || 'DETVE4toZzAeiy4sUEAbCvGg0iE6q3-NnKBHstH1FVE' }}
+        run: node scripts/auto-mastodon.js
+
+      - name: Commit tracked state
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .last_mastodon_id.txt || true
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update last mastodon post ID [skip ci]" && git push)
