@@ -32,6 +32,56 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://imtechboss.com/post?id=nvidia-rtx-5090-600w-tdp-12v-2x6-power-connector-melting-concerns-2026</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>NVIDIA RTX 5090 Hits 600W TDP: Why the Revised 12V-2x6 Power Connector is Reigniting Melting Fears for PC Builders</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=sony-ps5-pro-pssr-300-tops-neural-engine-4k-60fps-ray-tracing-2026</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Sony PS5 Pro PSSR Tested: 300 TOPS Custom Neural Engine Delivers 4K 60FPS Ray Tracing Across 50+ Launch Titles</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=snapdragon-8-elite-vs-dimensity-9400-3nm-oryon-cortex-x925-benchmark-2026</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Snapdragon 8 Elite vs Dimensity 9400: Qualcomm’s 4.32GHz Oryon Architecture Clashes with MediaTek’s All-Big-Core Beast</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=inside-openai-o1-test-time-compute-chain-of-thought-hardware-scaling-2026</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Inside OpenAI o1: How Test-Time Compute and Chain-of-Thought Scaling Are Reshaping AI Data Center Hardware</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=valve-steamos-expands-asus-rog-ally-x-lenovo-legion-go-windows-11-2026</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Valve Expands SteamOS to Rival Handhelds: ASUS ROG Ally X and Lenovo Legion Go Set to Ditch Windows 11</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/post?id=rockstar-gta-6-pc-directstorage-16gb-vram-requirements-2026</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -57,7 +107,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>An OpenAI Agent Breached an Australian Government Health Portal, Prompting Outrage from the Prime Minister</image:title>
     </image:image>
   </url>
@@ -67,7 +117,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Microsoft Warns Latest Windows 11 Update Breaks VPN Connections: What Happened and How to Fix It</image:title>
     </image:image>
   </url>
@@ -77,7 +127,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Nepal Receives An AI Supercomputer to Process Satellite Data for Flood and Landslide Warnings</image:title>
     </image:image>
   </url>
@@ -87,7 +137,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Why 'Meccha Chameleon' Is the Latest Low-Poly Hide-and-Seek Game Taking Over Twitch and TikTok</image:title>
     </image:image>
   </url>
@@ -97,7 +147,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Adobe Premiere Finally Hits Android: Free 4K Exports, Multi-Track Editing, and No Watermarks</image:title>
     </image:image>
   </url>
@@ -107,7 +157,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Why A Viral Post About AI Coding Making Engineers Miserable Struck A Nerve</image:title>
     </image:image>
   </url>
@@ -117,7 +167,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Meta Launched an AI Agent That Shops for You, and Amazon Is Furious</image:title>
     </image:image>
   </url>
@@ -127,7 +177,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Trump Orders U.S. to Rename AI to 'Super Intelligence' and Rejects Global Regulation at UN</image:title>
     </image:image>
   </url>
@@ -137,7 +187,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Microsoft Hands Halo to Activision, Cuts 268 Jobs, and Merges Four Studios</image:title>
     </image:image>
   </url>
@@ -147,7 +197,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>GTA 6 Is 57 Days Away: Vice City Sign in Miami, 34-Track Album, and Multiplayer in 2027</image:title>
     </image:image>
   </url>
@@ -157,7 +207,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>10 Big Games Releasing in October 2026: From Gears of War to Call of Duty MW4</image:title>
     </image:image>
   </url>
@@ -167,7 +217,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>VALORANT Champions Starts Tomorrow in Shanghai, Esports Returns to Asian Games as Medal Event</image:title>
     </image:image>
   </url>
@@ -177,7 +227,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>OpenAI Launches GPT-6 Astra: The AI That Operates Your Computer Like a Human</image:title>
     </image:image>
   </url>
@@ -187,7 +237,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Grok 4.7: Elon Musk's xAI Unleashes Its Most Powerful Coding and Agent AI Model</image:title>
     </image:image>
   </url>
@@ -197,7 +247,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Alibaba Unveils Zhenwu V900: China's Most Powerful AI Chip With 216GB Memory and 500K-Chip Clusters</image:title>
     </image:image>
   </url>
@@ -207,7 +257,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Apple Mac Mini M6 Goes on Sale: The First Desktop With a 2nm Chip Starts at $899</image:title>
     </image:image>
   </url>
@@ -217,7 +267,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>AI Smart Glasses Banned in UK Courts, Pubs, and Theaters: The Privacy Backlash Going Global</image:title>
     </image:image>
   </url>
