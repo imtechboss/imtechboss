@@ -196,7 +196,7 @@ function renderPostDetail() {
       "@type": "TechArticle",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": currentHref
+        "@id": canonicalHref
       },
       "headline": article.title,
       "description": article.excerpt || article.title,

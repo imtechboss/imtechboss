@@ -41,6 +41,15 @@
       }
     }
   </script>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("pulse_theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col justify-between font-sans transition-colors duration-200">
