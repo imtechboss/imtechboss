@@ -12,7 +12,6 @@ if (!match) {
 }
 
 const articles = JSON.parse(match[1]);
-const recentArticles = articles.slice(0, 10);
 
 const key = 'a8f3b9c712e44d569801a23c45d6e7f8';
 const host = 'imtechboss.com';
@@ -20,7 +19,7 @@ const host = 'imtechboss.com';
 const urls = [
   `https://${host}/`,
   `https://${host}/sitemap.xml`,
-  ...recentArticles.map(a => `https://${host}/post?id=${a.id}`)
+  ...articles.map(a => `https://${host}/post?id=${a.id}`)
 ];
 
 const payload = JSON.stringify({
@@ -61,7 +60,7 @@ function submitToEndpoint(hostname, endpointPath) {
 }
 
 async function main() {
-  console.log(`Submitting top ${recentArticles.length} latest articles to Bing & IndexNow...`);
+  console.log(`Submitting all ${articles.length} articles (${urls.length} URLs total) to Bing & IndexNow...`);
   await submitToEndpoint('api.indexnow.org', '/IndexNow');
   await submitToEndpoint('www.bing.com', '/IndexNow');
   await submitToEndpoint('yandex.com', '/indexnow');
