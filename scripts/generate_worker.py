@@ -22,6 +22,10 @@ def generate_worker():
             'image': a.get('image', '')
         }
 
+    # Alias old slug to new slug so both work seamlessly
+    if 'nvidia-blackwell-nvl72-liquid-cooling-overheating-hurdles-2026' in meta:
+        meta['nvidia-blackwell-nvl72-racks-liquid-cooling-overheating-hyperscalers-2026'] = meta['nvidia-blackwell-nvl72-liquid-cooling-overheating-hurdles-2026']
+
     meta_json = json.dumps(meta, ensure_ascii=False)
 
     template = f"""// Cloudflare Pages Advanced Mode Worker
@@ -88,7 +92,7 @@ export default {{
           }})
           .on('article#articleContainer', {{
             element(e) {{
-              e.prepend(`<img class="flipboard-image" src="${{safeImg}}" alt="${{safeTitle}}" style="display:none;" />`, {{ html: true }});
+              e.prepend(`<img class="flipboard-image" src="${{safeImg}}" alt="${{safeTitle}}" width="1200" height="900" style="max-width:100%;height:auto;display:block;" />`, {{ html: true }});
             }}
           }})
           .on('meta#ogUrl', {{
