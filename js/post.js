@@ -407,7 +407,7 @@ function renderPostDetail() {
 
             <!-- Flipboard -->
             <a 
-              href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://imtechboss.com/post.html?id=' + article.id + '&flip=1')}" 
+              href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://imtechboss.com/post?id=' + article.id)}" 
               target="_blank" 
               rel="noopener"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f52828] hover:bg-[#d41c1c] text-white text-xs font-bold transition-colors shadow-sm"
@@ -419,7 +419,7 @@ function renderPostDetail() {
 
             <!-- Pinterest -->
             <a 
-              href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://imtechboss.com/post.html?id=' + article.id)}&media=${encodeURIComponent(article.image ? (article.image.startsWith('http') ? article.image : 'https://imtechboss.com/' + article.image) : 'https://imtechboss.com/assets/banner.png')}&description=${encodeURIComponent(article.title)}" 
+              href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://imtechboss.com/post?id=' + article.id)}&media=${encodeURIComponent(article.image ? (article.image.startsWith('http') ? article.image : 'https://imtechboss.com/' + article.image) : 'https://imtechboss.com/assets/banner.png')}&description=${encodeURIComponent(article.title)}" 
               target="_blank" 
               rel="noopener"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e60023] hover:bg-[#ad081b] text-white text-xs font-bold transition-colors shadow-sm"

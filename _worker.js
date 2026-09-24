@@ -10,12 +10,14 @@ export default {
       const id = url.searchParams.get('id');
 
       if ((url.pathname === '/post' || url.pathname === '/post.html') && id && articlesMeta[id]) {
-        const response = await env.ASSETS.fetch(request);
+        const assetUrl = new URL(request.url);
+        assetUrl.pathname = '/post';
+        const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
         const article = articlesMeta[id];
         const safeTitle = (article.title || '').replace(/"/g, '&quot;');
         const safeDesc = (article.excerpt || '').replace(/"/g, '&quot;');
         const safeImg = article.image || 'https://imtechboss.com/og-image.png';
-        const canonical = 'https://imtechboss.com/post.html?id=' + encodeURIComponent(id);
+        const canonical = 'https://imtechboss.com/post?id=' + encodeURIComponent(id);
 
         return new HTMLRewriter()
           .on('title#pageTitle', {
@@ -46,6 +48,21 @@ export default {
           .on('meta#ogImage', {
             element(e) {
               e.setAttribute('content', safeImg);
+            }
+          })
+          .on('meta#ogImageSecure', {
+            element(e) {
+              e.setAttribute('content', safeImg);
+            }
+          })
+          .on('link#imgSrc', {
+            element(e) {
+              e.setAttribute('href', safeImg);
+            }
+          })
+          .on('article#articleContainer', {
+            element(e) {
+              e.prepend(`<img class="flipboard-image" src="${safeImg}" alt="${safeTitle}" style="display:none;" />`, { html: true });
             }
           })
           .on('meta#ogUrl', {
