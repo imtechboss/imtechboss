@@ -1,6 +1,36 @@
 import re, json, os
 from datetime import datetime
 
+months = {
+    'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+    'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12',
+    'January': '01', 'February': '02', 'March': '03', 'April': '04', 'June': '06',
+    'July': '07', 'August': '08', 'September': '09', 'October': '10', 'November': '11', 'December': '12'
+}
+
+def clean_date(d_str):
+    if not d_str:
+        return datetime.now().strftime('%Y-%m-%d')
+    d_str = str(d_str).strip()
+    if re.match(r'^\d{4}-\d{2}-\d{2}$', d_str):
+        return d_str
+    m = re.match(r'^([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})$', d_str)
+    if m:
+        mon = months.get(m.group(1), '01')
+        day = f'{int(m.group(2)):02d}'
+        yr = m.group(3)
+        return f'{yr}-{mon}-{day}'
+    return datetime.now().strftime('%Y-%m-%d')
+
+def clean_image(img):
+    if not img:
+        return ''
+    img = img.strip()
+    if img.startswith('http://') or img.startswith('https://'):
+        return img
+    clean_path = img.lstrip('/')
+    return f'https://imtechboss.com/{clean_path}'
+
 def generate_sitemap():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_path = os.path.join(base_dir, 'js', 'data.js')
@@ -55,8 +85,9 @@ def generate_sitemap():
 
     for article in data:
         aid = article.get('id', '')
-        date = article.get('date', datetime.now().strftime('%Y-%m-%d'))
-        image = article.get('image', '')
+        date = clean_date(article.get('date', ''))
+        raw_image = article.get('image', '')
+        image = clean_image(raw_image)
         title = article.get('title', '').replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
         xml_lines.append('  <url>')
@@ -80,7 +111,7 @@ def generate_sitemap():
     with open(sitemap_path, 'w', encoding='utf-8') as out:
         out.write('\n'.join(xml_lines))
 
-    print(f'Successfully generated sitemap.xml with {len(data) + 1} URLs (homepage + {len(data)} articles).')
+    print(f'Successfully generated sitemap.xml with {len(data) + 5} URLs (5 static + {len(data)} articles).')
 
 if __name__ == '__main__':
     generate_sitemap()
