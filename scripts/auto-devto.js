@@ -33,7 +33,7 @@ async function autoPostDevTo() {
     return;
   }
 
-  const canonicalUrl = `https://imtechboss.com/post?id=${suitable.id}`;
+  const canonicalUrl = `https://imtechboss.com/post.html?id=${suitable.id}`;
   
   // Format body markdown from excerpt and sections
   let cleanBody = `${suitable.excerpt}\n\n`;

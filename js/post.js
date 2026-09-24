@@ -163,10 +163,10 @@ function renderPostDetail() {
   const twDesc = document.getElementById("twDescription");
   const twImg = document.getElementById("twImage");
 
-  const currentHref = window.location.href;
+  const canonicalHref = `https://imtechboss.com/post.html?id=${encodeURIComponent(article.id)}`;
   const canonicalUrl = document.getElementById("canonicalUrl");
-  if (canonicalUrl) canonicalUrl.setAttribute("href", currentHref);
-  if (ogUrl) ogUrl.setAttribute("content", currentHref);
+  if (canonicalUrl) canonicalUrl.setAttribute("href", canonicalHref);
+  if (ogUrl) ogUrl.setAttribute("content", canonicalHref);
   if (ogTitle) ogTitle.setAttribute("content", `${article.title} — Tech Boss`);
   if (twTitle) twTitle.setAttribute("content", `${article.title} — Tech Boss`);
   if (article.excerpt) {
