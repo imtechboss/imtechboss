@@ -16,15 +16,40 @@ def generate_sitemap():
 
     data = json.loads(match.group(1))
 
+    today = datetime.now().strftime("%Y-%m-%d")
     xml_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
         '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
         '  <url>',
         '    <loc>https://imtechboss.com/</loc>',
-        f'    <lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod>',
+        f'    <lastmod>{today}</lastmod>',
         '    <changefreq>daily</changefreq>',
         '    <priority>1.0</priority>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/about.html</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>monthly</changefreq>',
+        '    <priority>0.7</priority>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/contact.html</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>monthly</changefreq>',
+        '    <priority>0.7</priority>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/privacy.html</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>monthly</changefreq>',
+        '    <priority>0.5</priority>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/disclaimer.html</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>monthly</changefreq>',
+        '    <priority>0.5</priority>',
         '  </url>',
     ]
 
