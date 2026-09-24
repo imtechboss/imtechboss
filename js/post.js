@@ -405,6 +405,18 @@ function renderPostDetail() {
               <span>WhatsApp</span>
             </a>
 
+            <!-- Flipboard -->
+            <a 
+              href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}" 
+              target="_blank" 
+              rel="noopener"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f52828] hover:bg-[#d41c1c] text-white text-xs font-bold transition-colors shadow-sm"
+              title="Flip to Flipboard Magazine"
+            >
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M0 0h8v24H0V0zm8 8h8v8H8V8zm0-8h16v8H8V0z"/></svg>
+              <span>Flipboard</span>
+            </a>
+
             <!-- Reddit -->
             <a 
               href="https://reddit.com/submit?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(article.title)}" 
