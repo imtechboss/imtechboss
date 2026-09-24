@@ -19,7 +19,9 @@ def generate_worker():
         meta[a['id']] = {
             'title': a.get('title', ''),
             'excerpt': a.get('excerpt', ''),
-            'image': a.get('image', '')
+            'image': a.get('image', ''),
+            'date': a.get('date', ''),
+            'author': a.get('author', 'Tech Boss')
         }
 
     # Alias old slug to new slug so both work seamlessly
@@ -48,6 +50,37 @@ export default {{
         const safeDesc = (article.excerpt || '').replace(/"/g, '&quot;');
         const safeImg = article.image || 'https://imtechboss.com/og-image.png';
         const canonical = 'https://imtechboss.com/post?id=' + encodeURIComponent(id);
+        const safeDate = article.date || '';
+        const safeAuthor = (article.author || 'Tech Boss').replace(/"/g, '&quot;');
+
+        const jsonLd = JSON.stringify({{
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "headline": article.title || '',
+          "description": article.excerpt || '',
+          "image": [safeImg],
+          "datePublished": safeDate,
+          "dateModified": safeDate,
+          "author": {{
+            "@type": "Person",
+            "name": article.author || 'Tech Boss',
+            "url": "https://imtechboss.com"
+          }},
+          "publisher": {{
+            "@type": "Organization",
+            "name": "Tech Boss",
+            "url": "https://imtechboss.com",
+            "logo": {{
+              "@type": "ImageObject",
+              "url": "https://imtechboss.com/og-image.png"
+            }}
+          }},
+          "mainEntityOfPage": {{
+            "@type": "WebPage",
+            "@id": canonical
+          }},
+          "url": canonical
+        }});
 
         return new HTMLRewriter()
           .on('title#pageTitle', {{
@@ -63,6 +96,11 @@ export default {{
           .on('link#canonicalUrl', {{
             element(e) {{
               e.setAttribute('href', canonical);
+            }}
+          }})
+          .on('head', {{
+            element(e) {{
+              e.append(`<script type="application/ld+json">${{jsonLd}}</script>`, {{ html: true }});
             }}
           }})
           .on('meta#ogTitle', {{

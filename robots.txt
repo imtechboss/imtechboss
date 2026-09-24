@@ -1,4 +1,59 @@
 User-agent: *
 Allow: /
+Disallow: /admin.html
+
+# Google Discover & News
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-News
+Allow: /
+
+# Bing & AI Search
+User-agent: bingbot
+Allow: /
+
+# AI Search Engines - Allow for visibility
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Social Media Crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: FlipboardProxy
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+# Block scrapers and bad bots
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
 
 Sitemap: https://imtechboss.com/sitemap.xml
