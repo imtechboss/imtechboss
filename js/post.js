@@ -407,7 +407,7 @@ function renderPostDetail() {
 
             <!-- Flipboard -->
             <a 
-              href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}" 
+              href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://imtechboss.com/post.html?id=' + article.id + '&flip=1')}" 
               target="_blank" 
               rel="noopener"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f52828] hover:bg-[#d41c1c] text-white text-xs font-bold transition-colors shadow-sm"
