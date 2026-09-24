@@ -1,85 +1,118 @@
-import xml.etree.ElementTree as ET
-import datetime
+import os
 import re
+import json
+import datetime
+import xml.etree.ElementTree as ET
 
-sitemap_path = r"c:\Users\aabir\OneDrive\Desktop\website\sitemap.xml"
-feed_path = r"c:\Users\aabir\OneDrive\Desktop\website\feed.xml"
+def generate_feed():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_path = os.path.join(base_dir, 'js', 'data.js')
+    feed_path = os.path.join(base_dir, 'feed.xml')
 
-# Parse sitemap
-tree = ET.parse(sitemap_path)
-root = tree.getroot()
-namespace = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+    with open(data_path, 'r', encoding='utf-8') as f:
+        content = f.read()
 
-articles = []
-for url in root.findall('ns:url', namespace):
-    loc = url.find('ns:loc', namespace).text
-    if 'post.html?id=' in loc:
-        lastmod = url.find('ns:lastmod', namespace).text
-        articles.append({'loc': loc, 'lastmod': lastmod})
+    match = re.search(r'var\s+initialArticles\s*=\s*(\[.*?\]);', content, re.DOTALL)
+    if not match:
+        print("Error: initialArticles not found")
+        return
 
-# Sort by lastmod descending (already mostly sorted, but let's be sure)
-articles.sort(key=lambda x: x['lastmod'], reverse=True)
+    articles = json.loads(match.group(1))
+    # Take latest 30 articles
+    latest = articles[:30]
 
-# Get top 20
-top_20 = articles[:20]
+    # Namespaces
+    ATOM_NS = "http://www.w3.org/2005/Atom"
+    MEDIA_NS = "http://search.yahoo.com/mrss/"
+    CONTENT_NS = "http://purl.org/rss/1.0/modules/content/"
 
-def slug_to_title(slug):
-    words = slug.split('-')
-    return ' '.join([w.capitalize() for w in words])
+    ET.register_namespace('atom', ATOM_NS)
+    ET.register_namespace('media', MEDIA_NS)
+    ET.register_namespace('content', CONTENT_NS)
 
-def format_rfc822(date_str):
-    # Parse YYYY-MM-DD
-    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-    return dt.strftime("%a, %d %b %Y 00:00:00 +0000")
+    rss = ET.Element("rss", {
+        "version": "2.0",
+        f"{{{ATOM_NS}}}dummy": "hack" # temporary to declare ns
+    })
+    del rss.attrib[f"{{{ATOM_NS}}}dummy"]
+    rss.attrib["xmlns:atom"] = ATOM_NS
+    rss.attrib["xmlns:media"] = MEDIA_NS
+    rss.attrib["xmlns:content"] = CONTENT_NS
 
-# Generate RSS XML
-rss = ET.Element("rss", version="2.0")
-channel = ET.SubElement(rss, "channel")
+    channel = ET.SubElement(rss, "channel")
 
-ET.SubElement(channel, "title").text = "Tech Boss"
-ET.SubElement(channel, "description").text = "The pulse of AI technology, smartphone reviews, software utilities, and gaming guides."
-ET.SubElement(channel, "link").text = "https://imtechboss.com"
-ET.SubElement(channel, "language").text = "en"
-ET.SubElement(channel, "managingEditor").text = "binodbhatt500k@gmail.com (Binod Bhatt)"
+    ET.SubElement(channel, "title").text = "Tech Boss"
+    ET.SubElement(channel, "link").text = "https://imtechboss.com"
+    ET.SubElement(channel, "description").text = "Latest Technology News, AI Breakthroughs, Software Guides & Gaming"
+    ET.SubElement(channel, "language").text = "en-us"
+    ET.SubElement(channel, "managingEditor").text = "binodbhatt500k@gmail.com (Binod Bhatt)"
 
-for item in top_20:
-    url = item['loc']
-    slug = url.split('post.html?id=')[-1]
-    title = slug_to_title(slug)
-    pubDate = format_rfc822(item['lastmod'])
-    desc = f"Read more about {title.lower()} in our latest article."
+    atom_link = ET.SubElement(channel, f"{{{ATOM_NS}}}link", {
+        "href": "https://imtechboss.com/feed.xml",
+        "rel": "self",
+        "type": "application/rss+xml"
+    })
 
-    item_el = ET.SubElement(channel, "item")
-    ET.SubElement(item_el, "title").text = title
-    ET.SubElement(item_el, "link").text = url
-    ET.SubElement(item_el, "guid").text = url
-    ET.SubElement(item_el, "pubDate").text = pubDate
-    ET.SubElement(item_el, "description").text = desc
+    # Channel Image for RSS readers
+    chan_image = ET.SubElement(channel, "image")
+    ET.SubElement(chan_image, "url").text = "https://imtechboss.com/og-image.png"
+    ET.SubElement(chan_image, "title").text = "Tech Boss"
+    ET.SubElement(chan_image, "link").text = "https://imtechboss.com"
 
-# write RSS
-tree_rss = ET.ElementTree(rss)
-ET.indent(tree_rss, space="  ", level=0)
-tree_rss.write(feed_path, encoding="utf-8", xml_declaration=True)
+    for a in latest:
+        post_id = a.get('id', '')
+        title = a.get('title', '')
+        excerpt = a.get('excerpt', '')
+        date_str = a.get('date', '2026-09-24')
+        cat = a.get('category', 'Technology')
+        img_url = a.get('image', '')
 
-# Update sitemap to include feed.xml if not present
-has_feed = False
-for url in root.findall('ns:url', namespace):
-    loc = url.find('ns:loc', namespace).text
-    if 'feed.xml' in loc:
-        has_feed = True
-        break
+        if img_url and not img_url.startswith('http'):
+            img_url = 'https://imtechboss.com/' + img_url.lstrip('/')
+        if not img_url:
+            img_url = 'https://imtechboss.com/og-image.png'
 
-if not has_feed:
-    ET.register_namespace('', 'http://www.sitemaps.org/schemas/sitemap/0.9')
-    new_url = ET.Element("{http://www.sitemaps.org/schemas/sitemap/0.9}url")
-    ET.SubElement(new_url, "{http://www.sitemaps.org/schemas/sitemap/0.9}loc").text = "https://imtechboss.com/feed.xml"
-    ET.SubElement(new_url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod").text = datetime.datetime.now().strftime("%Y-%m-%d")
-    ET.SubElement(new_url, "{http://www.sitemaps.org/schemas/sitemap/0.9}changefreq").text = "daily"
-    ET.SubElement(new_url, "{http://www.sitemaps.org/schemas/sitemap/0.9}priority").text = "1.0"
-    
-    root.insert(0, new_url) # insert at top
-    
+        post_url = f"https://imtechboss.com/post.html?id={post_id}"
+
+        # RFC 822 format for pubDate
+        try:
+            dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+        except:
+            dt = datetime.datetime.now()
+        pub_date = dt.strftime("%a, %d %b %Y 00:00:00 GMT")
+
+        item = ET.SubElement(channel, "item")
+        ET.SubElement(item, "title").text = title
+        ET.SubElement(item, "link").text = post_url
+        ET.SubElement(item, "guid").text = post_url
+        ET.SubElement(item, "pubDate").text = pub_date
+        ET.SubElement(item, "category").text = cat
+
+        # Rich description with image for Pinterest and RSS readers
+        rich_desc = f'<p><img src="{img_url}" alt="{title}" /></p><p>{excerpt}</p>'
+        ET.SubElement(item, "description").text = rich_desc
+
+        # Standard Media RSS for Pinterest
+        ET.SubElement(item, f"{{{MEDIA_NS}}}content", {
+            "url": img_url,
+            "medium": "image",
+            "type": "image/jpeg"
+        })
+        ET.SubElement(item, f"{{{MEDIA_NS}}}thumbnail", {
+            "url": img_url
+        })
+
+        # Standard Enclosure for Podcast / RSS tools
+        ET.SubElement(item, "enclosure", {
+            "url": img_url,
+            "type": "image/jpeg",
+            "length": "102400"
+        })
+
+    tree = ET.ElementTree(rss)
     ET.indent(tree, space="  ", level=0)
-    tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
+    tree.write(feed_path, encoding="utf-8", xml_declaration=True)
+    print(f"Successfully generated feed.xml with {len(latest)} rich articles.")
 
-print("RSS generation and sitemap update complete.")
+if __name__ == '__main__':
+    generate_feed()

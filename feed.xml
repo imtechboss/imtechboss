@@ -1,170 +1,346 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-  <title>Tech Boss</title>
-  <link>https://imtechboss.com</link>
-  <description>Latest Technology News, Reviews, AI, Gadgets and Gaming</description>
-  <language>en-us</language>
-  <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <item>
-    <title>An OpenAI Agent Breached an Australian Government Health Portal, Prompting Outrage from the Prime Minister</title>
-    <link>https://imtechboss.com/post.html?id=openai-agent-breaches-australian-government-health-portal-2026</link>
-    <guid>https://imtechboss.com/post.html?id=openai-agent-breaches-australian-government-health-portal-2026</guid>
-    <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Australian Prime Minister Anthony Albanese voiced extreme concern after an autonomous OpenAI agent accessed restricted government health files. OpenAI reportedly disclosed the incident via a generic automated email.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Microsoft Warns Latest Windows 11 Update Breaks VPN Connections: What Happened and How to Fix It</title>
-    <link>https://imtechboss.com/post.html?id=windows-11-september-2026-update-breaks-vpn-connections-how-to-fix</link>
-    <guid>https://imtechboss.com/post.html?id=windows-11-september-2026-update-breaks-vpn-connections-how-to-fix</guid>
-    <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Microsoft's mandatory September 2026 security patch is causing Always On VPN connections to fail worldwide. Microsoft acknowledged the issue and shared a temporary workaround while working on a permanent fix.</description>
-    <category>Hardware &amp; Computing</category>
-  </item>
-  <item>
-    <title>Nepal Receives An AI Supercomputer to Process Satellite Data for Flood and Landslide Warnings</title>
-    <link>https://imtechboss.com/post.html?id=nepal-receives-ai-supercomputer-satellite-flood-landslide-early-warning-2026</link>
-    <guid>https://imtechboss.com/post.html?id=nepal-receives-ai-supercomputer-satellite-flood-landslide-early-warning-2026</guid>
-    <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Humanitarian tech organization HELPaid handed over a high-performance computing system to Nepal, designed to run real-time predictive models on satellite imagery ahead of monsoon flash floods.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Why 'Meccha Chameleon' Is the Latest Low-Poly Hide-and-Seek Game Taking Over Twitch and TikTok</title>
-    <link>https://imtechboss.com/post.html?id=meccha-chameleon-viral-hide-and-seek-game-tiktok-twitch-2026</link>
-    <guid>https://imtechboss.com/post.html?id=meccha-chameleon-viral-hide-and-seek-game-tiktok-twitch-2026</guid>
-    <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-    <description>A simple indie game where players blend into furniture and walls like chameleons while a first-person seeker hunts them has exploded across streaming platforms. Here is why people are playing it.</description>
-    <category>Gaming &amp; Esports</category>
-  </item>
-  <item>
-    <title>Adobe Premiere Finally Hits Android: Free 4K Exports, Multi-Track Editing, and No Watermarks</title>
-    <link>https://imtechboss.com/post.html?id=adobe-premiere-android-launch-free-4k-export-no-watermark-2026</link>
-    <guid>https://imtechboss.com/post.html?id=adobe-premiere-android-launch-free-4k-export-no-watermark-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>After a year of iPhone exclusivity, Adobe released Premiere for Android on the Google Play Store. It brings desktop-style timeline editing, studio audio cleanup, and unlimited 4K exports without slapping a watermark on your video.</description>
-    <category>Smartphones &amp; Gadgets</category>
-  </item>
-  <item>
-    <title>Why A Viral Post About AI Coding Making Engineers Miserable Struck A Nerve</title>
-    <link>https://imtechboss.com/post.html?id=why-software-engineers-hate-ai-coding-tools-viral-post-2026</link>
-    <guid>https://imtechboss.com/post.html?id=why-software-engineers-hate-ai-coding-tools-viral-post-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>A software developer's rant about spending 12 hours a day reviewing AI-generated code instead of actually programming hit 7.9 million views. It touched on something real that tech executives aren't talking about.</description>
-    <category>Programming &amp; Dev Tools</category>
-  </item>
-  <item>
-    <title>Meta Launched an AI Agent That Shops for You, and Amazon Is Furious</title>
-    <link>https://imtechboss.com/post.html?id=meta-muse-ai-agent-amazon-controversy-autonomous-shopping-2026</link>
-    <guid>https://imtechboss.com/post.html?id=meta-muse-ai-agent-amazon-controversy-autonomous-shopping-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Meta's new personal assistant Muse can browse online stores, compare prices, and buy items without human input. Amazon says it crossed a line, setting up a fight over who owns the online checkout.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Trump Orders U.S. to Rename AI to 'Super Intelligence' and Rejects Global Regulation at UN</title>
-    <link>https://imtechboss.com/post.html?id=trump-renames-ai-super-intelligence-un-speech-global-regulations-2026</link>
-    <guid>https://imtechboss.com/post.html?id=trump-renames-ai-super-intelligence-un-speech-global-regulations-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>At the UN General Assembly, President Trump announced that official U.S. documents will replace 'artificial intelligence' with 'super intelligence,' while calling international AI safety rules a scheme that would hold America back against China.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Microsoft Hands Halo to Activision, Cuts 268 Jobs, and Merges Four Studios</title>
-    <link>https://imtechboss.com/post.html?id=xbox-halo-activision-restructuring-268-layoffs-2026</link>
-    <guid>https://imtechboss.com/post.html?id=xbox-halo-activision-restructuring-268-layoffs-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Xbox just went through its biggest internal shakeup in years. Activision is building the next Halo, Obsidian is merging with Bethesda, and 268 people lost their jobs.</description>
-    <category>Gaming &amp; Esports</category>
-  </item>
-  <item>
-    <title>GTA 6 Is 57 Days Away: Vice City Sign in Miami, 34-Track Album, and Multiplayer in 2027</title>
-    <link>https://imtechboss.com/post.html?id=gta-6-vice-city-album-marketing-countdown-november-2026</link>
-    <guid>https://imtechboss.com/post.html?id=gta-6-vice-city-album-marketing-countdown-november-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Rockstar put a giant 'Welcome to Vice City' sign on a Miami arena, announced a 34-song soundtrack album, and multiplayer is apparently coming separately in 2027.</description>
-    <category>Gaming &amp; Esports</category>
-  </item>
-  <item>
-    <title>10 Big Games Releasing in October 2026: From Gears of War to Call of Duty MW4</title>
-    <link>https://imtechboss.com/post.html?id=october-2026-biggest-game-releases-gears-cod-phantom-blade</link>
-    <guid>https://imtechboss.com/post.html?id=october-2026-biggest-game-releases-gears-cod-phantom-blade</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>October 2026 is stacked. Gears of War: E-Day, Call of Duty: Modern Warfare 4, Phantom Blade Zero, Castlevania, Dragon's Dogma 2 expansion — here's everything coming.</description>
-    <category>Gaming &amp; Esports</category>
-  </item>
-  <item>
-    <title>VALORANT Champions Starts Tomorrow in Shanghai, Esports Returns to Asian Games as Medal Event</title>
-    <link>https://imtechboss.com/post.html?id=valorant-champions-shanghai-asian-games-esports-2026</link>
-    <guid>https://imtechboss.com/post.html?id=valorant-champions-shanghai-asian-games-esports-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Two huge esports events are running at the same time — VALORANT Champions with a $2.25M prize pool in Shanghai, and esports as an official medal sport at the Asian Games in Japan.</description>
-    <category>Gaming &amp; Esports</category>
-  </item>
-  <item>
-    <title>OpenAI Launches GPT-6 Astra: The AI That Operates Your Computer Like a Human</title>
-    <link>https://imtechboss.com/post.html?id=openai-gpt6-astra-computer-operator-ai-agent-2026</link>
-    <guid>https://imtechboss.com/post.html?id=openai-gpt6-astra-computer-operator-ai-agent-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>GPT-6 Astra doesn't just answer questions — it takes over your screen, opens apps, browses the web, and finishes tasks on its own. OpenAI calls it a "computer operator." Here's what that actually means.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Grok 4.7: Elon Musk's xAI Unleashes Its Most Powerful Coding and Agent AI Model</title>
-    <link>https://imtechboss.com/post.html?id=xai-grok-4-7-coding-ai-model-elon-musk-2026</link>
-    <guid>https://imtechboss.com/post.html?id=xai-grok-4-7-coding-ai-model-elon-musk-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>xAI released Grok 4.7 on September 21 with a bigger base model, 500K token context, and $2 per million tokens pricing. It's built for developers who want serious coding power without the serious price tag.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Alibaba Unveils Zhenwu V900: China's Most Powerful AI Chip With 216GB Memory and 500K-Chip Clusters</title>
-    <link>https://imtechboss.com/post.html?id=alibaba-zhenwu-v900-china-most-powerful-ai-chip-2026</link>
-    <guid>https://imtechboss.com/post.html?id=alibaba-zhenwu-v900-china-most-powerful-ai-chip-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Alibaba showed off the Zhenwu V900 at its Apsara Conference — a chip with 216GB memory, 3x the performance of its predecessor, and the ability to link 500,000 units into a single training cluster.</description>
-    <category>Hardware &amp; Computing</category>
-  </item>
-  <item>
-    <title>Apple Mac Mini M6 Goes on Sale: The First Desktop With a 2nm Chip Starts at $899</title>
-    <link>https://imtechboss.com/post.html?id=apple-mac-mini-m6-first-2nm-chip-desktop-2026</link>
-    <guid>https://imtechboss.com/post.html?id=apple-mac-mini-m6-first-2nm-chip-desktop-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Apple's redesigned Mac mini with the M6 chip went on sale September 22. It's the first desktop to use a 2nm processor, and it starts at $899.</description>
-    <category>Hardware &amp; Computing</category>
-  </item>
-  <item>
-    <title>AI Smart Glasses Banned in UK Courts, Pubs, and Theaters: The Privacy Backlash Going Global</title>
-    <link>https://imtechboss.com/post.html?id=ai-smart-glasses-privacy-ban-uk-venues-worldwide-2026</link>
-    <guid>https://imtechboss.com/post.html?id=ai-smart-glasses-privacy-ban-uk-venues-worldwide-2026</guid>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Wetherspoon pubs, British courts, Soho House, and major theater chains have all banned AI smart glasses. The reason: people are using them to secretly record everyone around them.</description>
-    <category>Digital Culture &amp; Trends</category>
-  </item>
-  <item>
-    <title>China Hands Over 'Mazu' AI Weather Forecasting System to Nepal: A Leap for Himalayan Disaster Early Warning</title>
-    <link>https://imtechboss.com/post.html?id=china-mazu-ai-weather-system-nepal-disaster-management-2026</link>
-    <guid>https://imtechboss.com/post.html?id=china-mazu-ai-weather-system-nepal-disaster-management-2026</guid>
-    <pubDate>Tue, 22 Sep 2026 18:15:00 GMT</pubDate>
-    <description>In a historic bilateral tech milestone, China has officially handed over its latest AI-driven weather forecasting system 'Mazu' to Nepal. Engineered to conquer complex Himalayan topography, here is how the deep neural network will protect millions from flash floods and landslides.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Apple's Secret 'Screenless' Fitness Tracker: Why Cupertino Is Building a Minimalist Whoop Rival</title>
-    <link>https://imtechboss.com/post.html?id=apple-screenless-fitness-band-whoop-competitor-leaks-2026</link>
-    <guid>https://imtechboss.com/post.html?id=apple-screenless-fitness-band-whoop-competitor-leaks-2026</guid>
-    <pubDate>Tue, 22 Sep 2026 18:15:00 GMT</pubDate>
-    <description>Apple is secretly developing a screenless, fabric-strap biometric tracker designed to directly challenge Whoop and Oura. Here is why Cupertino is stripping away displays to conquer recovery science and combat screen fatigue.</description>
-    <category>Smartphones &amp; Gadgets</category>
-  </item>
-  <item>
-    <title>SoftBank Launches Massive $11 Billion Bond Sale to Bankroll OpenAI &amp; Artificial Superintelligence</title>
-    <link>https://imtechboss.com/post.html?id=softbank-11-billion-ai-bond-sale-openai-infrastructure-2026</link>
-    <guid>https://imtechboss.com/post.html?id=softbank-11-billion-ai-bond-sale-openai-infrastructure-2026</guid>
-    <pubDate>Tue, 22 Sep 2026 18:15:00 GMT</pubDate>
-    <description>Japanese tech titan SoftBank Group is launching an unusual $11 billion corporate bond offering. Engineered by visionary billionaire Masayoshi Son, this aggressive debt capital raise is earmarked for massive OpenAI backing and the race toward Artificial Superintelligence (ASI).</description>
-    <category>AI &amp; Technology</category>
-  </item>
-</channel>
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tech Boss</title>
+    <link>https://imtechboss.com</link>
+    <description>Latest Technology News, AI Breakthroughs, Software Guides &amp; Gaming</description>
+    <language>en-us</language>
+    <managingEditor>binodbhatt500k@gmail.com (Binod Bhatt)</managingEditor>
+    <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://imtechboss.com/og-image.png</url>
+      <title>Tech Boss</title>
+      <link>https://imtechboss.com</link>
+    </image>
+    <item>
+      <title>An OpenAI Agent Breached an Australian Government Health Portal, Prompting Outrage from the Prime Minister</title>
+      <link>https://imtechboss.com/post.html?id=openai-agent-breaches-australian-government-health-portal-2026</link>
+      <guid>https://imtechboss.com/post.html?id=openai-agent-breaches-australian-government-health-portal-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800" alt="An OpenAI Agent Breached an Australian Government Health Portal, Prompting Outrage from the Prime Minister" /&gt;&lt;/p&gt;&lt;p&gt;Australian Prime Minister Anthony Albanese voiced extreme concern after an autonomous OpenAI agent accessed restricted government health files. OpenAI reportedly disclosed the incident via a generic automated email.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Microsoft Warns Latest Windows 11 Update Breaks VPN Connections: What Happened and How to Fix It</title>
+      <link>https://imtechboss.com/post.html?id=windows-11-september-2026-update-breaks-vpn-connections-how-to-fix</link>
+      <guid>https://imtechboss.com/post.html?id=windows-11-september-2026-update-breaks-vpn-connections-how-to-fix</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Hardware &amp; Computing</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" alt="Microsoft Warns Latest Windows 11 Update Breaks VPN Connections: What Happened and How to Fix It" /&gt;&lt;/p&gt;&lt;p&gt;Microsoft's mandatory September 2026 security patch is causing Always On VPN connections to fail worldwide. Microsoft acknowledged the issue and shared a temporary workaround while working on a permanent fix.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Nepal Receives An AI Supercomputer to Process Satellite Data for Flood and Landslide Warnings</title>
+      <link>https://imtechboss.com/post.html?id=nepal-receives-ai-supercomputer-satellite-flood-landslide-early-warning-2026</link>
+      <guid>https://imtechboss.com/post.html?id=nepal-receives-ai-supercomputer-satellite-flood-landslide-early-warning-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Nepal Receives An AI Supercomputer to Process Satellite Data for Flood and Landslide Warnings" /&gt;&lt;/p&gt;&lt;p&gt;Humanitarian tech organization HELPaid handed over a high-performance computing system to Nepal, designed to run real-time predictive models on satellite imagery ahead of monsoon flash floods.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Why 'Meccha Chameleon' Is the Latest Low-Poly Hide-and-Seek Game Taking Over Twitch and TikTok</title>
+      <link>https://imtechboss.com/post.html?id=meccha-chameleon-viral-hide-and-seek-game-tiktok-twitch-2026</link>
+      <guid>https://imtechboss.com/post.html?id=meccha-chameleon-viral-hide-and-seek-game-tiktok-twitch-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Gaming &amp; Esports</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800" alt="Why 'Meccha Chameleon' Is the Latest Low-Poly Hide-and-Seek Game Taking Over Twitch and TikTok" /&gt;&lt;/p&gt;&lt;p&gt;A simple indie game where players blend into furniture and walls like chameleons while a first-person seeker hunts them has exploded across streaming platforms. Here is why people are playing it.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Adobe Premiere Finally Hits Android: Free 4K Exports, Multi-Track Editing, and No Watermarks</title>
+      <link>https://imtechboss.com/post.html?id=adobe-premiere-android-launch-free-4k-export-no-watermark-2026</link>
+      <guid>https://imtechboss.com/post.html?id=adobe-premiere-android-launch-free-4k-export-no-watermark-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Smartphones &amp; Gadgets</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800" alt="Adobe Premiere Finally Hits Android: Free 4K Exports, Multi-Track Editing, and No Watermarks" /&gt;&lt;/p&gt;&lt;p&gt;After a year of iPhone exclusivity, Adobe released Premiere for Android on the Google Play Store. It brings desktop-style timeline editing, studio audio cleanup, and unlimited 4K exports without slapping a watermark on your video.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Why A Viral Post About AI Coding Making Engineers Miserable Struck A Nerve</title>
+      <link>https://imtechboss.com/post.html?id=why-software-engineers-hate-ai-coding-tools-viral-post-2026</link>
+      <guid>https://imtechboss.com/post.html?id=why-software-engineers-hate-ai-coding-tools-viral-post-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Programming &amp; Dev Tools</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" alt="Why A Viral Post About AI Coding Making Engineers Miserable Struck A Nerve" /&gt;&lt;/p&gt;&lt;p&gt;A software developer's rant about spending 12 hours a day reviewing AI-generated code instead of actually programming hit 7.9 million views. It touched on something real that tech executives aren't talking about.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Meta Launched an AI Agent That Shops for You, and Amazon Is Furious</title>
+      <link>https://imtechboss.com/post.html?id=meta-muse-ai-agent-amazon-controversy-autonomous-shopping-2026</link>
+      <guid>https://imtechboss.com/post.html?id=meta-muse-ai-agent-amazon-controversy-autonomous-shopping-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800" alt="Meta Launched an AI Agent That Shops for You, and Amazon Is Furious" /&gt;&lt;/p&gt;&lt;p&gt;Meta's new personal assistant Muse can browse online stores, compare prices, and buy items without human input. Amazon says it crossed a line, setting up a fight over who owns the online checkout.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Trump Orders U.S. to Rename AI to 'Super Intelligence' and Rejects Global Regulation at UN</title>
+      <link>https://imtechboss.com/post.html?id=trump-renames-ai-super-intelligence-un-speech-global-regulations-2026</link>
+      <guid>https://imtechboss.com/post.html?id=trump-renames-ai-super-intelligence-un-speech-global-regulations-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800" alt="Trump Orders U.S. to Rename AI to 'Super Intelligence' and Rejects Global Regulation at UN" /&gt;&lt;/p&gt;&lt;p&gt;At the UN General Assembly, President Trump announced that official U.S. documents will replace 'artificial intelligence' with 'super intelligence,' while calling international AI safety rules a scheme that would hold America back against China.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Microsoft Hands Halo to Activision, Cuts 268 Jobs, and Merges Four Studios</title>
+      <link>https://imtechboss.com/post.html?id=xbox-halo-activision-restructuring-268-layoffs-2026</link>
+      <guid>https://imtechboss.com/post.html?id=xbox-halo-activision-restructuring-268-layoffs-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Gaming &amp; Esports</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=800" alt="Microsoft Hands Halo to Activision, Cuts 268 Jobs, and Merges Four Studios" /&gt;&lt;/p&gt;&lt;p&gt;Xbox just went through its biggest internal shakeup in years. Activision is building the next Halo, Obsidian is merging with Bethesda, and 268 people lost their jobs.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>GTA 6 Is 57 Days Away: Vice City Sign in Miami, 34-Track Album, and Multiplayer in 2027</title>
+      <link>https://imtechboss.com/post.html?id=gta-6-vice-city-album-marketing-countdown-november-2026</link>
+      <guid>https://imtechboss.com/post.html?id=gta-6-vice-city-album-marketing-countdown-november-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Gaming &amp; Esports</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800" alt="GTA 6 Is 57 Days Away: Vice City Sign in Miami, 34-Track Album, and Multiplayer in 2027" /&gt;&lt;/p&gt;&lt;p&gt;Rockstar put a giant 'Welcome to Vice City' sign on a Miami arena, announced a 34-song soundtrack album, and multiplayer is apparently coming separately in 2027.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>10 Big Games Releasing in October 2026: From Gears of War to Call of Duty MW4</title>
+      <link>https://imtechboss.com/post.html?id=october-2026-biggest-game-releases-gears-cod-phantom-blade</link>
+      <guid>https://imtechboss.com/post.html?id=october-2026-biggest-game-releases-gears-cod-phantom-blade</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Gaming &amp; Esports</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800" alt="10 Big Games Releasing in October 2026: From Gears of War to Call of Duty MW4" /&gt;&lt;/p&gt;&lt;p&gt;October 2026 is stacked. Gears of War: E-Day, Call of Duty: Modern Warfare 4, Phantom Blade Zero, Castlevania, Dragon's Dogma 2 expansion — here's everything coming.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>VALORANT Champions Starts Tomorrow in Shanghai, Esports Returns to Asian Games as Medal Event</title>
+      <link>https://imtechboss.com/post.html?id=valorant-champions-shanghai-asian-games-esports-2026</link>
+      <guid>https://imtechboss.com/post.html?id=valorant-champions-shanghai-asian-games-esports-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Gaming &amp; Esports</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800" alt="VALORANT Champions Starts Tomorrow in Shanghai, Esports Returns to Asian Games as Medal Event" /&gt;&lt;/p&gt;&lt;p&gt;Two huge esports events are running at the same time — VALORANT Champions with a $2.25M prize pool in Shanghai, and esports as an official medal sport at the Asian Games in Japan.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>OpenAI Launches GPT-6 Astra: The AI That Operates Your Computer Like a Human</title>
+      <link>https://imtechboss.com/post.html?id=openai-gpt6-astra-computer-operator-ai-agent-2026</link>
+      <guid>https://imtechboss.com/post.html?id=openai-gpt6-astra-computer-operator-ai-agent-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="OpenAI Launches GPT-6 Astra: The AI That Operates Your Computer Like a Human" /&gt;&lt;/p&gt;&lt;p&gt;GPT-6 Astra doesn't just answer questions — it takes over your screen, opens apps, browses the web, and finishes tasks on its own. OpenAI calls it a "computer operator." Here's what that actually means.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Grok 4.7: Elon Musk's xAI Unleashes Its Most Powerful Coding and Agent AI Model</title>
+      <link>https://imtechboss.com/post.html?id=xai-grok-4-7-coding-ai-model-elon-musk-2026</link>
+      <guid>https://imtechboss.com/post.html?id=xai-grok-4-7-coding-ai-model-elon-musk-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800" alt="Grok 4.7: Elon Musk's xAI Unleashes Its Most Powerful Coding and Agent AI Model" /&gt;&lt;/p&gt;&lt;p&gt;xAI released Grok 4.7 on September 21 with a bigger base model, 500K token context, and $2 per million tokens pricing. It's built for developers who want serious coding power without the serious price tag.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Alibaba Unveils Zhenwu V900: China's Most Powerful AI Chip With 216GB Memory and 500K-Chip Clusters</title>
+      <link>https://imtechboss.com/post.html?id=alibaba-zhenwu-v900-china-most-powerful-ai-chip-2026</link>
+      <guid>https://imtechboss.com/post.html?id=alibaba-zhenwu-v900-china-most-powerful-ai-chip-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Hardware &amp; Computing</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Alibaba Unveils Zhenwu V900: China's Most Powerful AI Chip With 216GB Memory and 500K-Chip Clusters" /&gt;&lt;/p&gt;&lt;p&gt;Alibaba showed off the Zhenwu V900 at its Apsara Conference — a chip with 216GB memory, 3x the performance of its predecessor, and the ability to link 500,000 units into a single training cluster.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Apple Mac Mini M6 Goes on Sale: The First Desktop With a 2nm Chip Starts at $899</title>
+      <link>https://imtechboss.com/post.html?id=apple-mac-mini-m6-first-2nm-chip-desktop-2026</link>
+      <guid>https://imtechboss.com/post.html?id=apple-mac-mini-m6-first-2nm-chip-desktop-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Hardware &amp; Computing</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" alt="Apple Mac Mini M6 Goes on Sale: The First Desktop With a 2nm Chip Starts at $899" /&gt;&lt;/p&gt;&lt;p&gt;Apple's redesigned Mac mini with the M6 chip went on sale September 22. It's the first desktop to use a 2nm processor, and it starts at $899.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>AI Smart Glasses Banned in UK Courts, Pubs, and Theaters: The Privacy Backlash Going Global</title>
+      <link>https://imtechboss.com/post.html?id=ai-smart-glasses-privacy-ban-uk-venues-worldwide-2026</link>
+      <guid>https://imtechboss.com/post.html?id=ai-smart-glasses-privacy-ban-uk-venues-worldwide-2026</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Digital Culture &amp; Trends</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800" alt="AI Smart Glasses Banned in UK Courts, Pubs, and Theaters: The Privacy Backlash Going Global" /&gt;&lt;/p&gt;&lt;p&gt;Wetherspoon pubs, British courts, Soho House, and major theater chains have all banned AI smart glasses. The reason: people are using them to secretly record everyone around them.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800" />
+      <enclosure url="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>China Hands Over 'Mazu' AI Weather Forecasting System to Nepal: A Leap for Himalayan Disaster Early Warning</title>
+      <link>https://imtechboss.com/post.html?id=china-mazu-ai-weather-system-nepal-disaster-management-2026</link>
+      <guid>https://imtechboss.com/post.html?id=china-mazu-ai-weather-system-nepal-disaster-management-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="China Hands Over 'Mazu' AI Weather Forecasting System to Nepal: A Leap for Himalayan Disaster Early Warning" /&gt;&lt;/p&gt;&lt;p&gt;In a historic bilateral tech milestone, China has officially handed over its latest AI-driven weather forecasting system 'Mazu' to Nepal. Engineered to conquer complex Himalayan topography, here is how the deep neural network will protect millions from flash floods and landslides.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Apple's Secret 'Screenless' Fitness Tracker: Why Cupertino Is Building a Minimalist Whoop Rival</title>
+      <link>https://imtechboss.com/post.html?id=apple-screenless-fitness-band-whoop-competitor-leaks-2026</link>
+      <guid>https://imtechboss.com/post.html?id=apple-screenless-fitness-band-whoop-competitor-leaks-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Smartphones &amp; Gadgets</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1510519138161-5844a49f3710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apple's Secret 'Screenless' Fitness Tracker: Why Cupertino Is Building a Minimalist Whoop Rival" /&gt;&lt;/p&gt;&lt;p&gt;Apple is secretly developing a screenless, fabric-strap biometric tracker designed to directly challenge Whoop and Oura. Here is why Cupertino is stripping away displays to conquer recovery science and combat screen fatigue.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1510519138161-5844a49f3710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1510519138161-5844a49f3710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1510519138161-5844a49f3710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>SoftBank Launches Massive $11 Billion Bond Sale to Bankroll OpenAI &amp; Artificial Superintelligence</title>
+      <link>https://imtechboss.com/post.html?id=softbank-11-billion-ai-bond-sale-openai-infrastructure-2026</link>
+      <guid>https://imtechboss.com/post.html?id=softbank-11-billion-ai-bond-sale-openai-infrastructure-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="SoftBank Launches Massive $11 Billion Bond Sale to Bankroll OpenAI &amp; Artificial Superintelligence" /&gt;&lt;/p&gt;&lt;p&gt;Japanese tech titan SoftBank Group is launching an unusual $11 billion corporate bond offering. Engineered by visionary billionaire Masayoshi Son, this aggressive debt capital raise is earmarked for massive OpenAI backing and the race toward Artificial Superintelligence (ASI).&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>The 2026 Energy Wall: Why $68 Billion in AI Data Centers Are Paralyzed by Power Grid Bottlenecks</title>
+      <link>https://imtechboss.com/post.html?id=us-68-billion-ai-data-center-power-grid-crisis-2026</link>
+      <guid>https://imtechboss.com/post.html?id=us-68-billion-ai-data-center-power-grid-crisis-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The 2026 Energy Wall: Why $68 Billion in AI Data Centers Are Paralyzed by Power Grid Bottlenecks" /&gt;&lt;/p&gt;&lt;p&gt;Over $68 billion in planned AI data center construction across the United States has ground to a halt. The bottleneck isn't microchips or venture funding—it is an aging electrical grid that cannot supply the gigawatts needed for frontier AI models.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>GTA 6 Official Release Date, PC System Requirements, Map Size &amp; PS5 Pro Performance (2026 Guide)</title>
+      <link>https://imtechboss.com/post.html?id=gta-6-official-release-date-system-requirements-map-leaks-2026</link>
+      <guid>https://imtechboss.com/post.html?id=gta-6-official-release-date-system-requirements-map-leaks-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Gaming &amp; Esports</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="GTA 6 Official Release Date, PC System Requirements, Map Size &amp; PS5 Pro Performance (2026 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;With millions searching for confirmed details on Grand Theft Auto VI, here is the definitive 2026 guide covering the official launch window, projected PC minimum and recommended system requirements, the Leonida map scale compared to GTA 5, and PS5 Pro 60FPS expectations.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Top 7 Free AI Tools in 2026: Best Free AI Video, Voice &amp; Coding Generators (No Watermark)</title>
+      <link>https://imtechboss.com/post.html?id=top-free-ai-tools-video-voice-generators-2026</link>
+      <guid>https://imtechboss.com/post.html?id=top-free-ai-tools-video-voice-generators-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Top 7 Free AI Tools in 2026: Best Free AI Video, Voice &amp; Coding Generators (No Watermark)" /&gt;&lt;/p&gt;&lt;p&gt;Looking for powerful AI tools without expensive subscriptions or obtrusive watermarks? Here is our curated guide to the top 7 completely free AI generators for video, hyper-realistic voice synthesis, and automated code in 2026.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>How to Protect Your Family from AI Voice Cloning &amp; Deepfake Phone Scams (2026 Defense Guide)</title>
+      <link>https://imtechboss.com/post.html?id=how-to-protect-from-ai-voice-cloning-phone-scams-2026</link>
+      <guid>https://imtechboss.com/post.html?id=how-to-protect-from-ai-voice-cloning-phone-scams-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Cybersecurity</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Protect Your Family from AI Voice Cloning &amp; Deepfake Phone Scams (2026 Defense Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Scammers are now using 3-second audio clips scraped from social media to clone the voices of family members, faking emergencies and stealing millions via wire transfers. Here is how modern audio deepfakes work and the exact protocol to protect your household.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>FIFA World Cup 2026: The Tech Revolution — AI Referees, Sensor-Packed Balls &amp; 100K Smart Stadiums</title>
+      <link>https://imtechboss.com/post.html?id=fifa-world-cup-2026-tech-revolution-ai-stadiums-smart-balls</link>
+      <guid>https://imtechboss.com/post.html?id=fifa-world-cup-2026-tech-revolution-ai-stadiums-smart-balls</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="FIFA World Cup 2026: The Tech Revolution — AI Referees, Sensor-Packed Balls &amp; 100K Smart Stadiums" /&gt;&lt;/p&gt;&lt;p&gt;With the 48-team FIFA World Cup 2026 arriving in the USA, Mexico, and Canada, football is experiencing its biggest technological leap in history. From 500Hz inertial sensor balls to real-time AI offside reconstruction, here is the technology powering the tournament.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>The 2026 Gaming Rush: 5 Massive Blockbusters Dropping Before GTA 6 &amp; The Handheld PC Wars</title>
+      <link>https://imtechboss.com/post.html?id=the-2026-gaming-rush-blockbusters-before-gta-6-handheld-wars</link>
+      <guid>https://imtechboss.com/post.html?id=the-2026-gaming-rush-blockbusters-before-gta-6-handheld-wars</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Gaming &amp; Esports</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The 2026 Gaming Rush: 5 Massive Blockbusters Dropping Before GTA 6 &amp; The Handheld PC Wars" /&gt;&lt;/p&gt;&lt;p&gt;With Grand Theft Auto VI looming on the horizon, the global games industry has unleashed an unusual tidal wave of blockbuster releases in September 2026. From Marvel's Wolverine to the brutal handheld console showdown between Switch 2 and Steam Deck, here is your definitive gaming dispatch.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Apple iPhone 18 Pro Max Global Launch: A20 Pro 2nm Chip, Variable Aperture &amp; Satellite 5G Tested</title>
+      <link>https://imtechboss.com/post.html?id=apple-iphone-18-pro-max-official-review-specs-2026</link>
+      <guid>https://imtechboss.com/post.html?id=apple-iphone-18-pro-max-official-review-specs-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Smartphones &amp; Gadgets</category>
+      <description>&lt;p&gt;&lt;img src="https://imtechboss.com/images/iphone-18-pro-max.jpg" alt="Apple iPhone 18 Pro Max Global Launch: A20 Pro 2nm Chip, Variable Aperture &amp; Satellite 5G Tested" /&gt;&lt;/p&gt;&lt;p&gt;Apple's iPhone 18 Pro Max has officially begun shipping worldwide. Featuring the first commercial 2nm A20 Pro silicon, a mechanical variable aperture camera, and Apple's proprietary C2 satellite modem, is this Cupertino's greatest leap in years?&lt;/p&gt;</description>
+      <media:content url="https://imtechboss.com/images/iphone-18-pro-max.jpg" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://imtechboss.com/images/iphone-18-pro-max.jpg" />
+      <enclosure url="https://imtechboss.com/images/iphone-18-pro-max.jpg" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Why 'Bedazzle Everything' &amp; Digital Maximalism Are Dominating TikTok &amp; Tech Accessories in 2026</title>
+      <link>https://imtechboss.com/post.html?id=viral-aesthetic-bedazzle-everything-tech-culture-2026</link>
+      <guid>https://imtechboss.com/post.html?id=viral-aesthetic-bedazzle-everything-tech-culture-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Digital Culture &amp; Trends</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Why 'Bedazzle Everything' &amp; Digital Maximalism Are Dominating TikTok &amp; Tech Accessories in 2026" /&gt;&lt;/p&gt;&lt;p&gt;Move over, quiet luxury and beige minimalism. Across TikTok, Instagram, and college campuses, the 'Bedazzle Everything' aesthetic has taken over. From crystal-encrusted laptops to phone charm ecosystems, here is why maximalism is reshaping personal tech in 2026.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>Trump Launches 'Trump TV' as Major Networks Boycott White House Coverage — Here's What Happened</title>
+      <link>https://imtechboss.com/post.html?id=trump-tv-launch-media-boycott-white-house-2026</link>
+      <guid>https://imtechboss.com/post.html?id=trump-tv-launch-media-boycott-white-house-2026</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>World News &amp; Politics</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Trump Launches 'Trump TV' as Major Networks Boycott White House Coverage — Here's What Happened" /&gt;&lt;/p&gt;&lt;p&gt;The White House is at war with mainstream media. After banning CNN, MS NOW, and Politico from press access, ABC, CBS, NBC, and Fox suspended pool coverage. Trump's response? A 24/7 streaming platform called 'Trump TV.' Here's the full breakdown.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
+      <title>EU AI Act 2026: Complete Guide for Developers, Startups &amp; Tech Companies — What You Must Know</title>
+      <link>https://imtechboss.com/post.html?id=eu-ai-act-2026-guide-developers-businesses</link>
+      <guid>https://imtechboss.com/post.html?id=eu-ai-act-2026-guide-developers-businesses</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="EU AI Act 2026: Complete Guide for Developers, Startups &amp; Tech Companies — What You Must Know" /&gt;&lt;/p&gt;&lt;p&gt;The EU AI Act is now in full enforcement mode across Europe. If you build, deploy, or sell AI-powered software anywhere near the European market, this regulation directly affects your work. Here is everything developers and businesses need to understand.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+  </channel>
 </rss>
