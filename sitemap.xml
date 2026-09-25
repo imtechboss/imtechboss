@@ -2,6 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://imtechboss.com/deals.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=best-budget-144hz-240hz-gaming-monitors-under-200-dollars-2026</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Best Budget 144Hz &amp; 240Hz Gaming Monitors Under $200 (2026 Edition: Fast IPS vs Curved VA Rankings)</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/stories/how-to-fix-nvidia-nvlddmkm-sys-blue-screen-bsod-windows-11-2026.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
