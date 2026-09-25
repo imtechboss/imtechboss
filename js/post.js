@@ -1465,7 +1465,11 @@ function setupNewsletterPost() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = emailInput.value.trim();
-    if (!email) return;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      if (typeof showToast === 'function') showToast("âš ï¸  Please enter a valid email address.");
+      return;
+    }
 
     let subscribers = [];
     try {
