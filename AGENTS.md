@@ -25,7 +25,13 @@ Whenever a new article is created or published, follow these steps strictly in t
   ```
 - This updates `_worker.js` with OpenGraph (`og:image`, `og:title`), Twitter card tags, and the high-res `<img class="flipboard-image" width="1200" height="900" ... />` tag.
 
-### Step 4: Deploy BEFORE Sharing (Critical)
+### Step 4: Multi-Engine Real-Time Indexing (MANDATORY)
+- Always ping IndexNow immediately after publishing to trigger instant crawler discovery across Microsoft Bing, Yandex, Seznam, and partner engines:
+  ```bash
+  node scripts/ping_indexnow.js
+  ```
+
+### Step 5: Deploy BEFORE Sharing (Critical)
 - **NEVER share to Flipboard or social media before deploying.** (If Flipboard crawls before the worker is deployed, it permanently caches the fallback logo).
 - Deploy immediately to Cloudflare Pages:
   ```bash
@@ -52,3 +58,10 @@ Whenever a new article is created or published, follow these steps strictly in t
   - Banned words: *delve, landscape, pivotal, testament, game-changer, in conclusion, tapestries, realm, beacon, seamlessly*.
 - **Tone:** Authoritative, direct, fast-paced technical journalism.
 - **Language:** English for article content; Romanized Nepali for communication with the publisher (Binod Bhatt).
+
+---
+
+## 4. Zero-Duplicate & Genuine Global News Rule (MANDATORY)
+- **Zero Duplicate Policy:** Before writing, cross-reference `js/data.js` and ensure the topic has never been covered on `imtechboss.com`. Duplicate or rehashed articles are strictly prohibited.
+- **Genuine Top Worldwide News:** Topics must be grounded in breaking, verified, and high-impact developments in global tech (AI models, semiconductor nodes, GPU/CPU architectures, operating system shifts, cybersecurity).
+- **Multi-Engine Indexing:** Every single new article must be submitted to Bing, Yandex, Google, and IndexNow without exception.
