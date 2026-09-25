@@ -138,6 +138,9 @@
         <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="gameCheckerTool">
           🕹️ Can My PC Run It?
         </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-purple-500" data-target="aiVramTool">
+          🧠 Local AI &amp; VRAM Sizer
+        </button>
       </div>
     </div>
 
@@ -522,6 +525,129 @@
         <div class="p-3.5 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-900/50 text-xs text-blue-900 dark:text-blue-200 leading-relaxed">
           <span class="font-bold">💡 Optimization Recommendation: </span>
           <span id="gameOptimizationTip">Enable DLSS Quality or FSR 3.1 Frame Generation to maintain consistent frame times during high-density urban ray tracing scenes.</span>
+        </div>
+    </section>
+
+    <!-- TOOL 6: Local AI & LLM VRAM Calculator -->
+    <section id="aiVramTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl font-bold">
+          🧠
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Local AI &amp; LLM VRAM Sizer (2026 Edition)</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Calculate exact memory required for DeepSeek R1, LLaMA 3.3, and Qwen across quantization formats and context lengths.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">1. AI Model Architecture</label>
+          <select id="llmModelSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="deepseek_r1_671b">DeepSeek R1 (671B MoE - 37B Active)</option>
+            <option value="deepseek_r1_70b" selected>DeepSeek R1 Distill Qwen (70B)</option>
+            <option value="llama33_70b">Meta LLaMA 3.3 (70B Instruct)</option>
+            <option value="deepseek_r1_32b">DeepSeek R1 Distill Qwen (32B)</option>
+            <option value="qwen25_32b">Qwen 2.5 Coder (32B)</option>
+            <option value="deepseek_r1_14b">DeepSeek R1 Distill Qwen (14B)</option>
+            <option value="mistral_123b">Mistral Large 2 (123B)</option>
+            <option value="llama31_8b">Meta LLaMA 3.1 (8B Instruct)</option>
+            <option value="gemma2_27b">Google Gemma 2 (27B)</option>
+            <option value="phi4_14b">Microsoft Phi-4 (14B)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">2. Quantization Precision</label>
+          <select id="llmQuantSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="fp16">FP16 (16-bit Full Unquantized) — 2.00 B/p</option>
+            <option value="q8_0">Q8_0 (8-bit High Precision) — 1.08 B/p</option>
+            <option value="q5_k_m">Q5_K_M (5-bit Sweet Spot) — 0.72 B/p</option>
+            <option value="q4_k_m" selected>Q4_K_M (4-bit Recommended Standard) — 0.58 B/p</option>
+            <option value="q3_k_m">Q3_K_M (3-bit High Compression) — 0.46 B/p</option>
+            <option value="q2_k">Q2_K (2-bit Extreme Emergency) — 0.35 B/p</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">3. Context Window Size</label>
+          <select id="llmContextSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="4096">4,096 Tokens (Standard Conversational)</option>
+            <option value="8192" selected>8,192 Tokens (Coding &amp; Multi-turn)</option>
+            <option value="32768">32,768 Tokens (Full Codebase Search)</option>
+            <option value="65536">65,536 Tokens (Long Documentation)</option>
+            <option value="131072">131,072 Tokens (Extreme 128k Long-Context)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">4. Your Hardware Setup</label>
+          <select id="llmHardwareSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="32">NVIDIA RTX 5090 (32GB GDDR7)</option>
+            <option value="24" selected>NVIDIA RTX 4090 / 3090 (24GB VRAM)</option>
+            <option value="16">NVIDIA RTX 5080 / 4080 / 4070 Ti Super (16GB)</option>
+            <option value="12">NVIDIA RTX 4070 / 4070 Super / 3060 (12GB)</option>
+            <option value="8">NVIDIA RTX 4060 / 3070 / 3060 Ti (8GB)</option>
+            <option value="48">Dual RTX 3090 / 4090 NVLink/PCIe (48GB)</option>
+            <option value="64">Apple Mac Studio / Mini M-Series (64GB Unified)</option>
+            <option value="128">Apple Mac Studio M2/M3 Ultra (128GB Unified)</option>
+            <option value="192">Apple Mac Studio M2/M3 Ultra (192GB Unified)</option>
+            <option value="384">Enterprise Node / Dual Mac Studio (384GB Unified)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <button id="calcLlmVramBtn" class="px-8 py-3 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          🧠 Calculate VRAM &amp; Hardware Compatibility
+        </button>
+      </div>
+
+      <!-- Result Card -->
+      <div id="llmResultCard" class="p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-purple-200/80 dark:border-purple-900/40">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+          <div>
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Inference Feasibility Tier</span>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span id="llmStatusTitle" class="text-2xl sm:text-3xl font-black text-amber-500 dark:text-amber-400">🟡 Partial CPU Offloading Required</span>
+            </div>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Total Memory Footprint</span>
+            <p id="llmTotalVram" class="text-2xl font-black text-purple-600 dark:text-purple-400 mt-0.5">43.2 GB</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-center">
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">Model Weights</span>
+            <strong id="llmWeightsMem" class="text-base font-bold text-gray-900 dark:text-white">40.6 GB</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">KV Cache Size</span>
+            <strong id="llmKvMem" class="text-base font-bold text-blue-600 dark:text-blue-400">1.6 GB</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">CUDA / Context Overhead</span>
+            <strong id="llmOverheadMem" class="text-base font-bold text-purple-600 dark:text-purple-400">1.0 GB</strong>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-purple-50 dark:bg-purple-900/30 border border-purple-100 dark:border-purple-900/50 text-xs text-purple-900 dark:text-purple-200 leading-relaxed mb-4">
+          <span class="font-bold">⚡ Deployment Strategy &amp; Speed: </span>
+          <span id="llmSpeedTip">Model requires 43.2GB total memory. On a single 24GB RTX 4090, 45% of layers must offload to 32GB+ system RAM via llama.cpp or Ollama. Expected speed: 9–14 tokens/second.</span>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-200 font-mono flex items-center justify-between gap-2 overflow-x-auto">
+          <div>
+            <span class="text-purple-400 font-bold">Ollama Command: </span>
+            <code id="llmOllamaCmd" class="text-emerald-400">ollama run deepseek-r1:70b</code>
+          </div>
+          <button id="copyLlmCmdBtn" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] font-sans font-bold text-white transition-colors">
+            Copy
+          </button>
         </div>
       </div>
     </section>
@@ -925,6 +1051,98 @@ Provide:
 
         showToast("🔍 Game compatibility analysis complete!");
       });
+    }
+
+    // 6. AI & LLM VRAM Calculator Logic
+    const calcLlmBtn = document.getElementById("calcLlmVramBtn");
+    if (calcLlmBtn) {
+      const modelSpecs = {
+        deepseek_r1_671b: { params: 671, name: "DeepSeek R1 (671B)", ollama: "ollama run deepseek-r1:671b", kvRatio: 0.00035 }, // MLA compressed
+        deepseek_r1_70b:  { params: 70,  name: "DeepSeek R1 Distill Qwen (70B)", ollama: "ollama run deepseek-r1:70b", kvRatio: 0.0002 },
+        llama33_70b:      { params: 70,  name: "Meta LLaMA 3.3 (70B)", ollama: "ollama run llama3.3:70b", kvRatio: 0.0002 },
+        deepseek_r1_32b:  { params: 32.5,name: "DeepSeek R1 Distill Qwen (32B)", ollama: "ollama run deepseek-r1:32b", kvRatio: 0.00012 },
+        qwen25_32b:       { params: 32.5,name: "Qwen 2.5 Coder (32B)", ollama: "ollama run qwen2.5-coder:32b", kvRatio: 0.00012 },
+        deepseek_r1_14b:  { params: 14.7,name: "DeepSeek R1 Distill Qwen (14B)", ollama: "ollama run deepseek-r1:14b", kvRatio: 0.00006 },
+        mistral_123b:     { params: 123, name: "Mistral Large 2 (123B)", ollama: "ollama run mistral-large", kvRatio: 0.0003 },
+        llama31_8b:       { params: 8.0, name: "Meta LLaMA 3.1 (8B)", ollama: "ollama run llama3.1:8b", kvRatio: 0.000035 },
+        gemma2_27b:       { params: 27.2,name: "Google Gemma 2 (27B)", ollama: "ollama run gemma2:27b", kvRatio: 0.0001 },
+        phi4_14b:         { params: 14.0,name: "Microsoft Phi-4 (14B)", ollama: "ollama run phi4:14b", kvRatio: 0.00006 }
+      };
+
+      const quantMultipliers = {
+        fp16: 2.00,
+        q8_0: 1.08,
+        q5_k_m: 0.72,
+        q4_k_m: 0.58,
+        q3_k_m: 0.46,
+        q2_k: 0.35
+      };
+
+      calcLlmBtn.addEventListener("click", () => {
+        const modelKey = document.getElementById("llmModelSelect").value;
+        const quantKey = document.getElementById("llmQuantSelect").value;
+        const contextLen = parseInt(document.getElementById("llmContextSelect").value, 10);
+        const gpuVram = parseInt(document.getElementById("llmHardwareSelect").value, 10);
+
+        const spec = modelSpecs[modelKey] || modelSpecs.deepseek_r1_70b;
+        const bPerParam = quantMultipliers[quantKey] || 0.58;
+
+        // Weights footprint
+        const weightsGb = spec.params * bPerParam;
+
+        // KV cache footprint (scales with context length)
+        const kvGb = (contextLen * spec.kvRatio) * (quantKey === 'fp16' ? 1.5 : 1.0);
+
+        // CUDA / context activation overhead
+        const overheadGb = spec.params > 100 ? 2.5 : (spec.params > 30 ? 1.5 : 1.0);
+
+        const totalVram = weightsGb + kvGb + overheadGb;
+
+        // Determine Status Tier
+        let tierTitle = "🟢 100% Fits in GPU VRAM (Maximum Acceleration)";
+        let tierColor = "text-emerald-600 dark:text-emerald-400";
+        let tip = `Entire model loads directly into GPU VRAM. Lightning-fast throughput (40–90 tokens/second) with zero system memory bottlenecks.`;
+
+        if (totalVram <= gpuVram) {
+          tierTitle = "🟢 100% Fits in GPU VRAM (Full Acceleration)";
+          tierColor = "text-emerald-600 dark:text-emerald-400";
+          tip = `The model (${totalVram.toFixed(1)}GB) fits completely inside your ${gpuVram}GB VRAM buffer. You will achieve maximum native speed (~45–90 tok/sec) via Ollama, vLLM, or LM Studio.`;
+        } else if (totalVram <= gpuVram * 2.8) {
+          const offloadPct = Math.min(95, Math.round(((totalVram - gpuVram) / totalVram) * 100));
+          tierTitle = "🟡 Partial CPU Offloading Required";
+          tierColor = "text-amber-500 dark:text-amber-400";
+          tip = `Model requires ${totalVram.toFixed(1)}GB memory. With ${gpuVram}GB VRAM, roughly ${offloadPct}% of transformer layers must offload to system RAM via llama.cpp or Ollama. Expected inference speed: 8–18 tokens/sec.`;
+        } else {
+          tierTitle = "🔴 Insufficient Memory / Severe OOM";
+          tierColor = "text-red-500";
+          tip = `Model footprint (${totalVram.toFixed(1)}GB) heavily exceeds your current ${gpuVram}GB capacity. Offloading over 80% to system RAM will bottleneck memory bus bandwidth down to < 2 tok/sec. Recommended hardware: ${totalVram > 90 ? 'Dual Mac Studio 192GB or Enterprise Node' : 'GPU upgrade to at least ' + Math.ceil(totalVram) + 'GB combined VRAM'}.`;
+        }
+
+        const titleEl = document.getElementById("llmStatusTitle");
+        titleEl.textContent = tierTitle;
+        titleEl.className = "text-2xl sm:text-3xl font-black " + tierColor;
+
+        document.getElementById("llmTotalVram").textContent = totalVram.toFixed(1) + " GB";
+        document.getElementById("llmWeightsMem").textContent = weightsGb.toFixed(1) + " GB";
+        document.getElementById("llmKvMem").textContent = kvGb.toFixed(2) + " GB";
+        document.getElementById("llmOverheadMem").textContent = overheadGb.toFixed(1) + " GB";
+        document.getElementById("llmSpeedTip").textContent = tip;
+        document.getElementById("llmOllamaCmd").textContent = spec.ollama;
+
+        showToast("🧠 AI VRAM analysis calculated!");
+      });
+
+      const copyCmdBtn = document.getElementById("copyLlmCmdBtn");
+      if (copyCmdBtn) {
+        copyCmdBtn.addEventListener("click", () => {
+          const cmdText = document.getElementById("llmOllamaCmd").textContent;
+          navigator.clipboard.writeText(cmdText).then(() => {
+            showToast("📋 Ollama command copied to clipboard!");
+          }).catch(() => {
+            showToast("Failed to copy command");
+          });
+        });
+      }
     }
 
     // Newsletter subscription on tools page
