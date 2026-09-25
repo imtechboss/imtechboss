@@ -14,11 +14,11 @@ if (!match) {
 const articles = JSON.parse(match[1]);
 
 // Get article (latest by default or by ID)
-const targetId = process.argv[2];
+const targetId = process.argv.slice(2).find(arg => !arg.startsWith('--'));
 const article = targetId ? articles.find(a => a.id === targetId) : articles[0];
 
 if (!article) {
-  console.error("Article not found");
+  console.error("Article not found: " + (targetId || "default"));
   process.exit(1);
 }
 
