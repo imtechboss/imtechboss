@@ -8,31 +8,31 @@
       <description>NVIDIA's flagship GeForce RTX 5090 introduces 32GB GDDR7 on a 512-bit bus, dual-die Blackwell packaging, and 24,576 CUDA cores. We break down FP8 AI compute, ray tracing performance, and the practical value compared to the RTX 4090.</description>
       <category>Hardware</category>
       <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>DeepSeek R1 vs OpenAI o3 vs Claude 3.7: Reasoning Benchmarks, Local Hardware Demands, and API Economics</title>
       <link>https://imtechboss.com/post.html?id=deepseek-r1-vs-openai-o3-vs-claude-3-7-reasoning-models-benchmark-comparison-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=deepseek-r1-vs-openai-o3-vs-claude-3-7-reasoning-models-benchmark-comparison-2026</guid>
       <description>An engineering showdown comparing DeepSeek R1's pure reinforcement learning with OpenAI o3 and Anthropic's Claude 3.7 hybrid architecture. Analyzing AIME math benchmarks, SWE-bench coding scores, local VRAM requirements, and API pricing.</description>
-      <category>AI & Technology</category>
+      <category>AI &amp; Technology</category>
       <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>Meta Unveils Orion Holographic AR Glasses: Silicon Carbide Lenses and Neural Wristband Interface Detailed</title>
       <link>https://imtechboss.com/post.html?id=meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026</guid>
       <description>Meta has pulled back the curtain on Orion, a standalone 98-gram holographic augmented reality prototype engineered with custom silicon carbide optical waveguides and an electromyography neural wristband that reads motor neuron impulses.</description>
-      <category>AI & Technology</category>
+      <category>AI &amp; Technology</category>
       <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>AMD Ryzen 7 9800X3D Inverts 3D V-Cache Architecture: Thermal Redesign Unlocks Full Overclocking for PC Gamers</title>
@@ -41,20 +41,20 @@
       <description>AMD's upcoming Zen 5 Ryzen 7 9800X3D flips its cache stacking orientation, placing the 64MB SRAM cache die underneath the Core Complex Die to expose compute cores directly to the integrated heat spreader and enable unrestricted multiplier overclocking.</description>
       <category>Hardware</category>
       <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>Microsoft Re-Engineers Windows 11 Recall: Mandatory Opt-In, BitLocker Enclave, and Windows Hello Protection Explained</title>
       <link>https://imtechboss.com/post.html?id=microsoft-windows-11-24h2-recall-security-overhaul-opt-in-bitlocker-enclave-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=microsoft-windows-11-24h2-recall-security-overhaul-opt-in-bitlocker-enclave-2026</guid>
       <description>Following intense backlash from cybersecurity researchers, Microsoft has completely restructured Windows 11's AI-powered Recall feature into a zero-trust architecture requiring hardware-bound encryption keys and biometric verification for every data query.</description>
-      <category>Software & Utilities</category>
+      <category>Software &amp; Utilities</category>
       <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>NVIDIA RTX 5090 Hits 600W TDP: Why the Revised 12V-2x6 Power Connector is Reigniting Melting Fears for PC Builders</title>
@@ -63,9 +63,9 @@
       <description>Internal testing logs reveal NVIDIA's upcoming GeForce RTX 5090 pushes total board power to 600 watts, triggering intense scrutiny over the revised 12V-2x6 power connector and mandatory 1000W ATX 3.1 power supply requirements.</description>
       <category>Hardware</category>
       <pubDate>Thu, 24 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>Sony PS5 Pro PSSR Tested: 300 TOPS Custom Neural Engine Delivers 4K 60FPS Ray Tracing Across 50+ Launch Titles</title>
@@ -74,9 +74,9 @@
       <description>Sony's PlayStation 5 Pro introduces custom machine learning hardware rated at 300 TOPS, enabling PlayStation Spectral Super Resolution (PSSR) to deliver sharp 4K presentation at a locked 60 frames per second without typical temporal artifacts.</description>
       <category>Gaming</category>
       <pubDate>Thu, 24 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>Snapdragon 8 Elite vs Dimensity 9400: Qualcomm’s 4.32GHz Oryon Architecture Clashes with MediaTek’s All-Big-Core Beast</title>
@@ -85,20 +85,20 @@
       <description>TSMC's second-generation 3nm node hosts the fiercest silicon rivalry in mobile history, pitting Qualcomm's custom 4.32GHz Oryon CPU cores directly against MediaTek's audacious All-Big-Core Dimensity 9400 architecture.</description>
       <category>Smartphones</category>
       <pubDate>Thu, 24 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>Inside OpenAI o1: How Test-Time Compute and Chain-of-Thought Scaling Are Reshaping AI Data Center Hardware</title>
       <link>https://imtechboss.com/post.html?id=inside-openai-o1-test-time-compute-chain-of-thought-hardware-scaling-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=inside-openai-o1-test-time-compute-chain-of-thought-hardware-scaling-2026</guid>
       <description>OpenAI's o1 model shifts the computational paradigm from massive pre-training runs to dynamic test-time inference, driving unprecedented demand for low-latency HBM3e memory across enterprise GPU clusters.</description>
-      <category>AI & Technology</category>
+      <category>AI &amp; Technology</category>
       <pubDate>Thu, 24 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <item>
       <title>Valve Expands SteamOS to Rival Handhelds: ASUS ROG Ally X and Lenovo Legion Go Set to Ditch Windows 11</title>
@@ -107,9 +107,9 @@
       <description>Valve is preparing official SteamOS dual-boot and standalone installers for rival AMD Z1 Extreme handhelds, replacing Windows 11 bloatware with dedicated Proton micro-compositor optimizations that reclaim 20% gaming battery life.</description>
       <category>Gaming</category>
       <pubDate>Thu, 24 Sep 2026 12:00:00 +0000</pubDate>
-      <media:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
-      <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+      <media:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="150000" />
     </item>
     <title>Tech Boss</title>
     <link>https://imtechboss.com</link>

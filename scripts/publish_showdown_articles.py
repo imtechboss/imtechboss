@@ -319,7 +319,7 @@ if idx != -1:
         safe_title = a['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         safe_desc = a['excerpt'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         url = f"https://imtechboss.com/post.html?id={a['id']}"
-        img = a['image']
+        img = a['image'].replace('&', '&amp;')
         cat = a['category']
         new_items_xml += f"""
     <item>
@@ -353,7 +353,7 @@ if idx != -1:
     for a in to_add:
         url = f"https://imtechboss.com/post?id={a['id']}"
         safe_title = a['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-        img = a['image']
+        img = a['image'].replace('&', '&amp;')
         new_urls_xml += f"""
   <url>
     <loc>{url}</loc>
