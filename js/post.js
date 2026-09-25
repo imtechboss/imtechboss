@@ -280,6 +280,7 @@ function renderPostDetail() {
   }
 
   const keyTakeawaysHtml = generateKeyTakeaways(article);
+  const { faqHtml: faqSectionHtml, faqSchemaJson } = generateFaqSection(article);
 
   const safeTitle = escapeHtml(article.title);
   const safeCat = escapeHtml(article.category || "General");
@@ -420,6 +421,9 @@ function renderPostDetail() {
     <div class="article-body text-gray-800 dark:text-gray-200 leading-relaxed max-w-none">
       ${articleBodyHtml}
     </div>
+
+    <!-- Google FAQ Accordion & People Also Ask Section -->
+    ${faqSectionHtml}
 
     <!-- Social Share Bar & Tags -->
     <div class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800">
@@ -678,6 +682,20 @@ function renderPostDetail() {
       });
     } catch (e) {}
   }, 300);
+
+  // Inject Google FAQPage JSON-LD Schema
+  if (faqSchemaJson) {
+    try {
+      let faqScript = document.getElementById("faqJsonLd");
+      if (!faqScript) {
+        faqScript = document.createElement("script");
+        faqScript.id = "faqJsonLd";
+        faqScript.type = "application/ld+json";
+        document.head.appendChild(faqScript);
+      }
+      faqScript.textContent = JSON.stringify(faqSchemaJson);
+    } catch (e) {}
+  }
 
   // Clean up unfilled AdSense slots (hide empty boxes when no ads available)
   try {
@@ -1707,6 +1725,100 @@ function generateKeyTakeaways(article) {
       </ul>
     </div>
   `;
+}
+
+// 6.5 Google FAQ & People Also Ask Accordion Generator
+function generateFaqSection(article) {
+  const cat = (article.category || '').toLowerCase();
+  const title = article.title || '';
+  let faqs = [];
+
+  if (cat.includes('hard') || title.includes('RTX') || title.includes('Ryzen') || title.includes('Intel') || title.includes('GPU') || title.includes('CPU')) {
+    faqs = [
+      {
+        q: `Does upgrading to this hardware require a new power supply (PSU)?`,
+        a: `Power requirements depend on total system power draw. For modern high-end components, an ATX 3.1 certified 750W to 1000W power supply with native 12V-2x6 cabling is recommended to prevent transient load shutdowns.`
+      },
+      {
+        q: `Will this component work with older motherboards?`,
+        a: `Modern components utilize PCIe 4.0 and PCIe 5.0 interfaces which maintain backwards compatibility. However, a motherboard BIOS update is often mandatory for initial memory training and optimal clock profiles.`
+      },
+      {
+        q: `How much performance uplift can I expect with modern upscaling (DLSS/FSR)?`,
+        a: `Enabling temporal upscalers like DLSS 3.5, FSR 3.1, or XeSS Quality modes typically provides a 30% to 65% framerate improvement by rendering frames at lower internal resolutions before neural reconstruction.`
+      }
+    ];
+  } else if (cat.includes('ai') || title.includes('DeepSeek') || title.includes('Claude') || title.includes('GPT') || title.includes('LLM') || title.includes('Model')) {
+    faqs = [
+      {
+        q: `Can this AI model run locally on consumer PC hardware?`,
+        a: `Quantized versions (such as 4-bit and 8-bit GGUF models) can run locally on consumer GPUs with 12GB to 24GB of VRAM using inference engines like Ollama, llama.cpp, and LM Studio.`
+      },
+      {
+        q: `How does test-time compute reasoning improve model answers?`,
+        a: `Reasoning models generate internal chain-of-thought tokens, verifying mathematical intermediate steps and backtracking when encountering logical contradictions before providing the output.`
+      },
+      {
+        q: `Is prompt data kept private when self-hosting local models?`,
+        a: `Yes. Running models on local hardware ensures that your prompts, source code, and queries remain on your private machine without transmitting telemetry to third-party cloud APIs.`
+      }
+    ];
+  } else {
+    faqs = [
+      {
+        q: `Are these technical instructions safe to apply on Windows 11?`,
+        a: `Yes. The steps detailed in this Tech Boss analysis operate within standard operating system guidelines and do not modify protected kernel modules or partition structures.`
+      },
+      {
+        q: `Will these optimization steps reset after a Windows update?`,
+        a: `Most software configurations persist across normal restarts, though major seasonal Windows feature updates may occasionally revert specific background telemetry or service preferences.`
+      },
+      {
+        q: `Where can I find more technical benchmarks and developer tools?`,
+        a: `Explore the Tech Boss Interactive Tools suite, PC Bottleneck Calculator, and dedicated hardware reviews directly on imtechboss.com.`
+      }
+    ];
+  }
+
+  const faqHtml = `
+    <div class="my-10 p-6 rounded-3xl bg-gray-50/80 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-xs">
+      <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-gray-200 dark:border-slate-800">
+        <span class="w-8 h-8 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm font-bold">❓</span>
+        <div>
+          <h3 class="font-bold text-sm sm:text-base text-gray-950 dark:text-white">Frequently Asked Questions &amp; Technical Insights</h3>
+          <p class="text-[11px] text-gray-500 dark:text-gray-400">Key takeaways and answers to common community inquiries.</p>
+        </div>
+      </div>
+      <div class="space-y-3">
+        ${faqs.map((f, i) => `
+          <details class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/80 transition-colors">
+            <summary class="flex justify-between items-center font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 cursor-pointer select-none">
+              <span>${escapeHtml(f.q)}</span>
+              <span class="text-gray-400 group-open:rotate-180 transition-transform ml-2 text-xs flex-shrink-0">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-slate-700/60 pt-2.5">
+              ${escapeHtml(f.a)}
+            </p>
+          </details>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  const faqSchemaJson = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
+  };
+
+  return { faqHtml, faqSchemaJson };
 }
 
 // 7. In-Article Text-to-Speech Audio Player (Web Speech API)

@@ -79,7 +79,13 @@ def audit():
             if link.startswith('http') or link.startswith('#') or link.startswith('mailto:') or link.startswith('javascript:'):
                 continue
             clean_link = link.split('?')[0].split('#')[0]
-            if clean_link and clean_link not in all_targets and not os.path.exists(os.path.join(base_dir, clean_link)):
+            rel_path = clean_link.lstrip('/')
+            exists = (
+                clean_link in all_targets or
+                os.path.exists(os.path.join(base_dir, rel_path)) or
+                os.path.exists(os.path.join(base_dir, rel_path, 'index.html'))
+            )
+            if clean_link and not exists:
                 broken_links.append((hf, link))
 
     print(f"   - Broken local href links: {broken_links}")

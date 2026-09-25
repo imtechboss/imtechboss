@@ -87,6 +87,7 @@
       <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold">
         <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
         <a href="tools.html" class="text-blue-600 dark:text-blue-400 font-bold">Tech Tools</a>
+        <a href="/stories/" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold transition-colors">Stories</a>
         <a href="about.html" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
         <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
 
@@ -133,6 +134,9 @@
         </button>
         <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="gpuMatcherTool">
           🎮 2026 GPU &amp; Hardware Matcher
+        </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="gameCheckerTool">
+          🕹️ Can My PC Run It?
         </button>
       </div>
     </div>
@@ -417,6 +421,108 @@
         <p id="matchedRationale" class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-200 dark:border-slate-700 pt-3">
           This configuration provides the best price-to-performance ratio for 1440p high-refresh gaming, featuring AV1 encoding, DLSS 3.5 Frame Generation, and sufficient VRAM headroom for demanding 2026 titles.
         </p>
+      </div>
+    </section>
+
+    <!-- TOOL 5: Can My PC Run It? Game Specs Matcher -->
+    <section id="gameCheckerTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl font-bold">
+          🕹️
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Can My PC Run It? Live Game Requirements Checker</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Select any modern AAA title and input your hardware configuration to test compatibility and predict real-world FPS metrics.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Target Title</label>
+          <select id="gameSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="gta6" selected>Grand Theft Auto VI (GTA 6)</option>
+            <option value="wukong">Black Myth: Wukong (Full RT)</option>
+            <option value="cyberpunk">Cyberpunk 2077: Phantom Liberty</option>
+            <option value="eldenring">Elden Ring: Shadow of the Erdtree</option>
+            <option value="flightsim">MS Flight Simulator 2024</option>
+            <option value="esports">Valorant / CS2 (High FPS)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Graphics Card</label>
+          <select id="gameGpuSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="100">RTX 5090 / 4090 (Top Tier)</option>
+            <option value="85">RTX 5080 / 4080 Super / RX 7900 XTX</option>
+            <option value="70" selected>RTX 4070 Super / 4070 Ti / RX 7800 XT</option>
+            <option value="50">RTX 4060 / 3060 Ti / RX 6700 XT</option>
+            <option value="35">RTX 3060 (12GB) / RTX 2060 / RX 6600</option>
+            <option value="20">GTX 1660 Super / GTX 1060 (6GB)</option>
+            <option value="10">Intel Iris Xe / AMD 780M Integrated</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Processor (CPU)</label>
+          <select id="gameCpuSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="100" selected>Ryzen 7 9800X3D / 7800X3D / i9 14900K</option>
+            <option value="80">Core i7 14700K / 13700K / Ryzen 7 7700X</option>
+            <option value="65">Ryzen 5 7600X / Core i5 13400 / 12600K</option>
+            <option value="45">Ryzen 5 5600X / 3600 / Core i5 10400F</option>
+            <option value="20">Older Quad-Core (Core i7 7700 / i5 6500)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">System Memory</label>
+          <select id="gameRamSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="32" selected>32GB Dual-Channel (Optimal)</option>
+            <option value="16">16GB Dual-Channel (Standard)</option>
+            <option value="8">8GB (May Cause Stuttering)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <button id="checkCanRunBtn" class="px-8 py-3 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          🔍 Test My System Compatibility
+        </button>
+      </div>
+
+      <!-- Result Card -->
+      <div id="gameCheckResult" class="p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-rose-200/80 dark:border-rose-900/40">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+          <div>
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Estimated Compatibility Tier</span>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span id="gameTierTitle" class="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400">✨ Recommended Ultra Spec</span>
+            </div>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Playability Score</span>
+            <p id="gamePlayabilityScore" class="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5">92 / 100</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-center">
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">1080p Resolution</span>
+            <strong id="fps1080" class="text-base font-bold text-gray-900 dark:text-white">120+ FPS Ultra</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">1440p Resolution</span>
+            <strong id="fps1440" class="text-base font-bold text-blue-600 dark:text-blue-400">85–105 FPS High</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">4K UHD Resolution</span>
+            <strong id="fps4k" class="text-base font-bold text-purple-600 dark:text-purple-400">55–65 FPS (DLSS)</strong>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-900/50 text-xs text-blue-900 dark:text-blue-200 leading-relaxed">
+          <span class="font-bold">💡 Optimization Recommendation: </span>
+          <span id="gameOptimizationTip">Enable DLSS Quality or FSR 3.1 Frame Generation to maintain consistent frame times during high-density urban ray tracing scenes.</span>
+        </div>
       </div>
     </section>
 
@@ -757,6 +863,67 @@ Provide:
         document.getElementById("matchedRationale").textContent = rationale;
 
         showToast("🎯 Perfect hardware match found!");
+      });
+    }
+
+    // 5. Can My PC Run It Checker Logic
+    const canRunBtn = document.getElementById("checkCanRunBtn");
+    if (canRunBtn) {
+      canRunBtn.addEventListener("click", () => {
+        const game = document.getElementById("gameSelect").value;
+        const gpuVal = parseInt(document.getElementById("gameGpuSelect").value, 10);
+        const cpuVal = parseInt(document.getElementById("gameCpuSelect").value, 10);
+        const ramVal = parseInt(document.getElementById("gameRamSelect").value, 10);
+
+        let composite = Math.round((gpuVal * 0.6) + (cpuVal * 0.3) + ((ramVal / 32) * 10));
+
+        let tierTitle = "✨ Recommended Ultra Spec";
+        let tierColor = "text-emerald-600 dark:text-emerald-400";
+        let fps1080 = "120+ FPS Ultra";
+        let fps1440 = "85–105 FPS High";
+        let fps4k = "55–65 FPS (DLSS)";
+        let tip = "Enable DLSS Quality or FSR 3.1 to maintain smooth frame times.";
+
+        if (composite >= 85) {
+          tierTitle = "👑 Enthusiast 4K Max Settings Ready";
+          tierColor = "text-purple-600 dark:text-purple-400";
+          fps1080 = "165+ FPS Ultra Max";
+          fps1440 = "120–144+ FPS High";
+          fps4k = "75–90+ FPS Full RT";
+          tip = "Your rig exceeds standard targets. You can safely max out Full Path Tracing and Ray Reconstruction.";
+        } else if (composite >= 65) {
+          tierTitle = "✨ Recommended High-FPS Spec";
+          tierColor = "text-emerald-600 dark:text-emerald-400";
+          fps1080 = "110–130 FPS High";
+          fps1440 = "75–90 FPS High";
+          fps4k = "45–55 FPS Balanced";
+          tip = "Ideal balance for 1440p gaming. Keep textures on High and utilize DLSS/FSR for high refresh rates.";
+        } else if (composite >= 40) {
+          tierTitle = "⚡ Minimum 1080p Playable Spec";
+          tierColor = "text-amber-500 dark:text-amber-400";
+          fps1080 = "50–65 FPS Medium";
+          fps1440 = "35–45 FPS Low";
+          fps4k = "20–30 FPS (Not Recommended)";
+          tip = "Lower Volumetric Fog, Shadow Quality, and Crowd Density to maintain a stable 60 FPS floor.";
+        } else {
+          tierTitle = "⚠️ Below Recommended Specifications";
+          tierColor = "text-red-500";
+          fps1080 = "25–35 FPS Low (Stuttering)";
+          fps1440 = "Unplayable (< 25 FPS)";
+          fps4k = "Unplayable (< 15 FPS)";
+          tip = "Hardware will experience VRAM bottlenecks and memory swapping. Consider upgrading to a 12GB+ GPU and 16GB dual-channel RAM.";
+        }
+
+        const titleEl = document.getElementById("gameTierTitle");
+        titleEl.textContent = tierTitle;
+        titleEl.className = "text-2xl sm:text-3xl font-black " + tierColor;
+        document.getElementById("gamePlayabilityScore").textContent = composite + " / 100";
+        document.getElementById("fps1080").textContent = fps1080;
+        document.getElementById("fps1440").textContent = fps1440;
+        document.getElementById("fps4k").textContent = fps4k;
+        document.getElementById("gameOptimizationTip").textContent = tip;
+
+        showToast("🔍 Game compatibility analysis complete!");
       });
     }
 
