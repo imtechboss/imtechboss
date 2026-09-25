@@ -29,7 +29,9 @@
     "blogger-672",
     "blogger-753",
     "blogger-308",
-    "blogger-518"
+    "blogger-518",
+    "blogger-168",
+    "blogger-194"
   ],
   "history": [
     {
@@ -265,6 +267,22 @@
       "postedAt": "2026-09-25T16:12:00.390Z",
       "bskyUri": null,
       "mastodonUrl": "https://mastodon.social/@imtechboss/117332555939378100"
+    },
+    {
+      "id": "blogger-168",
+      "title": "Top 5 Car Games Of 2020 Download",
+      "category": "Gaming & Apps",
+      "postedAt": "2026-09-25T16:35:08.586Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwe7abbozq2d",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117332646908766120"
+    },
+    {
+      "id": "blogger-194",
+      "title": "How to Enable Live Wallpaper on Your  Smartphone",
+      "category": "General",
+      "postedAt": "2026-09-25T16:56:15.928Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mweafzr2wz2t",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117332729969177077"
     }
   ]
 }
