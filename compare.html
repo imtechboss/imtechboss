@@ -178,6 +178,20 @@
         </div>
       </div>
 
+      <!-- Retailer Price & Deals Showdown (The Hawk Engine) -->
+      <div id="retailerDealSection" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Dynamically populated via JS -->
+      </div>
+
+      <!-- FTC & AdSense Compliance Editorial Disclosure -->
+      <div class="px-5 py-3.5 rounded-2xl bg-gray-100 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-xs text-gray-500 dark:text-gray-400 flex items-start gap-3">
+        <span class="text-lg flex-shrink-0">🛡️</span>
+        <div class="leading-relaxed">
+          <strong class="text-gray-700 dark:text-gray-200 font-semibold">Tech Boss Editorial &amp; Affiliate Disclosure:</strong>
+          We independently benchmark, review, and test all hardware. When you purchase components or subscribe through verified retailer links on this page, Tech Boss may receive an affiliate commission at no extra cost to you. Product pricing and availability are verified daily.
+        </div>
+      </div>
+
       <!-- Specification Head-to-Head Table -->
       <div class="bg-white dark:bg-slate-900 rounded-3xl border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm overflow-hidden">
         <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
@@ -226,21 +240,26 @@
 
   <!-- Footer -->
   <footer class="border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-xs text-gray-500 dark:text-gray-400 mt-12">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <span class="font-bold text-gray-900 dark:text-white">Tech Boss</span>
-        <span>•</span>
-        <span>© 2026 Tech Boss. All rights reserved.</span>
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-gray-900 dark:text-white">Tech Boss</span>
+          <span>•</span>
+          <span>© 2026 Tech Boss. All rights reserved.</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="index.html" class="hover:text-blue-600">Home</a>
+          <a href="tools.html" class="hover:text-blue-600">Tech Tools</a>
+          <a href="compare.html" class="text-blue-600 font-bold">Compare</a>
+          <a href="about.html" class="hover:text-blue-600">About</a>
+          <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+          <a href="disclaimer.html" class="hover:text-blue-600">Disclaimer</a>
+          <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
+        </div>
       </div>
-      <div class="flex flex-wrap items-center gap-4">
-        <a href="index.html" class="hover:text-blue-600">Home</a>
-        <a href="tools.html" class="hover:text-blue-600">Tech Tools</a>
-        <a href="compare.html" class="text-blue-600 font-bold">Compare</a>
-        <a href="about.html" class="hover:text-blue-600">About</a>
-        <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
-        <a href="disclaimer.html" class="hover:text-blue-600">Disclaimer</a>
-        <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
-      </div>
+      <p class="text-[11px] text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-slate-800/60 pt-4 leading-relaxed">
+        <strong>Reader Disclosure:</strong> Tech Boss is reader-supported. When you buy through links on our site, we may earn an affiliate commission from authorized retailers (such as Amazon, Newegg) at no extra cost to you. Pricing and stock availability are subject to market changes.
+      </p>
     </div>
   </footer>
 
@@ -433,6 +452,97 @@
       document.getElementById("verdictTitle").textContent = `${winner.name} Wins Overall`;
       document.getElementById("verdictSubtitle").textContent = `Exceeds the ${loser.name} across composite gaming, computational density, and architectural metrics.`;
       document.getElementById("verdictLeadScore").textContent = `+${diffPct}%`;
+
+      // Render Retailer Deal Cards (The Hawk Engine)
+      const dealContainer = document.getElementById("retailerDealSection");
+      if (dealContainer) {
+        dealContainer.innerHTML = "";
+
+        const renderProductCard = (item, isWinner, colorClass, accentBadge) => {
+          const isHardware = currentMode === "gpu" || currentMode === "cpu";
+          const amazonUrl = `https://www.amazon.com/s?k=${encodeURIComponent(item.name)}&tag=imtechboss-20`;
+          const neweggUrl = `https://www.newegg.com/p/pl?d=${encodeURIComponent(item.name)}`;
+          const bestBuyUrl = `https://www.bestbuy.com/site/searchpage.jsp?st=${encodeURIComponent(item.name)}`;
+          const runPodUrl = `https://www.runpod.io?ref=techboss`;
+          const huggingFaceUrl = `https://huggingface.co/models?search=${encodeURIComponent(item.name)}`;
+
+          const card = document.createElement("div");
+          card.className = `p-6 rounded-3xl bg-white dark:bg-slate-900 border ${isWinner ? 'border-blue-500/60 shadow-lg ring-1 ring-blue-500/30' : 'border-gray-200 dark:border-slate-800 shadow-sm'} flex flex-col justify-between transition-all`;
+
+          let linksHtml = "";
+          if (isHardware) {
+            linksHtml = `
+              <div class="space-y-2.5 mt-5">
+                <a href="${amazonUrl}" target="_blank" rel="sponsored nofollow noopener" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/20 text-xs font-bold transition-all group">
+                  <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4 fill-current text-amber-600 dark:text-amber-400" viewBox="0 0 24 24"><path d="M13.92 14.86c-2.3 0-4.04-1.63-4.04-3.79 0-2.23 1.83-3.76 4.14-3.76 1.48 0 2.53.53 3.1 1.09l-.86 1.06c-.49-.49-1.22-.84-2.18-.84-1.45 0-2.58.98-2.58 2.45 0 1.42 1.09 2.48 2.65 2.48 1.08 0 1.87-.41 2.37-.96l.87 1c-.72.82-1.92 1.27-3.47 1.27zm7.62 1.63c-.17.15-.41.17-.6.04-1.35-.91-2.92-1.39-4.54-1.39-2.6 0-4.99 1.2-6.57 3.3-.12.16-.32.22-.51.15-.19-.07-.31-.24-.3-.44.13-2.47 2.1-4.46 4.59-4.46 1.83 0 3.59.88 4.7 2.35.15.2.11.48-.07.65l2.7-.2z"/></svg>
+                    <span>Check Price on Amazon</span>
+                  </span>
+                  <span class="text-[11px] font-mono group-hover:translate-x-1 transition-transform">Live Price &rarr;</span>
+                </a>
+                <a href="${neweggUrl}" target="_blank" rel="sponsored nofollow noopener" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-800 dark:text-orange-300 border border-orange-500/20 text-xs font-bold transition-all group">
+                  <span class="flex items-center gap-2">
+                    <span>⚡</span>
+                    <span>View Newegg Stock</span>
+                  </span>
+                  <span class="text-[11px] font-mono group-hover:translate-x-1 transition-transform">Check Deals &rarr;</span>
+                </a>
+                <a href="${bestBuyUrl}" target="_blank" rel="sponsored nofollow noopener" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-800 dark:text-blue-300 border border-blue-500/20 text-xs font-bold transition-all group">
+                  <span class="flex items-center gap-2">
+                    <span>🏷️</span>
+                    <span>Check Best Buy</span>
+                  </span>
+                  <span class="text-[11px] font-mono group-hover:translate-x-1 transition-transform">Deals &rarr;</span>
+                </a>
+              </div>
+            `;
+          } else {
+            linksHtml = `
+              <div class="space-y-2.5 mt-5">
+                <a href="${runPodUrl}" target="_blank" rel="sponsored nofollow noopener" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-800 dark:text-purple-300 border border-purple-500/20 text-xs font-bold transition-all group">
+                  <span class="flex items-center gap-2">
+                    <span>☁️</span>
+                    <span>Deploy on RunPod Cloud GPU</span>
+                  </span>
+                  <span class="text-[11px] font-mono group-hover:translate-x-1 transition-transform">Rent GPU &rarr;</span>
+                </a>
+                <a href="${huggingFaceUrl}" target="_blank" rel="sponsored nofollow noopener" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-800 dark:text-yellow-300 border border-yellow-500/20 text-xs font-bold transition-all group">
+                  <span class="flex items-center gap-2">
+                    <span>🤗</span>
+                    <span>Hugging Face Weights &amp; Demo</span>
+                  </span>
+                  <span class="text-[11px] font-mono group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+                </a>
+              </div>
+            `;
+          }
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="px-2.5 py-1 rounded-lg ${colorClass} text-[11px] font-bold uppercase tracking-wider">
+                  ${accentBadge}
+                </span>
+                ${isWinner ? '<span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-extrabold uppercase tracking-wide flex items-center gap-1">🏆 Tech Boss Pick</span>' : ''}
+              </div>
+              <h4 class="text-base sm:text-lg font-black text-gray-950 dark:text-white mt-1 leading-snug">
+                ${item.name}
+              </h4>
+              <div class="flex items-baseline gap-2 mt-2">
+                <span class="text-xs text-gray-400 font-semibold">${isHardware ? 'MSRP / Street Price:' : 'API / Run Cost:'}</span>
+                <span class="text-lg font-black text-blue-600 dark:text-blue-400 font-mono">${item.price || item.cost}</span>
+              </div>
+            </div>
+            ${linksHtml}
+          `;
+          return card;
+        };
+
+        const cardA = renderProductCard(itemA, winner === itemA, "bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800", "Contender A");
+        const cardB = renderProductCard(itemB, winner === itemB, "bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800", "Contender B");
+        dealContainer.appendChild(cardA);
+        dealContainer.appendChild(cardB);
+      }
     }
 
     // Mode Buttons
