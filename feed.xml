@@ -2,6 +2,39 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
     <item>
+      <title>Meta Unveils Orion Holographic AR Glasses: Silicon Carbide Lenses and Neural Wristband Interface Detailed</title>
+      <link>https://imtechboss.com/post.html?id=meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026</guid>
+      <description>Meta has pulled back the curtain on Orion, a standalone 98-gram holographic augmented reality prototype engineered with custom silicon carbide optical waveguides and an electromyography neural wristband that reads motor neuron impulses.</description>
+      <category>AI & Technology</category>
+      <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+    </item>
+    <item>
+      <title>AMD Ryzen 7 9800X3D Inverts 3D V-Cache Architecture: Thermal Redesign Unlocks Full Overclocking for PC Gamers</title>
+      <link>https://imtechboss.com/post.html?id=amd-ryzen-7-9800x3d-inverts-3d-v-cache-architecture-full-overclocking-unlocked-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=amd-ryzen-7-9800x3d-inverts-3d-v-cache-architecture-full-overclocking-unlocked-2026</guid>
+      <description>AMD's upcoming Zen 5 Ryzen 7 9800X3D flips its cache stacking orientation, placing the 64MB SRAM cache die underneath the Core Complex Die to expose compute cores directly to the integrated heat spreader and enable unrestricted multiplier overclocking.</description>
+      <category>Hardware</category>
+      <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+    </item>
+    <item>
+      <title>Microsoft Re-Engineers Windows 11 Recall: Mandatory Opt-In, BitLocker Enclave, and Windows Hello Protection Explained</title>
+      <link>https://imtechboss.com/post.html?id=microsoft-windows-11-24h2-recall-security-overhaul-opt-in-bitlocker-enclave-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=microsoft-windows-11-24h2-recall-security-overhaul-opt-in-bitlocker-enclave-2026</guid>
+      <description>Following intense backlash from cybersecurity researchers, Microsoft has completely restructured Windows 11's AI-powered Recall feature into a zero-trust architecture requiring hardware-bound encryption keys and biometric verification for every data query.</description>
+      <category>Software & Utilities</category>
+      <pubDate>Fri, 25 Sep 2026 12:00:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="150000" />
+    </item>
+    <item>
       <title>NVIDIA RTX 5090 Hits 600W TDP: Why the Revised 12V-2x6 Power Connector is Reigniting Melting Fears for PC Builders</title>
       <link>https://imtechboss.com/post.html?id=nvidia-rtx-5090-600w-tdp-12v-2x6-power-connector-melting-concerns-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=nvidia-rtx-5090-600w-tdp-12v-2x6-power-connector-melting-concerns-2026</guid>

@@ -3,33 +3,63 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://imtechboss.com/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/about.html</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/contact.html</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/privacy.html</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/disclaimer.html</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Meta Unveils Orion Holographic AR Glasses: Silicon Carbide Lenses and Neural Wristband Interface Detailed</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=amd-ryzen-7-9800x3d-inverts-3d-v-cache-architecture-full-overclocking-unlocked-2026</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>AMD Ryzen 7 9800X3D Inverts 3D V-Cache Architecture: Thermal Redesign Unlocks Full Overclocking for PC Gamers</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=microsoft-windows-11-24h2-recall-security-overhaul-opt-in-bitlocker-enclave-2026</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Microsoft Re-Engineers Windows 11 Recall: Mandatory Opt-In, BitLocker Enclave, and Windows Hello Protection Explained</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://imtechboss.com/post?id=nvidia-rtx-5090-600w-tdp-12v-2x6-power-connector-melting-concerns-2026</loc>
