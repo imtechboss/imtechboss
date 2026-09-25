@@ -131,6 +131,9 @@
         <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="cheatsheetTool">
           ⚡ Command Cheat Sheets
         </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="gpuMatcherTool">
+          🎮 2026 GPU &amp; Hardware Matcher
+        </button>
       </div>
     </div>
 
@@ -335,6 +338,85 @@
       <!-- Commands Table -->
       <div id="cheatList" class="space-y-3">
         <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- TOOL 4: 2026 GPU & Hardware Matcher -->
+    <section id="gpuMatcherTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl font-bold">
+          🎮
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">2026 GPU &amp; Hardware Matcher Quiz</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Answer 3 questions to find the ideal graphics card, matching processor, and power supply for your specific budget and target titles.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">GPU Budget Range</label>
+          <select id="quizBudget" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="budget">Budget ($300 – $499)</option>
+            <option value="mid" selected>Mid-Range Sweet Spot ($500 – $850)</option>
+            <option value="high">High-End Tier ($900 – $1,400)</option>
+            <option value="enthusiast">No-Compromise Enthusiast ($1,500+)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Primary Workload</label>
+          <select id="quizWorkload" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="esports">Competitive Esports (Apex, CS2, Valorant 240Hz)</option>
+            <option value="aaa" selected>AAA Visual Immersion &amp; Ray Tracing</option>
+            <option value="ai">Local AI / LLM Inference (DeepSeek, Stable Diffusion)</option>
+            <option value="creative">Content Creation &amp; 4K Video Editing</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Monitor Resolution</label>
+          <select id="quizResolution" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="1080">1080p Full HD</option>
+            <option value="1440" selected>1440p Quad HD</option>
+            <option value="4k">4K Ultra HD</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <button id="findGpuBtn" class="px-8 py-3 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          🎯 Find My Perfect GPU Match
+        </button>
+      </div>
+
+      <!-- Match Result Box -->
+      <div id="quizResultBox" class="p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-purple-200/80 dark:border-purple-900/40">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+          <div>
+            <span class="text-xs uppercase font-bold text-purple-600 dark:text-purple-400 tracking-wider">Top Recommended GPU Match</span>
+            <h3 id="matchedGpuTitle" class="text-2xl font-black text-gray-950 dark:text-white mt-1">NVIDIA GeForce RTX 4070 Super (12GB)</h3>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Recommended PSU</span>
+            <p id="matchedPsu" class="text-base font-bold text-gray-900 dark:text-white mt-0.5">650W – 750W Gold</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <strong class="block text-gray-900 dark:text-white mb-1">Recommended Partner Processor:</strong>
+            <span id="matchedCpu" class="text-blue-600 dark:text-blue-400 font-bold">AMD Ryzen 7 7800X3D or Intel Core i5 14600K</span>
+          </div>
+          <div>
+            <strong class="block text-gray-900 dark:text-white mb-1">Expected Frame Rates:</strong>
+            <span id="matchedFps" class="font-semibold text-emerald-600 dark:text-emerald-400">110-140 FPS on 1440p Ultra Settings</span>
+          </div>
+        </div>
+
+        <p id="matchedRationale" class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-200 dark:border-slate-700 pt-3">
+          This configuration provides the best price-to-performance ratio for 1440p high-refresh gaming, featuring AV1 encoding, DLSS 3.5 Frame Generation, and sufficient VRAM headroom for demanding 2026 titles.
+        </p>
       </div>
     </section>
 
@@ -625,6 +707,58 @@ Provide:
         renderCheats();
       });
     });
+
+    // 4. GPU Matcher Logic
+    const findGpuBtn = document.getElementById("findGpuBtn");
+    if (findGpuBtn) {
+      findGpuBtn.addEventListener("click", () => {
+        const budget = document.getElementById("quizBudget").value;
+        const workload = document.getElementById("quizWorkload").value;
+        const res = document.getElementById("quizResolution").value;
+
+        let gpu = "NVIDIA GeForce RTX 4070 Super (12GB)";
+        let cpu = "AMD Ryzen 7 7800X3D or Intel Core i5 14600K";
+        let psu = "650W – 750W Gold";
+        let fps = "110–140 FPS on 1440p Ultra Settings";
+        let rationale = "Outstanding balanced choice for 1440p high-refresh gaming with full DLSS 3.5 support.";
+
+        if (budget === "enthusiast" || (budget === "high" && workload === "ai") || res === "4k") {
+          if (budget === "enthusiast" || workload === "ai") {
+            gpu = "NVIDIA GeForce RTX 5090 (32GB) or RTX 4090 (24GB)";
+            cpu = "AMD Ryzen 7 9800X3D or Ryzen 9 9950X";
+            psu = "1000W – 1200W ATX 3.1 PCIe 5.1";
+            fps = "144+ FPS in 4K Native Ultra / Path Tracing";
+            rationale = "The ultimate workstation and gaming GPU. 24GB–32GB VRAM allows native execution of 70B quantized DeepSeek LLMs and unrestricted 4K path-traced rendering.";
+          } else {
+            gpu = "NVIDIA GeForce RTX 5080 (16GB) or RTX 4080 Super";
+            cpu = "AMD Ryzen 7 9800X3D or Intel Core i7 14700K";
+            psu = "850W Gold";
+            fps = "100–120 FPS in 4K Ultra Settings";
+            rationale = "High-efficiency 4K gaming powerhouse with next-gen GDDR7 memory bandwidth.";
+          }
+        } else if (budget === "high") {
+          gpu = "NVIDIA GeForce RTX 4070 Ti Super (16GB) / AMD Radeon RX 7900 XT";
+          cpu = "AMD Ryzen 7 7800X3D";
+          psu = "750W – 850W Gold";
+          fps = "120–160 FPS on 1440p / 75+ FPS on 4K";
+          rationale = "The 16GB VRAM buffer ensures maximum longevity against memory-heavy console ports.";
+        } else if (budget === "budget") {
+          gpu = "NVIDIA GeForce RTX 4060 (8GB) or AMD Radeon RX 7600 XT (16GB)";
+          cpu = "AMD Ryzen 5 7600 or Intel Core i5 12400F";
+          psu = "550W – 650W Bronze";
+          fps = "140–200+ FPS on 1080p Esports / 60–80 FPS 1080p AAA";
+          rationale = "Exceptional power efficiency running under 130W, perfect for high-refresh 1080p esports and budget-friendly builds.";
+        }
+
+        document.getElementById("matchedGpuTitle").textContent = gpu;
+        document.getElementById("matchedCpu").textContent = cpu;
+        document.getElementById("matchedPsu").textContent = psu;
+        document.getElementById("matchedFps").textContent = fps;
+        document.getElementById("matchedRationale").textContent = rationale;
+
+        showToast("🎯 Perfect hardware match found!");
+      });
+    }
 
     // Newsletter subscription on tools page
     const toolsForm = document.getElementById("toolsNewsletterForm");

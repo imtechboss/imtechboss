@@ -303,6 +303,24 @@ function initNavigation() {
     });
   });
 
+  // Topic Hub Pills handlers
+  document.querySelectorAll(".topic-hub-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const q = btn.getAttribute("data-search") || "";
+      const desktopSearch = document.getElementById("desktopSearchInput");
+      const mobileSearch = document.getElementById("mobileSearchInput");
+      if (desktopSearch) desktopSearch.value = q;
+      if (mobileSearch) mobileSearch.value = q;
+      searchQuery = q.toLowerCase();
+      displayedCount = 12;
+      const clearSearchBtn = document.getElementById("clearSearchBtn");
+      if (clearSearchBtn) clearSearchBtn.classList.remove("hidden");
+      renderArticles();
+      const titleEl = document.getElementById("sectionTitle");
+      if (titleEl) titleEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
   if (mobileMenuBtn && mobileDrawer) {
     mobileMenuBtn.addEventListener("click", () => {
       mobileDrawer.classList.toggle("hidden");
