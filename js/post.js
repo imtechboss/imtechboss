@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupSpotlightSearchPost();
   setupNewsletterPost();
+  initNotificationBell();
 
   // Hash deep link support on post.html (e.g. post.html#about)
   const hash = window.location.hash.replace('#', '').toLowerCase();
@@ -278,6 +279,8 @@ function renderPostDetail() {
     articleBodyHtml = `<p>Full content for this story is coming soon.</p>`;
   }
 
+  const keyTakeawaysHtml = generateKeyTakeaways(article);
+
   const safeTitle = escapeHtml(article.title);
   const safeCat = escapeHtml(article.category || "General");
   const safeAuthor = escapeHtml(article.author?.name || "Tech Boss");
@@ -382,6 +385,36 @@ function renderPostDetail() {
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
     </div>
+
+    <!-- Audio Narration Bar -->
+    <div id="articleAudioBar" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+      <div class="flex items-center gap-3">
+        <button id="audioPlayBtn" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
+          <svg id="playIcon" class="w-4 h-4 ml-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="pauseIcon" class="w-4 h-4 hidden fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-gray-900 dark:text-white">Listen to Article</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 uppercase">AI Audio</span>
+          </div>
+          <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~${readTime}</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <select id="audioRateSelect" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 focus:outline-none">
+          <option value="1">1.0x Speed</option>
+          <option value="1.25">1.25x Speed</option>
+          <option value="1.5">1.5x Speed</option>
+        </select>
+        <button id="audioStopBtn" class="hidden px-2.5 py-1.5 rounded-xl text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors" title="Stop Audio">
+          ⏹ Stop
+        </button>
+      </div>
+    </div>
+
+    <!-- Executive Key Takeaways Card -->
+    ${keyTakeawaysHtml}
 
     <!-- Rich Article Body -->
     <div class="article-body text-gray-800 dark:text-gray-200 leading-relaxed max-w-none">
@@ -623,6 +656,9 @@ function renderPostDetail() {
 
   // Setup Floating "Read Next" Story Widget (Boosts Read-through & Multi-page visits)
   setupFloatingReadNext(article);
+
+  // Setup In-Article Interactive Audio Narration Player
+  setupArticleAudioPlayer(article, container);
 
   // Trigger AdSense for dynamically injected in-article ad slots
   setTimeout(() => {
@@ -1632,6 +1668,216 @@ function setupFloatingReadNext(currentArticle) {
       widget.classList.remove("translate-y-32", "opacity-0", "pointer-events-none");
     }
   }, { passive: true });
+}
+
+// 6. Executive Key Highlights & Takeaways Extractor
+function generateKeyTakeaways(article) {
+  const points = [];
+  if (article.excerpt) {
+    points.push(article.excerpt);
+  }
+
+  if (article.content) {
+    const headings = article.content.match(/<h2[^>]*>(.*?)<\/h2>/gi);
+    if (headings && headings.length > 0) {
+      headings.slice(0, 2).forEach(h => {
+        const text = h.replace(/<[^>]*>/g, '').trim();
+        if (text && !points.includes(text)) {
+          points.push(text);
+        }
+      });
+    }
+  }
+
+  if (points.length === 0) return '';
+
+  return `
+    <div class="mb-8 p-5 sm:p-6 rounded-2xl bg-amber-50/70 dark:bg-slate-800/60 border border-amber-200/80 dark:border-amber-900/40">
+      <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-amber-900 dark:text-amber-400 mb-3">
+        <span class="text-sm">📌</span>
+        <span>Executive Summary &amp; Key Highlights</span>
+      </div>
+      <ul class="space-y-2.5 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
+        ${points.map(pt => `
+          <li class="flex items-start gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 flex-shrink-0"></span>
+            <span class="leading-relaxed font-medium">${escapeHtml(pt)}</span>
+          </li>
+        `).join('')}
+      </ul>
+    </div>
+  `;
+}
+
+// 7. In-Article Text-to-Speech Audio Player (Web Speech API)
+let currentUtterance = null;
+let isAudioPlaying = false;
+let isAudioPaused = false;
+
+function setupArticleAudioPlayer(article, container) {
+  const playBtn = container.querySelector("#audioPlayBtn");
+  const stopBtn = container.querySelector("#audioStopBtn");
+  const rateSelect = container.querySelector("#audioRateSelect");
+  const statusText = container.querySelector("#audioStatusText");
+  const playIcon = container.querySelector("#playIcon");
+  const pauseIcon = container.querySelector("#pauseIcon");
+
+  if (!playBtn || !('speechSynthesis' in window)) {
+    const audioBar = container.querySelector("#articleAudioBar");
+    if (audioBar && !('speechSynthesis' in window)) audioBar.style.display = 'none';
+    return;
+  }
+
+  function updateIcons(playing) {
+    if (playing) {
+      if (playIcon) playIcon.classList.add("hidden");
+      if (pauseIcon) pauseIcon.classList.remove("hidden");
+      if (stopBtn) stopBtn.classList.remove("hidden");
+    } else {
+      if (playIcon) playIcon.classList.remove("hidden");
+      if (pauseIcon) pauseIcon.classList.add("hidden");
+    }
+  }
+
+  function stopAudio() {
+    try { window.speechSynthesis.cancel(); } catch (e) {}
+    isAudioPlaying = false;
+    isAudioPaused = false;
+    updateIcons(false);
+    if (stopBtn) stopBtn.classList.add("hidden");
+    if (statusText) statusText.textContent = "Narration stopped • Ready to play";
+  }
+
+  playBtn.addEventListener("click", () => {
+    if (isAudioPlaying && !isAudioPaused) {
+      try { window.speechSynthesis.pause(); } catch (e) {}
+      isAudioPaused = true;
+      updateIcons(false);
+      if (statusText) statusText.textContent = "Audio paused";
+      return;
+    }
+
+    if (isAudioPaused) {
+      try { window.speechSynthesis.resume(); } catch (e) {}
+      isAudioPaused = false;
+      updateIcons(true);
+      if (statusText) statusText.textContent = "Playing narration...";
+      return;
+    }
+
+    try { window.speechSynthesis.cancel(); } catch (e) {}
+    
+    const rawContent = (article.content || article.excerpt || '').replace(/<[^>]*>/g, ' ');
+    const fullText = `${article.title}. By Tech Boss. ${article.excerpt || ''}. ${rawContent}`;
+    const speechSnippet = fullText.substring(0, 3500);
+
+    currentUtterance = new SpeechSynthesisUtterance(speechSnippet);
+    currentUtterance.rate = parseFloat(rateSelect ? rateSelect.value : 1.0);
+    currentUtterance.pitch = 1.0;
+    currentUtterance.lang = 'en-US';
+
+    currentUtterance.onstart = () => {
+      isAudioPlaying = true;
+      isAudioPaused = false;
+      updateIcons(true);
+      if (statusText) statusText.textContent = "Now narrating this story...";
+    };
+
+    currentUtterance.onend = () => {
+      stopAudio();
+      if (statusText) statusText.textContent = "Narration finished • Click to replay";
+    };
+
+    currentUtterance.onerror = () => {
+      stopAudio();
+      if (statusText) statusText.textContent = "Narration ended";
+    };
+
+    try {
+      window.speechSynthesis.speak(currentUtterance);
+    } catch (err) {
+      console.warn("Speech synthesis error:", err);
+    }
+  });
+
+  if (stopBtn) {
+    stopBtn.addEventListener("click", stopAudio);
+  }
+
+  if (rateSelect) {
+    rateSelect.addEventListener("change", () => {
+      if (isAudioPlaying) {
+        stopAudio();
+        playBtn.click();
+      }
+    });
+  }
+
+  window.addEventListener("beforeunload", () => {
+    if ('speechSynthesis' in window) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+    }
+  });
+}
+
+// 8. Smart Push Notification Opt-In Bell (Post Reader)
+function initNotificationBell() {
+  if (document.getElementById("smartNotificationBell")) return;
+
+  const bell = document.createElement("button");
+  bell.id = "smartNotificationBell";
+  bell.className = "fixed bottom-6 left-6 z-40 p-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center group focus:outline-none";
+  bell.title = "Get Instant Breaking Tech Alerts";
+  bell.setAttribute("aria-label", "Subscribe to push notifications");
+
+  let isSubscribed = false;
+  try {
+    isSubscribed = localStorage.getItem("pulse_push_subscribed") === "true";
+  } catch (e) {}
+
+  bell.innerHTML = `
+    <div class="relative flex items-center justify-center">
+      <svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+      </svg>
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full ${isSubscribed ? 'bg-emerald-400' : 'bg-amber-400 animate-ping'}"></span>
+    </div>
+  `;
+
+  bell.addEventListener("click", async () => {
+    if (!("Notification" in window)) {
+      if (typeof showToast === "function") showToast("Push notifications are not supported in this browser.");
+      return;
+    }
+
+    if (Notification.permission === "granted") {
+      try { localStorage.setItem("pulse_push_subscribed", "true"); } catch (e) {}
+      if (typeof showToast === "function") showToast("🔔 Notifications are active! You will receive breaking tech alerts.");
+      return;
+    }
+
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        try { localStorage.setItem("pulse_push_subscribed", "true"); } catch (e) {}
+        if (typeof showToast === "function") showToast("🎉 Subscribed! You will receive breaking tech alerts.");
+        try {
+          new Notification("Tech Boss Journal", {
+            body: "You're now subscribed to breaking tech and AI updates!",
+            icon: "https://imtechboss.com/favicon.svg"
+          });
+        } catch (e) {}
+        const pingDot = bell.querySelector(".animate-ping");
+        if (pingDot) pingDot.className = "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400";
+      } else {
+        if (typeof showToast === "function") showToast("Notifications permission was not granted.");
+      }
+    } catch (err) {
+      console.warn("Notification request error:", err);
+    }
+  });
+
+  document.body.appendChild(bell);
 }
 
 

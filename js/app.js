@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderArticles();
     initSecretAdminTrigger();
     setupSpotlightSearch();
+    initNotificationBell();
 
     // Direct deep-link to article or static page if URL has #hash
     const rawHash = window.location.hash.replace('#', '').trim();
@@ -520,6 +521,18 @@ function renderArticles(isAppending = false) {
               ${safeCat}
             </span>
           </div>
+          <!-- 1-Click Flipboard Share -->
+          <a 
+            href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(art.title)}&url=${encodeURIComponent('https://imtechboss.com/post.html?id=' + art.id + '&flip=1')}" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="absolute top-3 right-12 w-8 h-8 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-500 transition-colors shadow-sm z-10"
+            title="Flip to Flipboard Magazine"
+            onclick="event.stopPropagation();"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M0 0h8v24H0V0zm8 8h8v8H8V8zm0-8h16v8H8V0z"/></svg>
+          </a>
+
           <button 
             class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-sm z-10"
             data-id="${art.id}" 
@@ -1063,4 +1076,64 @@ function setupSpotlightSearch() {
       </a>
     `).join("");
   });
+}
+
+// 8. Smart Push Notification Opt-In Bell
+function initNotificationBell() {
+  if (document.getElementById("smartNotificationBell")) return;
+
+  const bell = document.createElement("button");
+  bell.id = "smartNotificationBell";
+  bell.className = "fixed bottom-6 left-6 z-40 p-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center group focus:outline-none";
+  bell.title = "Get Instant Breaking Tech Alerts";
+  bell.setAttribute("aria-label", "Subscribe to push notifications");
+
+  let isSubscribed = false;
+  try {
+    isSubscribed = localStorage.getItem("pulse_push_subscribed") === "true";
+  } catch (e) {}
+
+  bell.innerHTML = `
+    <div class="relative flex items-center justify-center">
+      <svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+      </svg>
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full ${isSubscribed ? 'bg-emerald-400' : 'bg-amber-400 animate-ping'}"></span>
+    </div>
+  `;
+
+  bell.addEventListener("click", async () => {
+    if (!("Notification" in window)) {
+      if (typeof showToast === "function") showToast("Push notifications are not supported in this browser.");
+      return;
+    }
+
+    if (Notification.permission === "granted") {
+      try { localStorage.setItem("pulse_push_subscribed", "true"); } catch (e) {}
+      if (typeof showToast === "function") showToast("🔔 Notifications are active! You will receive breaking tech alerts.");
+      return;
+    }
+
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        try { localStorage.setItem("pulse_push_subscribed", "true"); } catch (e) {}
+        if (typeof showToast === "function") showToast("🎉 Subscribed! You will receive breaking tech alerts.");
+        try {
+          new Notification("Tech Boss Journal", {
+            body: "You're now subscribed to breaking tech and AI updates!",
+            icon: "https://imtechboss.com/favicon.svg"
+          });
+        } catch (e) {}
+        const pingDot = bell.querySelector(".animate-ping");
+        if (pingDot) pingDot.className = "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400";
+      } else {
+        if (typeof showToast === "function") showToast("Notifications permission was not granted.");
+      }
+    } catch (err) {
+      console.warn("Notification request error:", err);
+    }
+  });
+
+  document.body.appendChild(bell);
 }
