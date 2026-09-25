@@ -1,7 +1,10 @@
 {
   "postedIds": [
     "meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026",
-    "openai-agent-breaches-australian-government-health-portal-2026"
+    "openai-agent-breaches-australian-government-health-portal-2026",
+    "blogger-295",
+    "rtx-5090-vs-rtx-4090-blackwell-benchmarks-specs-upgrade-guide-2026",
+    "blogger-115"
   ],
   "history": [
     {
@@ -13,6 +16,30 @@
       "id": "openai-agent-breaches-australian-government-health-portal-2026",
       "postedAt": "2026-09-25T05:00:00.000Z",
       "platform": "mastodon"
+    },
+    {
+      "id": "blogger-295",
+      "title": "Samsung Galaxy S9 and S9+ Review",
+      "category": "General",
+      "postedAt": "2026-09-25T06:53:21.959Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwd6q3eahm2r",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117330359274925636"
+    },
+    {
+      "id": "rtx-5090-vs-rtx-4090-blackwell-benchmarks-specs-upgrade-guide-2026",
+      "title": "RTX 5090 vs RTX 4090: Architecture Breakdown, Blackwell Benchmarks, and Is the $2,000 Upgrade Worth It?",
+      "category": "Hardware",
+      "postedAt": "2026-09-25T06:58:37.821Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwd6zfuq6t2d",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117330379966542102"
+    },
+    {
+      "id": "blogger-115",
+      "title": "iPhone  11 Good or Bad  Review?",
+      "category": "General",
+      "postedAt": "2026-09-25T07:18:55.244Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwda5obl4w2r",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117330459761238575"
     }
   ]
 }
