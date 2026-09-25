@@ -87,6 +87,7 @@
       <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold">
         <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
         <a href="tools.html" class="text-blue-600 dark:text-blue-400 font-bold">Tech Tools</a>
+        <a href="compare.html" class="text-rose-600 dark:text-rose-400 hover:text-rose-500 font-semibold transition-colors">Compare</a>
         <a href="/stories/" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold transition-colors">Stories</a>
         <a href="about.html" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
         <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
@@ -652,6 +653,18 @@
       </div>
     </section>
 
+    <!-- Embed Tool Widget for Webmasters & Bloggers (Backlink Magnet) -->
+    <div class="max-w-4xl mx-auto mt-8 p-6 rounded-3xl bg-slate-900 text-slate-100 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">Webmaster &amp; Blogger Resource</span>
+        <h4 class="text-base font-bold text-white">Embed Tech Boss Interactive Tools on Your Website</h4>
+        <p class="text-xs text-slate-400 mt-0.5">Free responsive iframe widget for tech blogs, PC building communities, and forums.</p>
+      </div>
+      <button id="copyToolEmbedBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2 flex-shrink-0 active:scale-95">
+        <span>&lt;/&gt; Copy Embed Code</span>
+      </button>
+    </div>
+
     <!-- Bottom Newsletter Subscription CTA -->
     <div class="max-w-4xl mx-auto mt-12 p-8 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center shadow-lg">
       <h3 class="text-2xl font-black mb-2">Never Miss a Tech Breakthrough</h3>
@@ -1168,6 +1181,19 @@ Provide:
         }
         toolsEmail.value = "";
         showToast("🎉 Successfully subscribed to Tech Boss Dispatch!");
+      });
+    }
+
+    // Embed Code Copy Handler
+    const copyToolEmbedBtn = document.getElementById("copyToolEmbedBtn");
+    if (copyToolEmbedBtn) {
+      copyToolEmbedBtn.addEventListener("click", () => {
+        const embedCode = `<iframe src="https://imtechboss.com/tools.html" width="100%" height="750" frameborder="0" style="border-radius:16px;border:1px solid #334155;"></iframe>\\n<p style="font-size:11px;font-family:sans-serif;color:#64748b;">Powered by <a href="https://imtechboss.com" target="_blank" rel="noopener">Tech Boss Interactive Tools Suite</a></p>`;
+        navigator.clipboard.writeText(embedCode).then(() => {
+          showToast("📋 Interactive Tools embed code copied to clipboard!");
+        }).catch(() => {
+          showToast("Failed to copy embed code");
+        });
       });
     }
   </script>

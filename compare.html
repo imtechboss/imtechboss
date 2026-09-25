@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware &amp; AI Comparison Engine — Tech Boss</title>
+  <meta name="description" content="Compare GPUs, CPUs, and frontier AI reasoning models side-by-side with real-world 1440p/4K benchmarks, VRAM specs, and expert verdicts.">
+  <link rel="canonical" href="https://imtechboss.com/compare.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hardware &amp; AI Comparison Engine — Tech Boss">
+  <meta property="og:description" content="Compare GPUs, CPUs, and AI models side-by-side with real benchmarks and architectural specs.">
+  <meta property="og:image" content="https://imtechboss.com/og-image.png">
+  <meta property="og:url" content="https://imtechboss.com/compare.html">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-1043419685176632">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1043419685176632" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("pulse_theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=6.0">
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+
+  <!-- Header -->
+  <header class="border-b border-gray-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-sm group-hover:scale-105 transition-transform">
+          TB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-gray-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            Tech Boss
+          </span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            Versus Comparison Engine
+          </span>
+        </div>
+      </a>
+
+      <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold">
+        <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+        <a href="tools.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tools</a>
+        <a href="compare.html" class="text-blue-600 dark:text-blue-400 font-bold">Compare</a>
+        <a href="/stories/" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold transition-colors">Stories</a>
+        <a href="about.html" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+        <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+
+        <button 
+          id="themeToggleBtn"
+          class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors ml-1"
+          title="Toggle Dark / Light Mode"
+          aria-label="Toggle Dark / Light Mode"
+        >
+          <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg id="moonIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 py-8 sm:py-12 w-full">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-200 dark:border-blue-800">
+        ⚔️ Direct Benchmark Showdown
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-950 dark:text-white mb-3">
+        Side-by-Side Comparison Engine
+      </h1>
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+        Compare GPUs, desktop processors, and frontier AI reasoning models with real-world benchmark metrics, VRAM allocations, and engineering verdicts.
+      </p>
+
+      <!-- Category Mode Switcher -->
+      <div class="flex items-center justify-center gap-2 mt-6">
+        <button id="modeGpuBtn" class="mode-tab-btn active px-4 py-2 text-xs font-bold rounded-full bg-blue-600 text-white shadow">
+          🎮 Graphics Cards (GPU)
+        </button>
+        <button id="modeCpuBtn" class="mode-tab-btn px-4 py-2 text-xs font-bold rounded-full bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500">
+          🖥️ Processors (CPU)
+        </button>
+        <button id="modeAiBtn" class="mode-tab-btn px-4 py-2 text-xs font-bold rounded-full bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500">
+          🤖 AI Reasoning Models
+        </button>
+      </div>
+    </div>
+
+    <!-- AdSense Top Banner -->
+    <div class="ad-slot-box max-w-4xl mx-auto mb-10 text-center bg-gray-50 dark:bg-slate-900 rounded-2xl p-3 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
+      <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mb-1.5">Sponsored / Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1043419685176632"
+           data-ad-slot="9198547569"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Comparison Selector Card -->
+    <section class="max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+        <!-- Item A -->
+        <div class="p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 block mb-2">Primary Component (A)</span>
+          <select id="selectItemA" class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 text-sm font-bold text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-blue-500">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+
+        <!-- Center VS Badge -->
+        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 text-white font-black text-sm items-center justify-center shadow-lg border-2 border-white dark:border-slate-900 z-10">
+          VS
+        </div>
+
+        <!-- Item B -->
+        <div class="p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700">
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block mb-2">Contender Component (B)</span>
+          <select id="selectItemB" class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 text-sm font-bold text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mt-6">
+        <button id="compareBtn" class="px-8 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          ⚔️ Run Benchmark Comparison
+        </button>
+      </div>
+    </section>
+
+    <!-- Results Container -->
+    <section id="compareResult" class="max-w-4xl mx-auto space-y-8">
+      <!-- Winner Verdict Banner -->
+      <div id="verdictBanner" class="p-6 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-widest text-blue-200">Tech Boss Official Verdict</span>
+          <h2 id="verdictTitle" class="text-2xl sm:text-3xl font-black mt-1">GeForce RTX 5090 Wins Overall</h2>
+          <p id="verdictSubtitle" class="text-xs sm:text-sm text-blue-100 mt-1 max-w-xl">
+            Delivers 50% higher path tracing performance and 32GB GDDR7 memory bandwidth, dominating 4K gaming and local AI workloads.
+          </p>
+        </div>
+        <div class="flex-shrink-0 bg-white/10 backdrop-blur px-5 py-3 rounded-2xl border border-white/20 text-center">
+          <span class="text-[10px] uppercase font-bold text-blue-200 block">Performance Lead</span>
+          <strong id="verdictLeadScore" class="text-2xl font-black text-white">+48%</strong>
+        </div>
+      </div>
+
+      <!-- Specification Head-to-Head Table -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm overflow-hidden">
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <span>📋</span> Specification Matrix
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-gray-200 dark:border-slate-800 text-gray-500 dark:text-gray-400">
+                <th class="py-3 px-4">Feature / Metric</th>
+                <th id="tableColA" class="py-3 px-4 font-bold text-blue-600 dark:text-blue-400">Component A</th>
+                <th id="tableColB" class="py-3 px-4 font-bold text-indigo-600 dark:text-indigo-400">Component B</th>
+                <th class="py-3 px-4">Advantage</th>
+              </tr>
+            </thead>
+            <tbody id="specTableBody" class="divide-y divide-gray-100 dark:divide-slate-800/60 text-gray-800 dark:text-gray-200">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Benchmark Bar Charts -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+          <span>📊</span> Benchmark Scores &amp; Framerates
+        </h3>
+        <div id="benchmarkBarsContainer" class="space-y-6">
+          <!-- Dynamically populated bar charts -->
+        </div>
+      </div>
+
+      <!-- Embed Widget Tool Box -->
+      <div class="p-6 rounded-3xl bg-slate-900 text-slate-100 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">Webmaster &amp; Blogger Tool</span>
+          <h4 class="text-base font-bold text-white">Embed this comparison on your website</h4>
+          <p class="text-xs text-slate-400 mt-0.5">Free embeddable iframe for blogs, forums, and tech publications.</p>
+        </div>
+        <button id="copyEmbedCodeBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2">
+          <span>&lt;/&gt; Copy Embed Code</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-xs text-gray-500 dark:text-gray-400 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-gray-900 dark:text-white">Tech Boss</span>
+        <span>•</span>
+        <span>© 2026 Tech Boss. All rights reserved.</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="index.html" class="hover:text-blue-600">Home</a>
+        <a href="tools.html" class="hover:text-blue-600">Tech Tools</a>
+        <a href="compare.html" class="text-blue-600 font-bold">Compare</a>
+        <a href="about.html" class="hover:text-blue-600">About</a>
+        <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+        <a href="disclaimer.html" class="hover:text-blue-600">Disclaimer</a>
+        <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Comparison Engine Script -->
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById("themeToggleBtn");
+    const sunIcon = document.getElementById("sunIcon");
+    const moonIcon = document.getElementById("moonIcon");
+    function syncIcons() {
+      const isDark = document.documentElement.classList.contains("dark");
+      if (isDark) { sunIcon.classList.remove("hidden"); moonIcon.classList.add("hidden"); }
+      else { sunIcon.classList.add("hidden"); moonIcon.classList.remove("hidden"); }
+    }
+    syncIcons();
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        try { localStorage.setItem("pulse_theme", isDark ? "dark" : "light"); } catch (e) {}
+        syncIcons();
+      });
+    }
+
+    function showToast(msg) {
+      const c = document.getElementById("toastContainer");
+      const t = document.createElement("div");
+      t.className = "px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-semibold shadow-lg border border-slate-800 transition-all transform translate-y-2 opacity-0";
+      t.textContent = msg;
+      c.appendChild(t);
+      setTimeout(() => { t.classList.remove("translate-y-2", "opacity-0"); }, 10);
+      setTimeout(() => { t.classList.add("opacity-0", "translate-y-2"); setTimeout(() => t.remove(), 300); }, 3000);
+    }
+
+    // Comparison Datasets
+    const COMPARISON_DATA = {
+      gpu: {
+        items: [
+          { id: "rtx_5090", name: "NVIDIA GeForce RTX 5090", arch: "Blackwell GB202", vram: "32GB GDDR7", bus: "512-bit", tdp: "600W", price: "$1,999", p1440: 175, p4k: 110, rt: 98, vramGb: 32 },
+          { id: "rtx_4090", name: "NVIDIA GeForce RTX 4090", arch: "Ada Lovelace AD102", vram: "24GB GDDR6X", bus: "384-bit", tdp: "450W", price: "$1,599", p1440: 142, p4k: 78, rt: 68, vramGb: 24 },
+          { id: "rx_7900xtx", name: "AMD Radeon RX 7900 XTX", arch: "RDNA 3 Navi 31", vram: "24GB GDDR6", bus: "384-bit", tdp: "355W", price: "$899", p1440: 130, p4k: 72, rt: 42, vramGb: 24 },
+          { id: "rtx_4080s", name: "NVIDIA GeForce RTX 4080 Super", arch: "Ada Lovelace AD103", vram: "16GB GDDR6X", bus: "256-bit", tdp: "320W", price: "$999", p1440: 125, p4k: 68, rt: 58, vramGb: 16 },
+          { id: "rx_7800xt", name: "AMD Radeon RX 7800 XT", arch: "RDNA 3 Navi 32", vram: "16GB GDDR6", bus: "256-bit", tdp: "263W", price: "$489", p1440: 88, p4k: 45, rt: 28, vramGb: 16 },
+          { id: "rtx_4070", name: "NVIDIA GeForce RTX 4070", arch: "Ada Lovelace AD104", vram: "12GB GDDR6X", bus: "192-bit", tdp: "200W", price: "$529", p1440: 84, p4k: 42, rt: 40, vramGb: 12 },
+          { id: "arc_b580", name: "Intel Arc B580 (Battlemage)", arch: "Xe2-HPG BMG-G21", vram: "12GB GDDR6", bus: "192-bit", tdp: "190W", price: "$249", p1440: 58, p4k: 28, rt: 25, vramGb: 12 },
+          { id: "rtx_4060ti", name: "NVIDIA GeForce RTX 4060 Ti 16GB", arch: "Ada Lovelace AD106", vram: "16GB GDDR6", bus: "128-bit", tdp: "165W", price: "$449", p1440: 63, p4k: 30, rt: 28, vramGb: 16 }
+        ],
+        metrics: [
+          { key: "p1440", label: "1440p Ultra Rasterization (FPS)", unit: "FPS", max: 200 },
+          { key: "p4k", label: "4K UHD Max Settings (FPS)", unit: "FPS", max: 130 },
+          { key: "rt", label: "Cyberpunk 2077 Full Ray Tracing (FPS)", unit: "FPS", max: 110 },
+          { key: "vramGb", label: "Dedicated VRAM Capacity", unit: "GB", max: 32 }
+        ]
+      },
+      cpu: {
+        items: [
+          { id: "r7_9800x3d", name: "AMD Ryzen 7 9800X3D", arch: "Zen 5 + 2nd Gen V-Cache", cores: "8C / 16T", cache: "104MB Total", tdp: "120W", price: "$479", gaming: 100, prod: 78, eff: 95 },
+          { id: "ultra9_285k", name: "Intel Core Ultra 9 285K", arch: "Arrow Lake Multi-Tile", cores: "24C (8P+16E) / 24T", cache: "76MB Total", tdp: "250W", price: "$589", gaming: 88, prod: 99, eff: 88 },
+          { id: "r7_7800x3d", name: "AMD Ryzen 7 7800X3D", arch: "Zen 4 + 3D V-Cache", cores: "8C / 16T", cache: "104MB Total", tdp: "120W", price: "$420", gaming: 94, prod: 70, eff: 92 },
+          { id: "i9_14900k", name: "Intel Core i9 14900K", arch: "Raptor Lake Refresh", cores: "24C (8P+16E) / 32T", cache: "68MB Total", tdp: "253W+", price: "$540", gaming: 90, prod: 96, eff: 55 },
+          { id: "r5_7600x", name: "AMD Ryzen 5 7600X", arch: "Zen 4", cores: "6C / 12T", cache: "38MB Total", tdp: "105W", price: "$199", gaming: 75, prod: 52, eff: 80 }
+        ],
+        metrics: [
+          { key: "gaming", label: "Gaming Relative FPS Index", unit: "%", max: 100 },
+          { key: "prod", label: "Multi-Threaded Rendering Index", unit: "%", max: 100 },
+          { key: "eff", label: "Energy Efficiency / Thermals Index", unit: "%", max: 100 }
+        ]
+      },
+      ai: {
+        items: [
+          { id: "deepseek_r1", name: "DeepSeek R1 (Open Weights)", org: "DeepSeek AI", arch: "671B MoE (37B active)", license: "MIT Open Source", cost: "$0.55 / 1M input", aime: 79.8, swe: 49.2, costScore: 98 },
+          { id: "openai_o3", name: "OpenAI o3 (Proprietary)", org: "OpenAI", arch: "Closed Frontier RL", license: "Commercial API", cost: "~$15.00+ / 1M output", aime: 87.7, swe: 54.5, costScore: 35 },
+          { id: "claude_37", name: "Claude 3.7 Sonnet (Hybrid)", org: "Anthropic", arch: "Hybrid System 1 & 2", license: "Commercial API", cost: "$3.00 / 1M input", aime: 81.2, swe: 70.3, costScore: 65 },
+          { id: "llama_33_70b", name: "Meta LLaMA 3.3 70B", org: "Meta AI", arch: "70B Dense", license: "Llama 3.3 Community", cost: "Free Local / $0.40 API", aime: 68.5, swe: 44.0, costScore: 92 }
+        ],
+        metrics: [
+          { key: "aime", label: "AIME 2024 Math Olympiad", unit: "%", max: 100 },
+          { key: "swe", label: "SWE-bench Verified (Real Software Engineering)", unit: "%", max: 100 },
+          { key: "costScore", label: "Economic / Open Weights Accessibility", unit: "/100", max: 100 }
+        ]
+      }
+    };
+
+    let currentMode = "gpu";
+
+    function populateDropdowns() {
+      const dataset = COMPARISON_DATA[currentMode];
+      const selA = document.getElementById("selectItemA");
+      const selB = document.getElementById("selectItemB");
+
+      selA.innerHTML = "";
+      selB.innerHTML = "";
+
+      dataset.items.forEach((item, idx) => {
+        const optA = document.createElement("option");
+        optA.value = item.id;
+        optA.textContent = item.name;
+        if (idx === 0) optA.selected = true;
+        selA.appendChild(optA);
+
+        const optB = document.createElement("option");
+        optB.value = item.id;
+        optB.textContent = item.name;
+        if (idx === 1) optB.selected = true;
+        selB.appendChild(optB);
+      });
+
+      renderComparison();
+    }
+
+    function renderComparison() {
+      const dataset = COMPARISON_DATA[currentMode];
+      const idA = document.getElementById("selectItemA").value;
+      const idB = document.getElementById("selectItemB").value;
+
+      const itemA = dataset.items.find(i => i.id === idA) || dataset.items[0];
+      const itemB = dataset.items.find(i => i.id === idB) || dataset.items[1];
+
+      document.getElementById("tableColA").textContent = itemA.name;
+      document.getElementById("tableColB").textContent = itemB.name;
+
+      // Build Spec Matrix
+      const tableBody = document.getElementById("specTableBody");
+      tableBody.innerHTML = "";
+
+      const keysToDisplay = Object.keys(itemA).filter(k => !['id', 'name', 'p1440', 'p4k', 'rt', 'gaming', 'prod', 'eff', 'aime', 'swe', 'costScore', 'vramGb'].includes(k));
+      keysToDisplay.forEach(k => {
+        const label = k.toUpperCase();
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-gray-50 dark:hover:bg-slate-800/40 transition-colors";
+        tr.innerHTML = `
+          <td class="py-3 px-4 font-semibold text-gray-500 dark:text-gray-400 capitalize">${k}</td>
+          <td class="py-3 px-4 font-bold text-gray-900 dark:text-white">${itemA[k] || 'N/A'}</td>
+          <td class="py-3 px-4 font-bold text-gray-900 dark:text-white">${itemB[k] || 'N/A'}</td>
+          <td class="py-3 px-4 text-xs font-mono text-blue-600 dark:text-blue-400">—</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      // Build Benchmark Bars
+      const barsContainer = document.getElementById("benchmarkBarsContainer");
+      barsContainer.innerHTML = "";
+
+      let scoreTotalA = 0;
+      let scoreTotalB = 0;
+
+      dataset.metrics.forEach(m => {
+        const valA = itemA[m.key] || 0;
+        const valB = itemB[m.key] || 0;
+        scoreTotalA += valA;
+        scoreTotalB += valB;
+
+        const pctA = Math.min(100, Math.round((valA / m.max) * 100));
+        const pctB = Math.min(100, Math.round((valB / m.max) * 100));
+
+        const barBlock = document.createElement("div");
+        barBlock.className = "space-y-2";
+        barBlock.innerHTML = `
+          <div class="flex items-center justify-between text-xs font-bold text-gray-700 dark:text-gray-300">
+            <span>${m.label}</span>
+            <span class="text-gray-400">${valA} ${m.unit} vs ${valB} ${m.unit}</span>
+          </div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-3">
+              <span class="text-[11px] font-bold w-24 truncate text-blue-600 dark:text-blue-400">${itemA.name.split(' ')[0]} ${itemA.name.split(' ')[1] || ''}</span>
+              <div class="flex-1 bg-gray-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
+                <div class="bg-blue-600 h-full rounded-full transition-all duration-700" style="width: ${pctA}%"></div>
+              </div>
+              <span class="text-xs font-bold w-12 text-right">${valA}</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px] font-bold w-24 truncate text-indigo-600 dark:text-indigo-400">${itemB.name.split(' ')[0]} ${itemB.name.split(' ')[1] || ''}</span>
+              <div class="flex-1 bg-gray-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
+                <div class="bg-indigo-600 h-full rounded-full transition-all duration-700" style="width: ${pctB}%"></div>
+              </div>
+              <span class="text-xs font-bold w-12 text-right">${valB}</span>
+            </div>
+          </div>
+        `;
+        barsContainer.appendChild(barBlock);
+      });
+
+      // Calculate Winner
+      const winner = scoreTotalA >= scoreTotalB ? itemA : itemB;
+      const loser = scoreTotalA >= scoreTotalB ? itemB : itemA;
+      const diffPct = Math.round((Math.abs(scoreTotalA - scoreTotalB) / Math.max(1, Math.min(scoreTotalA, scoreTotalB))) * 100);
+
+      document.getElementById("verdictTitle").textContent = `${winner.name} Wins Overall`;
+      document.getElementById("verdictSubtitle").textContent = `Exceeds the ${loser.name} across composite gaming, computational density, and architectural metrics.`;
+      document.getElementById("verdictLeadScore").textContent = `+${diffPct}%`;
+    }
+
+    // Mode Buttons
+    const modeBtns = {
+      gpu: document.getElementById("modeGpuBtn"),
+      cpu: document.getElementById("modeCpuBtn"),
+      ai: document.getElementById("modeAiBtn")
+    };
+
+    Object.keys(modeBtns).forEach(mode => {
+      modeBtns[mode].addEventListener("click", () => {
+        Object.values(modeBtns).forEach(b => {
+          b.className = "mode-tab-btn px-4 py-2 text-xs font-bold rounded-full bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500";
+        });
+        modeBtns[mode].className = "mode-tab-btn active px-4 py-2 text-xs font-bold rounded-full bg-blue-600 text-white shadow";
+        currentMode = mode;
+        populateDropdowns();
+      });
+    });
+
+    document.getElementById("selectItemA").addEventListener("change", renderComparison);
+    document.getElementById("selectItemB").addEventListener("change", renderComparison);
+    document.getElementById("compareBtn").addEventListener("click", () => {
+      renderComparison();
+      showToast("⚔️ Comparison updated!");
+    });
+
+    // Copy Embed Code
+    document.getElementById("copyEmbedCodeBtn").addEventListener("click", () => {
+      const code = `<iframe src="https://imtechboss.com/compare.html" width="100%" height="700" frameborder="0" style="border-radius:16px;border:1px solid #1e293b;"></iframe>\n<p style="font-size:11px;font-family:sans-serif;color:#64748b;">Powered by <a href="https://imtechboss.com" target="_blank" rel="noopener">Tech Boss Comparison Engine</a></p>`;
+      navigator.clipboard.writeText(code).then(() => {
+        showToast("📋 Embed code copied to clipboard!");
+      }).catch(() => {
+        showToast("Error copying embed code");
+      });
+    });
+
+    populateDropdowns();
+  </script>
+</body>
+</html>

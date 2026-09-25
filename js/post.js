@@ -195,6 +195,10 @@ function renderPostDetail() {
     const schemaData = {
       "@context": "https://schema.org",
       "@type": "TechArticle",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#aioAnswerCapsule", "h1"]
+      },
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": canonicalHref
@@ -1710,16 +1714,31 @@ function generateKeyTakeaways(article) {
   if (points.length === 0) return '';
 
   return `
-    <div class="mb-8 p-5 sm:p-6 rounded-2xl bg-amber-50/70 dark:bg-slate-800/60 border border-amber-200/80 dark:border-amber-900/40">
-      <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-amber-900 dark:text-amber-400 mb-3">
-        <span class="text-sm">📌</span>
-        <span>Executive Summary &amp; Key Highlights</span>
+    <div id="aioAnswerCapsule" class="mb-8 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white dark:from-slate-800/90 dark:via-slate-850 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 shadow-sm not-prose">
+      <div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-blue-100 dark:border-slate-700/80">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
+          <span class="text-[11px] font-black uppercase tracking-wider text-blue-800 dark:text-blue-300">
+            Tech Boss Direct Answer Capsule (AI Overview)
+          </span>
+        </div>
+        <span class="text-[10px] text-gray-400 font-mono hidden sm:inline">GEO Verified • imtechboss.com</span>
       </div>
-      <ul class="space-y-2.5 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
+
+      ${article.excerpt ? `
+        <div class="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white leading-relaxed mb-4 pb-3 border-b border-gray-100 dark:border-slate-800">
+          <strong>Direct Summary: </strong>${escapeHtml(article.excerpt)}
+        </div>
+      ` : ''}
+
+      <div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+        Core Takeaways &amp; Findings:
+      </div>
+      <ul class="space-y-2 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
         ${points.map(pt => `
           <li class="flex items-start gap-2.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 flex-shrink-0"></span>
-            <span class="leading-relaxed font-medium">${escapeHtml(pt)}</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 flex-shrink-0"></span>
+            <span class="leading-relaxed">${escapeHtml(pt)}</span>
           </li>
         `).join('')}
       </ul>
