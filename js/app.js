@@ -24,6 +24,24 @@ document.addEventListener("DOMContentLoaded", () => {
     setupSpotlightSearch();
     initNotificationBell();
 
+    // Support URL Search Parameters (?q=... from SearchAction or ?category=... from BreadcrumbList)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const qParam = urlParams.get('q');
+      const catParam = urlParams.get('category');
+      if (qParam && qParam.trim()) {
+        searchQuery = qParam.trim();
+        const desktopSearchInput = document.getElementById("desktopSearchInput");
+        const mobileSearchInput = document.getElementById("mobileSearchInput");
+        if (desktopSearchInput) desktopSearchInput.value = searchQuery;
+        if (mobileSearchInput) mobileSearchInput.value = searchQuery;
+        renderArticles();
+      } else if (catParam && catParam.trim()) {
+        activeCategory = catParam.trim();
+        renderArticles();
+      }
+    } catch (e) {}
+
     // Direct deep-link to article or static page if URL has #hash
     const rawHash = window.location.hash.replace('#', '').trim();
     if (rawHash) {
@@ -514,6 +532,7 @@ function renderArticles(isAppending = false) {
   let cardsHtml = "";
   visibleArticles.forEach((art, index) => {
     const isBookmarked = bookmarkedIds.has(art.id);
+    const safeId = escapeHtml(String(art.id || ''));
     const safeTitle = escapeHtml(art.title);
     const safeExcerpt = escapeHtml(art.excerpt);
     const safeCat = escapeHtml(art.category || 'General');
@@ -522,7 +541,7 @@ function renderArticles(isAppending = false) {
     const imgUrl = art.image || "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80";
 
     cardsHtml += `
-      <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group" data-id="${art.id}">
+      <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group" data-id="${safeId}">
         <!-- Card Image Header -->
         <div class="relative overflow-hidden aspect-[16/10] bg-gray-100 dark:bg-slate-800">
           <a href="post.html?id=${encodeURIComponent(art.id)}" class="block w-full h-full cursor-pointer">
@@ -553,7 +572,7 @@ function renderArticles(isAppending = false) {
 
           <button 
             class="bookmark-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-sm z-10"
-            data-id="${art.id}" 
+            data-id="${safeId}" 
             title="${isBookmarked ? 'Remove bookmark' : 'Bookmark story'}"
           >
             <svg class="w-4 h-4 ${isBookmarked ? 'fill-blue-600 text-blue-600' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -737,6 +756,7 @@ function renderHero(featuredContainer, trendingContainer) {
 
   // Trending List
   trendingContainer.innerHTML = trending.map((art, idx) => {
+    const safeId = escapeHtml(String(art.id || ''));
     const safeTitle = escapeHtml(art.title);
     const safeCat = escapeHtml(art.category || 'General');
     const safeDate = escapeHtml(art.date || 'Recent');
@@ -746,7 +766,7 @@ function renderHero(featuredContainer, trendingContainer) {
       <a 
         href="post.html?id=${encodeURIComponent(art.id)}" 
         class="group flex gap-3 p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200/70 dark:border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer" 
-        data-id="${art.id}"
+        data-id="${safeId}"
       >
         <span class="text-2xl font-black font-serif-heading text-gray-300 dark:text-slate-700 group-hover:text-blue-600 transition-colors flex-shrink-0 w-6">
           0${idx + 1}
@@ -903,7 +923,7 @@ function initNewsletter() {
     const email = emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-      if (typeof showToast === 'function') showToast("âš ï¸  Please enter a valid email address.");
+      if (typeof showToast === 'function') showToast("⚠️ Please enter a valid email address.");
       return;
     }
 

@@ -445,14 +445,24 @@
         barsContainer.appendChild(barBlock);
       });
 
-      // Calculate Winner
-      const winner = scoreTotalA >= scoreTotalB ? itemA : itemB;
-      const loser = scoreTotalA >= scoreTotalB ? itemB : itemA;
-      const diffPct = Math.round((Math.abs(scoreTotalA - scoreTotalB) / Math.max(1, Math.min(scoreTotalA, scoreTotalB))) * 100);
+      // Calculate Winner or Handle Identical Selection
+      const isIdentical = itemA.id === itemB.id;
+      let winner = null;
+      let loser = null;
 
-      document.getElementById("verdictTitle").textContent = `${winner.name} Wins Overall`;
-      document.getElementById("verdictSubtitle").textContent = `Exceeds the ${loser.name} across composite gaming, computational density, and architectural metrics.`;
-      document.getElementById("verdictLeadScore").textContent = `+${diffPct}%`;
+      if (isIdentical) {
+        document.getElementById("verdictTitle").textContent = `${itemA.name} (Direct Comparison)`;
+        document.getElementById("verdictSubtitle").textContent = `Both contenders are identical models. Select a different product in Contender B to compare performance differentials.`;
+        document.getElementById("verdictLeadScore").textContent = `0%`;
+      } else {
+        winner = scoreTotalA >= scoreTotalB ? itemA : itemB;
+        loser = scoreTotalA >= scoreTotalB ? itemB : itemA;
+        const diffPct = Math.round((Math.abs(scoreTotalA - scoreTotalB) / Math.max(1, Math.min(scoreTotalA, scoreTotalB))) * 100);
+
+        document.getElementById("verdictTitle").textContent = `${winner.name} Wins Overall`;
+        document.getElementById("verdictSubtitle").textContent = `Exceeds the ${loser.name} across composite gaming, computational density, and architectural metrics.`;
+        document.getElementById("verdictLeadScore").textContent = `+${diffPct}%`;
+      }
 
       // Render Retailer Deal Cards (The Hawk Engine)
       const dealContainer = document.getElementById("retailerDealSection");
@@ -539,8 +549,8 @@
           return card;
         };
 
-        const cardA = renderProductCard(itemA, winner === itemA, "bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800", "Contender A");
-        const cardB = renderProductCard(itemB, winner === itemB, "bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800", "Contender B");
+        const cardA = renderProductCard(itemA, !isIdentical && winner === itemA, "bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800", "Contender A");
+        const cardB = renderProductCard(itemB, !isIdentical && winner === itemB, "bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800", "Contender B");
         dealContainer.appendChild(cardA);
         dealContainer.appendChild(cardB);
       }

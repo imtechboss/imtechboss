@@ -164,7 +164,7 @@ function renderPostDetail() {
   const twDesc = document.getElementById("twDescription");
   const twImg = document.getElementById("twImage");
 
-  const canonicalHref = `https://imtechboss.com/post.html?id=${encodeURIComponent(article.id)}`;
+  const canonicalHref = `https://imtechboss.com/post?id=${encodeURIComponent(article.id)}`;
   const canonicalUrl = document.getElementById("canonicalUrl");
   if (canonicalUrl) canonicalUrl.setAttribute("href", canonicalHref);
   if (ogUrl) ogUrl.setAttribute("content", canonicalHref);
@@ -460,7 +460,7 @@ function renderPostDetail() {
 
             <!-- Pinterest -->
             <a 
-              href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://imtechboss.com/post?id=' + article.id)}&media=${encodeURIComponent(article.image ? (article.image.startsWith('http') ? article.image : 'https://imtechboss.com/' + article.image) : 'https://imtechboss.com/assets/banner.png')}&description=${encodeURIComponent(article.title)}" 
+              href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://imtechboss.com/post?id=' + article.id)}&media=${encodeURIComponent(article.image ? (article.image.startsWith('http') ? article.image : 'https://imtechboss.com/' + article.image) : 'https://imtechboss.com/og-image.png')}&description=${encodeURIComponent(article.title)}" 
               target="_blank" 
               rel="noopener"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e60023] hover:bg-[#ad081b] text-white text-xs font-bold transition-colors shadow-sm"
@@ -1424,7 +1424,7 @@ function setupSpotlightSearchPost() {
   const triggerBtn = document.getElementById("searchModalTrigger");
   const countBadge = document.getElementById("spotlightCountBadge");
 
-  if (!searchModal || !searchInput) return;
+  if (!searchModal || !searchInput || !searchResults) return;
 
   let allArticlesList = [];
   try {
@@ -1525,7 +1525,7 @@ function setupNewsletterPost() {
     const email = emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-      if (typeof showToast === 'function') showToast("âš ï¸  Please enter a valid email address.");
+      if (typeof showToast === 'function') showToast("⚠️ Please enter a valid email address.");
       return;
     }
 
@@ -1633,8 +1633,15 @@ function setupFloatingReadNext(currentArticle) {
   const allArts = _getArticlesList();
   if (!allArts || allArts.length < 2) return;
 
+  function isNextPillDismissed() {
+    try { return sessionStorage.getItem("tb_dismiss_next_pill") === "true"; } catch (e) { return false; }
+  }
+  function setNextPillDismissed() {
+    try { sessionStorage.setItem("tb_dismiss_next_pill", "true"); } catch (e) {}
+  }
+
   // Don't show if user dismissed it in this session
-  if (sessionStorage.getItem("tb_dismiss_next_pill") === "true") return;
+  if (isNextPillDismissed()) return;
 
   // Pick next story
   const currentIndex = allArts.findIndex(a => a && a.id === currentArticle.id);
@@ -1673,14 +1680,14 @@ function setupFloatingReadNext(currentArticle) {
 
     document.getElementById("closeFloatingReadNext")?.addEventListener("click", () => {
       widget.classList.add("translate-y-32", "opacity-0", "pointer-events-none");
-      sessionStorage.setItem("tb_dismiss_next_pill", "true");
+      setNextPillDismissed();
     });
   }
 
   // Show widget after 30% scroll
   let isShown = false;
   window.addEventListener("scroll", () => {
-    if (sessionStorage.getItem("tb_dismiss_next_pill") === "true") return;
+    if (isNextPillDismissed()) return;
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPercent = height > 0 ? (winScroll / height) * 100 : 0;
