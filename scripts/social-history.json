@@ -1,0 +1,18 @@
+{
+  "postedIds": [
+    "meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026",
+    "openai-agent-breaches-australian-government-health-portal-2026"
+  ],
+  "history": [
+    {
+      "id": "meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026",
+      "postedAt": "2026-09-25T05:00:00.000Z",
+      "platform": "bluesky"
+    },
+    {
+      "id": "openai-agent-breaches-australian-government-health-portal-2026",
+      "postedAt": "2026-09-25T05:00:00.000Z",
+      "platform": "mastodon"
+    }
+  ]
+}
