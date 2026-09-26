@@ -431,6 +431,9 @@ function renderPostDetail() {
     <!-- Google FAQ Accordion & People Also Ask Section -->
     ${faqSectionHtml}
 
+    <!-- Tech Boss Interactive Hubs & Live Deals Callout -->
+    ${generateHubsCrossPromote(article)}
+
     <!-- Social Share Bar & Tags -->
     <div class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -1850,6 +1853,91 @@ function generateFaqSection(article) {
   };
 
   return { faqHtml, faqSchemaJson };
+}
+
+// 6.6 Tech Boss Interactive Hubs & Live Deals Callout
+function generateHubsCrossPromote(article) {
+  const cat = (article.category || '').toLowerCase();
+  const title = (article.title || '').toLowerCase();
+  const isHardware = cat.includes('hard') || cat.includes('gam') || title.includes('gpu') || title.includes('cpu') || title.includes('rtx') || title.includes('ryzen') || title.includes('intel') || title.includes('monitor') || title.includes('ssd') || title.includes('a16') || title.includes('tsmc');
+  const isAI = cat.includes('ai') || title.includes('deepseek') || title.includes('llama') || title.includes('qwen') || title.includes('gpt') || title.includes('claude') || title.includes('model') || title.includes('vram') || title.includes('colossus');
+
+  return `
+    <div class="my-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-900 dark:via-slate-800/40 dark:to-slate-900 border border-gray-200/90 dark:border-slate-800 shadow-sm not-prose">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-200/70 dark:border-slate-800">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center text-xs font-black shadow-sm">TB</span>
+          <div>
+            <h4 class="font-extrabold text-sm sm:text-base text-gray-950 dark:text-white tracking-tight">Tech Boss Interactive Hubs &amp; Live Radar</h4>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400">Explore free diagnostic tools, spec comparison engines, and verified hardware deals.</p>
+          </div>
+        </div>
+        <span class="hidden sm:inline-flex px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-widest rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">Updated Daily</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        <!-- Card 1: Compare Tool -->
+        <a href="compare.html" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">⚔️</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30 px-2 py-0.5 rounded-md">Versus Engine</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              ${isHardware ? 'Hardware Benchmark Matcher' : 'Spec & Model Comparison'}
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              ${isHardware ? 'Compare RTX 5090, 4090, RX 7900 XTX, and Ryzen 9800X3D specs, TDP, and pricing.' : 'Compare processor architectures, memory bandwidth, and compute specs side-by-side.'}
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Launch Compare Hub</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+
+        <!-- Card 2: Tech Deals Radar -->
+        <a href="deals.html" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">🏷️</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 px-2 py-0.5 rounded-md">Live Price Drops</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              Verified Tech Deals Radar
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Curated daily discounts on GPUs, CPUs, 240Hz Fast IPS gaming monitors, and high-speed Gen4 SSDs.
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>View Today's Deals</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+
+        <!-- Card 3: Free Interactive Tools -->
+        <a href="${isAI ? 'tools.html?tool=vram' : 'tools.html?tool=bottleneck'}" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">${isAI ? '🧠' : '🖥️'}</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30 px-2 py-0.5 rounded-md">Free Utility</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              ${isAI ? 'Local AI & VRAM Sizer' : 'PC Bottleneck Calculator'}
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              ${isAI ? 'Calculate exact VRAM and KV cache needed to run DeepSeek R1, LLaMA 3.3, and Qwen offline.' : 'Identify CPU/GPU mismatch bottlenecks and calculate optimum power supply requirements.'}
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-purple-600 dark:text-purple-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>${isAI ? 'Calculate AI Memory' : 'Calculate Bottlenecks'}</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  `;
 }
 
 // 7. In-Article Text-to-Speech Audio Player (Web Speech API)

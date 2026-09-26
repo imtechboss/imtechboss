@@ -16,6 +16,7 @@
   <title>Free Tech Tools & Calculators — Tech Boss</title>
   <meta name="description" content="Explore free interactive tech tools by Tech Boss: PC Bottleneck Calculator, AI Prompt Engineering Studio, and Searchable Developer Cheat Sheets.">
   <link rel="canonical" href="https://imtechboss.com/tools.html">
+  <link rel="alternate" type="application/rss+xml" title="Tech Boss RSS Feed" href="https://imtechboss.com/feed.xml">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Open Graph -->
@@ -762,8 +763,9 @@
     }
 
     // Tabs switching
-    document.querySelectorAll(".tool-tab-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
+    function activateTab(targetId) {
+      const btn = document.querySelector(`.tool-tab-btn[data-target="${targetId}"]`);
+      if (btn) {
         document.querySelectorAll(".tool-tab-btn").forEach(b => {
           b.classList.remove("bg-blue-600", "text-white", "shadow", "active");
           b.classList.add("bg-white", "dark:bg-slate-900", "border", "border-gray-200", "dark:border-slate-800", "text-gray-700", "dark:text-gray-300");
@@ -771,12 +773,38 @@
         btn.classList.add("bg-blue-600", "text-white", "shadow", "active");
         btn.classList.remove("bg-white", "dark:bg-slate-900", "border", "border-gray-200", "dark:border-slate-800", "text-gray-700", "dark:text-gray-300");
 
-        const targetId = btn.getAttribute("data-target");
         document.querySelectorAll(".tool-section").forEach(sec => sec.classList.add("hidden"));
         const targetSec = document.getElementById(targetId);
         if (targetSec) targetSec.classList.remove("hidden");
+      }
+    }
+
+    document.querySelectorAll(".tool-tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        activateTab(targetId);
       });
     });
+
+    // Deep-linking via query string (?tool=vram) or hash (#aiVramTool)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const toolParam = (urlParams.get("tool") || "").toLowerCase();
+      const hash = window.location.hash.replace("#", "").toLowerCase();
+      if (toolParam.includes("vram") || hash.includes("vram") || hash.includes("aivram")) {
+        activateTab("aiVramTool");
+      } else if (toolParam.includes("gpu") || hash.includes("gpu")) {
+        activateTab("gpuMatcherTool");
+      } else if (toolParam.includes("game") || hash.includes("game")) {
+        activateTab("gameCheckerTool");
+      } else if (toolParam.includes("prompt") || hash.includes("prompt")) {
+        activateTab("promptTool");
+      } else if (toolParam.includes("cheat") || hash.includes("cheat")) {
+        activateTab("cheatsheetTool");
+      } else if (toolParam.includes("bottleneck") || hash.includes("bottleneck")) {
+        activateTab("bottleneckTool");
+      }
+    } catch (e) {}
 
     // 1. Bottleneck Calculator Logic
     const calcBtn = document.getElementById("calcBottleneckBtn");

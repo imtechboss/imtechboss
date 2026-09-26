@@ -35,7 +35,9 @@
     "best-budget-144hz-240hz-gaming-monitors-under-200-dollars-2026",
     "blogger-596",
     "blogger-731",
-    "xai-colossus-2-scales-to-1-44-million-gpus-nvidia-gb300-tesla-megapack-power-wall"
+    "xai-colossus-2-scales-to-1-44-million-gpus-nvidia-gb300-tesla-megapack-power-wall",
+    "blogger-231",
+    "tsmc-a16-angstrom-process-super-power-rail-bspdn-ai-accelerators"
   ],
   "history": [
     {
@@ -319,6 +321,22 @@
       "postedAt": "2026-09-26T04:37:47.815Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwfhmi5mll2d",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117335488452484461"
+    },
+    {
+      "id": "blogger-231",
+      "title": "TOP 5 BATTLE ROYAL GAMES FOR ANDROID/IOS",
+      "category": "Gaming & Apps",
+      "postedAt": "2026-09-26T04:57:56.086Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwfiqhfcyo2t",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117335567635001756"
+    },
+    {
+      "id": "tsmc-a16-angstrom-process-super-power-rail-bspdn-ai-accelerators",
+      "title": "TSMC A16 1.6nm Process Enters Final Validation: Super Power Rail Solves IR Drop & Logic Density Ceilings for AI Silicon",
+      "category": "Hardware",
+      "postedAt": "2026-09-26T05:03:04.474Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwfiznvqkc2k",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117335587844538699"
     }
   ]
 }
