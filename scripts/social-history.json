@@ -34,7 +34,8 @@
     "blogger-194",
     "best-budget-144hz-240hz-gaming-monitors-under-200-dollars-2026",
     "blogger-596",
-    "blogger-731"
+    "blogger-731",
+    "xai-colossus-2-scales-to-1-44-million-gpus-nvidia-gb300-tesla-megapack-power-wall"
   ],
   "history": [
     {
@@ -310,6 +311,14 @@
       "postedAt": "2026-09-25T17:44:38.525Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwed4kw5qh2p",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117332920165735928"
+    },
+    {
+      "id": "xai-colossus-2-scales-to-1-44-million-gpus-nvidia-gb300-tesla-megapack-power-wall",
+      "title": "xAI Colossus 2 Scales to 1.44M GPUs: How 220,000 NVIDIA GB300 Units & 3.3 GWh Tesla Megapacks Broke the AI Data Center Power Wall",
+      "category": "AI & Technology",
+      "postedAt": "2026-09-26T04:37:47.815Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwfhmi5mll2d",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117335488452484461"
     }
   ]
 }
