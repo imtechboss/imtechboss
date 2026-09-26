@@ -269,9 +269,35 @@ function initNavigation() {
   const mobileDrawer = document.getElementById("mobileDrawer");
   const bookmarksFilterBtn = document.getElementById("bookmarksFilterBtn");
 
+function matchesCategoryFilter(articleCat, filterCat) {
+  if (!filterCat || filterCat === "All") return true;
+  if (!articleCat) return false;
+  const aCat = articleCat.toLowerCase().trim();
+  const fCat = filterCat.toLowerCase().trim();
+  if (aCat === fCat) return true;
+
+  if (fCat === "ai & technology") {
+    return aCat.includes("ai") || aCat.includes("future tech") || aCat.includes("intelligence");
+  }
+  if (fCat === "hardware") {
+    return aCat.includes("hardware") || aCat.includes("computing") || aCat.includes("smartphone") || aCat.includes("gadget");
+  }
+  if (fCat === "gaming") {
+    return aCat.includes("gaming") || aCat.includes("esport") || aCat.includes("game");
+  }
+  if (fCat === "guides") {
+    return aCat.includes("guide") || aCat.includes("how-to") || aCat.includes("tutorial") || aCat.includes("education") || aCat.includes("notes");
+  }
+  if (fCat === "software & tech") {
+    return aCat.includes("software") || aCat.includes("program") || aCat.includes("dev") || aCat.includes("cyber") || aCat.includes("utility") || aCat.includes("tech");
+  }
+
+  return aCat.includes(fCat) || fCat.includes(aCat);
+}
+
   const categories = (typeof defaultCategories !== 'undefined' && Array.isArray(defaultCategories))
     ? defaultCategories
-    : ["All", "Education & Notes", "General", "Gaming & Apps", "Software & Tech"];
+    : ["All", "AI & Technology", "Hardware", "Gaming", "Guides", "Software & Tech"];
 
   if (categoryNavBar) {
     categoryNavBar.innerHTML = categories.map(cat => `
@@ -482,7 +508,7 @@ function renderArticles(isAppending = false) {
   // Filter articles
   let filtered = articles.filter(art => {
     if (!art) return false;
-    const matchesCat = activeCategory === "All" || (art.category && art.category.toLowerCase() === activeCategory.toLowerCase());
+    const matchesCat = matchesCategoryFilter(art.category, activeCategory);
     const matchesSearch = !searchQuery || 
       (art.title && art.title.toLowerCase().includes(searchQuery)) ||
       (art.excerpt && art.excerpt.toLowerCase().includes(searchQuery)) ||

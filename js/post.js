@@ -285,6 +285,13 @@ function renderPostDetail() {
     articleBodyHtml = `<p>Full content for this story is coming soon.</p>`;
   }
 
+  let tocHtml = "";
+  if (articleBodyHtml) {
+    const tocResult = generateTableOfContents(articleBodyHtml);
+    tocHtml = tocResult.tocHtml;
+    articleBodyHtml = tocResult.updatedBody;
+  }
+
   const keyTakeawaysHtml = generateKeyTakeaways(article);
   const { faqHtml: faqSectionHtml, faqSchemaJson } = generateFaqSection(article);
 
@@ -422,6 +429,9 @@ function renderPostDetail() {
 
     <!-- Executive Key Takeaways Card -->
     ${keyTakeawaysHtml}
+
+    <!-- In-Depth Table of Contents -->
+    ${tocHtml}
 
     <!-- Rich Article Body -->
     <div class="article-body text-gray-800 dark:text-gray-200 leading-relaxed max-w-none">
@@ -1759,6 +1769,65 @@ function generateKeyTakeaways(article) {
       </ul>
     </div>
   `;
+}
+
+// 6.2 Dynamic Table of Contents (ToC) Generator for Deep Technical Analysis
+function generateTableOfContents(contentHtml) {
+  if (!contentHtml || typeof contentHtml !== "string") {
+    return { tocHtml: "", updatedBody: contentHtml || "" };
+  }
+
+  const h2Regex = /<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi;
+  const headings = [];
+  let index = 0;
+
+  const updatedBody = contentHtml.replace(h2Regex, (match, attrs, innerText) => {
+    index++;
+    const plainText = innerText.replace(/<[^>]*>/g, "").trim();
+    if (!plainText) return match;
+
+    const idMatch = attrs.match(/id=["']([^"']+)["']/i);
+    let id = idMatch ? idMatch[1] : "";
+    if (!id) {
+      const slug = plainText.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 48);
+      id = `section-${index}-${slug || 'heading'}`;
+      attrs = `${attrs} id="${id}"`;
+    }
+    headings.push({ id, title: plainText });
+    return `<h2 ${attrs.trim()}>${innerText}</h2>`;
+  });
+
+  if (headings.length < 2) {
+    return { tocHtml: "", updatedBody: contentHtml };
+  }
+
+  const listItems = headings.map((h, i) => `
+    <li class="flex items-start gap-2.5">
+      <span class="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0">${(i + 1).toString().padStart(2, "0")}.</span>
+      <a href="#${escapeHtml(h.id)}" class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:underline">
+        ${escapeHtml(h.title)}
+      </a>
+    </li>
+  `).join("");
+
+  const tocHtml = `
+    <div class="my-6 p-4 sm:p-5 rounded-2xl bg-gray-50/90 dark:bg-slate-800/60 border border-gray-200/80 dark:border-slate-800/80 shadow-xs not-prose">
+      <details open class="group">
+        <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 dark:text-gray-100 select-none list-none">
+          <span class="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-gray-800 dark:text-gray-200 font-extrabold">
+            <span>📑</span>
+            <span>In This Analysis (Table of Contents)</span>
+          </span>
+          <span class="text-xs text-blue-600 dark:text-blue-400 group-open:rotate-180 transition-transform duration-200">▼</span>
+        </summary>
+        <ol class="mt-3.5 pt-3.5 border-t border-gray-200/60 dark:border-slate-700/60 space-y-2 list-none pl-0">
+          ${listItems}
+        </ol>
+      </details>
+    </div>
+  `;
+
+  return { tocHtml, updatedBody };
 }
 
 // 6.5 Google FAQ & People Also Ask Accordion Generator
