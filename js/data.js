@@ -5,7 +5,7 @@ var initialArticles = [
   "excerpt": "Google is launching Tensor Processing Units into Low Earth Orbit. Slated for flight aboard a SpaceX Falcon 9 on October 1, 2026, Project Suncatcher tests solar-powered orbital supercomputing to bypass terrestrial power grid bottlenecks, water cooling constraints, and land limits.",
   "category": "AI & Technology",
   "date": "2026-09-26",
-  "author": "Binod Bhatt",
+  "author": "Tech Boss",
   "readTime": "7 min read",
   "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80",
   "tags": [
@@ -26,7 +26,7 @@ var initialArticles = [
     "excerpt": "With the GeForce RTX 5070 hitting shelves, PC gamers face a difficult choice: buy the newer Blackwell GB205 architecture with faster GDDR7 memory, or stick with the proven 16GB VRAM buffer on the RTX 4070 Ti Super? Here is the direct 1440p and 4K benchmark breakdown.",
     "category": "Hardware",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "7 min read",
     "image": "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -47,7 +47,7 @@ var initialArticles = [
     "excerpt": "Apple has locked in TSMC's 2nm (N2) node and System-on-Integrated-Chips (SoIC) 3D packaging for the upcoming M5 processor family. Here is an architectural deep dive into its gate-all-around nanosheet density, thermal dissipation design, and unified memory bandwidth.",
     "category": "Hardware",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "7 min read",
     "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -69,7 +69,7 @@ var initialArticles = [
     "excerpt": "Is your PC stuck at 'Undoing changes made to your computer' or crashing with KERNEL_SECURITY_CHECK_FAILURE during the Windows 11 24H2 update? Here is the exact step-by-step diagnostic guide to clear corrupted servicing stacks, bypass driver blocklists, and complete a clean installation.",
     "category": "Guides",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "8 min read",
     "image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -90,7 +90,7 @@ var initialArticles = [
     "excerpt": "NVIDIA has revealed architecture specifications for the Rubin R100 GPU family succeeding Blackwell. Featuring 288GB of ultra-fast HBM4 memory, 3nm GAA nanosheets, and NVLink 6 delivering 3.6 TB/s bi-directional fabric bandwidth, Rubin is engineered to eliminate KV-cache bottlenecks in trillion-parameter mixture-of-experts models.",
     "category": "Hardware",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "8 min read",
     "image": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -112,7 +112,7 @@ var initialArticles = [
     "excerpt": "DeepSeek has disrupted frontier AI economics by training the 671B parameter DeepSeek V3 and R1 reasoning models for under $6 million. Inside the mathematical mechanics of Multi-Head Latent Attention (MLA), auxiliary-loss-free load balancing, and native FP8 mixed-precision frameworks.",
     "category": "AI & Technology",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "8 min read",
     "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -134,7 +134,7 @@ var initialArticles = [
     "excerpt": "OpenAI has officially launched Operator, an autonomous multimodal agent executing mouse clicks, keystrokes, and complex multi-step browser workflows without dedicated APIs. Here is an architectural deep dive into its visual grounding engine, execution safety sandboxes, and enterprise rollout.",
     "category": "AI & Technology",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "7 min read",
     "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -156,7 +156,7 @@ var initialArticles = [
     "excerpt": "Qualcomm has unveiled the Snapdragon X2 Elite, manufactured on TSMC's 3nm N3P node with 12 next-gen Oryon V2 CPU cores and a 60 TOPS Hexagon NPU. Here is a technical breakdown of its memory architecture, instruction IPC uplifts, and thermal efficiency against Apple M4 and Intel Lunar Lake.",
     "category": "Hardware",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "7 min read",
     "image": "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -180,7 +180,7 @@ var initialArticles = [
     "excerpt": "The National Institute of Standards and Technology has published finalized post-quantum encryption standards FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA). Cloudflare, Apple, Google, and global cloud providers are overhauling TLS handshakes to nullify Shor's algorithm and thwart nation-state interception campaigns.",
     "category": "Cybersecurity",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "6 min read",
     "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -201,7 +201,7 @@ var initialArticles = [
     "excerpt": "TSMC has advanced its 1.6nm-class A16 node into final risk validation. By pairing Gate-All-Around (GAA) nanosheets with backside power delivery (Super Power Rail), the foundry eliminates IR drop and unlocks 10% higher clocks and 20% lower power for next-generation AI accelerators.",
     "category": "Hardware",
     "date": "2026-09-26",
-    "author": "Binod Bhatt",
+    "author": "Tech Boss",
     "readTime": "6 min read",
     "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
     "tags": [
