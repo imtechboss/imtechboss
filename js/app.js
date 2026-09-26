@@ -727,8 +727,9 @@ function removeLoadMoreButton() {
 function renderHero(featuredContainer, trendingContainer) {
   if (!featuredContainer || !trendingContainer) return;
 
-  const featured = articles.find(a => a.featured) || articles[0];
-  const trending = articles.filter(a => a.trending && a.id !== featured?.id).slice(0, 3);
+  // The newest breaking story is always the main Hero Featured story
+  const featured = articles[0];
+  const trending = articles.slice(1, 4);
 
   if (featured) {
     const safeTitle = escapeHtml(featured.title);
