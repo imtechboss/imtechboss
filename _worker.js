@@ -18,10 +18,17 @@ export default {
 
         if (adminKey === ADMIN_SECRET || hasAdminCookie) {
           const assetUrl = new URL(request.url);
-          assetUrl.pathname = '/admin.html';
+          assetUrl.pathname = '/admin';
           assetUrl.search = '';
-          const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+          let response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+          if (response.status >= 300 && response.status < 400) {
+            const loc = response.headers.get('Location') || '/admin';
+            const redirectUrl = new URL(loc, request.url);
+            response = await env.ASSETS.fetch(new Request(redirectUrl.toString(), request));
+          }
           const newHeaders = new Headers(response.headers);
+          newHeaders.delete('Location');
+          newHeaders.set('Content-Type', 'text/html; charset=utf-8');
           if (adminKey === ADMIN_SECRET) {
             newHeaders.set('Set-Cookie', `tb_admin_token=${ADMIN_SECRET}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400`);
           }
