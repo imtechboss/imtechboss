@@ -185,63 +185,65 @@ function renderPostDetail() {
   // Dynamic Google Schema.org (JSON-LD) Structured Data for Rich Search Results
   try {
     let schemaScript = document.getElementById("articleJsonLd");
-    if (!schemaScript) {
-      schemaScript = document.createElement("script");
-      schemaScript.id = "articleJsonLd";
-      schemaScript.type = "application/ld+json";
-      document.head.appendChild(schemaScript);
-    }
-
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "TechArticle",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["#aioAnswerCapsule", "h1"]
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": canonicalHref
-      },
-      "headline": article.title,
-      "description": article.excerpt || article.title,
-      "image": [fullImgUrl],
-      "datePublished": (() => { try { const d = new Date(article.timestamp || article.date); return !isNaN(d.getTime()) ? d.toISOString() : "2026-09-19T00:00:00Z"; } catch(e) { return "2026-09-19T00:00:00Z"; } })(),
-      "dateModified": (() => { try { const d = new Date(article.timestamp || article.date); return !isNaN(d.getTime()) ? d.toISOString() : "2026-09-19T00:00:00Z"; } catch(e) { return "2026-09-19T00:00:00Z"; } })(),
-      "author": {
-        "@type": "Organization",
-        "name": article.author?.name || "Tech Boss",
-        "url": "https://imtechboss.com"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Tech Boss",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://imtechboss.com/og-image.png"
-        }
+    if (!schemaScript || !schemaScript.textContent || !schemaScript.textContent.includes('"@graph"')) {
+      if (!schemaScript) {
+        schemaScript = document.createElement("script");
+        schemaScript.id = "articleJsonLd";
+        schemaScript.type = "application/ld+json";
+        document.head.appendChild(schemaScript);
       }
-    };
-    schemaScript.textContent = JSON.stringify(schemaData);
 
-    // BreadcrumbList Schema
-    let breadcrumbScript = document.getElementById("breadcrumbJsonLd");
-    if (!breadcrumbScript) {
-      breadcrumbScript = document.createElement("script");
-      breadcrumbScript.id = "breadcrumbJsonLd";
-      breadcrumbScript.type = "application/ld+json";
-      document.head.appendChild(breadcrumbScript);
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["#aioAnswerCapsule", "h1"]
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalHref
+        },
+        "headline": article.title,
+        "description": article.excerpt || article.title,
+        "image": [fullImgUrl],
+        "datePublished": (() => { try { const d = new Date(article.timestamp || article.date); return !isNaN(d.getTime()) ? d.toISOString() : "2026-09-19T00:00:00Z"; } catch(e) { return "2026-09-19T00:00:00Z"; } })(),
+        "dateModified": (() => { try { const d = new Date(article.timestamp || article.date); return !isNaN(d.getTime()) ? d.toISOString() : "2026-09-19T00:00:00Z"; } catch(e) { return "2026-09-19T00:00:00Z"; } })(),
+        "author": {
+          "@type": "Organization",
+          "name": article.author?.name || "Tech Boss",
+          "url": "https://imtechboss.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tech Boss",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://imtechboss.com/og-image.png"
+          }
+        }
+      };
+      schemaScript.textContent = JSON.stringify(schemaData);
+
+      // BreadcrumbList Schema
+      let breadcrumbScript = document.getElementById("breadcrumbJsonLd");
+      if (!breadcrumbScript) {
+        breadcrumbScript = document.createElement("script");
+        breadcrumbScript.id = "breadcrumbJsonLd";
+        breadcrumbScript.type = "application/ld+json";
+        document.head.appendChild(breadcrumbScript);
+      }
+      const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com" },
+          { "@type": "ListItem", "position": 2, "name": article.category || "Article", "item": `https://imtechboss.com/?category=${encodeURIComponent(article.category || '')}` },
+          { "@type": "ListItem", "position": 3, "name": article.title }
+        ]
+      };
+      breadcrumbScript.textContent = JSON.stringify(breadcrumbData);
     }
-    const breadcrumbData = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com" },
-        { "@type": "ListItem", "position": 2, "name": article.category || "Article", "item": `https://imtechboss.com/?category=${encodeURIComponent(article.category || '')}` },
-        { "@type": "ListItem", "position": 3, "name": article.title }
-      ]
-    };
-    breadcrumbScript.textContent = JSON.stringify(breadcrumbData);
   } catch (e) {}
 
   // Handle Likes
@@ -690,14 +692,17 @@ function renderPostDetail() {
   // Inject Google FAQPage JSON-LD Schema
   if (faqSchemaJson) {
     try {
-      let faqScript = document.getElementById("faqJsonLd");
-      if (!faqScript) {
-        faqScript = document.createElement("script");
-        faqScript.id = "faqJsonLd";
-        faqScript.type = "application/ld+json";
-        document.head.appendChild(faqScript);
+      const mainSchema = document.getElementById("articleJsonLd");
+      if (!mainSchema || !mainSchema.textContent || !mainSchema.textContent.includes('"FAQPage"')) {
+        let faqScript = document.getElementById("faqJsonLd");
+        if (!faqScript) {
+          faqScript = document.createElement("script");
+          faqScript.id = "faqJsonLd";
+          faqScript.type = "application/ld+json";
+          document.head.appendChild(faqScript);
+        }
+        faqScript.textContent = JSON.stringify(faqSchemaJson);
       }
-      faqScript.textContent = JSON.stringify(faqSchemaJson);
     } catch (e) {}
   }
 

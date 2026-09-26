@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://imtechboss.com/post?id=tsmc-a16-angstrom-process-super-power-rail-bspdn-ai-accelerators</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>TSMC A16 1.6nm Process Enters Final Validation: Super Power Rail Solves IR Drop &amp; Logic Density Ceilings for AI Silicon</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/post?id=xai-colossus-2-scales-to-1-44-million-gpus-nvidia-gb300-tesla-megapack-power-wall</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
