@@ -2,6 +2,95 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
     <item>
+      <title>Google Project Suncatcher: Space-Based TPU AI Data Centers Set for Falcon 9 Orbit Launch</title>
+      <link>https://imtechboss.com/post.html?id=google-project-suncatcher-space-based-tpu-satellite-ai-data-center-launch</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=google-project-suncatcher-space-based-tpu-satellite-ai-data-center-launch</guid>
+      <description>Google is launching Tensor Processing Units into Low Earth Orbit. Slated for flight aboard a SpaceX Falcon 9 on October 1, 2026, Project Suncatcher tests solar-powered orbital supercomputing to bypass terrestrial power grid bottlenecks, water cooling constraints, and land limits.</description>
+      <category>AI &amp; Technology</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>RTX 5070 vs RTX 4070 Ti Super: Which 1440p High-Refresh Gaming GPU Actually Deserves Your Money in 2026?</title>
+      <link>https://imtechboss.com/post.html?id=rtx-5070-vs-rtx-4070-ti-super-1440p-gaming-benchmarks-specs-guide-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=rtx-5070-vs-rtx-4070-ti-super-1440p-gaming-benchmarks-specs-guide-2026</guid>
+      <description>With the GeForce RTX 5070 hitting shelves, PC gamers face a difficult choice: buy the newer Blackwell GB205 architecture with faster GDDR7 memory, or stick with the proven 16GB VRAM buffer on the RTX 4070 Ti Super? Here is the direct 1440p and 4K benchmark breakdown.</description>
+      <category>Hardware</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>Apple M5 Chip Architecture Leaks: TSMC 2nm GAA Nanosheets &amp; SoIC 3D Stacking Set to Power Next-Gen Macs</title>
+      <link>https://imtechboss.com/post.html?id=apple-m5-chip-tsmc-2nm-soic-3d-packaging-specs-launch-roadmap-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=apple-m5-chip-tsmc-2nm-soic-3d-packaging-specs-launch-roadmap-2026</guid>
+      <description>Apple has locked in TSMC's 2nm (N2) node and System-on-Integrated-Chips (SoIC) 3D packaging for the upcoming M5 processor family. Here is an architectural deep dive into its gate-all-around nanosheet density, thermal dissipation design, and unified memory bandwidth.</description>
+      <category>Hardware</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>How to Fix Windows 11 24H2 Update Failed (0x80070002, 0x800F0988) &amp; BSOD Crash Loops: Complete 2026 Diagnostic Guide</title>
+      <link>https://imtechboss.com/post.html?id=how-to-fix-windows-11-24h2-installation-failed-error-bsod-clean-update-guide-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=how-to-fix-windows-11-24h2-installation-failed-error-bsod-clean-update-guide-2026</guid>
+      <description>Is your PC stuck at 'Undoing changes made to your computer' or crashing with KERNEL_SECURITY_CHECK_FAILURE during the Windows 11 24H2 update? Here is the exact step-by-step diagnostic guide to clear corrupted servicing stacks, bypass driver blocklists, and complete a clean installation.</description>
+      <category>Guides</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>NVIDIA Rubin R100 GPU Architecture: HBM4 288GB, TSMC 3nm GAA &amp; NVLink 6 Break Through Datacenter Memory Walls</title>
+      <link>https://imtechboss.com/post.html?id=nvidia-rubin-r100-gpu-architecture-hbm4-288gb-tsmc-3nm-nvlink-6</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=nvidia-rubin-r100-gpu-architecture-hbm4-288gb-tsmc-3nm-nvlink-6</guid>
+      <description>NVIDIA has revealed architecture specifications for the Rubin R100 GPU family succeeding Blackwell. Featuring 288GB of ultra-fast HBM4 memory, 3nm GAA nanosheets, and NVLink 6 delivering 3.6 TB/s bi-directional fabric bandwidth, Rubin is engineered to eliminate KV-cache bottlenecks in trillion-parameter mixture-of-experts models.</description>
+      <category>Hardware</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>DeepSeek V3 / R1 Architecture Deep Dive: Multi-Head Latent Attention (MLA), DeepSeekMoE &amp; FP8 Mixed-Precision Training Economics</title>
+      <link>https://imtechboss.com/post.html?id=deepseek-v3-r1-moe-multi-head-latent-attention-fp8-training-economics</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=deepseek-v3-r1-moe-multi-head-latent-attention-fp8-training-economics</guid>
+      <description>DeepSeek has disrupted frontier AI economics by training the 671B parameter DeepSeek V3 and R1 reasoning models for under $6 million. Inside the mathematical mechanics of Multi-Head Latent Attention (MLA), auxiliary-loss-free load balancing, and native FP8 mixed-precision frameworks.</description>
+      <category>AI &amp; Technology</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>OpenAI Operator Commercial Launch: Inside the Autonomous GUI Agents Executing Browser &amp; Desktop Workflows Without APIs</title>
+      <link>https://imtechboss.com/post.html?id=openai-operator-commercial-launch-autonomous-browser-desktop-computer-using-agent</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=openai-operator-commercial-launch-autonomous-browser-desktop-computer-using-agent</guid>
+      <description>OpenAI has officially launched Operator, an autonomous multimodal agent executing mouse clicks, keystrokes, and complex multi-step browser workflows without dedicated APIs. Here is an architectural deep dive into its visual grounding engine, execution safety sandboxes, and enterprise rollout.</description>
+      <category>AI &amp; Technology</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>Qualcomm Snapdragon X2 Elite: 3nm Oryon V2 Architecture &amp; 60 TOPS NPU Threaten Apple M4 and Lunar Lake Dominance</title>
+      <link>https://imtechboss.com/post.html?id=qualcomm-snapdragon-x2-elite-3nm-oryon-v2-60-tops-npu-vs-apple-m4-lunar-lake</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=qualcomm-snapdragon-x2-elite-3nm-oryon-v2-60-tops-npu-vs-apple-m4-lunar-lake</guid>
+      <description>Qualcomm has unveiled the Snapdragon X2 Elite, manufactured on TSMC's 3nm N3P node with 12 next-gen Oryon V2 CPU cores and a 60 TOPS Hexagon NPU. Here is a technical breakdown of its memory architecture, instruction IPC uplifts, and thermal efficiency against Apple M4 and Intel Lunar Lake.</description>
+      <category>Hardware</category>
+      <pubDate>Sat, 26 Sep 2026 13:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+
+    <item>
       <title>NIST Finalizes FIPS 203 &amp; 204 Standards: Inside the Global Race to Deploy ML-KEM and Stop 'Harvest Now, Decrypt Later' Attacks</title>
       <link>https://imtechboss.com/post.html?id=nist-finalizes-post-quantum-cryptography-fips-203-ml-kem-harvest-now-decrypt-later</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=nist-finalizes-post-quantum-cryptography-fips-203-ml-kem-harvest-now-decrypt-later</guid>
