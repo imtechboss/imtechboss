@@ -357,7 +357,7 @@
 
   <script src="js/data.js?v=5.7"></script>
   <script>
-    const MASTER_PASSCODE = "techboss2026";
+    const MASTER_PASSCODES = ["techboss2026", "binod_boss_2026"];
     const DRAFT_STORAGE_KEY = "tb_editor_story_draft";
     const CUSTOM_POSTS_KEY = "pulse_custom_posts";
 
@@ -374,7 +374,7 @@
     authForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const code = document.getElementById("passcode").value.trim();
-      if (code === MASTER_PASSCODE) {
+      if (MASTER_PASSCODES.includes(code)) {
         sessionStorage.setItem("tb_admin_auth", "true");
         authOverlay.classList.add("hidden");
       } else {

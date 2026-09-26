@@ -41,11 +41,35 @@ export default {{
     try {{
       const url = new URL(request.url);
       const pathname = url.pathname.toLowerCase();
+      const ADMIN_SECRET = 'binod_boss_2026';
 
-      // Edge Security Shield: Block sensitive internal paths from external access
+      // 1. Secure Admin Access Controller (Key / Cookie Authenticated)
+      if (pathname === '/admin' || pathname === '/admin.html') {{
+        const adminKey = url.searchParams.get('key');
+        const cookieHeader = request.headers.get('Cookie') || '';
+        const hasAdminCookie = cookieHeader.includes('tb_admin_token=' + ADMIN_SECRET);
+
+        if (adminKey === ADMIN_SECRET || hasAdminCookie) {{
+          const assetUrl = new URL(request.url);
+          assetUrl.pathname = '/admin.html';
+          assetUrl.search = '';
+          const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+          const newHeaders = new Headers(response.headers);
+          if (adminKey === ADMIN_SECRET) {{
+            newHeaders.set('Set-Cookie', `tb_admin_token=${{ADMIN_SECRET}}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400`);
+          }}
+          return new Response(response.body, {{
+            status: 200,
+            headers: newHeaders
+          }});
+        }}
+
+        // Unauthorized visitors or bots get a dead 404
+        return new Response('404 Not Found', {{ status: 404, headers: {{ 'Content-Type': 'text/plain' }} }});
+      }}
+
+      // 2. Edge Security Shield: Block sensitive internal paths from external access
       if (
-        pathname === '/admin' || 
-        pathname === '/admin.html' || 
         pathname.startsWith('/scripts') || 
         pathname.startsWith('/blogger') || 
         pathname.includes('..') ||
