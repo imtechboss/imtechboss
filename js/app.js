@@ -260,15 +260,7 @@ function initTickerAndClock() {
   }
 }
 
-// 4. Navigation & Category Filters
-function initNavigation() {
-  const categoryNavBar = document.getElementById("categoryNavBar");
-  const mobileCategoryList = document.getElementById("mobileCategoryList");
-  const filterPillsContainer = document.getElementById("filterPillsContainer");
-  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-  const mobileDrawer = document.getElementById("mobileDrawer");
-  const bookmarksFilterBtn = document.getElementById("bookmarksFilterBtn");
-
+// Global Category Filter Matcher
 function matchesCategoryFilter(articleCat, filterCat) {
   if (!filterCat || filterCat === "All") return true;
   if (!articleCat) return false;
@@ -294,6 +286,15 @@ function matchesCategoryFilter(articleCat, filterCat) {
 
   return aCat.includes(fCat) || fCat.includes(aCat);
 }
+
+// 4. Navigation & Category Filters
+function initNavigation() {
+  const categoryNavBar = document.getElementById("categoryNavBar");
+  const mobileCategoryList = document.getElementById("mobileCategoryList");
+  const filterPillsContainer = document.getElementById("filterPillsContainer");
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileDrawer = document.getElementById("mobileDrawer");
+  const bookmarksFilterBtn = document.getElementById("bookmarksFilterBtn");
 
   const categories = (typeof defaultCategories !== 'undefined' && Array.isArray(defaultCategories))
     ? defaultCategories
