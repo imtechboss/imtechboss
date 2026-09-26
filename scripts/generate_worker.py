@@ -40,9 +40,25 @@ export default {{
   async fetch(request, env) {{
     try {{
       const url = new URL(request.url);
+      const pathname = url.pathname.toLowerCase();
+
+      // Edge Security Shield: Block sensitive internal paths from external access
+      if (
+        pathname === '/admin' || 
+        pathname === '/admin.html' || 
+        pathname.startsWith('/scripts') || 
+        pathname.startsWith('/blogger') || 
+        pathname.includes('..') ||
+        pathname.endsWith('.py') ||
+        pathname.endsWith('.jsonl') ||
+        pathname.endsWith('.sh')
+      ) {{
+        return new Response('404 Not Found', {{ status: 404, headers: {{ 'Content-Type': 'text/plain' }} }});
+      }}
+
       const id = url.searchParams.get('id');
 
-      if ((url.pathname === '/post' || url.pathname === '/post.html') && id && articlesMeta[id]) {{
+      if ((pathname === '/post' || pathname === '/post.html') && id && Object.prototype.hasOwnProperty.call(articlesMeta, id)) {{
         const assetUrl = new URL(request.url);
         assetUrl.pathname = '/post';
         const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
