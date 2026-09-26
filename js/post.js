@@ -211,7 +211,7 @@ function renderPostDetail() {
         "dateModified": (() => { try { const d = new Date(article.timestamp || article.date); return !isNaN(d.getTime()) ? d.toISOString() : "2026-09-19T00:00:00Z"; } catch(e) { return "2026-09-19T00:00:00Z"; } })(),
         "author": {
           "@type": "Organization",
-          "name": article.author?.name || "Tech Boss",
+          "name": (typeof article.author === 'object' && article.author?.name) ? article.author.name : (typeof article.author === 'string' && article.author ? article.author : "Tech Boss"),
           "url": "https://imtechboss.com"
         },
         "publisher": {
@@ -297,7 +297,10 @@ function renderPostDetail() {
 
   const safeTitle = escapeHtml(article.title);
   const safeCat = escapeHtml(article.category || "General");
-  const safeAuthor = escapeHtml(article.author?.name || "Tech Boss");
+  const authorName = (typeof article.author === 'object' && article.author?.name) 
+    ? article.author.name 
+    : (typeof article.author === 'string' && article.author ? article.author : "Tech Boss");
+  const safeAuthor = escapeHtml(authorName);
   const safeDate = escapeHtml(article.date || "Recent");
   const views = escapeHtml(article.views || "1.2K");
   const imgUrl = article.image || "";
@@ -664,9 +667,6 @@ function renderPostDetail() {
       }
     } catch (e) {}
   });
-
-  // Generate Table of Contents
-  generateTableOfContents(container);
 
   // Setup 1-Click Code Copy Buttons
   setupCodeCopyButtons(container);
@@ -1306,55 +1306,6 @@ function injectInArticleAdSense(html) {
   }
 
   return html;
-}
-
-// 8. Reader Feature: Table of Contents (ToC)
-function generateTableOfContents(container) {
-  const headings = container.querySelectorAll(".article-body h2, .article-body h3");
-  if (headings.length < 2) return;
-
-  const tocContainer = document.createElement("div");
-  tocContainer.className = "my-6 p-5 rounded-2xl bg-blue-50/50 dark:bg-slate-800/80 border border-blue-100 dark:border-slate-800 text-xs";
-  
-  let listItems = "";
-  headings.forEach((heading, idx) => {
-    let headingId = heading.id && heading.id.trim();
-    if (!headingId) {
-      const slug = heading.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-      headingId = slug || `section-${idx}`;
-      heading.id = headingId;
-    }
-    const isH3 = heading.tagName.toLowerCase() === "h3";
-    listItems += `
-      <li class="${isH3 ? 'ml-4 list-disc text-gray-500 dark:text-gray-400' : 'font-semibold text-gray-800 dark:text-gray-200'} my-1">
-        <a href="#${headingId}" class="hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors">${escapeHtml(heading.textContent)}</a>
-      </li>
-    `;
-  });
-
-  tocContainer.innerHTML = `
-    <div class="flex items-center justify-between font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-2">
-      <span class="flex items-center gap-1.5">📑 Table of Contents</span>
-      <button id="toggleTocBtn" class="text-xs text-blue-600 dark:text-blue-400 hover:underline font-semibold">Hide</button>
-    </div>
-    <ul id="tocList" class="space-y-1 list-none pl-0">
-      ${listItems}
-    </ul>
-  `;
-
-  const articleBody = container.querySelector(".article-body");
-  if (articleBody) {
-    articleBody.insertBefore(tocContainer, articleBody.firstChild);
-
-    const toggleBtn = tocContainer.querySelector("#toggleTocBtn");
-    const tocList = tocContainer.querySelector("#tocList");
-    if (toggleBtn && tocList) {
-      toggleBtn.addEventListener("click", () => {
-        const isHidden = tocList.classList.toggle("hidden");
-        toggleBtn.textContent = isHidden ? "Show" : "Hide";
-      });
-    }
-  }
 }
 
 // 9. Reader Feature: 1-Click Code Copy Button

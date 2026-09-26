@@ -16,12 +16,20 @@ def generate_worker():
     data = json.loads(match.group(1))
     meta = {}
     for a in data:
+        raw_author = a.get('author', 'Tech Boss')
+        if isinstance(raw_author, dict):
+            author_str = raw_author.get('name', 'Tech Boss')
+        elif isinstance(raw_author, str) and raw_author.strip():
+            author_str = raw_author.strip()
+        else:
+            author_str = 'Tech Boss'
+
         meta[a['id']] = {
             'title': a.get('title', ''),
             'excerpt': a.get('excerpt', ''),
             'image': a.get('image', ''),
             'date': a.get('date', ''),
-            'author': a.get('author', 'Tech Boss'),
+            'author': author_str,
             'category': a.get('category', 'AI & Technology')
         }
 
@@ -99,7 +107,7 @@ export default {{
         const safeImg = article.image || 'https://imtechboss.com/og-image.png';
         const canonical = 'https://imtechboss.com/post?id=' + encodeURIComponent(id);
         const safeDate = article.date || '';
-        const safeAuthor = (article.author || 'Tech Boss').replace(/"/g, '&quot;');
+        const safeAuthor = (typeof article.author === 'string' ? article.author : (article.author?.name || 'Tech Boss')).replace(/"/g, '&quot;');
         const safeCategory = article.category || 'AI & Technology';
 
         let faqs = [];

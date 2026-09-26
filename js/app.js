@@ -515,7 +515,10 @@ function renderArticles(isAppending = false) {
       (art.excerpt && art.excerpt.toLowerCase().includes(searchQuery)) ||
       (art.category && art.category.toLowerCase().includes(searchQuery)) ||
       (art.tags && (Array.isArray(art.tags) ? art.tags.some(t => String(t).toLowerCase().includes(searchQuery)) : String(art.tags).toLowerCase().includes(searchQuery))) ||
-      (art.author && art.author.name && art.author.name.toLowerCase().includes(searchQuery));
+      (art.author && (
+        (typeof art.author === 'string' && art.author.toLowerCase().includes(searchQuery)) ||
+        (typeof art.author === 'object' && art.author?.name && art.author.name.toLowerCase().includes(searchQuery))
+      ));
     const matchesBookmark = !onlyBookmarks || bookmarkedIds.has(art.id);
 
     return matchesCat && matchesSearch && matchesBookmark;
@@ -563,8 +566,10 @@ function renderArticles(isAppending = false) {
     const safeTitle = escapeHtml(art.title);
     const safeExcerpt = escapeHtml(art.excerpt);
     const safeCat = escapeHtml(art.category || 'General');
-    const safeDate = escapeHtml(art.date || 'Recent');
-    const safeAuthor = escapeHtml(art.author?.name || 'Tech Boss');
+    const authorName = (typeof art.author === 'object' && art.author?.name) 
+      ? art.author.name 
+      : (typeof art.author === 'string' && art.author ? art.author : 'Tech Boss');
+    const safeAuthor = escapeHtml(authorName);
     const imgUrl = art.image || "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80";
 
     cardsHtml += `
@@ -729,7 +734,10 @@ function renderHero(featuredContainer, trendingContainer) {
     const safeExcerpt = escapeHtml(featured.excerpt);
     const safeCat = escapeHtml(featured.category || 'Featured');
     const safeDate = escapeHtml(featured.date || 'Recent');
-    const safeAuthor = escapeHtml(featured.author?.name || 'Tech Boss');
+    const authorName = (typeof featured.author === 'object' && featured.author?.name) 
+      ? featured.author.name 
+      : (typeof featured.author === 'string' && featured.author ? featured.author : 'Tech Boss');
+    const safeAuthor = escapeHtml(authorName);
     const imgUrl = featured.image || "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80";
 
     featuredContainer.innerHTML = `
