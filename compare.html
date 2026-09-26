@@ -59,7 +59,7 @@
       }
     } catch (e) {}
   </script>
-  <link rel="stylesheet" href="css/style.css?v=6.0">
+  <link rel="stylesheet" href="css/style.css?v=7.4">
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
 
@@ -317,6 +317,7 @@
           { id: "rtx_4080s", name: "NVIDIA GeForce RTX 4080 Super", arch: "Ada Lovelace AD103", vram: "16GB GDDR6X", bus: "256-bit", tdp: "320W", price: "$999", p1440: 125, p4k: 68, rt: 58, vramGb: 16 },
           { id: "rx_7800xt", name: "AMD Radeon RX 7800 XT", arch: "RDNA 3 Navi 32", vram: "16GB GDDR6", bus: "256-bit", tdp: "263W", price: "$489", p1440: 88, p4k: 45, rt: 28, vramGb: 16 },
           { id: "rtx_4070", name: "NVIDIA GeForce RTX 4070", arch: "Ada Lovelace AD104", vram: "12GB GDDR6X", bus: "192-bit", tdp: "200W", price: "$529", p1440: 84, p4k: 42, rt: 40, vramGb: 12 },
+          { id: "rtx_5080", name: "NVIDIA GeForce RTX 5080", arch: "Blackwell GB203", vram: "16GB GDDR7", bus: "256-bit", tdp: "400W", price: "$999", p1440: 152, p4k: 92, rt: 82, vramGb: 16 },
           { id: "arc_b580", name: "Intel Arc B580 (Battlemage)", arch: "Xe2-HPG BMG-G21", vram: "12GB GDDR6", bus: "192-bit", tdp: "190W", price: "$249", p1440: 58, p4k: 28, rt: 25, vramGb: 12 },
           { id: "rtx_4060ti", name: "NVIDIA GeForce RTX 4060 Ti 16GB", arch: "Ada Lovelace AD106", vram: "16GB GDDR6", bus: "128-bit", tdp: "165W", price: "$449", p1440: 63, p4k: 30, rt: 28, vramGb: 16 }
         ],
@@ -331,6 +332,9 @@
         items: [
           { id: "r7_9800x3d", name: "AMD Ryzen 7 9800X3D", arch: "Zen 5 + 2nd Gen V-Cache", cores: "8C / 16T", cache: "104MB Total", tdp: "120W", price: "$479", gaming: 100, prod: 78, eff: 95 },
           { id: "ultra9_285k", name: "Intel Core Ultra 9 285K", arch: "Arrow Lake Multi-Tile", cores: "24C (8P+16E) / 24T", cache: "76MB Total", tdp: "250W", price: "$589", gaming: 88, prod: 99, eff: 88 },
+          { id: "snapdragon_x2_elite", name: "Qualcomm Snapdragon X2 Elite", arch: "Oryon V2 (TSMC 3nm N3P)", cores: "12C / 12T (4.5GHz)", cache: "42MB Total", tdp: "28W (15-45W)", price: "$1,199 (PC)", gaming: 74, prod: 92, eff: 99 },
+          { id: "apple_m4_pro", name: "Apple M4 Pro", arch: "Apple Silicon (TSMC 3nm N3E)", cores: "14C (10P+4E) / 14T", cache: "36MB L2/SLC", tdp: "30W (25-65W)", price: "$1,599 (Mac)", gaming: 76, prod: 95, eff: 98 },
+          { id: "lunar_lake_258v", name: "Intel Core Ultra 7 258V (Lunar Lake)", arch: "Lion Cove + Skymont (3nm)", cores: "8C (4P+4LP-E)", cache: "26MB Total", tdp: "17W (17-37W)", price: "$1,299 (Laptop)", gaming: 68, prod: 74, eff: 96 },
           { id: "r7_7800x3d", name: "AMD Ryzen 7 7800X3D", arch: "Zen 4 + 3D V-Cache", cores: "8C / 16T", cache: "104MB Total", tdp: "120W", price: "$420", gaming: 94, prod: 70, eff: 92 },
           { id: "i9_14900k", name: "Intel Core i9 14900K", arch: "Raptor Lake Refresh", cores: "24C (8P+16E) / 32T", cache: "68MB Total", tdp: "253W+", price: "$540", gaming: 90, prod: 96, eff: 55 },
           { id: "r5_7600x", name: "AMD Ryzen 5 7600X", arch: "Zen 4", cores: "6C / 12T", cache: "38MB Total", tdp: "105W", price: "$199", gaming: 75, prod: 52, eff: 80 }
@@ -344,7 +348,9 @@
       ai: {
         items: [
           { id: "deepseek_r1", name: "DeepSeek R1 (Open Weights)", org: "DeepSeek AI", arch: "671B MoE (37B active)", license: "MIT Open Source", cost: "$0.55 / 1M input", aime: 79.8, swe: 49.2, costScore: 98 },
+          { id: "deepseek_v3", name: "DeepSeek V3 (671B MoE Base)", org: "DeepSeek AI", arch: "671B MoE (MLA Architecture)", license: "MIT Open Source", cost: "$0.14 / 1M input", aime: 68.4, swe: 49.2, costScore: 99 },
           { id: "openai_o3", name: "OpenAI o3 (Proprietary)", org: "OpenAI", arch: "Closed Frontier RL", license: "Commercial API", cost: "~$15.00+ / 1M output", aime: 87.7, swe: 54.5, costScore: 35 },
+          { id: "openai_operator", name: "OpenAI Operator (Autonomous CUA)", org: "OpenAI", arch: "Autonomous Browser & Desktop Agent", license: "Commercial Pro/Team", cost: "Pro Subscription Tier", aime: 84.0, swe: 62.1, costScore: 60 },
           { id: "claude_37", name: "Claude 3.7 Sonnet (Hybrid)", org: "Anthropic", arch: "Hybrid System 1 & 2", license: "Commercial API", cost: "$3.00 / 1M input", aime: 81.2, swe: 70.3, costScore: 65 },
           { id: "llama_33_70b", name: "Meta LLaMA 3.3 70B", org: "Meta AI", arch: "70B Dense", license: "Llama 3.3 Community", cost: "Free Local / $0.40 API", aime: 68.5, swe: 44.0, costScore: 92 }
         ],

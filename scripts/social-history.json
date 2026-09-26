@@ -41,7 +41,9 @@
     "blogger-263",
     "blogger-39",
     "blogger-122",
-    "blogger-696"
+    "blogger-696",
+    "nist-finalizes-post-quantum-cryptography-fips-203-ml-kem-harvest-now-decrypt-later",
+    "openai-operator-commercial-launch-autonomous-browser-desktop-computer-using-agent"
   ],
   "history": [
     {
@@ -373,6 +375,22 @@
       "postedAt": "2026-09-26T06:34:01.116Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwfo4cdgqg2d",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117335945457739124"
+    },
+    {
+      "id": "nist-finalizes-post-quantum-cryptography-fips-203-ml-kem-harvest-now-decrypt-later",
+      "title": "NIST Finalizes FIPS 203 & 204 Standards: Inside the Global Race to Deploy ML-KEM and Stop 'Harvest Now, Decrypt Later' Attacks",
+      "category": "Cybersecurity",
+      "postedAt": "2026-09-26T06:39:09.013Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwfofhqhce2t",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117335965632022951"
+    },
+    {
+      "id": "openai-operator-commercial-launch-autonomous-browser-desktop-computer-using-agent",
+      "title": "OpenAI Operator Commercial Launch: Inside the Autonomous GUI Agents Executing Browser & Desktop Workflows Without APIs",
+      "category": "AI & Technology",
+      "postedAt": "2026-09-26T06:44:17.150Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwfoonoctl2f",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117335985825765312"
     }
   ]
 }
