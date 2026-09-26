@@ -7,17 +7,28 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-.article-body h2,
-.article-body h3 {
-  scroll-margin-top: 5.5rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Responsive safety rules for mobile viewports */
+img, video, canvas, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-body h2,
+.article-body h3 {
+  scroll-margin-top: 5.5rem;
 }
 
 .font-serif-heading {
