@@ -961,13 +961,25 @@ Provide:
             </code>
           </div>
           <button 
-            onclick="navigator.clipboard.writeText('${item.cmd.replace(/'/g, "\\'")}'); showToast('📋 Command copied to clipboard!');" 
-            class="px-3.5 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800 text-xs font-bold text-blue-600 dark:text-blue-400 transition-colors flex-shrink-0 self-start sm:self-center shadow-xs"
+            data-cmd="${item.cmd.replace(/"/g, '&quot;')}"
+            class="cheat-copy-btn px-3.5 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800 text-xs font-bold text-blue-600 dark:text-blue-400 transition-colors flex-shrink-0 self-start sm:self-center shadow-xs"
           >
             Copy
           </button>
         </div>
       `).join("");
+    }
+
+    if (cheatList) {
+      cheatList.addEventListener('click', (e) => {
+        const btn = e.target.closest('.cheat-copy-btn');
+        if (btn) {
+          const cmd = btn.getAttribute('data-cmd');
+          if (cmd && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(cmd).then(() => showToast('📋 Command copied to clipboard!'));
+          }
+        }
+      });
     }
 
     renderCheats();

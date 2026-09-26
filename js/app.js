@@ -833,9 +833,8 @@ function renderHero(featuredContainer, trendingContainer) {
 }
 
 function attachCardEvents() {
-
-
-  document.querySelectorAll(".bookmark-btn").forEach(btn => {
+  document.querySelectorAll(".bookmark-btn:not([data-bound])").forEach(btn => {
+    btn.setAttribute("data-bound", "true");
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       e.preventDefault();

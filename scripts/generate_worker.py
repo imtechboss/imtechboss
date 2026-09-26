@@ -104,7 +104,10 @@ export default {{
         const article = articlesMeta[id];
         const safeTitle = (article.title || '').replace(/"/g, '&quot;');
         const safeDesc = (article.excerpt || '').replace(/"/g, '&quot;');
-        const safeImg = article.image || 'https://imtechboss.com/og-image.png';
+        let safeImg = article.image || 'https://imtechboss.com/og-image.png';
+        if (!safeImg.startsWith('http')) {{
+          safeImg = 'https://imtechboss.com' + (safeImg.startsWith('/') ? '' : '/') + safeImg;
+        }}
         const canonical = 'https://imtechboss.com/post?id=' + encodeURIComponent(id);
         const safeDate = article.date || '';
         const safeAuthor = (typeof article.author === 'string' ? article.author : (article.author?.name || 'Tech Boss')).replace(/"/g, '&quot;');

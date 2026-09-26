@@ -83,16 +83,22 @@
     // Bind Close
     const closeBtn = document.getElementById('closeTbVipDrawer');
     const laterBtn = document.getElementById('tbVipLaterBtn');
-    function hideDrawer() {
+    function hideDrawer(days = 14) {
       drawer.classList.add('translate-y-8', 'opacity-0');
       drawer.classList.remove('pointer-events-auto');
       drawer.classList.add('pointer-events-none');
-      setDismissed(14);
+      setDismissed(days);
       setTimeout(() => drawer.remove(), 500);
+      document.removeEventListener('keydown', handleEsc);
     }
 
-    if (closeBtn) closeBtn.addEventListener('click', hideDrawer);
-    if (laterBtn) laterBtn.addEventListener('click', hideDrawer);
+    function handleEsc(e) {
+      if (e.key === 'Escape') hideDrawer(14);
+    }
+    document.addEventListener('keydown', handleEsc);
+
+    if (closeBtn) closeBtn.addEventListener('click', () => hideDrawer(14));
+    if (laterBtn) laterBtn.addEventListener('click', () => hideDrawer(14));
 
     // Bind Submit
     const form = document.getElementById('tbVipForm');
@@ -103,7 +109,9 @@
         const em = emailInput.value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!em || !emailRegex.test(em)) {
-          alert('Please enter a valid email address.');
+          if (typeof showToast === 'function') {
+            showToast('⚠️ Please enter a valid email address.');
+          }
           return;
         }
 
@@ -120,7 +128,6 @@
           } catch (e) {}
         }
 
-        setDismissed(365); // Don't show again for 1 year
         drawer.innerHTML = `
           <div class="text-center py-4">
             <span class="text-3xl block mb-2">🎉</span>
@@ -128,7 +135,7 @@
             <p class="text-xs text-slate-300">You're on the list. Keep an eye on your inbox for our weekly benchmarks.</p>
           </div>
         `;
-        setTimeout(() => hideDrawer(), 3500);
+        setTimeout(() => hideDrawer(365), 3500);
       });
     }
   }
