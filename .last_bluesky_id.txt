@@ -1,1 +1,1 @@
-nvidia-rubin-r100-gpu-architecture-hbm4-288gb-tsmc-3nm-nvlink-6
+blogger-718
