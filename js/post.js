@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNotificationBell();
 
   // Hash deep link support on post.html (e.g. post.html#about)
-  const hash = window.location.hash.replace('#', '').toLowerCase();
+  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
   if (['about', 'contact', 'privacy', 'disclaimer'].includes(hash)) {
     setTimeout(() => openPostPageModal(hash), 150);
   }
@@ -105,8 +105,9 @@ function initPostTheme() {
 
 // 2. Fetch and Render Article Details
 function renderPostDetail() {
+  let container = null;
   try {
-    const container = document.getElementById("articleContainer");
+    container = document.getElementById("articleContainer");
     const relatedSection = document.getElementById("relatedSection");
     const relatedGrid = document.getElementById("relatedGrid");
 
