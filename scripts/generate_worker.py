@@ -27,6 +27,8 @@ def generate_worker():
         meta[a['id']] = {
             'title': a.get('title', ''),
             'excerpt': a.get('excerpt', ''),
+            'content': a.get('content', ''),
+            'readTime': a.get('readTime', '5 min read'),
             'image': a.get('image', ''),
             'date': a.get('date', ''),
             'author': author_str,
@@ -37,12 +39,27 @@ def generate_worker():
     if 'nvidia-blackwell-nvl72-liquid-cooling-overheating-hurdles-2026' in meta:
         meta['nvidia-blackwell-nvl72-racks-liquid-cooling-overheating-hyperscalers-2026'] = meta['nvidia-blackwell-nvl72-liquid-cooling-overheating-hurdles-2026']
 
+    top_articles = [
+        {
+            'id': a['id'],
+            'title': a.get('title', ''),
+            'excerpt': a.get('excerpt', ''),
+            'image': a.get('image', ''),
+            'date': a.get('date', ''),
+            'category': a.get('category', 'Technology'),
+            'readTime': a.get('readTime', '5 min read')
+        }
+        for a in data[:10]
+    ]
+
     meta_json = json.dumps(meta, ensure_ascii=False)
+    top_articles_json = json.dumps(top_articles, ensure_ascii=False)
 
     template = f"""// Cloudflare Pages Advanced Mode Worker
-// Automatically injects dynamic OpenGraph & Twitter metadata for /post & /post.html
+// Automatically injects dynamic OpenGraph & Twitter metadata, plus Edge SSR Pre-Rendering for Google AdSense & SEO
 
 const articlesMeta = {meta_json};
+const topArticles = {top_articles_json};
 
 export default {{
   async fetch(request, env) {{
@@ -95,8 +112,70 @@ export default {{
         return new Response('404 Not Found', {{ status: 404, headers: {{ 'Content-Type': 'text/plain' }} }});
       }}
 
+      // 3. Homepage Edge SSR: Pre-render top articles into raw HTML for Google AdSense Review Crawlers
+      if (pathname === '/' || pathname === '/index.html') {{
+        const response = await env.ASSETS.fetch(request);
+        const hero = topArticles[0];
+        const heroTitle = (hero.title || '').replace(/"/g, '&quot;');
+        const heroDesc = (hero.excerpt || '').replace(/"/g, '&quot;');
+        const heroImg = hero.image || 'https://imtechboss.com/og-image.png';
+
+        let gridHtml = '';
+        for (let i = 0; i < topArticles.length; i++) {{
+          const a = topArticles[i];
+          const st = (a.title || '').replace(/"/g, '&quot;');
+          const se = (a.excerpt || '').replace(/"/g, '&quot;');
+          gridHtml += `
+            <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col">
+              <div class="aspect-[16/10] overflow-hidden bg-gray-100">
+                <a href="post.html?id=${{encodeURIComponent(a.id)}}">
+                  <img src="${{a.image}}" alt="${{st}}" class="w-full h-full object-cover" loading="lazy" />
+                </a>
+              </div>
+              <div class="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-[11px] text-gray-500 mb-2"><span>${{a.category || 'Tech'}}</span> &bull; <span>${{a.date || 'Recent'}}</span></div>
+                  <h2 class="font-bold text-base sm:text-lg text-gray-900 dark:text-gray-100 line-clamp-2">
+                    <a href="post.html?id=${{encodeURIComponent(a.id)}}">${{st}}</a>
+                  </h2>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 line-clamp-2">${{se}}</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-between items-center text-xs">
+                  <span class="font-semibold text-gray-700 dark:text-gray-300">Tech Boss</span>
+                  <a href="post.html?id=${{encodeURIComponent(a.id)}}" class="font-bold text-blue-600 hover:underline">Read Article &rarr;</a>
+                </div>
+              </div>
+            </article>
+          `;
+        }}
+
+        return new HTMLRewriter()
+          .on('div#featuredArticleContainer', {{
+            element(e) {{
+              e.setInnerContent(`
+                <a href="post.html?id=${{encodeURIComponent(hero.id)}}" class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer">
+                  <img src="${{heroImg}}" alt="${{heroTitle}}" class="w-full h-full object-cover opacity-80" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-10 text-white">
+                    <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-blue-600 text-white w-max mb-3">${{hero.category || 'Featured'}}</span>
+                    <h1 class="text-xl sm:text-2xl md:text-3xl font-bold font-serif-heading leading-tight mb-2">${{heroTitle}}</h1>
+                    <p class="text-xs sm:text-sm text-gray-300 line-clamp-2 mb-4 leading-relaxed">${{heroDesc}}</p>
+                    <div class="text-xs text-gray-400">By Tech Boss &bull; ${{hero.date || 'Recent'}}</div>
+                  </div>
+                </a>
+              `, {{ html: true }});
+            }}
+          }})
+          .on('div#articlesGrid', {{
+            element(e) {{
+              e.setInnerContent(gridHtml, {{ html: true }});
+            }}
+          }})
+          .transform(response);
+      }}
+
       const id = url.searchParams.get('id');
 
+      // 4. Dedicated Post Article Edge SSR: Pre-renders full article text for Google AdSense & SEO crawlers
       if ((pathname === '/post' || pathname === '/post.html') && id && Object.prototype.hasOwnProperty.call(articlesMeta, id)) {{
         const assetUrl = new URL(request.url);
         assetUrl.pathname = '/post';
@@ -112,6 +191,8 @@ export default {{
         const safeDate = article.date || '';
         const safeAuthor = (typeof article.author === 'string' ? article.author : (article.author?.name || 'Tech Boss')).replace(/"/g, '&quot;');
         const safeCategory = article.category || 'AI & Technology';
+        const safeReadTime = article.readTime || '5 min read';
+        const articleBody = article.content || '';
 
         let faqs = [];
         const catLower = safeCategory.toLowerCase();
@@ -182,18 +263,18 @@ export default {{
             }},
             {{
               "@type": "Question",
-              "name": "Will these optimization steps reset after a Windows update?",
+              "name": "Does this solution require specialized third-party diagnostic software?",
               "acceptedAnswer": {{
                 "@type": "Answer",
-                "text": "Most software configurations persist across normal restarts, though major seasonal Windows feature updates may occasionally revert specific background telemetry or service preferences."
+                "text": "The troubleshooting steps utilize built-in administrative tools such as PowerShell, DISM, SFC, and native Windows Diagnostics."
               }}
             }},
             {{
               "@type": "Question",
-              "name": "Where can I find more technical benchmarks and developer tools?",
+              "name": "What should I do if this issue persists after applying the fix?",
               "acceptedAnswer": {{
                 "@type": "Answer",
-                "text": "Explore the Tech Boss Interactive Tools suite, PC Bottleneck Calculator, and dedicated hardware reviews directly on imtechboss.com."
+                "text": "Verify hardware stability, run memory integrity diagnostics, and inspect event viewer logs for recurring kernel error codes."
               }}
             }}
           ];
@@ -203,7 +284,7 @@ export default {{
           "@context": "https://schema.org",
           "@graph": [
             {{
-              "@type": ["TechArticle", "NewsArticle"],
+              "@type": "TechArticle",
               "@id": canonical + "#article",
               "isPartOf": {{
                 "@type": "WebPage",
@@ -212,13 +293,13 @@ export default {{
               "headline": article.title || '',
               "description": article.excerpt || '',
               "image": [safeImg],
-              "datePublished": safeDate,
-              "dateModified": safeDate,
-              "articleSection": safeCategory,
+              "datePublished": article.date ? new Date(article.date).toISOString() : new Date().toISOString(),
+              "dateModified": new Date().toISOString(),
               "inLanguage": "en-US",
+              "mainEntityOfPage": canonical,
               "author": {{
-                "@type": "Person",
-                "name": article.author || 'Tech Boss',
+                "@type": "Organization",
+                "name": safeAuthor,
                 "url": "https://imtechboss.com"
               }},
               "publisher": {{
@@ -230,14 +311,9 @@ export default {{
                   "url": "https://imtechboss.com/og-image.png"
                 }}
               }},
-              "mainEntityOfPage": {{
-                "@type": "WebPage",
-                "@id": canonical
-              }},
-              "url": canonical,
               "speakable": {{
                 "@type": "SpeakableSpecification",
-                "cssSelector": ["#postTitle", "#postExcerpt", "#postContent p"]
+                "cssSelector": ["h1", "#articleContainer p"]
               }}
             }},
             {{
@@ -320,7 +396,25 @@ export default {{
           }})
           .on('article#articleContainer', {{
             element(e) {{
-              e.prepend(`<img class="flipboard-image" src="${{safeImg}}" alt="${{safeTitle}}" width="1200" height="900" style="max-width:100%;height:auto;display:block;" />`, {{ html: true }});
+              e.setInnerContent(`
+                <div class="static-ssr-post prose max-w-none">
+                  <div class="flex items-center gap-2 mb-4 text-xs text-gray-500">
+                    <a href="index.html">Home</a> &bull; <span class="font-bold text-blue-600">${{safeCategory}}</span> &bull; <span>${{safeDate}}</span> &bull; <span>${{safeReadTime}}</span> &bull; <span>By ${{safeAuthor}}</span>
+                  </div>
+                  <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-950 dark:text-white mb-6 leading-tight">${{safeTitle}}</h1>
+                  <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200/70 dark:border-slate-800 mb-8">
+                    <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-lg">TB</div>
+                    <div>
+                      <div class="font-bold text-sm sm:text-base text-gray-900 dark:text-gray-100">${{safeAuthor}}</div>
+                      <div class="text-xs text-gray-500 dark:text-gray-400">Tech Boss Editorial &bull; imtechboss.com</div>
+                    </div>
+                  </div>
+                  <img class="flipboard-image w-full rounded-2xl mb-8 object-cover max-h-[520px]" src="${{safeImg}}" alt="${{safeTitle}}" width="1200" height="900" style="max-width:100%;height:auto;display:block;" />
+                  <div class="article-content text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200">
+                    ${{articleBody}}
+                  </div>
+                </div>
+              `, {{ html: true }});
             }}
           }})
           .on('meta#ogUrl', {{
@@ -362,7 +456,7 @@ export default {{
     with open(worker_path, 'w', encoding='utf-8') as out:
         out.write(template)
 
-    print(f'Successfully generated _worker.js with {len(meta)} articles.')
+    print(f'Successfully generated _worker.js with {len(meta)} articles and Edge SSR pre-rendering.')
 
 if __name__ == '__main__':
     generate_worker()
