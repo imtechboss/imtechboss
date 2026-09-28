@@ -10,6 +10,13 @@ Crawl-delay: 0
 User-agent: Googlebot-News
 Allow: /
 
+# Google AdSense Crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Google-Display-Ads-Bot
+Allow: /
+
 # Bing & AI Search
 User-agent: bingbot
 Allow: /
