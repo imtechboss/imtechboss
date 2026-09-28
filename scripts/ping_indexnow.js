@@ -40,6 +40,7 @@ function submitToEndpoint(hostname, endpointPath) {
       port: 443,
       path: endpointPath,
       method: 'POST',
+      family: 4,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Content-Length': Buffer.byteLength(payload)
