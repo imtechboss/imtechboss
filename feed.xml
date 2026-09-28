@@ -2,6 +2,50 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
     <item>
+      <title>SpaceX Starship Flight 14 Targets First Orbital Insertion and Starlink V3 Deployment</title>
+      <link>https://imtechboss.com/post.html?id=spacex-starship-flight-14-first-orbital-launch-starlink-v3-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=spacex-starship-flight-14-first-orbital-launch-starlink-v3-2026</guid>
+      <description>SpaceX is preparing to launch Starship Flight 14 from Starbase Pad 2 in Texas, marking the vehicle's first orbital insertion mission carrying 26 next-generation Starlink V3 satellites into a 275-kilometer trajectory.</description>
+      <category>Space</category>
+      <pubDate>Mon, 28 Sep 2026 05:00:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>AMD Surpasses $1 Trillion Valuation Following 107% Datacenter Growth and MI450 Hyperscaler Deals</title>
+      <link>https://imtechboss.com/post.html?id=amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026</guid>
+      <description>AMD has crossed the $1 trillion market capitalization milestone as quarterly datacenter revenue surged 107% year-over-year to $6.7 billion, propelled by massive multi-year accelerator commitments from OpenAI and Meta.</description>
+      <category>Hardware</category>
+      <pubDate>Mon, 28 Sep 2026 05:00:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>Google Activates SAFE AI Engine in September 2026 Search Update to Neutralize Coordinated Synthetic Spam</title>
+      <link>https://imtechboss.com/post.html?id=google-deploys-safe-ai-anti-abuse-engine-search-spam-update-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=google-deploys-safe-ai-anti-abuse-engine-search-spam-update-2026</guid>
+      <description>Google has initiated a sweeping two-week September 2026 search spam update powered by SAFE (Scaled Abuse Forensic Examiner), a multimodal deep neural architecture engineered to identify adversarial AI-generated content networks.</description>
+      <category>Cybersecurity</category>
+      <pubDate>Mon, 28 Sep 2026 05:00:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>Intel 14A Process Under Evaluation by Apple, Amazon, and Nvidia as Foundry Rivalry Escalates</title>
+      <link>https://imtechboss.com/post.html?id=intel-14a-foundry-node-evaluations-apple-amazon-nvidia-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=intel-14a-foundry-node-evaluations-apple-amazon-nvidia-2026</guid>
+      <description>Eight major tech titans are evaluating test wafers on Intel's 14A node with High-NA EUV lithography, as TSMC packaging constraints through 2028 push hyperscalers to secure second-source advanced semiconductor fabrication.</description>
+      <category>Hardware</category>
+      <pubDate>Mon, 28 Sep 2026 05:00:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
       <title>NVIDIA Teams with Palantir to Deploy AI Across Semiconductor Supply Chains Amid Severe GPU Bottlenecks</title>
       <link>https://imtechboss.com/post.html?id=nvidia-palantir-ai-semiconductor-supply-chain-gpu-shortage-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=nvidia-palantir-ai-semiconductor-supply-chain-gpu-shortage-2026</guid>
