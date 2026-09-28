@@ -96,7 +96,19 @@
     "blogger-899",
     "blogger-618",
     "blogger-916",
-    "blogger-88"
+    "blogger-88",
+    "nvidia-palantir-ai-semiconductor-supply-chain-gpu-shortage-2026",
+    "blogger-864",
+    "blogger-642",
+    "blogger-512",
+    "blogger-158",
+    "blogger-1",
+    "blogger-419",
+    "blogger-584",
+    "blogger-712",
+    "blogger-236",
+    "blogger-739",
+    "blogger-534"
   ],
   "history": [
     {
@@ -868,6 +880,102 @@
       "postedAt": "2026-09-27T13:14:30.725Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwiuxbypzz2d",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117343182542616163"
+    },
+    {
+      "id": "nvidia-palantir-ai-semiconductor-supply-chain-gpu-shortage-2026",
+      "title": "NVIDIA Teams with Palantir to Deploy AI Across Semiconductor Supply Chains Amid Severe GPU Bottlenecks",
+      "category": "Hardware",
+      "postedAt": "2026-09-27T13:19:38.594Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwivajcbu725",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343202721219075"
+    },
+    {
+      "id": "blogger-864",
+      "title": "MIUI 11 vs MIUI 12 : Interface & Design Changes Comparison",
+      "category": "General",
+      "postedAt": "2026-09-27T13:42:49.269Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwiwjwt5k62f",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343293858803828"
+    },
+    {
+      "id": "blogger-642",
+      "title": "How to install Miui 12 Developer Rom version 20.4.28 In Any Xiaomi Phones",
+      "category": "General",
+      "postedAt": "2026-09-27T14:08:01.051Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwixwygav323",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343392936307103"
+    },
+    {
+      "id": "blogger-512",
+      "title": "Semester II -Microprocessor Notes",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T14:29:11.203Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwiz4trojm2m",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343476183791845"
+    },
+    {
+      "id": "blogger-158",
+      "title": "Semester II -C++(OOP) Notes",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T14:53:20.958Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwj2i2ljuo2d",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343571187225666"
+    },
+    {
+      "id": "blogger-1",
+      "title": "Semester II Mathematics-II Notes",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T15:17:33.208Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwj3tbkda42d",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343666371001936"
+    },
+    {
+      "id": "blogger-419",
+      "title": "Semester IV Theory Of Computation (TOC)",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T15:38:43.647Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwj4z72anl2f",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343749635100958"
+    },
+    {
+      "id": "blogger-584",
+      "title": "Semester IV -Artificial Intelligence(AI)",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T15:58:54.484Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwj65aq4d223",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343828988482811"
+    },
+    {
+      "id": "blogger-712",
+      "title": "Semester IV - Operating System (OS) Notes",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T16:23:05.158Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwj7ij5lvo23",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117343924054214827"
+    },
+    {
+      "id": "blogger-236",
+      "title": "Semester IV - Database Management System Notes !",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T16:43:15.729Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwjaml5ck22r",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117344003396924694"
+    },
+    {
+      "id": "blogger-739",
+      "title": "Semester IV - Computer Networks Notes !!",
+      "category": "Education & Notes",
+      "postedAt": "2026-09-27T17:05:01.023Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwjbszqky62m",
+      "mastodonUrl": null
+    },
+    {
+      "id": "blogger-534",
+      "title": "Exploring the Latest MacBook 2023: \"Display, Connectivity, and Pricing\"",
+      "category": "General",
+      "postedAt": "2026-09-27T17:29:36.256Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwjd6yn6zh2t",
+      "mastodonUrl": null
     }
   ]
 }
