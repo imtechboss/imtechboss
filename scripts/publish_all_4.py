@@ -564,13 +564,14 @@ def update_sitemap_xml():
 
     urls_xml = ""
     for art in articles:
+        img_url = art['image'].replace('&', '&amp;')
         urls_xml += f"""  <url>
     <loc>https://imtechboss.com/post?id={art['id']}</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>{art['image']}</image:loc>
+      <image:loc>{img_url}</image:loc>
       <image:title>{art['title']}</image:title>
     </image:image>
   </url>
