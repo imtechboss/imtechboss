@@ -13,10 +13,15 @@ Whenever a new article is created or published, follow these steps strictly in t
   `https://images.unsplash.com/photo-[ID]?auto=format&fit=crop&w=1200&q=80`
 - **NEVER** use `?w=800` or low-resolution images. Flipboard, Twitter, Facebook, and Pinterest require high-res images ($\ge 1200\text{px}$) to extract featured cards properly.
 
-### Step 2: Update Codebase Files
+### Step 2: Update Codebase Files & Escape XML
 1. **`js/data.js`**: Add article to `initialArticles` array at the top. Ensure valid JSON structure, rich formatted HTML body, and 1200px image URL.
-2. **`feed.xml`**: Add `<item>` with `<media:content>`, `<media:thumbnail>`, and `<enclosure>` using the 1200px image.
-3. **`sitemap.xml`**: Add `<url>` with current date (`YYYY-MM-DD`).
+2. **`feed.xml`**: Add `<item>` with `<media:content>`, `<media:thumbnail>`, and `<enclosure>` using the 1200px image. **MUST escape all `&` as `&amp;` in image and media URLs.**
+3. **`sitemap.xml`**: Add `<url>` with current date (`YYYY-MM-DD`). **MUST escape all `&` as `&amp;` in `<image:loc>` and `<loc>` URLs.**
+4. **MANDATORY XML VALIDATION**: Always run the automated XML syntax validator before moving to Step 3:
+   ```bash
+   python scripts/validate_xml.py
+   ```
+   **DO NOT proceed if validation outputs any syntax error.**
 
 ### Step 3: Regenerate Cloudflare Edge Worker
 - Always run:
@@ -33,9 +38,13 @@ Whenever a new article is created or published, follow these steps strictly in t
 
 ### Step 5: Deploy BEFORE Sharing (Critical)
 - **NEVER share to Flipboard or social media before deploying.** (If Flipboard crawls before the worker is deployed, it permanently caches the fallback logo).
+- Re-validate XML one final time:
+  ```bash
+  python scripts/validate_xml.py
+  ```
 - Deploy immediately to Cloudflare Pages:
   ```bash
-  npx wrangler@3 pages deploy . --project-name imtechboss
+  $env:NODE_OPTIONS="--dns-result-order=ipv4first"; npx wrangler@3 pages deploy . --project-name imtechboss --commit-dirty=true
   ```
 - Commit and push to Git:
   ```bash
@@ -65,3 +74,10 @@ Whenever a new article is created or published, follow these steps strictly in t
 - **Zero Duplicate Policy:** Before writing, cross-reference `js/data.js` and ensure the topic has never been covered on `imtechboss.com`. Duplicate or rehashed articles are strictly prohibited.
 - **Genuine Top Worldwide News:** Topics must be grounded in breaking, verified, and high-impact developments in global tech (AI models, semiconductor nodes, GPU/CPU architectures, operating system shifts, cybersecurity).
 - **Multi-Engine Indexing:** Every single new article must be submitted to Bing, Yandex, Google, and IndexNow without exception.
+
+---
+
+## 5. Mandatory XML & Sitemap Validation Rule (ZERO ERRORS)
+- **XML Ampersand Escaping Rule:** Raw `&` characters are forbidden in any XML attribute or body tag. Every URL containing query parameters (like `?auto=format&fit=crop&w=1200&q=80`) must strictly be written as `?auto=format&amp;fit=crop&amp;w=1200&amp;q=80`.
+- **Pre-Flight Validation Check:** Any workflow that creates, updates, or publishes articles MUST execute `python scripts/validate_xml.py`. If a syntax error is discovered, it must be resolved immediately before git commit or Cloudflare deployment.
+- **Google Search Console Zero-Error Guarantee:** The sitemap submitted to Google Search Console (`/sitemap.xml`) must at all times remain 100% parseable, well-formed XML with zero unrecognized tokens.
