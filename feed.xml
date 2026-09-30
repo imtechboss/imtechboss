@@ -2,6 +2,50 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
     <item>
+      <title>OpenAI, Google, NVIDIA, Meta, Anthropic, and xAI Sign Historic Voluntary AI Safety Accord</title>
+      <link>https://imtechboss.com/post.html?id=big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026</guid>
+      <description>Six frontier artificial intelligence companies have signed a landmark US-backed safety accord, establishing third-party external audit requirements and kill-switch protocols for autonomous agents.</description>
+      <category>AI &amp; Technology</category>
+      <pubDate>Wed, 30 Sep 2026 12:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>OpenAI Unveils Dots: An Always-On Autonomous Personal AI Agent for End-to-End Task Execution</title>
+      <link>https://imtechboss.com/post.html?id=openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026</guid>
+      <description>OpenAI has introduced Dots, a persistent personal AI assistant capable of multi-app orchestration, automated task scheduling, and background workspace actions with user-defined permission boundaries.</description>
+      <category>AI &amp; Technology</category>
+      <pubDate>Wed, 30 Sep 2026 12:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>Critical Citrix NetScaler Zero-Day CVE-2026-88772 Exploited in Wild with WHIPSHOT Malware</title>
+      <link>https://imtechboss.com/post.html?id=critical-citrix-netscaler-zero-day-cve-2026-88772-whipshot-malware-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=critical-citrix-netscaler-zero-day-cve-2026-88772-whipshot-malware-2026</guid>
+      <description>Security researchers have warned of active exploitation of a root-level authentication bypass in Citrix NetScaler ADC and Gateway appliances, allowing threat actors to inject persistence backdoors.</description>
+      <category>Cybersecurity</category>
+      <pubDate>Wed, 30 Sep 2026 12:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
+      <title>Samsung Commits $1 Billion to Helix Digital Infrastructure to Accelerate AI Datacenter Supergrids</title>
+      <link>https://imtechboss.com/post.html?id=samsung-invests-1-billion-helix-digital-infrastructure-ai-datacenters-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post.html?id=samsung-invests-1-billion-helix-digital-infrastructure-ai-datacenters-2026</guid>
+      <description>Samsung Electronics, Samsung SDS, and Samsung SDI have poured $1 billion into Helix Digital Infrastructure to engineer specialized liquid-cooled megawatt modular server pods and high-voltage grid substations.</description>
+      <category>Hardware</category>
+      <pubDate>Wed, 30 Sep 2026 12:30:00 +0000</pubDate>
+      <media:content url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+      <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="220000" />
+    </item>
+    <item>
       <title>SpaceX Starship Flight 14 Targets First Orbital Insertion and Starlink V3 Deployment</title>
       <link>https://imtechboss.com/post.html?id=spacex-starship-flight-14-first-orbital-launch-starlink-v3-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post.html?id=spacex-starship-flight-14-first-orbital-launch-starlink-v3-2026</guid>

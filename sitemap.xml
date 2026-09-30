@@ -2,6 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://imtechboss.com/post?id=big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>OpenAI, Google, NVIDIA, Meta, Anthropic, and xAI Sign Historic Voluntary AI Safety Accord</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>OpenAI Unveils Dots: An Always-On Autonomous Personal AI Agent for End-to-End Task Execution</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=critical-citrix-netscaler-zero-day-cve-2026-88772-whipshot-malware-2026</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Critical Citrix NetScaler Zero-Day CVE-2026-88772 Exploited in Wild with WHIPSHOT Malware</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=samsung-invests-1-billion-helix-digital-infrastructure-ai-datacenters-2026</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Samsung Commits $1 Billion to Helix Digital Infrastructure to Accelerate AI Datacenter Supergrids</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/post?id=spacex-starship-flight-14-first-orbital-launch-starlink-v3-2026</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
