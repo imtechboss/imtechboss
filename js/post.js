@@ -271,15 +271,16 @@ function renderPostDetail() {
   } catch (e) {}
 
   // Calculate Accurate Dynamic Reading Time
-  const rawText = (article.content || article.excerpt || "").replace(/<[^>]*>/g, " ");
+  const actualArticleContent = article.content || article.body || "";
+  const rawText = (actualArticleContent || article.excerpt || "").replace(/<[^>]*>/g, " ");
   const wordCount = rawText.trim().split(/\s+/).filter(Boolean).length;
   const calculatedMins = Math.max(1, Math.round(wordCount / 180));
   const readTime = `${calculatedMins} min read`;
 
   // Process Clean HTML Content & In-Article AdSense Injection
   let articleBodyHtml = "";
-  if (article.content && article.content.trim().length > 0) {
-    articleBodyHtml = injectInArticleAdSense(article.content);
+  if (actualArticleContent && actualArticleContent.trim().length > 0) {
+    articleBodyHtml = injectInArticleAdSense(actualArticleContent);
   } else if (article.excerpt) {
     articleBodyHtml = `<p>${escapeHtml(article.excerpt)}</p>`;
   } else {
@@ -1676,8 +1677,9 @@ function generateKeyTakeaways(article) {
     points.push(article.excerpt);
   }
 
-  if (article.content) {
-    const headings = article.content.match(/<h2[^>]*>(.*?)<\/h2>/gi);
+  const contentForHeadings = article.content || article.body;
+  if (contentForHeadings) {
+    const headings = contentForHeadings.match(/<h2[^>]*>(.*?)<\/h2>/gi);
     if (headings && headings.length > 0) {
       headings.slice(0, 2).forEach(h => {
         const text = h.replace(/<[^>]*>/g, '').trim();
@@ -2019,7 +2021,7 @@ function setupArticleAudioPlayer(article, container) {
 
     try { window.speechSynthesis.cancel(); } catch (e) {}
     
-    const rawContent = (article.content || article.excerpt || '').replace(/<[^>]*>/g, ' ');
+    const rawContent = (article.content || article.body || article.excerpt || '').replace(/<[^>]*>/g, ' ');
     const fullText = `${article.title}. By Tech Boss. ${article.excerpt || ''}. ${rawContent}`;
     const speechSnippet = fullText.substring(0, 3500);
 

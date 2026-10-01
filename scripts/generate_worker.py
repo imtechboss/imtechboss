@@ -27,7 +27,7 @@ def generate_worker():
         meta[a['id']] = {
             'title': a.get('title', ''),
             'excerpt': a.get('excerpt', ''),
-            'content': a.get('content', ''),
+            'content': a.get('content') or a.get('body', ''),
             'readTime': a.get('readTime', '5 min read'),
             'image': a.get('image', ''),
             'date': a.get('date', ''),
