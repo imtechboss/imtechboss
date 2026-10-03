@@ -1,0 +1,51 @@
+import os
+import zipfile
+import time
+
+SOURCE_DIR = r"c:\Users\aabir\OneDrive\Desktop\website"
+DESKTOP_DIR = r"c:\Users\aabir\OneDrive\Desktop"
+ZIP_NAME = "imtechboss-website-backup-2026-10-03.zip"
+TARGET_ZIP = os.path.join(DESKTOP_DIR, ZIP_NAME)
+
+print(f"Source directory: {SOURCE_DIR}")
+print(f"Target zip path: {TARGET_ZIP}")
+
+start_time = time.time()
+
+# Exclude zip files themselves if created in source
+exclude_extensions = {'.zip', '.tmp'}
+
+total_files = 0
+total_uncompressed_bytes = 0
+
+with zipfile.ZipFile(TARGET_ZIP, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as zipf:
+    for root, dirs, files in os.walk(SOURCE_DIR):
+        for file in files:
+            # Skip any existing zip backups to avoid recursion
+            if any(file.endswith(ext) for ext in exclude_extensions):
+                continue
+                
+            file_path = os.path.join(root, file)
+            # Relative path inside the zip file
+            arcname = os.path.relpath(file_path, SOURCE_DIR)
+            
+            try:
+                zipf.write(file_path, arcname)
+                total_files += 1
+                total_uncompressed_bytes += os.path.getsize(file_path)
+            except Exception as e:
+                print(f"Warning: Could not add {file_path}: {e}")
+
+elapsed = time.time() - start_time
+compressed_size = os.path.getsize(TARGET_ZIP) / (1024 * 1024)
+uncompressed_size = total_uncompressed_bytes / (1024 * 1024)
+
+print("\n" + "="*60)
+print("BACKUP COMPLETED SUCCESSFULLY!")
+print("="*60)
+print(f"Total files archived:    {total_files:,}")
+print(f"Uncompressed size:       {uncompressed_size:.2f} MB")
+print(f"Compressed ZIP size:     {compressed_size:.2f} MB")
+print(f"Time taken:              {elapsed:.2f} seconds")
+print(f"Saved at:                {TARGET_ZIP}")
+print("="*60)
