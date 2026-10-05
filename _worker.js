@@ -85,7 +85,7 @@ export default {
                 </div>
                 <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-between items-center text-xs">
                   <span class="font-semibold text-gray-700 dark:text-gray-300">Tech Boss</span>
-                  <a href="post.html?id=${encodeURIComponent(a.id)}" class="font-bold text-blue-600 hover:underline">Read Article &rarr;</a>
+                  <a href="post?id=${encodeURIComponent(a.id)}" class="font-bold text-blue-600 hover:underline">Read Article &rarr;</a>
                 </div>
               </div>
             </article>
@@ -96,7 +96,7 @@ export default {
           .on('div#featuredArticleContainer', {
             element(e) {
               e.setInnerContent(`
-                <a href="post.html?id=${encodeURIComponent(hero.id)}" class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer">
+                <a href="post?id=${encodeURIComponent(hero.id)}" class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer">
                   <img src="${heroImg}" alt="${heroTitle}" class="w-full h-full object-cover opacity-80" />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-10 text-white">
                     <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-blue-600 text-white w-max mb-3">${hero.category || 'Featured'}</span>
@@ -119,7 +119,19 @@ export default {
       const id = url.searchParams.get('id');
 
       // 4. Dedicated Post Article Edge SSR: Pre-renders full article text for Google AdSense & SEO crawlers
-      if ((pathname === '/post' || pathname === '/post.html') && id && Object.prototype.hasOwnProperty.call(articlesMeta, id)) {
+      if (pathname === '/post' || pathname === '/post.html') {
+        if (!id) {
+          return Response.redirect(new URL('/', request.url).toString(), 301);
+        }
+        if (!Object.prototype.hasOwnProperty.call(articlesMeta, id)) {
+          return new Response('Article Not Found', {
+            status: 404,
+            headers: {
+              'Content-Type': 'text/plain; charset=utf-8',
+              'X-Robots-Tag': 'noindex, nofollow'
+            }
+          });
+        }
         const assetUrl = new URL(request.url);
         assetUrl.pathname = '/post';
         const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
@@ -342,7 +354,7 @@ export default {
               e.setInnerContent(`
                 <div class="static-ssr-post prose max-w-none">
                   <div class="flex items-center gap-2 mb-4 text-xs text-gray-500">
-                    <a href="index.html">Home</a> &bull; <span class="font-bold text-blue-600">${safeCategory}</span> &bull; <span>${safeDate}</span> &bull; <span>${safeReadTime}</span> &bull; <span>By ${safeAuthor}</span>
+                    <a href="/">Home</a> &bull; <span class="font-bold text-blue-600">${safeCategory}</span> &bull; <span>${safeDate}</span> &bull; <span>${safeReadTime}</span> &bull; <span>By ${safeAuthor}</span>
                   </div>
                   <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-950 dark:text-white mb-6 leading-tight">${safeTitle}</h1>
                   <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200/70 dark:border-slate-800 mb-8">
@@ -386,6 +398,18 @@ export default {
             }
           })
           .transform(response);
+      }
+
+      if (pathname === '/404' || pathname === '/404.html') {
+        const assetUrl = new URL(request.url);
+        assetUrl.pathname = '/404.html';
+        const notFoundRes = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+        const notFoundHeaders = new Headers(notFoundRes.headers);
+        notFoundHeaders.set('X-Robots-Tag', 'noindex, nofollow');
+        return new Response(notFoundRes.body, {
+          status: 404,
+          headers: notFoundHeaders
+        });
       }
 
       return await env.ASSETS.fetch(request);
