@@ -128,7 +128,7 @@ export default {{
           gridHtml += `
             <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col">
               <div class="aspect-[16/10] overflow-hidden bg-gray-100">
-                <a href="post.html?id=${{encodeURIComponent(a.id)}}">
+                <a href="post?id=${{encodeURIComponent(a.id)}}">
                   <img src="${{a.image}}" alt="${{st}}" class="w-full h-full object-cover" loading="lazy" />
                 </a>
               </div>
@@ -136,7 +136,7 @@ export default {{
                 <div>
                   <div class="text-[11px] text-gray-500 mb-2"><span>${{a.category || 'Tech'}}</span> &bull; <span>${{a.date || 'Recent'}}</span></div>
                   <h2 class="font-bold text-base sm:text-lg text-gray-900 dark:text-gray-100 line-clamp-2">
-                    <a href="post.html?id=${{encodeURIComponent(a.id)}}">${{st}}</a>
+                    <a href="post?id=${{encodeURIComponent(a.id)}}">${{st}}</a>
                   </h2>
                   <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 line-clamp-2">${{se}}</p>
                 </div>

@@ -149,7 +149,8 @@
     "best-web-hosting-wordpress-2026",
     "best-password-managers-2026-free-paid",
     "best-vpn-for-streaming-no-logs-2026",
-    "windows-11-privacy-tools-2026"
+    "windows-11-privacy-tools-2026",
+    "white-house-super-intelligence-executive-order-national-tech-compact-2026"
   ],
   "history": [
     {
@@ -1345,6 +1346,14 @@
       "postedAt": "2026-09-30T07:38:26.807Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mwptl6kpfv2r",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117358848012856771"
+    },
+    {
+      "id": "white-house-super-intelligence-executive-order-national-tech-compact-2026",
+      "title": "White House Issues 'Super Intelligence' Executive Order and Signs National AI Safety Compact",
+      "category": "AI & Technology",
+      "postedAt": "2026-10-05T03:14:35.305Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxdr2gx3fc2b",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117403706530440181"
     }
   ]
 }

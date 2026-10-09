@@ -14,14 +14,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hardware &amp; AI Comparison Engine — Tech Boss</title>
   <meta name="description" content="Compare GPUs, CPUs, and frontier AI reasoning models side-by-side with real-world 1440p/4K benchmarks, VRAM specs, and expert verdicts.">
-  <link rel="canonical" href="https://imtechboss.com/compare.html">
+  <link rel="canonical" href="https://imtechboss.com/compare">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Hardware &amp; AI Comparison Engine — Tech Boss">
   <meta property="og:description" content="Compare GPUs, CPUs, and AI models side-by-side with real benchmarks and architectural specs.">
   <meta property="og:image" content="https://imtechboss.com/og-image.png">
-  <meta property="og:url" content="https://imtechboss.com/compare.html">
+  <meta property="og:url" content="https://imtechboss.com/compare">
   <meta property="og:type" content="website">
   <link rel="alternate" type="application/rss+xml" title="Tech Boss RSS Feed" href="https://imtechboss.com/feed.xml">
 
@@ -82,12 +82,12 @@
 
       <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold overflow-x-auto whitespace-nowrap">
         <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
-        <a href="tools.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tools</a>
-        <a href="compare.html" class="text-blue-600 dark:text-blue-400 font-bold">Compare</a>
-        <a href="deals.html" class="text-amber-600 dark:text-amber-400 hover:text-amber-500 font-semibold transition-colors">Deals</a>
+        <a href="tools" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tools</a>
+        <a href="compare" class="text-blue-600 dark:text-blue-400 font-bold">Compare</a>
+        <a href="deals" class="text-amber-600 dark:text-amber-400 hover:text-amber-500 font-semibold transition-colors">Deals</a>
         <a href="/stories/" class="hidden sm:inline text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold transition-colors">Stories</a>
-        <a href="about.html" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
-        <a href="contact.html" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+        <a href="about" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+        <a href="contact" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
 
         <button 
           id="themeToggleBtn"
@@ -260,12 +260,12 @@
         </div>
         <div class="flex flex-wrap items-center gap-4">
           <a href="/" class="hover:text-blue-600">Home</a>
-          <a href="tools.html" class="hover:text-blue-600">Tech Tools</a>
-          <a href="compare.html" class="text-blue-600 font-bold">Compare</a>
-          <a href="about.html" class="hover:text-blue-600">About</a>
-          <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
-          <a href="disclaimer.html" class="hover:text-blue-600">Disclaimer</a>
-          <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
+          <a href="tools" class="hover:text-blue-600">Tech Tools</a>
+          <a href="compare" class="text-blue-600 font-bold">Compare</a>
+          <a href="about" class="hover:text-blue-600">About</a>
+          <a href="privacy" class="hover:text-blue-600">Privacy Policy</a>
+          <a href="disclaimer" class="hover:text-blue-600">Disclaimer</a>
+          <a href="contact" class="hover:text-blue-600">Contact Us</a>
         </div>
       </div>
       <p class="text-[11px] text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-slate-800/60 pt-4 leading-relaxed">
@@ -599,7 +599,7 @@
 
     // Copy Embed Code
     document.getElementById("copyEmbedCodeBtn").addEventListener("click", () => {
-      const code = `<iframe src="https://imtechboss.com/compare.html" width="100%" height="700" frameborder="0" style="border-radius:16px;border:1px solid #1e293b;"></iframe>\n<p style="font-size:11px;font-family:sans-serif;color:#64748b;">Powered by <a href="https://imtechboss.com" target="_blank" rel="noopener">Tech Boss Comparison Engine</a></p>`;
+      const code = `<iframe src="https://imtechboss.com/compare" width="100%" height="700" frameborder="0" style="border-radius:16px;border:1px solid #1e293b;"></iframe>\n<p style="font-size:11px;font-family:sans-serif;color:#64748b;">Powered by <a href="https://imtechboss.com" target="_blank" rel="noopener">Tech Boss Comparison Engine</a></p>`;
       navigator.clipboard.writeText(code).then(() => {
         showToast("📋 Embed code copied to clipboard!");
       }).catch(() => {
