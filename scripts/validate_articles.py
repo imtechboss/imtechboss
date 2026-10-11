@@ -88,9 +88,11 @@ def validate_articles():
             errors += 1
 
         # Check 4: Image standards
-        if not image.startswith('https://images.unsplash.com/') or 'w=1200' not in image:
+        is_valid_unsplash = image.startswith('https://images.unsplash.com/') and 'w=1200' in image
+        is_valid_local = image.startswith('images/') and os.path.exists(image)
+        if not (is_valid_unsplash or is_valid_local):
             if idx < 20: # Strictly enforce on newer publications
-                print(f"[FAIL] Article '{art_id}' does not use 1200px Unsplash image: {image}")
+                print(f"[FAIL] Article '{art_id}' does not use 1200px Unsplash or verified local image: {image}")
                 errors += 1
 
         # Check 5: Banned AI words (on latest 20 articles)
