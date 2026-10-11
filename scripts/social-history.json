@@ -154,7 +154,12 @@
     "windows-11-privacy-tools-2026",
     "white-house-super-intelligence-executive-order-national-tech-compact-2026",
     "gta-6-settings-optimization-120fps",
-    "iphone-18-pro-max-vs-galaxy-s26-ultra"
+    "iphone-18-pro-max-vs-galaxy-s26-ultra",
+    "top-5-free-ai-tools-2026",
+    "how-to-fix-slow-wifi-at-home-router-tweaks",
+    "10-hidden-android-16-battery-life-hacks",
+    "free-up-iphone-storage-without-deleting-photos",
+    "top-7-free-open-source-software-alternatives-2026"
   ],
   "history": [
     {
@@ -1387,9 +1392,49 @@
       "id": "iphone-18-pro-max-vs-galaxy-s26-ultra",
       "title": "iPhone 18 Pro Max vs Galaxy S26 Ultra: Which is the Real Tech Boss?",
       "category": "Tech Reviews",
-      "postedAt": "2026-10-11T05:01:56.017Z",
-      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxl7xgv5x32w",
-      "mastodonUrl": "https://mastodon.social/@imtechboss/117420518020764756"
+      "postedAt": "2026-10-11T05:03:37.417Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxla2i2hkt23",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420524663455879"
+    },
+    {
+      "id": "top-5-free-ai-tools-2026",
+      "title": "Top 5 Free AI Tools You Must Try in 2026 (Alternatives to ChatGPT)",
+      "category": "Software & Tech",
+      "postedAt": "2026-10-11T05:04:40.293Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxla4ectoz2n",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420528784797168"
+    },
+    {
+      "id": "how-to-fix-slow-wifi-at-home-router-tweaks",
+      "title": "How to Fix Slow Wi-Fi at Home: 5 Simple Router Settings That Actually Work",
+      "category": "Tech Guides",
+      "postedAt": "2026-10-11T05:14:47.703Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxlaogip6e26",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420568592158187"
+    },
+    {
+      "id": "10-hidden-android-16-battery-life-hacks",
+      "title": "10 Hidden Android 16 Features That Will Double Your Battery Life",
+      "category": "Tech Guides",
+      "postedAt": "2026-10-11T05:22:54.252Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxlb4xdb6s2i",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420600483712586"
+    },
+    {
+      "id": "free-up-iphone-storage-without-deleting-photos",
+      "title": "How to Free Up 20GB+ Storage on iPhone Without Deleting Photos or Apps",
+      "category": "Tech Guides",
+      "postedAt": "2026-10-11T05:33:00.885Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxlbozpwrp27",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420640237416394"
+    },
+    {
+      "id": "top-7-free-open-source-software-alternatives-2026",
+      "title": "Top 7 Free Open-Source Alternatives to Expensive Software in 2026",
+      "category": "Software & Tech",
+      "postedAt": "2026-10-11T05:42:07.078Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxlc7d3bpv2i",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420676033212270"
     }
   ]
 }
