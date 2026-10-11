@@ -1,0 +1,34 @@
+{
+  "postedIds": [
+    "windows-11-september-2026-update-breaks-vpn-connections-how-to-fix",
+    "why-software-engineers-hate-ai-coding-tools-viral-post-2026",
+    "google-quantum-ai-willow-chip-quantum-advantage-molecules-2026",
+    "meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026"
+  ],
+  "history": [
+    {
+      "id": "why-software-engineers-hate-ai-coding-tools-viral-post-2026",
+      "devto_id": 4729121,
+      "url": "https://dev.to/techboss/why-a-viral-post-about-ai-coding-making-engineers-miserable-struck-a-nerve-1fbo",
+      "postedAt": "2026-09-24T03:46:15Z"
+    },
+    {
+      "id": "windows-11-september-2026-update-breaks-vpn-connections-how-to-fix",
+      "devto_id": 4729547,
+      "url": "https://dev.to/techboss/microsoft-warns-latest-windows-11-update-breaks-vpn-connections-workarounds-fixes-41pl",
+      "postedAt": "2026-09-24T05:16:05Z"
+    },
+    {
+      "id": "google-quantum-ai-willow-chip-quantum-advantage-molecules-2026",
+      "devto_id": 4831280,
+      "url": "https://dev.to/techboss/google-quantum-ai-demonstrates-verifiable-quantum-advantage-on-105-qubit-willow-chip-molecular-311a",
+      "postedAt": "2026-10-11T04:55:51.240Z"
+    },
+    {
+      "id": "meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026",
+      "devto_id": 4831281,
+      "url": "https://dev.to/techboss/meta-releases-llama-4-scout-frontier-open-weights-mixture-of-depths-architecture-with-native-cgl",
+      "postedAt": "2026-10-11T04:56:02.296Z"
+    }
+  ]
+}
