@@ -90,6 +90,6 @@ Whenever a new article is created or published, follow these steps strictly in t
 
 ## 6. Mandatory Article Schema & Content Integrity Rule (ZERO DEFECTS)
 - **Field Name Standard:** Every article object in `js/data.js` MUST use `"content"` for its HTML body text. The key `"body"` is strictly prohibited.
-- **Minimum Word Count:** Every new article must contain at least 400+ words of rich technical analysis, detailed specifications, and proper HTML structure (`<h2>`, `<h3>`, `<p>`, `<ul>`, `<li>`, `<strong>`, `<blockquote>`).
+- **Minimum Word Count:** Every article must strictly contain at least 600+ words (no upper limit) of rich technical analysis, detailed specifications, and proper HTML structure (`<h2>`, `<h3>`, `<p>`, `<ul>`, `<li>`, `<strong>`, `<blockquote>`). Articles under 600 words are strictly prohibited.
 - **No Duplicate Headings/Paragraphs:** Automated validation scans for repeated blocks or duplicate `<h2>` tags. Duplicate content within an article is strictly forbidden.
 - **Pre-Flight Master Check:** Execute `python scripts/validate_all.py` before every worker generation and deploy. If it fails, fix the issue immediately before proceeding.

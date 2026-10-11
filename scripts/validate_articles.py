@@ -73,12 +73,12 @@ def validate_articles():
             
         art_content = art.get('content', '')
         
-        # Check 2: Word count on latest 20 articles
-        if idx < 20 and art_content:
+        # Check 2: Word count (Strict 600+ Words Rule)
+        if art_content:
             text_only = re.sub(r'<[^>]+>', ' ', art_content)
             words = len(text_only.split())
-            if words < 350:
-                print(f"[FAIL] Article '{art_id}' word count too short: {words} words (min 350 required)")
+            if words < 600:
+                print(f"[FAIL] Article '{art_id}' word count too short: {words} words (min 600 required)")
                 errors += 1
 
         # Check 3: Author standard
