@@ -34,17 +34,21 @@ function httpRequest(options, postData, isBinary = false) {
   });
 }
 
-function fetchUrlBuffer(url) {
+function fetchUrlBuffer(url, timeoutMs = 6000) {
   return new Promise((resolve, reject) => {
     const protocol = url.startsWith('https') ? https : http;
-    protocol.get(url, (res) => {
+    const req = protocol.get(url, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        return resolve(fetchUrlBuffer(res.headers.location));
+        return resolve(fetchUrlBuffer(res.headers.location, timeoutMs));
       }
       const chunks = [];
       res.on('data', chunk => chunks.push(chunk));
       res.on('end', () => resolve({ buffer: Buffer.concat(chunks), contentType: res.headers['content-type'] || 'image/jpeg' }));
-    }).on('error', reject);
+    });
+    req.on('error', reject);
+    req.setTimeout(timeoutMs, () => {
+      req.destroy(new Error(`Image fetch timed out after ${timeoutMs}ms`));
+    });
   });
 }
 

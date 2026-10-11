@@ -153,7 +153,8 @@
     "best-vpn-for-streaming-no-logs-2026",
     "windows-11-privacy-tools-2026",
     "white-house-super-intelligence-executive-order-national-tech-compact-2026",
-    "gta-6-settings-optimization-120fps"
+    "gta-6-settings-optimization-120fps",
+    "iphone-18-pro-max-vs-galaxy-s26-ultra"
   ],
   "history": [
     {
@@ -1381,6 +1382,14 @@
       "postedAt": "2026-10-11T04:49:10.975Z",
       "bskyUri": null,
       "mastodonUrl": "https://mastodon.social/@imtechboss/117420467882879800"
+    },
+    {
+      "id": "iphone-18-pro-max-vs-galaxy-s26-ultra",
+      "title": "iPhone 18 Pro Max vs Galaxy S26 Ultra: Which is the Real Tech Boss?",
+      "category": "Tech Reviews",
+      "postedAt": "2026-10-11T05:01:56.017Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxl7xgv5x32w",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420518020764756"
     }
   ]
 }

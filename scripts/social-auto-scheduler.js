@@ -81,6 +81,8 @@ async function runScheduler() {
   console.log(' • State saved to: scripts/social-history.json (survives restarts & power off)');
   console.log(' • Dynamic updates: Auto-detects newly added articles in data.js\n');
 
+  let isFirstRun = true;
+
   while (true) {
     const articles = loadArticles();
     if (articles.length === 0) {
@@ -107,7 +109,14 @@ async function runScheduler() {
     let nextArticleToPost;
     let delayMinutes;
 
-    if (!history.postedIds.includes(latestArticle.id)) {
+    if (isFirstRun) {
+      // On startup, immediately post within 3 seconds so user gets instant confirmation!
+      nextArticleToPost = !history.postedIds.includes(latestArticle.id) ? latestArticle : unpostedArticles[unpostedArticles.length - 1];
+      delayMinutes = 0.05; // ~3 seconds
+      isFirstRun = false;
+      console.log(`🚀 Initial startup post: "${nextArticleToPost.title}"`);
+      console.log(`⏱️ Posting in 3 seconds for instant verification...`);
+    } else if (!history.postedIds.includes(latestArticle.id)) {
       // It's a fresh newly added article! Give it 5 minutes delay
       nextArticleToPost = latestArticle;
       delayMinutes = 5;
