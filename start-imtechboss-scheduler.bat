@@ -7,7 +7,7 @@ echo   Platforms: Bluesky (@imtechboss.bsky.social) ^& Mastodon (@imtechboss)
 echo ======================================================================
 echo.
 echo Running automated drip cross-poster...
-echo   * Existing backlog articles: Shared every 20-25 minutes to BOTH platforms.
+echo   * Existing backlog articles: Shared every 8-12 minutes to BOTH platforms.
 echo   * New published articles: Shared with 5-minute priority difference.
 echo   * History tracking: Auto-saved to scripts\social-history.json
 echo.

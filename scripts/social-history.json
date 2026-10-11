@@ -1,5 +1,7 @@
 {
   "postedIds": [
+    "meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026",
+    "google-quantum-ai-willow-chip-quantum-advantage-molecules-2026",
     "meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026",
     "openai-agent-breaches-australian-government-health-portal-2026",
     "blogger-295",
@@ -153,6 +155,22 @@
     "white-house-super-intelligence-executive-order-national-tech-compact-2026"
   ],
   "history": [
+    {
+      "id": "meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026",
+      "title": "Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture",
+      "category": "Frontier AI & LLMs",
+      "postedAt": "2026-10-11T04:02:00.000Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxl4nn6pfy27",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117420282605115891"
+    },
+    {
+      "id": "google-quantum-ai-willow-chip-quantum-advantage-molecules-2026",
+      "title": "Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip",
+      "category": "Frontier AI & Quantum",
+      "postedAt": "2026-10-11T02:27:28.021Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxkw5gqnd22y",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117419910628635938"
+    },
     {
       "id": "meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026",
       "postedAt": "2026-09-25T05:00:00.000Z",

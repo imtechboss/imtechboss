@@ -76,7 +76,7 @@ async function runScheduler() {
   console.log('  Platforms: Bluesky (@imtechboss.bsky.social) & Mastodon (@imtechboss)');
   console.log('======================================================================');
   console.log('Rules:');
-  console.log(' • Backlog articles: Shared every 20-25 minutes (natural anti-spam cadence)');
+  console.log(' • Backlog articles: Shared every 8-12 minutes (natural anti-spam cadence, ~10 min avg)');
   console.log(' • Brand new articles: Prioritized and shared with a 5-minute difference');
   console.log(' • State saved to: scripts/social-history.json (survives restarts & power off)');
   console.log(' • Dynamic updates: Auto-detects newly added articles in data.js\n');
@@ -116,8 +116,8 @@ async function runScheduler() {
     } else {
       // Standard drip queue: pick oldest unposted (from bottom) to drip in chronological order
       nextArticleToPost = unpostedArticles[unpostedArticles.length - 1];
-      // Random 20 to 25 minutes
-      delayMinutes = Math.floor(Math.random() * 6) + 20; // 20 to 25 min
+      // Random 8 to 12 minutes (~10 min average)
+      delayMinutes = Math.floor(Math.random() * 5) + 8; // 8 to 12 min
       const scheduledTime = new Date(Date.now() + delayMinutes * 60 * 1000).toLocaleTimeString();
       console.log(`⏳ Next in queue: "${nextArticleToPost.title}" [${nextArticleToPost.category || 'Tech'}]`);
       console.log(`⏱️ Interval timer: Posting in ${delayMinutes} minutes (at ${scheduledTime})...`);
