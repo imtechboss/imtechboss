@@ -66,6 +66,12 @@ export default {{
     try {{
       const url = new URL(request.url);
       const pathname = url.pathname.toLowerCase();
+      // 0. Canonical 301 Redirect: Consolidate www.imtechboss.com -> imtechboss.com for AdSense & SEO
+      if (url.hostname === 'www.imtechboss.com') {{
+        url.hostname = 'imtechboss.com';
+        return Response.redirect(url.toString(), 301);
+      }}
+
       const ADMIN_SECRET = 'binod_boss_2026';
 
       // 1. Secure Admin Access Controller (Key / Cookie Authenticated)
