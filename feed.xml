@@ -2,6 +2,35 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
     <item>
+      <title>Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip: Molecular Benchmarks Solved in Under 5 Minutes</title>
+      <link>https://imtechboss.com/post?id=google-quantum-ai-willow-chip-quantum-advantage-molecules-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post?id=google-quantum-ai-willow-chip-quantum-advantage-molecules-2026</guid>
+      <pubDate>Sun, 11 Oct 2026 02:13:48 GMT</pubDate>
+      <description>Google Quantum AI has published verified benchmarks demonstrating quantum computational advantage on its 105-qubit Willow processor, calculating complex molecular ground-state energies in minutes that would demand 4,200 years on Frontier.</description>
+      <category>Frontier AI &amp; Quantum</category>
+      <author>binodbhatt500k@gmail.com (Tech Boss)</author>
+      <enclosure url="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+      <media:content url="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800">
+        <media:title type="plain">Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip: Molecular Benchmarks Solved in Under 5 Minutes</media:title>
+      </media:content>
+      <media:thumbnail url="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+    </item>
+    <item>
+      <title>Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture with Native 1M-Token Context Window</title>
+      <link>https://imtechboss.com/post?id=meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026</link>
+      <guid isPermaLink="true">https://imtechboss.com/post?id=meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026</guid>
+      <pubDate>Sun, 11 Oct 2026 02:13:48 GMT</pubDate>
+      <description>Meta has made its next-generation open-weights frontier model, Llama 4 Scout, available under permissive research licensing, introducing dynamic Mixture-of-Depths layer routing, native 1-million token context, and FP8 quantized checkpoints.</description>
+      <category>Frontier AI &amp; LLMs</category>
+      <author>binodbhatt500k@gmail.com (Tech Boss)</author>
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800">
+        <media:title type="plain">Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture with Native 1M-Token Context Window</media:title>
+      </media:content>
+      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" width="1200" height="800" />
+    </item>
+
+    <item>
       <title>NVIDIA Announces Rubin R100 Ultra: 3nm CoWoS-L Architecture with 288GB HBM4 Memory</title>
       <link>https://imtechboss.com/post?id=nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026</link>
       <guid isPermaLink="true">https://imtechboss.com/post?id=nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026</guid>

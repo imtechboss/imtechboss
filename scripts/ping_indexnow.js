@@ -18,10 +18,13 @@ const host = 'imtechboss.com';
 
 const urls = [
   `https://${host}/`,
-  `https://${host}/about.html`,
-  `https://${host}/contact.html`,
-  `https://${host}/privacy.html`,
-  `https://${host}/disclaimer.html`,
+  `https://${host}/about`,
+  `https://${host}/contact`,
+  `https://${host}/privacy`,
+  `https://${host}/disclaimer`,
+  `https://${host}/tools`,
+  `https://${host}/compare`,
+  `https://${host}/deals`,
   `https://${host}/sitemap.xml`,
   ...articles.map(a => `https://${host}/post?id=${a.id}`)
 ];

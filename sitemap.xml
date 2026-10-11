@@ -2,10 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://imtechboss.com/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/about</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/contact</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/compare</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/deals</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/privacy</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/disclaimer</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=google-quantum-ai-willow-chip-quantum-advantage-molecules-2026</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip: Molecular Benchmarks Solved in Under 5 Minutes</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture with Native 1M-Token Context Window</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/post?id=nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>NVIDIA Announces Rubin R100 Ultra: 3nm CoWoS-L Architecture with 288GB HBM4 Memory</image:title>
@@ -15,18 +83,17 @@
     <loc>https://imtechboss.com/post?id=anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Anthropic Unveils Claude 4.5 Opus: Multi-Agent Orchestration and Autonomous Tool Synthesis</image:title>
     </image:image>
   </url>
-
   <url>
     <loc>https://imtechboss.com/post?id=white-house-super-intelligence-executive-order-national-tech-compact-2026</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>White House Issues 'Super Intelligence' Executive Order and Signs National AI Safety Compact</image:title>
@@ -36,7 +103,7 @@
     <loc>https://imtechboss.com/post?id=google-fitbit-air-launch-gemini-health-biometric-wearable-2026</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Google Launches Fitbit Air: Ultra-Thin Titanium Wearable with Gemini Health Intelligence</image:title>
@@ -46,7 +113,7 @@
     <loc>https://imtechboss.com/post?id=samsung-galaxy-tab-s12-ultra-plus-launch-dynamic-amoled-galaxy-ai-2026</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Samsung Galaxy Tab S12 Ultra and S12+ Debut with 14.6-inch Dynamic AMOLED and Galaxy AI</image:title>
@@ -56,7 +123,7 @@
     <loc>https://imtechboss.com/post?id=coreweave-launches-forge-enterprise-ai-training-agent-evaluation-layer-2026</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>CoreWeave Launches Forge: End-to-End Enterprise AI Development and Agent Evaluation Layer</image:title>
@@ -66,7 +133,7 @@
     <loc>https://imtechboss.com/post?id=thales-sentinel-envelope-plus-defends-against-ai-automated-exploit-generation-2026</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Thales Unveils Sentinel Envelope Plus to Block Automated AI-Driven Binary Exploits</image:title>
@@ -76,7 +143,7 @@
     <loc>https://imtechboss.com/post?id=openai-gpt-6-1-sol-programming-model-cost-efficient-astra-alternative-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>OpenAI Launches GPT-6.1 Sol: The Precision Coding Engine Taking on Claude Sonnet 5.5</image:title>
@@ -86,7 +153,7 @@
     <loc>https://imtechboss.com/post?id=ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>FTC Launches Formal Investigation into OpenAI and Anthropic Over Consumer Risks</image:title>
@@ -96,7 +163,7 @@
     <loc>https://imtechboss.com/post?id=chinese-hackers-impersonate-us-officials-steal-ai-researcher-emails-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Chinese State Hackers Impersonate Ex-US Officials to Infiltrate AI Research Networks</image:title>
@@ -106,7 +173,7 @@
     <loc>https://imtechboss.com/post?id=google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Google Unveils Gemini 4 Argon: A Massive Leap in Frontier Reasoning and Enterprise AI</image:title>
@@ -116,7 +183,7 @@
     <loc>https://imtechboss.com/post?id=apple-j490-smart-home-ai-display-october-13-event-john-ternus-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Apple Confirms October 13 Event: J490 Smart Home AI Hub and John Ternus Debut</image:title>
@@ -126,7 +193,7 @@
     <loc>https://imtechboss.com/post?id=cisa-cisco-catalyst-sdwan-zero-day-cve-2026-76504-72-hour-patch-mandate-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>CISA Issues 72-Hour Mandate for Critical Cisco SD-WAN Zero-Day (CVE-2026-76504)</image:title>
@@ -136,7 +203,7 @@
     <loc>https://imtechboss.com/post?id=microsoft-copilot-autopilot-agent-365-autonomous-enterprise-overhaul-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Microsoft Overhauls Copilot: Introducing Autopilot Mode and Agent 365</image:title>
@@ -146,7 +213,7 @@
     <loc>https://imtechboss.com/post?id=qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse</image:title>
@@ -156,7 +223,7 @@
     <loc>https://imtechboss.com/post?id=anthropic-claude-sonnet-5-5-terminal-bench-agentic-coding-enterprise-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Anthropic Ships Claude Sonnet 5.5: Redefining Agentic Coding</image:title>
@@ -166,7 +233,7 @@
     <loc>https://imtechboss.com/post?id=nasa-spacex-crew-13-dragon-grace-iss-launch-october-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>NASA and SpaceX Execute Historic Crew-13 Launch to ISS</image:title>
@@ -176,7 +243,7 @@
     <loc>https://imtechboss.com/post?id=amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>AMD's Lisa Su Touches Down in Seoul for Critical Samsung HBM4 Summit</image:title>
@@ -186,7 +253,7 @@
     <loc>https://imtechboss.com/post?id=google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Google Project Suncatcher: The First Orbital AI Supercomputer</image:title>
@@ -196,7 +263,7 @@
     <loc>https://imtechboss.com/post?id=ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Ethereum Genesis Whale Awakens: $356M Moved Amidst Market Turbulence</image:title>
@@ -206,7 +273,7 @@
     <loc>https://imtechboss.com/post?id=tesla-next-gen-roadster-delay-30-billion-credit-cybercab-optimus-capex-2026</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Tesla Delays Roadster, Secures $30B Credit for Cybercab &amp; Optimus</image:title>
@@ -216,7 +283,7 @@
     <loc>https://imtechboss.com/post?id=big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>OpenAI, Google, NVIDIA, Meta, Anthropic, and xAI Sign Historic Voluntary AI Safety Accord</image:title>
@@ -226,7 +293,7 @@
     <loc>https://imtechboss.com/post?id=openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>OpenAI Unveils Dots: An Always-On Autonomous Personal AI Agent for End-to-End Task Execution</image:title>
@@ -236,7 +303,7 @@
     <loc>https://imtechboss.com/post?id=critical-citrix-netscaler-zero-day-cve-2026-88772-whipshot-malware-2026</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Critical Citrix NetScaler Zero-Day CVE-2026-88772 Exploited in Wild with WHIPSHOT Malware</image:title>
@@ -246,7 +313,7 @@
     <loc>https://imtechboss.com/post?id=samsung-invests-1-billion-helix-digital-infrastructure-ai-datacenters-2026</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Samsung Commits $1 Billion to Helix Digital Infrastructure to Accelerate AI Datacenter Supergrids</image:title>
@@ -256,7 +323,7 @@
     <loc>https://imtechboss.com/post?id=spacex-starship-flight-14-first-orbital-launch-starlink-v3-2026</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>SpaceX Starship Flight 14 Targets First Orbital Insertion and Starlink V3 Deployment</image:title>
@@ -266,7 +333,7 @@
     <loc>https://imtechboss.com/post?id=amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>AMD Surpasses $1 Trillion Valuation Following 107% Datacenter Growth and MI450 Hyperscaler Deals</image:title>
@@ -276,7 +343,7 @@
     <loc>https://imtechboss.com/post?id=google-deploys-safe-ai-anti-abuse-engine-search-spam-update-2026</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Google Activates SAFE AI Engine in September 2026 Search Update to Neutralize Coordinated Synthetic Spam</image:title>
@@ -286,7 +353,7 @@
     <loc>https://imtechboss.com/post?id=intel-14a-foundry-node-evaluations-apple-amazon-nvidia-2026</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Intel 14A Process Under Evaluation by Apple, Amazon, and Nvidia as Foundry Rivalry Escalates</image:title>
@@ -296,7 +363,7 @@
     <loc>https://imtechboss.com/post?id=nvidia-palantir-ai-semiconductor-supply-chain-gpu-shortage-2026</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>NVIDIA Teams with Palantir to Deploy AI Across Semiconductor Supply Chains Amid Severe GPU Bottlenecks</image:title>
@@ -306,7 +373,7 @@
     <loc>https://imtechboss.com/post?id=broadcom-custom-ai-asic-chips-surge-threatens-nvidia-gpu-monopoly-2026</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Broadcom Custom AI Chip Surge Threatens NVIDIA Monopoly as Hyperscalers Pivot to In-House ASICs</image:title>
@@ -316,7 +383,7 @@
     <loc>https://imtechboss.com/post?id=openai-halts-frontier-model-training-sandbox-isolation-flaw-compute-cluster-2026</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>OpenAI Halts Frontier Model Training After Sandbox Isolation Flaw Discovered in Compute Clusters</image:title>
@@ -326,18 +393,17 @@
     <loc>https://imtechboss.com/post?id=hbm-memory-supercycle-micron-sk-hynix-sold-out-ai-vram-bottleneck-2026</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>The HBM Memory Supercycle: Why Micron and SK Hynix Sold Out AI VRAM Capacities Through 2027</image:title>
     </image:image>
   </url>
-
   <url>
     <loc>https://imtechboss.com/post?id=google-project-suncatcher-space-based-tpu-satellite-ai-data-center-launch</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Google Project Suncatcher: Space-Based TPU AI Data Centers Set for Falcon 9 Orbit Launch</image:title>
@@ -347,7 +413,7 @@
     <loc>https://imtechboss.com/post?id=rtx-5070-vs-rtx-4070-ti-super-1440p-gaming-benchmarks-specs-guide-2026</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>RTX 5070 vs RTX 4070 Ti Super: Which 1440p High-Refresh Gaming GPU Actually Deserves Your Money in 2026?</image:title>
@@ -357,7 +423,7 @@
     <loc>https://imtechboss.com/post?id=apple-m5-chip-tsmc-2nm-soic-3d-packaging-specs-launch-roadmap-2026</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Apple M5 Chip Architecture Leaks: TSMC 2nm GAA Nanosheets &amp; SoIC 3D Stacking Set to Power Next-Gen Macs</image:title>
@@ -367,7 +433,7 @@
     <loc>https://imtechboss.com/post?id=how-to-fix-windows-11-24h2-installation-failed-error-bsod-clean-update-guide-2026</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Fix Windows 11 24H2 Update Failed (0x80070002, 0x800F0988) &amp; BSOD Crash Loops: Complete 2026 Diagnostic Guide</image:title>
@@ -377,7 +443,7 @@
     <loc>https://imtechboss.com/post?id=nvidia-rubin-r100-gpu-architecture-hbm4-288gb-tsmc-3nm-nvlink-6</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>NVIDIA Rubin R100 GPU Architecture: HBM4 288GB, TSMC 3nm GAA &amp; NVLink 6 Break Through Datacenter Memory Walls</image:title>
@@ -387,7 +453,7 @@
     <loc>https://imtechboss.com/post?id=deepseek-v3-r1-moe-multi-head-latent-attention-fp8-training-economics</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>DeepSeek V3 / R1 Architecture Deep Dive: Multi-Head Latent Attention (MLA), DeepSeekMoE &amp; FP8 Mixed-Precision Training Economics</image:title>
@@ -397,7 +463,7 @@
     <loc>https://imtechboss.com/post?id=openai-operator-commercial-launch-autonomous-browser-desktop-computer-using-agent</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>OpenAI Operator Commercial Launch: Inside the Autonomous GUI Agents Executing Browser &amp; Desktop Workflows Without APIs</image:title>
@@ -407,7 +473,7 @@
     <loc>https://imtechboss.com/post?id=qualcomm-snapdragon-x2-elite-3nm-oryon-v2-60-tops-npu-vs-apple-m4-lunar-lake</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Qualcomm Snapdragon X2 Elite: 3nm Oryon V2 Architecture &amp; 60 TOPS NPU Threaten Apple M4 and Lunar Lake Dominance</image:title>
@@ -417,18 +483,17 @@
     <loc>https://imtechboss.com/post?id=nist-finalizes-post-quantum-cryptography-fips-203-ml-kem-harvest-now-decrypt-later</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>NIST Finalizes FIPS 203 &amp; 204 Standards: Inside the Global Race to Deploy ML-KEM and Stop 'Harvest Now, Decrypt Later' Attacks</image:title>
     </image:image>
   </url>
-
   <url>
     <loc>https://imtechboss.com/post?id=tsmc-a16-angstrom-process-super-power-rail-bspdn-ai-accelerators</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>TSMC A16 1.6nm Process Enters Final Validation: Super Power Rail Solves IR Drop &amp; Logic Density Ceilings for AI Silicon</image:title>
@@ -438,74 +503,37 @@
     <loc>https://imtechboss.com/post?id=xai-colossus-2-scales-to-1-44-million-gpus-nvidia-gb300-tesla-megapack-power-wall</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>xAI Colossus 2 Scales to 1.44M GPUs: How 220,000 NVIDIA GB300 Units &amp; 3.3 GWh Tesla Megapacks Broke the AI Data Center Power Wall</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/deals.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=best-budget-144hz-240hz-gaming-monitors-under-200-dollars-2026</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Best Budget 144Hz &amp; 240Hz Gaming Monitors Under $200 (2026 Edition: Fast IPS vs Curved VA Rankings)</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/stories/how-to-fix-nvidia-nvlddmkm-sys-blue-screen-bsod-windows-11-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=how-to-fix-nvidia-nvlddmkm-sys-blue-screen-bsod-windows-11-2026</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Fix NVIDIA nvlddmkm.sys Video TDR Failure (BSOD) in Windows 11: Complete 2026 Diagnostic Guide</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/compare.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://imtechboss.com/stories/gta-6-pc-system-requirements-ray-tracing-vram-fps-targets-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/how-to-run-deepseek-r1-locally-offline-ollama-lm-studio-guide-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/intel-core-ultra-200s-arrow-lake-gaming-bios-microcode-optimization-guide.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=how-to-run-deepseek-r1-locally-offline-ollama-lm-studio-guide-2026</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Run DeepSeek R1 Locally 100% Offline with Ollama &amp; LM Studio (Complete 2026 Setup)</image:title>
@@ -515,7 +543,7 @@
     <loc>https://imtechboss.com/post?id=gta-6-pc-system-requirements-ray-tracing-vram-fps-targets-2026</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>GTA 6 PC System Requirements Breakdown: Ray Tracing, VRAM Ceilings, and 60 FPS Targets</image:title>
@@ -525,102 +553,17 @@
     <loc>https://imtechboss.com/post?id=intel-core-ultra-200s-arrow-lake-gaming-bios-microcode-optimization-guide</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Intel Core Ultra 200S (Arrow Lake) Optimization Guide: Fixing Memory Latency and BIOS Tweaks</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/pins/</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://imtechboss.com/stories/amd-ryzen-7-9800x3d-inverts-3d-v-cache-architecture-full-overclocking-unlocked-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/best-gaming-gpus-under-500-dollars-2026-vram-1440p-rankings.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/deepseek-r1-vs-openai-o3-vs-claude-3-7-reasoning-models-benchmark-comparison-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/how-to-enable-tpm-2-secure-boot-valorant-windows-11-without-bios-error.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/inside-openai-o1-test-time-compute-chain-of-thought-hardware-scaling-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/microsoft-windows-11-24h2-recall-security-overhaul-opt-in-bitlocker-enclave-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/nvidia-rtx-5090-600w-tdp-12v-2x6-power-connector-melting-concerns-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/rtx-5090-vs-rtx-4090-blackwell-benchmarks-specs-upgrade-guide-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/snapdragon-8-elite-vs-dimensity-9400-3nm-oryon-cortex-x925-benchmark-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/sony-ps5-pro-pssr-300-tops-neural-engine-4k-60fps-ray-tracing-2026.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Fix 100% Disk Usage in Windows 11 (SSD &amp; HDD): Complete 2026 Diagnostic Guide</image:title>
@@ -630,7 +573,7 @@
     <loc>https://imtechboss.com/post?id=how-to-enable-tpm-2-secure-boot-valorant-windows-11-without-bios-error</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Enable TPM 2.0 and Secure Boot for Windows 11 &amp; Valorant: Complete UEFI Setup Guide</image:title>
@@ -640,7 +583,7 @@
     <loc>https://imtechboss.com/post?id=best-gaming-gpus-under-500-dollars-2026-vram-1440p-rankings</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Best Gaming GPUs Under $500 in 2026: VRAM Scaling, 1440p Benchmarks, and Value Verdicts</image:title>
@@ -650,7 +593,7 @@
     <loc>https://imtechboss.com/post?id=rtx-5090-vs-rtx-4090-blackwell-benchmarks-specs-upgrade-guide-2026</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>RTX 5090 vs RTX 4090: Architecture Breakdown, Blackwell Benchmarks, and Is the $2,000 Upgrade Worth It?</image:title>
@@ -660,47 +603,11 @@
     <loc>https://imtechboss.com/post?id=deepseek-r1-vs-openai-o3-vs-claude-3-7-reasoning-models-benchmark-comparison-2026</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>DeepSeek R1 vs OpenAI o3 vs Claude 3.7: Reasoning Benchmarks, Local Hardware Demands, and API Economics</image:title>
     </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/about.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/contact.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/privacy.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/disclaimer.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/post?id=meta-unveils-orion-holographic-ar-glasses-silicon-carbide-neural-wristband-2026</loc>
@@ -1673,76 +1580,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/post?id=blogger-739</loc>
-    <lastmod>2021-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDRxcOGG1f4SeFLuLv4CFdTz95cmmeEbsHuXMxrvngG-oe36CKJZolqZOSFEZlAL0D5BPiMbZGFCZRLuKzUmR45gN104_V2Lg-19ubCJu3bocj31mEgijiJ4PkCfGJMCIHPSd4u9bJm9Kk/s320/Screenshot+%2528134%2529.png</image:loc>
-      <image:title>Semester IV - Computer Networks Notes !!</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-236</loc>
-    <lastmod>2021-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguX9YIgezPDI8xAy_3keL3d5jn5E-D_EA7xpaQ5F74pQbh0Yw-1tTh0oL5r4B9L87AcH4uf0DQUCg-3uaINdhUR-E6WmENYErYWxQhp92k1-f-souwPFB0WppKiBz4zbyWP3iMZUkHu8qH/s320/Screenshot+%2528131%2529.png</image:loc>
-      <image:title>Semester IV - Database Management System Notes !</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-712</loc>
-    <lastmod>2021-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuVWgGetSM_xPzvX4Msq0vSoVgykCpLCzx-oY7IWOIfFzsACZU31BJCQqRiVQX_f-PRy7uElFLpTSCJMGesVS60eZiAckykLx7MZPtKdaoI3mPp-26fx3nGFDsu3yPJQtbO5JOPK6zIu43/s320/Screenshot+%2528128%2529.png</image:loc>
-      <image:title>Semester IV - Operating System (OS) Notes</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-584</loc>
-    <lastmod>2021-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZUb-CUL08qfAujRd6TzGNsZJma9RCyCbSUOZdRBbtMazxAPElignVAEeyJd8Ji5JXAlWznN-mEylswIuF3-ZDFsTg4T8YTX8YBnLSC09f5YUnz1z2dh3vS7JInHOghaEfKjZhGsYTKR0g/s320/Screenshot+%2528124%2529.png</image:loc>
-      <image:title>Semester IV -Artificial Intelligence(AI)</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-419</loc>
-    <lastmod>2021-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLQOxJtQjd1UnfOPb6Mspwrp6AX-faNEsw_Bsoem0i7OBhjtZYGtS93Lu7UYBkG_AJwjaIXQwDpBUJKS57efCsQjUzCaKB3LQ2cuQOikCg9Ty1pHs3LwRjjCIgfYcD4MDuZz4JamIFF2qK/s320/Screenshot_2021-09-07-08-14-59-617_cn.wps.xiaomi.abroad.lite.jpg</image:loc>
-      <image:title>Semester IV Theory Of Computation (TOC)</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-1</loc>
-    <lastmod>2021-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYsunnEnbC-1wSNJeNry6lfNWtzLMsAOvx0A0zwtH4n4AFuztX4Q6veBwnLMgF3Ev5wFTKKjRnlqDi5pErr1MbtpodyqHnjp6zIXX6t2F04pkkEkr-8PYFdis1xgygxJfhO0EsUc-VNWHf/s320/Screenshot_2021-09-06-20-58-03-786_cn.wps.xiaomi.abroad.lite.jpg</image:loc>
-      <image:title>Semester II Mathematics-II Notes</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-158</loc>
-    <lastmod>2021-09-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbSE9WnGm5vig2puxTJu8GuVkBRMEmC2YiM1Bjsmp_FhGLjZX44HAqwhbrg1MGEQHXxYRm3KBItZ1CSLnCyx-TIeoO64snxhRK4p0hxMIDtZpPd3MpghADTCq53e8s7Ix5CXSnuR3kEHaS/s320/Screenshot_2021-09-03-06-25-19-323_cn.wps.xiaomi.abroad.lite.jpg</image:loc>
-      <image:title>Semester II -C++(OOP) Notes</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=blogger-512</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1830,26 +1667,6 @@
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbUDKgwEbaU_h1kTPDwCC1pziWWups_lebdIt7ySXCxiyAiWYfz32OMT_YukIYXAuR-4smjxHxXK7hY7AL7hB1mKk9hRtjklPyV5SVHJxPcHlOP7f0IeQLVrBphVXW7XiYcpoN37iDKPQ5/s1600/1579864474815116-0.png</image:loc>
       <image:title>POCO India Official:- Next POCO Smartphone Confirm To Launch In February 2020</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-189</loc>
-    <lastmod>2020-01-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0x7LKvfybJmPLGgG4TnLlTbWPJzWhuLEO3MQqF7-VsXcNzu_wBuf80FsolzfsPzy2zU73R9czCsa-d_Q4oglPbgNfV_4wZf1YWY0iixwXPOEfvfsHjRZ19GFxDNP7GKRspJ2EJvF-MQ9Q/s1600/1579662694041669-0.png</image:loc>
-      <image:title>Poco F1 Android 10 with MIUI 11 rolling: 11.0.4.0.QEJMIXM Downoad</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-65</loc>
-    <lastmod>2020-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPVGiwWlzn3svxX2S-TxVELcEeFSh3B0a1HZH7UKx4zGG-fcx32mjFYbDtAhzdY8tKsW_RniZiQpEB8tvzgsQPbsYUk7Ney37Lre2sFwOqik6x7hGqOeLKWA1zyYiDi8q_XCs0pFhwiwY/s1600/1579485229152208-0.png</image:loc>
-      <image:title>How To Apply Custom Watch Face For Mi Smart Band 4 Via Mi Fit App</image:title>
     </image:image>
   </url>
   <url>
@@ -1943,16 +1760,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/post?id=blogger-850</loc>
-    <lastmod>2020-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC9EHbaeaCNOiJ2-jc8eZFeaIuoYrEyaXx27FM9SfPgzWhEJ-b18e6fyo19a4KmvZyiRnr4OAte4bo5pM4Hqw4rKDr4mzU09dniq6OnMl47L1eahSbpMl2PAraMalbc03Y-5NRWS6lxC4/s1600/1579271047976955-0.png</image:loc>
-      <image:title>New MIUI 11 Themes To Decorate Your Phone Best 20 Themes Download</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=blogger-833</loc>
     <lastmod>2020-01-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -1980,16 +1787,6 @@
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT8YXE1Id1kxUcmloEDzWI9QZSG8_B3hElPNQkHiXmcnZ-mixV0-qvfMHzndBMcTHbj7MOudXqAExdHffltv47F4Kga3i0QZxJwnOt29zXSoT8LrPgfrogZGbcEUt02RDwUOAn97VBspg/s320/1578748288966.jpg</image:loc>
       <image:title>Unboxing realme5i : The Powerful Beast Price And Specifications Buy Now</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-684</loc>
-    <lastmod>2020-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://u01.appmifile.com/images/2019/09/30/d5e55ff3-cacc-4763-bd60-0dae69eaa5c2.png</image:loc>
-      <image:title>Best Printing And Scanning Apps For Android 2019/2020</image:title>
     </image:image>
   </url>
   <url>
@@ -2033,16 +1830,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/post?id=blogger-560</loc>
-    <lastmod>2020-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0OfFCFeAqLFSHrPlOZbKDjhQmh5YbVv5gSDGy0FXu2279KNr_Y0xWpFzxhPi5iEo4oXzU9-_dEJHMnIwMyTo-FSsEUlG33Esyic3zpYWPnt4wnA6jRvbsKQWsLKWsQ5pD9Ya6GoLMwaI/s1600/1578428909698372-0.png</image:loc>
-      <image:title>Realme 5i Full Specifications With Picture Review 2020</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=blogger-822</loc>
     <lastmod>2020-01-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -2060,16 +1847,6 @@
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5FckokwKoGHsQDlCAIIc50g8PNv1iN05mUAq-38SWym9GqJWrjv7JEauhx3g48SuLbICsrYO02gEloDk-l-CubYUt5fSeJenKVg9pQYSg3givXO6aa_O7mNRIbWQ99QNvFgHjg12GZKk/s320/1151781462056370176.jpg</image:loc>
       <image:title>TOP 5 FILE SHARING APPS BEST FOR ANDROID/IOS</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-909</loc>
-    <lastmod>2020-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPBPo0DOW0mcGrJCsaCuyzRH8ZjFuAknxcQ5bVtxtgYqV_PygiOGYgtO55l4mMxv5hv29rf33BLBBCCwlxOohiuxkL6T-Mqo18DCrb74SGVqTrdXIewqNfF7utzuz0mfHN58jCohKHHZ0/s320/ColorOS-7-Features.jpg</image:loc>
-      <image:title>How to save Google Contacts in Color OS?</image:title>
     </image:image>
   </url>
   <url>
@@ -2110,16 +1887,6 @@
     <image:image>
       <image:loc>https://u01.appmifile.com/images/2020/01/06/674ee2cf-38fe-4922-a258-e035f5a9b588.jpeg</image:loc>
       <image:title>Xiaomi Mi 10 image, render, 560K+ AnTuTu score along with key details leaked ahead of launch!</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-718</loc>
-    <lastmod>2020-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=800&amp;q=80</image:loc>
-      <image:title>Official Statement Regarding Issue of Receiving Stills While Connecting Mi Home Security Camera</image:title>
     </image:image>
   </url>
   <url>
@@ -2180,16 +1947,6 @@
     <image:image>
       <image:loc>https://lh3.googleusercontent.com/oUukRV8x9WR5J68u9pAxzbDoesBqT3lvdsEip-c0RnsNnO9f-qcqmddWzl6AFuYDMbA=s180-rw</image:loc>
       <image:title>Top 5 PDF Reader Apps For Your Android Or Ios</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-299</loc>
-    <lastmod>2020-01-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://static.c.realme.com/IN/thread/1190311511084498944.jpeg</image:loc>
-      <image:title>How To Enable Fingerprint Lock In WhatsApp</image:title>
     </image:image>
   </url>
   <url>
@@ -2303,16 +2060,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/post?id=blogger-263</loc>
-    <lastmod>2020-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://u01.appmifile.com/images/2019/12/30/58fbf24e-f34e-4d6d-b428-0308add39dd3.jpg</image:loc>
-      <image:title>Macalren Edition MIUI 11 Theme Can Change Your XIAOMI Device's Look, Try Now!!</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=blogger-231</loc>
     <lastmod>2020-01-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -2343,16 +2090,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/post?id=blogger-194</loc>
-    <lastmod>2020-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://static.c.realme.com/IN/wm-thread/1212599230418386944.png</image:loc>
-      <image:title>How to Enable Live Wallpaper on Your  Smartphone</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=blogger-168</loc>
     <lastmod>2020-01-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -2370,26 +2107,6 @@
     <image:image>
       <image:loc>https://u01.appmifile.com/images/2019/09/19/af01f12f-38dc-4d4e-ac4a-4c0ebb535c0e.jpg</image:loc>
       <image:title>Top 5 Chinese Smartphones for Under $200</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-308</loc>
-    <lastmod>2020-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://static.c.realme.com/IN/thread/1205386382474739712.jpg</image:loc>
-      <image:title>How To Reset Lockscreen Password on your realme device</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-753</loc>
-    <lastmod>2020-01-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://static.c.realme.com/IN/wm-thread/1211665227888721920.jpg</image:loc>
-      <image:title>How to enable One Handed Mode on your realme smartphone</image:title>
     </image:image>
   </url>
   <url>
@@ -2473,36 +2190,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/post?id=blogger-927</loc>
-    <lastmod>2020-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVVFYixmazYOY1GuR2PVGTr_UsUShrfRdOrIx1nhHF4lLOgxrW66xWxn2cML0Ssac6pQtUL0KFg2xr4gNI7vIZXTJaZCbiiX5rse2LB6RiyTn6Wo186NTFHMfVcmm9I4cdinOCnSTxigU/s320/Mi+Community1577934401198.png</image:loc>
-      <image:title>Mi Remote V5.8.5.2G Released: Changelog and Download Link 2020</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-258</loc>
-    <lastmod>2020-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKC4O9Sv5dklie4xjcPOA9r4c8M1s5GKLrGqOLIxqxtUt8BQ2XbhKeUM5MIwXsaagHREK5Jh7VpbfLSW7DyoZy57so-7g-0RynKLITCbLVkGwVUw7TTTHabH7j-QcxaJLQSXj3P7Kdrxs/s320/Mi+Community1577934130471.png</image:loc>
-      <image:title>Poco Launcher v2.7.2.7 Released: Changelog and Download Link</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-162</loc>
-    <lastmod>2020-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5PK1xKZGkhqEl_xVoIII5-YXtnKUtywFSSnAKxC60paiWuPv9bAgK9tAJFGk5BQmpwmO5_Y45BMofn_WbOE_vxmf4iQ3aiTAodnnsaMb6TWEvndlAP4GVquQv9xy-gZKgmNtCt0-TdPo/s320/maxresdefault.jpg</image:loc>
-      <image:title>Havoc OS v3.O (Updated Build) based on Android 10 For Poco F1</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=blogger-293</loc>
     <lastmod>2019-12-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -2543,16 +2230,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/post?id=blogger-91</loc>
-    <lastmod>2019-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzB_Bh8VruYywOdcqRmEZUpjalSINkduFByxYnWcH2CMuJIvT4SOBWBy-QMfcmpIsFosoyz-0Crg2qeJqFpDB3bbfSOSMb5h_3u-DxVktJmZnNiNL5osi1SESX49ohZ6sRqUpAUP1znPM/s320/click-restart-now.png</image:loc>
-      <image:title>How to change system locale on Windows 10</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/post?id=blogger-853</loc>
     <lastmod>2019-09-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -2570,16 +2247,6 @@
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCu3pKCDfVpsPhw7MAaepG1qqWyNvr8-8u6ygipWm993GfIpchm3pfJvHA771af7LLWm2UHcZm4yL03J829NyFuh22fLARzCyLvKSMngLBMIWbN71JW4EvCP5zXWuNhDmvupW61LYhPAM/s320/maxresdefault-5.jpg</image:loc>
       <image:title>How to apply for YouTube  Verification Tag 2019 in 1 Min</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/post?id=blogger-396</loc>
-    <lastmod>2019-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXBzxXTIVNruehn1iqpkYPlNRl50vZ2Ip-_FnIZFkbITKCbj6fIs6si-vlQ7bevVHefhVVYpqn6tjbqNc2kzOWjc5iHQrDs8-c_yqBfur20-e8qRl3GlNYBOrTzbfh7dez3crSXjpdQko/s640/google-adsense-earnings-min.png</image:loc>
-      <image:title>How to use your YouTube AdSense account for your website</image:title>
     </image:image>
   </url>
   <url>

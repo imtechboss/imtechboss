@@ -45,8 +45,8 @@ def generate_sitemap():
         return
 
     data = json.loads(match.group(1))
-
     today = datetime.now().strftime("%Y-%m-%d")
+    
     xml_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
@@ -58,25 +58,43 @@ def generate_sitemap():
         '    <priority>1.0</priority>',
         '  </url>',
         '  <url>',
-        '    <loc>https://imtechboss.com/about.html</loc>',
+        '    <loc>https://imtechboss.com/about</loc>',
         f'    <lastmod>{today}</lastmod>',
         '    <changefreq>monthly</changefreq>',
         '    <priority>0.7</priority>',
         '  </url>',
         '  <url>',
-        '    <loc>https://imtechboss.com/contact.html</loc>',
+        '    <loc>https://imtechboss.com/contact</loc>',
         f'    <lastmod>{today}</lastmod>',
         '    <changefreq>monthly</changefreq>',
         '    <priority>0.7</priority>',
         '  </url>',
         '  <url>',
-        '    <loc>https://imtechboss.com/privacy.html</loc>',
+        '    <loc>https://imtechboss.com/tools</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>monthly</changefreq>',
+        '    <priority>0.8</priority>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/compare</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>monthly</changefreq>',
+        '    <priority>0.8</priority>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/deals</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>monthly</changefreq>',
+        '    <priority>0.7</priority>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/privacy</loc>',
         f'    <lastmod>{today}</lastmod>',
         '    <changefreq>monthly</changefreq>',
         '    <priority>0.5</priority>',
         '  </url>',
         '  <url>',
-        '    <loc>https://imtechboss.com/disclaimer.html</loc>',
+        '    <loc>https://imtechboss.com/disclaimer</loc>',
         f'    <lastmod>{today}</lastmod>',
         '    <changefreq>monthly</changefreq>',
         '    <priority>0.5</priority>',
@@ -111,7 +129,7 @@ def generate_sitemap():
     with open(sitemap_path, 'w', encoding='utf-8') as out:
         out.write('\n'.join(xml_lines))
 
-    print(f'Successfully generated sitemap.xml with {len(data) + 5} URLs (5 static + {len(data)} articles).')
+    print(f'Successfully generated sitemap.xml with {len(data) + 8} URLs (8 static + {len(data)} articles).')
 
 if __name__ == '__main__':
     generate_sitemap()
