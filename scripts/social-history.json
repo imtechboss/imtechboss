@@ -187,7 +187,8 @@
     "apple-mac-mini-m6-first-2nm-chip-desktop-2026",
     "alibaba-zhenwu-v900-china-most-powerful-ai-chip-2026",
     "xai-grok-4-7-coding-ai-model-elon-musk-2026",
-    "openai-gpt6-astra-computer-operator-ai-agent-2026"
+    "openai-gpt6-astra-computer-operator-ai-agent-2026",
+    "valorant-champions-shanghai-asian-games-esports-2026"
   ],
   "history": [
     {
@@ -1687,6 +1688,14 @@
       "postedAt": "2026-10-11T14:07:16.298Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxm6gm54t223",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117422662408268415"
+    },
+    {
+      "id": "valorant-champions-shanghai-asian-games-esports-2026",
+      "title": "VALORANT Champions Starts Tomorrow in Shanghai, Esports Returns to Asian Games as Medal Event",
+      "category": "Gaming & Esports",
+      "postedAt": "2026-10-12T02:23:06.527Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxnhkfcpn623",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117425555865350694"
     }
   ]
 }

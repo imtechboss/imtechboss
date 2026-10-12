@@ -3,57 +3,97 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://imtechboss.com/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/about</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/contact</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/compare</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/deals</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/privacy</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/terms</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/disclaimer</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Bypass TPM 2.0 &amp; Install Windows 11 24H2 on Unsupported PC (2026 Step-by-Step Guide)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=best-free-vpns-gaming-streaming-no-logs-zero-lag-2026</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Best Free VPNs for Gaming &amp; Streaming in 2026: Zero Logs, WireGuard Speeds, and No Bandwidth Caps</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Speed Up Slow Wi-Fi: Best DNS Settings and Router Tweaks for Minimum Gaming Ping in 2026</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/post?id=how-to-fix-100-percent-memory-disk-leak-windows-11-24h2</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Fix 100% Memory &amp; Disk Leak in Windows 11 (24H2): Complete Step-by-Step Diagnostic Guide</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://imtechboss.com/post?id=oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026</loc>
@@ -61,7 +101,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:loc>https://imtechboss.com/images/oneplus-16-flagship.jpg</image:loc>
       <image:title>OnePlus 16 Deep-Dive Review: 185Hz Esports AMOLED, Snapdragon 8 Elite Gen 5, and the 8,500mAh Silicon-Carbon Battery Revolution</image:title>
     </image:image>
   </url>
@@ -1841,7 +1881,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:loc>https://imtechboss.com/images/oneplus-16-flagship.jpg</image:loc>
       <image:title>OnePlus Concept One Full Review</image:title>
     </image:image>
   </url>
