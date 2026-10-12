@@ -16,8 +16,8 @@ if not match:
 
 articles = json.loads(match.group(1))
 
-# Select top 15 flagship articles for Pinterest Pins
-top_articles = articles[:15]
+# Select top 25 flagship articles for Pinterest Pins
+top_articles = articles[:25]
 
 def clean_html_tags(text):
     clean = re.sub(r'<[^>]+>', '', text)
@@ -41,10 +41,12 @@ for art in top_articles:
     excerpt = art.get('excerpt', '')
     category = art.get('category', 'Tech')
     img = art.get('image', 'https://imtechboss.com/og-image.png')
-    if 'images.unsplash.com' in img:
+    if not img.startswith('http'):
+        img = f"https://imtechboss.com/{img.lstrip('/')}"
+    elif 'images.unsplash.com' in img:
         img = re.sub(r'w=\d+', 'w=1200', img)
     
-    article_url = f"https://imtechboss.com/post.html?id={slug}"
+    article_url = f"https://imtechboss.com/post?id={slug}"
     bullets = extract_bullets(art)
     
     # Pinterest hashtags

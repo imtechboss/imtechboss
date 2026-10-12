@@ -56,6 +56,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://imtechboss.com/stories/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://imtechboss.com/post?id=how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>

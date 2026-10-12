@@ -6,7 +6,10 @@
     "meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026",
     "oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026",
     "nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026",
-    "how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026"
+    "how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026",
+    "best-free-vpns-gaming-streaming-no-logs-zero-lag-2026",
+    "how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026",
+    "how-to-fix-100-percent-memory-disk-leak-windows-11-24h2"
   ],
   "history": [
     {
@@ -50,6 +53,24 @@
       "devto_id": 4835409,
       "url": "https://dev.to/techboss/how-to-bypass-tpm-20-install-windows-11-24h2-on-unsupported-pc-2026-step-by-step-guide-131l",
       "postedAt": "2026-10-12T02:36:53.754Z"
+    },
+    {
+      "id": "best-free-vpns-gaming-streaming-no-logs-zero-lag-2026",
+      "devto_id": 4835915,
+      "url": "https://dev.to/techboss/best-free-vpns-for-gaming-streaming-in-2026-zero-logs-wireguard-speeds-and-no-bandwidth-caps-34c3",
+      "postedAt": "2026-10-12T05:13:49.112Z"
+    },
+    {
+      "id": "how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026",
+      "devto_id": 4835917,
+      "url": "https://dev.to/techboss/how-to-speed-up-slow-wi-fi-best-dns-settings-and-router-tweaks-for-minimum-gaming-ping-in-2026-4cp",
+      "postedAt": "2026-10-12T05:13:55.418Z"
+    },
+    {
+      "id": "how-to-fix-100-percent-memory-disk-leak-windows-11-24h2",
+      "devto_id": 4835924,
+      "url": "https://dev.to/techboss/how-to-fix-100-memory-disk-leak-in-windows-11-24h2-complete-step-by-step-diagnostic-guide-5km",
+      "postedAt": "2026-10-12T05:14:34.977Z"
     }
   ]
 }

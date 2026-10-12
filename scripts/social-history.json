@@ -192,7 +192,11 @@
     "october-2026-biggest-game-releases-gears-cod-phantom-blade",
     "how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026",
     "gta-6-vice-city-album-marketing-countdown-november-2026",
-    "xbox-halo-activision-restructuring-268-layoffs-2026"
+    "xbox-halo-activision-restructuring-268-layoffs-2026",
+    "trump-renames-ai-super-intelligence-un-speech-global-regulations-2026",
+    "meta-muse-ai-agent-amazon-controversy-autonomous-shopping-2026",
+    "why-software-engineers-hate-ai-coding-tools-viral-post-2026",
+    "adobe-premiere-android-launch-free-4k-export-no-watermark-2026"
   ],
   "history": [
     {
@@ -1732,6 +1736,38 @@
       "postedAt": "2026-10-12T03:02:34.292Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxnjqxmckz26",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117425711031307910"
+    },
+    {
+      "id": "trump-renames-ai-super-intelligence-un-speech-global-regulations-2026",
+      "title": "Trump Orders U.S. to Rename AI to 'Super Intelligence' and Rejects Global Regulation at UN",
+      "category": "AI & Technology",
+      "postedAt": "2026-10-12T03:12:40.849Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxnkd2dy6q25",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117425750791810360"
+    },
+    {
+      "id": "meta-muse-ai-agent-amazon-controversy-autonomous-shopping-2026",
+      "title": "Meta Launched an AI Agent That Shops for You, and Amazon Is Furious",
+      "category": "AI & Technology",
+      "postedAt": "2026-10-12T03:21:48.294Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxnktdlkil2b",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117425786671271466"
+    },
+    {
+      "id": "why-software-engineers-hate-ai-coding-tools-viral-post-2026",
+      "title": "Why A Viral Post About AI Coding Making Engineers Miserable Struck A Nerve",
+      "category": "Programming & Dev Tools",
+      "postedAt": "2026-10-12T03:29:55.202Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxnlbuhapy25",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117425818581130087"
+    },
+    {
+      "id": "adobe-premiere-android-launch-free-4k-export-no-watermark-2026",
+      "title": "Adobe Premiere Finally Hits Android: Free 4K Exports, Multi-Track Editing, and No Watermarks",
+      "category": "Smartphones & Gadgets",
+      "postedAt": "2026-10-12T05:12:16.029Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxnqyu5z3y26",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117426220988889285"
     }
   ]
 }

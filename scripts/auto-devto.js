@@ -95,11 +95,14 @@ function getDevToTags(article) {
   const text = `${cat} ${title}`;
   
   const tags = new Set();
+  if (text.includes('how to') || text.includes('guide') || text.includes('fix')) tags.add('tutorial');
+  if (text.includes('windows')) tags.add('windows');
+  if (text.includes('game') || text.includes('gaming')) tags.add('gaming');
+  if (text.includes('security') || text.includes('vpn') || text.includes('privacy')) tags.add('security');
+  if (text.includes('wifi') || text.includes('dns') || text.includes('network')) tags.add('devops');
   if (text.includes('quantum')) tags.add('quantum');
-  if (text.includes('llama') || text.includes('llm') || text.includes('gpt') || text.includes('claude')) tags.add('ai');
-  if (text.includes('ai') || text.includes('intelligence')) tags.add('ai');
-  if (text.includes('gpu') || text.includes('hardware') || text.includes('nvidia') || text.includes('chip')) tags.add('hardware');
-  if (text.includes('security') || text.includes('vpn') || text.includes('cyber')) tags.add('security');
+  if (text.includes('llama') || text.includes('llm') || text.includes('gpt') || text.includes('claude') || text.includes('ai')) tags.add('ai');
+  if (text.includes('gpu') || text.includes('hardware') || text.includes('nvidia') || text.includes('chip') || text.includes('cpu')) tags.add('hardware');
   if (text.includes('open-weights') || text.includes('open source') || text.includes('opensource')) tags.add('opensource');
   if (text.includes('coding') || text.includes('software') || text.includes('programming') || text.includes('developer')) tags.add('programming');
   if (text.includes('web') || text.includes('browser')) tags.add('webdev');
@@ -112,7 +115,7 @@ function getDevToTags(article) {
 
 // Publish an article object to DEV.to
 async function publishArticleToDevTo(article, options = {}) {
-  const canonicalUrl = `https://imtechboss.com/post.html?id=${article.id}`;
+  const canonicalUrl = `https://imtechboss.com/post?id=${article.id}`;
   
   // Format body markdown from full article content or excerpt
   let bodyMarkdown = '';
@@ -124,10 +127,14 @@ async function publishArticleToDevTo(article, options = {}) {
   }
   
   // Append canonical citation and backlink footer
-  bodyMarkdown += `\n\n---\n\n*Originally published on [Tech Boss](${canonicalUrl}) — Breaking technology news, cybersecurity advisories, and system engineering benchmarks.*`;
+  bodyMarkdown += `\n\n---\n\n*Originally published on [Tech Boss (${article.title})](${canonicalUrl}) — Explore interactive performance diagnostics, real-time benchmarks, and technical engineering advisories at [imtechboss.com](https://imtechboss.com).*`;
   
   const tags = getDevToTags(article);
   
+  const image = (article.image && article.image.startsWith('http')) 
+    ? article.image 
+    : (article.image ? `https://imtechboss.com/${article.image.replace(/^\/+/, '')}` : undefined);
+
   const payload = {
     article: {
       title: article.title,
@@ -135,7 +142,7 @@ async function publishArticleToDevTo(article, options = {}) {
       body_markdown: bodyMarkdown,
       tags: tags,
       canonical_url: canonicalUrl,
-      main_image: (article.image && article.image.startsWith('http')) ? article.image : undefined
+      main_image: image
     }
   };
 

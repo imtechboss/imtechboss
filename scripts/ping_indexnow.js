@@ -25,6 +25,7 @@ const urls = [
   `https://${host}/tools`,
   `https://${host}/compare`,
   `https://${host}/deals`,
+  `https://${host}/stories/`,
   `https://${host}/sitemap.xml`,
   ...articles.map(a => `https://${host}/post?id=${a.id}`)
 ];

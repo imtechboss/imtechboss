@@ -105,6 +105,12 @@ def generate_sitemap():
         '    <changefreq>monthly</changefreq>',
         '    <priority>0.5</priority>',
         '  </url>',
+        '  <url>',
+        '    <loc>https://imtechboss.com/stories/</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        '    <changefreq>daily</changefreq>',
+        '    <priority>0.8</priority>',
+        '  </url>',
     ]
 
     for article in data:

@@ -16,8 +16,8 @@ if not match:
 
 articles = json.loads(match.group(1))
 
-# Pick top 12 latest/flagship articles for Web Stories
-top_articles = articles[:12]
+# Pick top 25 latest/flagship articles for Web Stories
+top_articles = articles[:25]
 
 AMP_BOILERPLATE = """<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>"""
 
@@ -128,11 +128,13 @@ for art in top_articles:
     category = art.get('category', 'Tech')
     safe_category = html.escape(category)
     image_url = art['image']
+    if not image_url.startswith('http'):
+        image_url = f"https://imtechboss.com/{image_url.lstrip('/')}"
     # Guarantee 1200px crop format
-    if 'images.unsplash.com' in image_url and 'w=' in image_url:
+    elif 'images.unsplash.com' in image_url and 'w=' in image_url:
         image_url = re.sub(r'w=\d+', 'w=1200', image_url)
     
-    canonical_url = f"https://imtechboss.com/post.html?id={slug}"
+    canonical_url = f"https://imtechboss.com/post?id={slug}"
     story_url = f"https://imtechboss.com/stories/{slug}.html"
     
     paragraphs = extract_paragraphs(art.get('content', ''))
