@@ -60,7 +60,7 @@ function getMediumTags(article) {
   return tags.slice(0, 5);
 }
 
-function syncProfileData(targetProfile = 'Profile 2') {
+function syncProfileData(targetProfile = 'Default') {
   try {
     const srcDir = path.join(process.env.LOCALAPPDATA, 'Google', 'Chrome', 'User Data');
     const destDir = USER_DATA_DIR;
@@ -74,7 +74,7 @@ function syncProfileData(targetProfile = 'Profile 2') {
     }
 
     // Sync profiles
-    for (const prof of [targetProfile, 'Default']) {
+    for (const prof of [targetProfile, 'Default', 'Profile 2']) {
       const pSrc = path.join(srcDir, prof);
       const pDest = path.join(destDir, prof);
       if (!fs.existsSync(pSrc)) continue;
@@ -97,14 +97,14 @@ function syncProfileData(targetProfile = 'Profile 2') {
   } catch (err) {}
 }
 
-async function runLoginMode(profileName = 'Profile 2') {
+async function runLoginMode(profileName = 'Default') {
   console.log('\n===============================================================');
-  console.log(`🔑 MEDIUM AUTOMATION: 1-TIME SETUP FOR PROFILE [${profileName} - Binod]`);
+  console.log(`🔑 MEDIUM AUTOMATION: 1-TIME SETUP FOR PROFILE [${profileName} - GHOST / binodbhatt500k]`);
   console.log('===============================================================');
   console.log('Syncing your Chrome profile configuration...');
   syncProfileData(profileName);
 
-  console.log('Opening Chrome directly with your Binod Profile...');
+  console.log('Opening Chrome directly with your GHOST (binodbhatt500k) Profile...');
   console.log('Please log into Medium (@binodbhatt500k) in this window.');
   console.log('Once logged in, it will automatically save your session!\n');
 
@@ -153,12 +153,12 @@ async function runLoginMode(profileName = 'Profile 2') {
   await browser.close().catch(() => {});
 }
 
-async function autoPostArticle(targetArticle, profileName = 'Profile 2') {
+async function autoPostArticle(targetArticle, profileName = 'Default') {
   const articleUrl = `https://imtechboss.com/post?id=${targetArticle.id}`;
   const tags = getMediumTags(targetArticle);
 
   console.log('\n===============================================================');
-  console.log(`🚀 AUTOMATING MEDIUM IMPORT FOR [Profile: ${profileName} - Binod]:`);
+  console.log(`🚀 AUTOMATING MEDIUM IMPORT FOR [Profile: ${profileName} - GHOST / binodbhatt500k]:`);
   console.log(`Title: "${targetArticle.title}"`);
   console.log(`URL:   ${articleUrl}`);
   console.log(`Tags:  ${tags.join(', ')}`);
@@ -277,7 +277,7 @@ async function autoPostArticle(targetArticle, profileName = 'Profile 2') {
 async function main() {
   const args = process.argv.slice(2);
   const profileArg = args.find(a => a.startsWith('--profile='));
-  const profileName = profileArg ? profileArg.split('=')[1] : 'Profile 2';
+  const profileName = profileArg ? profileArg.split('=')[1] : 'Default';
 
   if (args.includes('--login')) {
     await runLoginMode(profileName);
