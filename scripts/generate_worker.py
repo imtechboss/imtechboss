@@ -186,6 +186,9 @@ export default {{
         if (!id) {{
           return Response.redirect(new URL('/', request.url).toString(), 301);
         }}
+        if (id === 'blogger-512') {{
+          return Response.redirect(new URL('/', request.url).toString(), 301);
+        }}
         if (!Object.prototype.hasOwnProperty.call(articlesMeta, id)) {{
           return new Response('Article Not Found', {{
             status: 404,
