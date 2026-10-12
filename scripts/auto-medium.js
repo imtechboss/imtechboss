@@ -60,53 +60,131 @@ function getMediumTags(article) {
   return tags.slice(0, 5);
 }
 
-async function runLoginMode() {
+function syncProfileData(targetProfile = 'Profile 2') {
+  try {
+    const srcDir = path.join(process.env.LOCALAPPDATA, 'Google', 'Chrome', 'User Data');
+    const destDir = USER_DATA_DIR;
+    if (!fs.existsSync(srcDir)) return;
+    fs.mkdirSync(destDir, { recursive: true });
+
+    // Copy Local State so Chrome knows the profile names
+    const localStateSrc = path.join(srcDir, 'Local State');
+    if (fs.existsSync(localStateSrc)) {
+      try { fs.copyFileSync(localStateSrc, path.join(destDir, 'Local State')); } catch (e) {}
+    }
+
+    // Sync profiles
+    for (const prof of [targetProfile, 'Default']) {
+      const pSrc = path.join(srcDir, prof);
+      const pDest = path.join(destDir, prof);
+      if (!fs.existsSync(pSrc)) continue;
+
+      fs.mkdirSync(pDest, { recursive: true });
+      fs.mkdirSync(path.join(pDest, 'Network'), { recursive: true });
+
+      const files = ['Preferences', 'Login Data', 'Web Data', path.join('Network', 'Cookies')];
+      for (const rel of files) {
+        const s = path.join(pSrc, rel);
+        const d = path.join(pDest, rel);
+        if (fs.existsSync(s)) {
+          try {
+            const { execSync } = require('child_process');
+            execSync('copy "' + s + '" "' + d + '" /Y', { shell: 'cmd.exe', stdio: 'ignore' });
+          } catch (e) {}
+        }
+      }
+    }
+  } catch (err) {}
+}
+
+async function runLoginMode(profileName = 'Profile 2') {
   console.log('\n===============================================================');
-  console.log('🔑 MEDIUM AUTOMATION: 1-TIME LOGIN SESSION SETUP');
+  console.log(`🔑 MEDIUM AUTOMATION: 1-TIME SETUP FOR PROFILE [${profileName} - Binod]`);
   console.log('===============================================================');
-  console.log('Chrome is opening Medium in a dedicated automation session.');
-  console.log('Please log into your Medium account (@binodbhatt500k) in this window.');
-  console.log('Once logged in, you can close the browser or press Ctrl+C in terminal.');
-  console.log('Your login will be saved permanently for automated posting!\n');
+  console.log('Syncing your Chrome profile configuration...');
+  syncProfileData(profileName);
+
+  console.log('Opening Chrome directly with your Binod Profile...');
+  console.log('Please log into Medium (@binodbhatt500k) in this window.');
+  console.log('Once logged in, it will automatically save your session!\n');
 
   const browser = await puppeteer.launch({
     executablePath: getChromeExecutable(),
     userDataDir: USER_DATA_DIR,
     headless: false,
     defaultViewport: null,
-    args: ['--start-maximized', '--no-sandbox']
+    args: [
+      '--start-maximized',
+      '--no-sandbox',
+      `--profile-directory=${profileName}`
+    ]
   });
 
   const page = await browser.newPage();
-  await page.goto('https://medium.com/m/signin', { waitUntil: 'networkidle2' });
-  console.log('👉 Browser is open at Medium login page. Log in, then return to terminal.');
+  await page.goto('https://medium.com/m/signin', { waitUntil: 'domcontentloaded' });
+  console.log('👉 Browser is open at Medium sign-in page. Please complete login...');
+
+  // Wait until logged in (up to 10 minutes)
+  const startTime = Date.now();
+  let loggedIn = false;
+  while (Date.now() - startTime < 600000) {
+    await new Promise(r => setTimeout(r, 3000));
+    try {
+      const isStillOnSignin = page.url().includes('/m/signin');
+      const hasUserMenu = await page.evaluate(() => {
+        return document.querySelector('button[aria-label="user options"], img[alt*="profile"], a[href*="/@"]') !== null;
+      }).catch(() => false);
+
+      if (!isStillOnSignin || hasUserMenu) {
+        console.log('\n🎉 SUCCESS! Medium login detected and permanently saved!');
+        console.log('You can now run auto-post at any time without logging in again.');
+        loggedIn = true;
+        break;
+      }
+    } catch (e) {
+      // browser might have been closed by user
+      break;
+    }
+  }
+
+  if (loggedIn) {
+    await new Promise(r => setTimeout(r, 3000));
+  }
+  await browser.close().catch(() => {});
 }
 
-async function autoPostArticle(targetArticle) {
+async function autoPostArticle(targetArticle, profileName = 'Profile 2') {
   const articleUrl = `https://imtechboss.com/post?id=${targetArticle.id}`;
   const tags = getMediumTags(targetArticle);
 
   console.log('\n===============================================================');
-  console.log(`🚀 AUTOMATING MEDIUM IMPORT FOR:`);
+  console.log(`🚀 AUTOMATING MEDIUM IMPORT FOR [Profile: ${profileName} - Binod]:`);
   console.log(`Title: "${targetArticle.title}"`);
   console.log(`URL:   ${articleUrl}`);
   console.log(`Tags:  ${tags.join(', ')}`);
   console.log('===============================================================\n');
 
-  console.log('1. Launching automated Chrome session...');
+  console.log('1. Syncing profile and launching automated Chrome session...');
+  syncProfileData(profileName);
+
   const browser = await puppeteer.launch({
     executablePath: getChromeExecutable(),
     userDataDir: USER_DATA_DIR,
     headless: false, // Visible so user can see it work smoothly
     defaultViewport: null,
-    args: ['--start-maximized', '--no-sandbox']
+    args: [
+      '--start-maximized',
+      '--no-sandbox',
+      `--profile-directory=${profileName}`
+    ]
   });
 
   const page = await browser.newPage();
 
   try {
     console.log('2. Navigating to Medium Story Importer (https://medium.com/p/import)...');
-    await page.goto('https://medium.com/p/import', { waitUntil: 'networkidle2', timeout: 45000 });
+    await page.goto('https://medium.com/p/import', { waitUntil: 'domcontentloaded', timeout: 30000 });
+    console.log('Current URL after navigation:', page.url());
 
     // Check if user is logged in
     const isLoginNeeded = await page.evaluate(() => {
@@ -198,8 +276,11 @@ async function autoPostArticle(targetArticle) {
 
 async function main() {
   const args = process.argv.slice(2);
+  const profileArg = args.find(a => a.startsWith('--profile='));
+  const profileName = profileArg ? profileArg.split('=')[1] : 'Profile 2';
+
   if (args.includes('--login')) {
-    await runLoginMode();
+    await runLoginMode(profileName);
     return;
   }
 
@@ -237,7 +318,7 @@ async function main() {
     process.exit(0);
   }
 
-  await autoPostArticle(targetArticle);
+  await autoPostArticle(targetArticle, profileName);
 }
 
 main();
