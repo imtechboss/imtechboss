@@ -113,14 +113,19 @@ async function runLoginMode(profileName = 'Default') {
     userDataDir: USER_DATA_DIR,
     headless: false,
     defaultViewport: null,
+    ignoreDefaultArgs: ['--enable-automation'],
     args: [
       '--start-maximized',
       '--no-sandbox',
+      '--disable-blink-features=AutomationControlled',
       `--profile-directory=${profileName}`
     ]
   });
 
   const page = await browser.newPage();
+  await page.evaluateOnNewDocument(() => {
+    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+  });
   await page.goto('https://medium.com/m/signin', { waitUntil: 'domcontentloaded' });
   console.log('👉 Browser is open at Medium sign-in page. Please complete login...');
 
@@ -172,14 +177,19 @@ async function autoPostArticle(targetArticle, profileName = 'Default') {
     userDataDir: USER_DATA_DIR,
     headless: false, // Visible so user can see it work smoothly
     defaultViewport: null,
+    ignoreDefaultArgs: ['--enable-automation'],
     args: [
       '--start-maximized',
       '--no-sandbox',
+      '--disable-blink-features=AutomationControlled',
       `--profile-directory=${profileName}`
     ]
   });
 
   const page = await browser.newPage();
+  await page.evaluateOnNewDocument(() => {
+    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+  });
 
   try {
     console.log('2. Navigating to Medium Story Importer (https://medium.com/p/import)...');
