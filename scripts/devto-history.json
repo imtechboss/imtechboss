@@ -10,7 +10,8 @@
     "best-free-vpns-gaming-streaming-no-logs-zero-lag-2026",
     "how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026",
     "how-to-fix-100-percent-memory-disk-leak-windows-11-24h2",
-    "anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026"
+    "anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026",
+    "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026"
   ],
   "history": [
     {
@@ -78,6 +79,12 @@
       "devto_id": 4836827,
       "url": "https://dev.to/techboss/anthropic-unveils-claude-45-opus-multi-agent-orchestration-and-autonomous-tool-synthesis-1f2m",
       "postedAt": "2026-10-12T07:58:56.450Z"
+    },
+    {
+      "id": "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026",
+      "devto_id": 4850859,
+      "url": "https://dev.to/techboss/google-officially-launches-gemini-4-argon-1-on-vals-index-1m-token-output-decode-and-native-1mkn",
+      "postedAt": "2026-10-14T15:08:04.109Z"
     }
   ]
 }

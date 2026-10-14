@@ -168,7 +168,16 @@ async function publishArticleToDevTo(article, options = {}) {
     body: JSON.stringify(payload)
   });
 
-  const data = await res.json();
+  const rawText = await res.text();
+  let data = {};
+  try {
+    data = JSON.parse(rawText);
+  } catch (e) {
+    console.error(`❌ DEV.to API returned non-JSON response (Status ${res.status}):`);
+    console.error(rawText.slice(0, 300));
+    return { ok: false, error: `HTTP ${res.status}: Non-JSON response` };
+  }
+
   if (res.ok) {
     console.log('✅ Successfully published to DEV.to!');
     console.log('🔗 URL:', data.url);
