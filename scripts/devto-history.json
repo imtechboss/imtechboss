@@ -9,7 +9,8 @@
     "how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026",
     "best-free-vpns-gaming-streaming-no-logs-zero-lag-2026",
     "how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026",
-    "how-to-fix-100-percent-memory-disk-leak-windows-11-24h2"
+    "how-to-fix-100-percent-memory-disk-leak-windows-11-24h2",
+    "anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026"
   ],
   "history": [
     {
@@ -71,6 +72,12 @@
       "devto_id": 4835924,
       "url": "https://dev.to/techboss/how-to-fix-100-memory-disk-leak-in-windows-11-24h2-complete-step-by-step-diagnostic-guide-5km",
       "postedAt": "2026-10-12T05:14:34.977Z"
+    },
+    {
+      "id": "anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026",
+      "devto_id": 4836827,
+      "url": "https://dev.to/techboss/anthropic-unveils-claude-45-opus-multi-agent-orchestration-and-autonomous-tool-synthesis-1f2m",
+      "postedAt": "2026-10-12T07:58:56.450Z"
     }
   ]
 }
