@@ -125,12 +125,21 @@ export default {
       const id = url.searchParams.get('id');
 
       // 4. Dedicated Post Article Edge SSR: Pre-renders full article text for Google AdSense & SEO crawlers
-      if (pathname === '/post' || pathname === '/post.html') {
+      if (pathname === '/post.html') {
+        const cleanPostUrl = new URL(request.url);
+        cleanPostUrl.pathname = '/post';
+        return Response.redirect(cleanPostUrl.toString(), 301);
+      }
+
+      if (pathname === '/post') {
         if (!id) {
           return Response.redirect(new URL('/', request.url).toString(), 301);
         }
         if (id === 'blogger-512') {
           return Response.redirect(new URL('/', request.url).toString(), 301);
+        }
+        if (id === 'gta-6-official-release-date-system-requirements-map-leaks-2026') {
+          return Response.redirect('https://imtechboss.com/post?id=gta-6-pc-system-requirements-ray-tracing-vram-fps-targets-2026', 301);
         }
         if (!Object.prototype.hasOwnProperty.call(articlesMeta, id)) {
           return new Response('Article Not Found', {
