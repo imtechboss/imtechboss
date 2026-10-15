@@ -11,7 +11,8 @@
     "how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026",
     "how-to-fix-100-percent-memory-disk-leak-windows-11-24h2",
     "anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026",
-    "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026"
+    "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026",
+    "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026"
   ],
   "history": [
     {
@@ -85,6 +86,12 @@
       "devto_id": 4850859,
       "url": "https://dev.to/techboss/google-officially-launches-gemini-4-argon-1-on-vals-index-1m-token-output-decode-and-native-1mkn",
       "postedAt": "2026-10-14T15:08:04.109Z"
+    },
+    {
+      "id": "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
+      "devto_id": 4853817,
+      "url": "https://dev.to/techboss/apple-unveils-homeview-for-299-a18-silicon-7-inch-square-liquid-retina-display-and-multi-user-1hg2",
+      "postedAt": "2026-10-15T03:51:56.222Z"
     }
   ]
 }
