@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://imtechboss.com/post?id=apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Apple Unveils HomeView for $299: A18 Silicon, 7-Inch Square Liquid Retina Display, and Multi-User Facial Recognition</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://imtechboss.com/</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>daily</changefreq>
