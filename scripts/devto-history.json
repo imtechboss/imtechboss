@@ -12,7 +12,8 @@
     "how-to-fix-100-percent-memory-disk-leak-windows-11-24h2",
     "anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026",
     "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026",
-    "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026"
+    "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
+    "intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026"
   ],
   "history": [
     {
@@ -92,6 +93,12 @@
       "devto_id": 4853817,
       "url": "https://dev.to/techboss/apple-unveils-homeview-for-299-a18-silicon-7-inch-square-liquid-retina-display-and-multi-user-1hg2",
       "postedAt": "2026-10-15T03:51:56.222Z"
+    },
+    {
+      "id": "intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026",
+      "devto_id": 4859613,
+      "url": "https://dev.to/techboss/intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-the-ultimate-2026-cpu-gaming-productivity-showdown-43hj",
+      "postedAt": "2026-10-16T03:27:50.400Z"
     }
   ]
 }

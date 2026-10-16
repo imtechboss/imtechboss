@@ -220,7 +220,11 @@
     "apple-m5-chip-tsmc-2nm-soic-3d-packaging-specs-launch-roadmap-2026",
     "hbm-memory-supercycle-micron-sk-hynix-sold-out-ai-vram-bottleneck-2026",
     "openai-halts-frontier-model-training-sandbox-isolation-flaw-compute-cluster-2026",
-    "broadcom-custom-ai-asic-chips-surge-threatens-nvidia-gpu-monopoly-2026"
+    "broadcom-custom-ai-asic-chips-surge-threatens-nvidia-gpu-monopoly-2026",
+    "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
+    "intel-14a-foundry-node-evaluations-apple-amazon-nvidia-2026",
+    "google-deploys-safe-ai-anti-abuse-engine-search-spam-update-2026",
+    "amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026"
   ],
   "history": [
     {
@@ -1984,6 +1988,38 @@
       "postedAt": "2026-10-12T10:55:58.742Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxoe7hp25l26",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117427572476780473"
+    },
+    {
+      "id": "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
+      "title": "Apple Unveils HomeView for $299: A18 Silicon, 7-Inch Square Liquid Retina Display, and Multi-User Facial Recognition",
+      "category": "Smart Home & IoT",
+      "postedAt": "2026-10-16T03:28:10.486Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxxn2f6br525",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117448460874131221"
+    },
+    {
+      "id": "intel-14a-foundry-node-evaluations-apple-amazon-nvidia-2026",
+      "title": "Intel 14A Process Under Evaluation by Apple, Amazon, and Nvidia as Foundry Rivalry Escalates",
+      "category": "Hardware",
+      "postedAt": "2026-10-16T03:39:17.544Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxxnobmjcc25",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117448504591435403"
+    },
+    {
+      "id": "google-deploys-safe-ai-anti-abuse-engine-search-spam-update-2026",
+      "title": "Google Activates SAFE AI Engine in September 2026 Search Update to Neutralize Coordinated Synthetic Spam",
+      "category": "Cybersecurity",
+      "postedAt": "2026-10-16T03:50:23.976Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxxoc5kyba26",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117448548284523202"
+    },
+    {
+      "id": "amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026",
+      "title": "AMD Surpasses $1 Trillion Valuation Following 107% Datacenter Growth and MI450 Hyperscaler Deals",
+      "category": "Hardware",
+      "postedAt": "2026-10-16T04:02:30.974Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxxoxsk3sh26",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117448595929201096"
     }
   ]
 }
