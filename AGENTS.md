@@ -35,22 +35,20 @@ Whenever a new article is created or published, follow these steps strictly in t
 - This updates `_worker.js` with OpenGraph (`og:image`, `og:title`), Twitter card tags, and Edge SSR pre-rendering with full article content.
 
 ### Step 4: Multi-Engine Real-Time Indexing (MANDATORY)
-- Always ping IndexNow immediately after publishing to trigger instant crawler discovery across Microsoft Bing, Yandex, Seznam, and partner engines:
+- Trigger instant crawler discovery across Google, Microsoft Bing, Yandex, Seznam, and partner engines:
   ```bash
+  # Google Instant Indexing API
+  node scripts/google_indexing.js
+  # Bing & IndexNow Engine Partners
   node scripts/ping_indexnow.js
   ```
 
-### Step 5: Deploy BEFORE Sharing (Critical)
-- **NEVER share to Flipboard or social media before deploying.** (If Flipboard crawls before the worker is deployed, it permanently caches the fallback logo).
-- Re-validate master integrity one final time:
+### Step 5: Automated Master Pipeline (ONE-COMMAND PUBLISHING)
+- Alternatively, run the all-in-one automated pipeline which regenerates sitemap, feed, worker, runs validations, pushes to Google Indexing API + IndexNow, syndicates to DEV.to, broadcasts to Bluesky/Mastodon, and pushes to Git in one command:
   ```bash
-  python scripts/validate_all.py
+  python scripts/publish_pipeline.py
   ```
-- Deploy immediately to Cloudflare Pages:
-  ```bash
-  $env:NODE_OPTIONS="--dns-result-order=ipv4first"; npx wrangler@3 pages deploy . --project-name imtechboss --commit-dirty=true
-  ```
-- Commit and push to Git:
+- Commit and push to Git triggers Cloudflare Pages auto-deploy:
   ```bash
   git add .
   git commit -m "Publish: [Article Title]"

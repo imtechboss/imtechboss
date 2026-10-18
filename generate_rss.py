@@ -31,13 +31,8 @@ def generate_feed():
     ET.register_namespace('content', CONTENT_NS)
 
     rss = ET.Element("rss", {
-        "version": "2.0",
-        f"{{{ATOM_NS}}}dummy": "hack" # temporary to declare ns
+        "version": "2.0"
     })
-    del rss.attrib[f"{{{ATOM_NS}}}dummy"]
-    rss.attrib["xmlns:atom"] = ATOM_NS
-    rss.attrib["xmlns:media"] = MEDIA_NS
-    rss.attrib["xmlns:content"] = CONTENT_NS
 
     channel = ET.SubElement(rss, "channel")
 
@@ -72,12 +67,17 @@ def generate_feed():
         if not img_url:
             img_url = 'https://imtechboss.com/og-image.png'
 
-        post_url = f"https://imtechboss.com/post.html?id={post_id}"
+        post_url = f"https://imtechboss.com/post?id={post_id}"
 
         # RFC 822 format for pubDate
-        try:
-            dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-        except:
+        dt = None
+        for fmt in ("%B %d, %Y", "%b %d, %Y", "%Y-%m-%d", "%a, %d %b %Y %H:%M:%S GMT"):
+            try:
+                dt = datetime.datetime.strptime(date_str, fmt)
+                break
+            except ValueError:
+                pass
+        if not dt:
             dt = datetime.datetime.now()
         pub_date = dt.strftime("%a, %d %b %Y 00:00:00 GMT")
 

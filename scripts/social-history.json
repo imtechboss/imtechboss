@@ -229,7 +229,9 @@
     "critical-citrix-netscaler-zero-day-cve-2026-88772-whipshot-malware-2026",
     "how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026",
     "openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026",
-    "big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026"
+    "big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026",
+    "tesla-next-gen-roadster-delay-30-billion-credit-cybercab-optimus-capex-2026",
+    "ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026"
   ],
   "history": [
     {
@@ -2065,6 +2067,22 @@
       "postedAt": "2026-10-18T02:41:13.442Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4lebrnom2u",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117459600880144014"
+    },
+    {
+      "id": "tesla-next-gen-roadster-delay-30-billion-credit-cybercab-optimus-capex-2026",
+      "title": "Tesla Delays Roadster, Secures $30B Credit for Cybercab & Optimus",
+      "category": "Electric Vehicles",
+      "postedAt": "2026-10-18T02:51:20.661Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4lwej6uo24",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117459640671298979"
+    },
+    {
+      "id": "ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026",
+      "title": "Ethereum Genesis Whale Awakens: $356M Moved Amidst Market Turbulence",
+      "category": "Blockchain & Crypto",
+      "postedAt": "2026-10-18T02:53:40.474Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4m2k4s2a25",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117459649839194770"
     }
   ]
 }

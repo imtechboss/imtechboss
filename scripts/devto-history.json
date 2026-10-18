@@ -15,7 +15,8 @@
     "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
     "intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026",
     "how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026",
-    "how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026"
+    "how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026",
+    "white-house-super-intelligence-executive-order-national-tech-compact-2026"
   ],
   "history": [
     {
@@ -113,6 +114,12 @@
       "devto_id": 4869744,
       "url": "https://dev.to/techboss/how-to-fix-micro-stuttering-and-dpc-latency-in-windows-11-24h2-complete-dx12-ue5-optimization-4b2f",
       "postedAt": "2026-10-18T02:08:06.348Z"
+    },
+    {
+      "id": "white-house-super-intelligence-executive-order-national-tech-compact-2026",
+      "devto_id": 4869867,
+      "url": "https://dev.to/techboss/white-house-issues-super-intelligence-executive-order-and-signs-national-ai-safety-compact-427g",
+      "postedAt": "2026-10-18T02:53:30.109Z"
     }
   ]
 }
