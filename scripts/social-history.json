@@ -224,7 +224,8 @@
     "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
     "intel-14a-foundry-node-evaluations-apple-amazon-nvidia-2026",
     "google-deploys-safe-ai-anti-abuse-engine-search-spam-update-2026",
-    "amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026"
+    "amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026",
+    "samsung-invests-1-billion-helix-digital-infrastructure-ai-datacenters-2026"
   ],
   "history": [
     {
@@ -2020,6 +2021,14 @@
       "postedAt": "2026-10-16T04:02:30.974Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mxxoxsk3sh26",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117448595929201096"
+    },
+    {
+      "id": "samsung-invests-1-billion-helix-digital-infrastructure-ai-datacenters-2026",
+      "title": "Samsung Commits $1 Billion to Helix Digital Infrastructure to Accelerate AI Datacenter Supergrids",
+      "category": "Hardware",
+      "postedAt": "2026-10-18T02:00:45.589Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4j3vtfst24",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117459441766149220"
     }
   ]
 }
