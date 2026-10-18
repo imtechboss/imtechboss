@@ -157,6 +157,9 @@ def main():
             run_command(["git", "push", "origin", "main"])
         else:
             print("  Git: No unstaged/staged changes to commit.")
+        
+        print("  Deploying live to Cloudflare Pages edge network...")
+        run_command("npx wrangler@3 pages deploy . --project-name imtechboss --commit-dirty=true", check=False)
     else:
         print("\n  [INFO] Git commit & push skipped (--no-git flag set).")
 
