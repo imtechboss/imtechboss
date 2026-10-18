@@ -97,7 +97,11 @@ async function runScheduler() {
     const unpostedArticles = articles.filter(a => !history.postedIds.includes(a.id));
 
     if (unpostedArticles.length === 0) {
-      console.log(`🎉 All ${articles.length} articles have been shared! Checking for newly published articles in 10 minutes...`);
+      console.log(`🎉 All ${articles.length} articles have been shared!`);
+      if (process.argv.includes('--once')) {
+        break;
+      }
+      console.log('Checking for newly published articles in 10 minutes...');
       await sleep(10 * 60 * 1000);
       continue;
     }
@@ -175,8 +179,10 @@ async function runScheduler() {
         } catch (e) {}
 
         console.log(`✅ Logged in scripts/social-history.json! Total posted so far: ${history.postedIds.length}\n`);
-      } else {
-        console.error(`⚠️ Both platforms failed for "${nextArticleToPost.title}". Will retry in next cycle...`);
+      }
+      if (process.argv.includes('--once')) {
+        console.log('Single post cycle completed (--once). Exiting scheduler.');
+        break;
       }
     } catch (err) {
       console.error('Error during auto-post execution:', err.message);

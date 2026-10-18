@@ -45,12 +45,10 @@ def print_step(step_num, title):
 
 def run_command(cmd, cwd=ROOT_DIR, check=True):
     """Run a shell command, printing output in real time."""
-    if isinstance(cmd, list):
-        cmd_str = " ".join(cmd)
-    else:
-        cmd_str = cmd
+    use_shell = isinstance(cmd, str)
+    cmd_str = cmd if isinstance(cmd, str) else " ".join(cmd)
     print(f"  > Executing: {cmd_str}")
-    result = subprocess.run(cmd, cwd=cwd, shell=True, text=True, capture_output=True, encoding='utf-8', errors='replace')
+    result = subprocess.run(cmd, cwd=cwd, shell=use_shell, text=True, capture_output=True, encoding='utf-8', errors='replace')
     if result.stdout:
         for line in result.stdout.strip().splitlines():
             print(f"    {line}")
@@ -149,14 +147,14 @@ def main():
     # 10. Git Commit & Push (Cloudflare Live Deploy)
     if not skip_git:
         print_step(10, "Committing & Pushing to GitHub (Cloudflare Auto-Deploy)")
-        run_command("git add .")
+        run_command(["git", "add", "."])
         clean_title = re.sub(r'["\']', '', title)
-        commit_msg = f'Publish: "{clean_title}" [auto-pipeline]'
+        commit_msg = f'Publish: {clean_title} [auto-pipeline]'
         # Check if there are changes to commit
-        diff_proc = subprocess.run("git diff --staged --name-only", cwd=ROOT_DIR, shell=True, text=True, capture_output=True)
+        diff_proc = subprocess.run(["git", "diff", "--staged", "--name-only"], cwd=ROOT_DIR, shell=False, text=True, capture_output=True)
         if diff_proc.stdout.strip():
-            run_command(f'git commit -m "{commit_msg}"')
-            run_command("git push origin main")
+            run_command(["git", "commit", "-m", commit_msg])
+            run_command(["git", "push", "origin", "main"])
         else:
             print("  Git: No unstaged/staged changes to commit.")
     else:

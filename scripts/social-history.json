@@ -231,7 +231,10 @@
     "openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026",
     "big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026",
     "tesla-next-gen-roadster-delay-30-billion-credit-cybercab-optimus-capex-2026",
-    "ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026"
+    "ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026",
+    "google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026",
+    "sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026",
+    "amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026"
   ],
   "history": [
     {
@@ -2080,9 +2083,33 @@
       "id": "ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026",
       "title": "Ethereum Genesis Whale Awakens: $356M Moved Amidst Market Turbulence",
       "category": "Blockchain & Crypto",
-      "postedAt": "2026-10-18T02:53:40.474Z",
-      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4m2k4s2a25",
-      "mastodonUrl": "https://mastodon.social/@imtechboss/117459649839194770"
+      "postedAt": "2026-10-18T03:03:27.226Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4mlzv4ab27",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117459688279499319"
+    },
+    {
+      "id": "google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026",
+      "title": "Google Project Suncatcher: The First Orbital AI Supercomputer",
+      "category": "Space & Science",
+      "postedAt": "2026-10-18T03:12:34.677Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4n4dacuh2w",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117459724166116208"
+    },
+    {
+      "id": "sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026",
+      "title": "Sony PlayStation 6 (PS6): Full Specs Breakdown, AMD Zen 6 Architecture, PSSR 2.0 & Projected Release Window (2026)",
+      "category": "Gaming & Consoles",
+      "postedAt": "2026-10-18T03:15:18.191Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4nb6hlia2l",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117459734846923180"
+    },
+    {
+      "id": "amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026",
+      "title": "AMD's Lisa Su Touches Down in Seoul for Critical Samsung HBM4 Summit",
+      "category": "Semiconductors",
+      "postedAt": "2026-10-18T03:16:12.745Z",
+      "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3my4nctnnny2u",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117459738464357385"
     }
   ]
 }

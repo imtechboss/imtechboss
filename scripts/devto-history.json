@@ -16,7 +16,10 @@
     "intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026",
     "how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026",
     "how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026",
-    "white-house-super-intelligence-executive-order-national-tech-compact-2026"
+    "white-house-super-intelligence-executive-order-national-tech-compact-2026",
+    "sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026",
+    "samsung-one-ui-9-update-eligible-galaxy-devices-features-rollout-roadmap-2026",
+    "google-fitbit-air-launch-gemini-health-biometric-wearable-2026"
   ],
   "history": [
     {
@@ -120,6 +123,24 @@
       "devto_id": 4869867,
       "url": "https://dev.to/techboss/white-house-issues-super-intelligence-executive-order-and-signs-national-ai-safety-compact-427g",
       "postedAt": "2026-10-18T02:53:30.109Z"
+    },
+    {
+      "id": "sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026",
+      "devto_id": 4869907,
+      "url": "https://dev.to/techboss/sony-playstation-6-ps6-full-specs-breakdown-amd-zen-6-architecture-pssr-20-projected-3158",
+      "postedAt": "2026-10-18T03:08:07.305Z"
+    },
+    {
+      "id": "samsung-one-ui-9-update-eligible-galaxy-devices-features-rollout-roadmap-2026",
+      "devto_id": 4869913,
+      "url": "https://dev.to/techboss/samsung-one-ui-9-complete-eligible-galaxy-device-list-core-ai-features-release-roadmap-2026-2lkc",
+      "postedAt": "2026-10-18T03:15:07.216Z"
+    },
+    {
+      "id": "google-fitbit-air-launch-gemini-health-biometric-wearable-2026",
+      "devto_id": 4869917,
+      "url": "https://dev.to/techboss/google-launches-fitbit-air-ultra-thin-titanium-wearable-with-gemini-health-intelligence-83p",
+      "postedAt": "2026-10-18T03:16:02.543Z"
     }
   ]
 }
