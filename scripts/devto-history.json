@@ -14,7 +14,8 @@
     "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026",
     "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
     "intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026",
-    "how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026"
+    "how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026",
+    "how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026"
   ],
   "history": [
     {
@@ -106,6 +107,12 @@
       "devto_id": 4869727,
       "url": "https://dev.to/techboss/how-to-completely-disable-windows-11-telemetry-copilot-recall-and-background-ads-2026-42bm",
       "postedAt": "2026-10-18T02:00:39.782Z"
+    },
+    {
+      "id": "how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026",
+      "devto_id": 4869744,
+      "url": "https://dev.to/techboss/how-to-fix-micro-stuttering-and-dpc-latency-in-windows-11-24h2-complete-dx12-ue5-optimization-4b2f",
+      "postedAt": "2026-10-18T02:08:06.348Z"
     }
   ]
 }
