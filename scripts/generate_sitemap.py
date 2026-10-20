@@ -115,6 +115,8 @@ def generate_sitemap():
 
     for article in data:
         aid = article.get('id', '')
+        if aid.startswith('blogger-'):
+            continue
         date = clean_date(article.get('date', ''))
         raw_image = article.get('image', '')
         image = clean_image(raw_image)
@@ -141,7 +143,7 @@ def generate_sitemap():
     with open(sitemap_path, 'w', encoding='utf-8') as out:
         out.write('\n'.join(xml_lines))
 
-    print(f'Successfully generated sitemap.xml with {len(data) + 8} URLs (8 static + {len(data)} articles).')
+    print(f'Successfully generated sitemap.xml with {len(xml_lines)} lines.')
 
 if __name__ == '__main__':
     generate_sitemap()

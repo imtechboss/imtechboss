@@ -4,11 +4,15 @@ def generate_worker():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_path = os.path.join(base_dir, 'js', 'data.js')
     worker_path = os.path.join(base_dir, '_worker.js')
+    redir_json_path = os.path.join(base_dir, 'scripts', 'duplicate_redirects.json')
+
+    with open(redir_json_path, 'r', encoding='utf-8') as f:
+        duplicate_redirects = json.load(f)
 
     with open(data_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    match = re.search(r'var\s+initialArticles\s*=\s*(\[.*?\]);', content, re.DOTALL)
+    match = re.search(r'var\s+initialArticles\s*=\s*(\[.*?\]);?\s*$', content, re.DOTALL)
     if not match:
         print('Error: initialArticles not found')
         return
@@ -35,7 +39,7 @@ def generate_worker():
             'category': a.get('category', 'AI & Technology')
         }
 
-    # Alias old slug to new slug so both work seamlessly
+    # Alias old slug to new slug
     if 'nvidia-blackwell-nvl72-liquid-cooling-overheating-hurdles-2026' in meta:
         meta['nvidia-blackwell-nvl72-racks-liquid-cooling-overheating-hyperscalers-2026'] = meta['nvidia-blackwell-nvl72-liquid-cooling-overheating-hurdles-2026']
 
@@ -54,18 +58,27 @@ def generate_worker():
 
     meta_json = json.dumps(meta, ensure_ascii=False)
     top_articles_json = json.dumps(top_articles, ensure_ascii=False)
+    dup_json = json.dumps(duplicate_redirects, ensure_ascii=False)
 
     template = f"""// Cloudflare Pages Advanced Mode Worker
 // Automatically injects dynamic OpenGraph & Twitter metadata, plus Edge SSR Pre-Rendering for Google AdSense & SEO
 
 const articlesMeta = {meta_json};
 const topArticles = {top_articles_json};
+const duplicateRedirects = {dup_json};
 
 export default {{
   async fetch(request, env) {{
     try {{
       const url = new URL(request.url);
       const pathname = url.pathname.toLowerCase();
+
+      // Check duplicate redirects from merged/deduplicated articles
+      const cleanSlug = pathname.replace(/^\\/+|\\/+$/g, '');
+      if (duplicateRedirects[cleanSlug]) {{
+        return Response.redirect('https://imtechboss.com/' + duplicateRedirects[cleanSlug] + '/', 301);
+      }}
+
       // 0. Canonical 301 Redirect: Consolidate www.imtechboss.com -> imtechboss.com for AdSense & SEO
       if (url.hostname === 'www.imtechboss.com') {{
         url.hostname = 'imtechboss.com';
@@ -78,44 +91,36 @@ export default {{
       if (pathname === '/admin' || pathname === '/admin.html') {{
         const adminKey = url.searchParams.get('key');
         const cookieHeader = request.headers.get('Cookie') || '';
-        const hasAdminCookie = cookieHeader.includes('tb_admin_token=' + ADMIN_SECRET);
+        const hasAuthCookie = cookieHeader.includes('tb_admin_auth=granted_secure_2026');
 
-        if (adminKey === ADMIN_SECRET || hasAdminCookie) {{
-          const assetUrl = new URL(request.url);
-          assetUrl.pathname = '/admin';
-          assetUrl.search = '';
-          let response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
-          if (response.status >= 300 && response.status < 400) {{
-            const loc = response.headers.get('Location') || '/admin';
+        if (adminKey === ADMIN_SECRET || hasAuthCookie) {{
+          const response = await env.ASSETS.fetch(request);
+          const newHeaders = new Headers(response.headers);
+          if (adminKey === ADMIN_SECRET) {{
+            newHeaders.set('Set-Cookie', 'tb_admin_auth=granted_secure_2026; Path=/; Max-Age=86400; Secure; HttpOnly; SameSite=Strict');
+          }}
+          newHeaders.set('X-Robots-Tag', 'noindex, nofollow');
+          return new Response(response.body, {{
+            status: response.status,
+            statusText: response.statusText,
+            headers: newHeaders
+          }});
+        }} else {{
+          return Response.redirect(new URL('/?admin_denied=1', request.url).toString(), 302);
+        }}
+      }}
+
+      // 2. Trailing Slash Fix for Pages Static Assets
+      if (pathname.endsWith('.html') && pathname !== '/index.html' && pathname !== '/post.html') {{
+        let response = await env.ASSETS.fetch(request);
+        if (response.status === 308 || response.status === 301) {{
+          const loc = response.headers.get('Location');
+          if (loc) {{
             const redirectUrl = new URL(loc, request.url);
             response = await env.ASSETS.fetch(new Request(redirectUrl.toString(), request));
           }}
-          const newHeaders = new Headers(response.headers);
-          newHeaders.delete('Location');
-          newHeaders.set('Content-Type', 'text/html; charset=utf-8');
-          if (adminKey === ADMIN_SECRET) {{
-            newHeaders.set('Set-Cookie', `tb_admin_token=${{ADMIN_SECRET}}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400`);
-          }}
-          return new Response(response.body, {{
-            status: 200,
-            headers: newHeaders
-          }});
         }}
-
-        // Unauthorized visitors or bots get a dead 404
-        return new Response('404 Not Found', {{ status: 404, headers: {{ 'Content-Type': 'text/plain' }} }});
-      }}
-
-      // 2. Edge Security Shield: Block sensitive internal paths from external access
-      if (
-        pathname.startsWith('/scripts') || 
-        pathname.startsWith('/blogger') || 
-        pathname.includes('..') ||
-        pathname.endsWith('.py') ||
-        pathname.endsWith('.jsonl') ||
-        pathname.endsWith('.sh')
-      ) {{
-        return new Response('404 Not Found', {{ status: 404, headers: {{ 'Content-Type': 'text/plain' }} }});
+        return response;
       }}
 
       // 3. Homepage Edge SSR: Pre-render top articles into raw HTML for Google AdSense Review Crawlers
@@ -181,293 +186,15 @@ export default {{
 
       const id = url.searchParams.get('id');
 
-      // 4. Dedicated Post Article Edge SSR: Pre-renders full article text for Google AdSense & SEO crawlers
+      // 4. Legacy Post Query Parameter Redirects -> Clean Static /slug/
       if (pathname === '/post.html' || pathname === '/post') {{
         if (!id || id === 'blogger-512') {{
           return Response.redirect(new URL('/', request.url).toString(), 301);
         }}
-        if (id === 'gta-6-official-release-date-system-requirements-map-leaks-2026') {{
-          return Response.redirect('https://imtechboss.com/gta-6-pc-system-requirements-ray-tracing-vram-fps-targets-2026/', 301);
+        if (duplicateRedirects[id]) {{
+          return Response.redirect('https://imtechboss.com/' + duplicateRedirects[id] + '/', 301);
         }}
         return Response.redirect('https://imtechboss.com/' + encodeURIComponent(id) + '/', 301);
-      }}
-
-      if (false) {{
-        if (!Object.prototype.hasOwnProperty.call(articlesMeta, id)) {{
-          return new Response('Article Not Found', {{
-            status: 404,
-            headers: {{
-              'Content-Type': 'text/plain; charset=utf-8',
-              'X-Robots-Tag': 'noindex, nofollow'
-            }}
-          }});
-        }}
-        const assetUrl = new URL(request.url);
-        assetUrl.pathname = '/post';
-        const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
-        const article = articlesMeta[id];
-        const safeTitle = (article.title || '').replace(/"/g, '&quot;');
-        const safeDesc = (article.excerpt || '').replace(/"/g, '&quot;');
-        let safeImg = article.image || 'https://imtechboss.com/og-image.png';
-        if (!safeImg.startsWith('http')) {{
-          safeImg = 'https://imtechboss.com' + (safeImg.startsWith('/') ? '' : '/') + safeImg;
-        }}
-        const canonical = 'https://imtechboss.com/post?id=' + encodeURIComponent(id);
-        const safeDate = article.date || '';
-        const safeAuthor = (typeof article.author === 'string' ? article.author : (article.author?.name || 'Tech Boss')).replace(/"/g, '&quot;');
-        const safeCategory = article.category || 'AI & Technology';
-        const safeReadTime = article.readTime || '5 min read';
-        const articleBody = article.content || '';
-
-        let faqs = [];
-        const catLower = safeCategory.toLowerCase();
-        const titleUpper = (article.title || '').toUpperCase();
-        if (catLower.includes('hard') || titleUpper.includes('RTX') || titleUpper.includes('RYZEN') || titleUpper.includes('INTEL') || titleUpper.includes('GPU') || titleUpper.includes('CPU') || titleUpper.includes('TSMC') || titleUpper.includes('A16') || titleUpper.includes('SEMICONDUCTOR')) {{
-          faqs = [
-            {{
-              "@type": "Question",
-              "name": "How does this semiconductor or hardware architecture improve performance and efficiency?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "By advancing lithography nodes and implementing backside power delivery networks (BSPDN), silicon designs reduce voltage drop (IR drop), eliminate interconnect congestion, and deliver 15% to 25% lower power consumption alongside double-digit clock frequency gains."
-              }}
-            }},
-            {{
-              "@type": "Question",
-              "name": "Will this hardware advancement require new motherboard platforms or power standards?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "Next-generation architectures often require updated socket standards, PCIe 5.0/6.0 bandwidth pipelines, and ATX 3.1 certified power delivery to handle aggressive transient power spikes and extreme compute densities."
-              }}
-            }},
-            {{
-              "@type": "Question",
-              "name": "When will this technology reach commercial hardware availability?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "Advanced process nodes transition from initial foundry risk production to high-volume manufacturing within 6 to 9 months, prioritizing high-performance computing (HPC) and flagship AI accelerators before client consumer rollouts."
-              }}
-            }}
-          ];
-        }} else if (catLower.includes('ai') || titleUpper.includes('DEEPSEEK') || titleUpper.includes('CLAUDE') || titleUpper.includes('GPT') || titleUpper.includes('LLM') || titleUpper.includes('MODEL') || titleUpper.includes('COLOSSUS')) {{
-          faqs = [
-            {{
-              "@type": "Question",
-              "name": "Can this AI model or architecture run locally on consumer hardware?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "Quantized versions (such as 4-bit and 8-bit GGUF models) can run locally on consumer GPUs with 12GB to 24GB of VRAM using inference engines like Ollama, llama.cpp, and LM Studio."
-              }}
-            }},
-            {{
-              "@type": "Question",
-              "name": "How does test-time compute reasoning improve model answers?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "Reasoning models generate internal chain-of-thought tokens, verifying mathematical intermediate steps and backtracking when encountering logical contradictions before providing the output."
-              }}
-            }},
-            {{
-              "@type": "Question",
-              "name": "Is prompt data kept private when self-hosting local models?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "Yes. Running models on local hardware ensures that your prompts, source code, and queries remain on your private machine without transmitting telemetry to third-party cloud APIs."
-              }}
-            }}
-          ];
-        }} else {{
-          faqs = [
-            {{
-              "@type": "Question",
-              "name": "Are these technical instructions safe to apply on Windows 11?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "Yes. The steps detailed in this Tech Boss analysis operate within standard operating system guidelines and do not modify protected kernel modules or partition structures."
-              }}
-            }},
-            {{
-              "@type": "Question",
-              "name": "Does this solution require specialized third-party diagnostic software?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "The troubleshooting steps utilize built-in administrative tools such as PowerShell, DISM, SFC, and native Windows Diagnostics."
-              }}
-            }},
-            {{
-              "@type": "Question",
-              "name": "What should I do if this issue persists after applying the fix?",
-              "acceptedAnswer": {{
-                "@type": "Answer",
-                "text": "Verify hardware stability, run memory integrity diagnostics, and inspect event viewer logs for recurring kernel error codes."
-              }}
-            }}
-          ];
-        }}
-
-        const jsonLd = JSON.stringify({{
-          "@context": "https://schema.org",
-          "@graph": [
-            {{
-              "@type": "TechArticle",
-              "@id": canonical + "#article",
-              "isPartOf": {{
-                "@type": "WebPage",
-                "@id": canonical
-              }},
-              "headline": article.title || '',
-              "description": article.excerpt || '',
-              "image": [safeImg],
-              "datePublished": article.date ? new Date(article.date).toISOString() : new Date().toISOString(),
-              "dateModified": new Date().toISOString(),
-              "inLanguage": "en-US",
-              "mainEntityOfPage": canonical,
-              "author": {{
-                "@type": "Organization",
-                "name": safeAuthor,
-                "url": "https://imtechboss.com"
-              }},
-              "publisher": {{
-                "@type": "Organization",
-                "name": "Tech Boss",
-                "url": "https://imtechboss.com",
-                "logo": {{
-                  "@type": "ImageObject",
-                  "url": "https://imtechboss.com/og-image.png"
-                }}
-              }},
-              "speakable": {{
-                "@type": "SpeakableSpecification",
-                "cssSelector": ["h1", "#articleContainer p"]
-              }}
-            }},
-            {{
-              "@type": "BreadcrumbList",
-              "@id": canonical + "#breadcrumb",
-              "itemListElement": [
-                {{
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://imtechboss.com/"
-                }},
-                {{
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": safeCategory,
-                  "item": "https://imtechboss.com/?category=" + encodeURIComponent(safeCategory)
-                }},
-                {{
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": article.title || '',
-                  "item": canonical
-                }}
-              ]
-            }},
-            {{
-              "@type": "FAQPage",
-              "@id": canonical + "#faq",
-              "mainEntity": faqs
-            }}
-          ]
-        }});
-
-        return new HTMLRewriter()
-          .on('title#pageTitle', {{
-            element(e) {{
-              e.setInnerContent(safeTitle + ' | Tech Boss');
-            }}
-          }})
-          .on('meta#metaDescription', {{
-            element(e) {{
-              e.setAttribute('content', safeDesc);
-            }}
-          }})
-          .on('link#canonicalUrl', {{
-            element(e) {{
-              e.setAttribute('href', canonical);
-            }}
-          }})
-          .on('head', {{
-            element(e) {{
-              e.append(`<script id="articleJsonLd" type="application/ld+json">${{jsonLd}}</script>`, {{ html: true }});
-            }}
-          }})
-          .on('meta#ogTitle', {{
-            element(e) {{
-              e.setAttribute('content', safeTitle);
-            }}
-          }})
-          .on('meta#ogDescription', {{
-            element(e) {{
-              e.setAttribute('content', safeDesc);
-            }}
-          }})
-          .on('meta#ogImage', {{
-            element(e) {{
-              e.setAttribute('content', safeImg);
-            }}
-          }})
-          .on('meta#ogImageSecure', {{
-            element(e) {{
-              e.setAttribute('content', safeImg);
-            }}
-          }})
-          .on('link#imgSrc', {{
-            element(e) {{
-              e.setAttribute('href', safeImg);
-            }}
-          }})
-          .on('article#articleContainer', {{
-            element(e) {{
-              e.setInnerContent(`
-                <div class="static-ssr-post prose max-w-none">
-                  <div class="flex items-center gap-2 mb-4 text-xs text-gray-500">
-                    <a href="/">Home</a> &bull; <span class="font-bold text-blue-600">${{safeCategory}}</span> &bull; <span>${{safeDate}}</span> &bull; <span>${{safeReadTime}}</span> &bull; <span>By ${{safeAuthor}}</span>
-                  </div>
-                  <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-950 dark:text-white mb-6 leading-tight">${{safeTitle}}</h1>
-                  <div class="flex items-center gap-3.5 p-4 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200/70 dark:border-slate-800 mb-8">
-                    <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-lg">TB</div>
-                    <div>
-                      <div class="font-bold text-sm sm:text-base text-gray-900 dark:text-gray-100">${{safeAuthor}}</div>
-                      <div class="text-xs text-gray-500 dark:text-gray-400">Tech Boss Editorial &bull; imtechboss.com</div>
-                    </div>
-                  </div>
-                  <img class="flipboard-image w-full rounded-2xl mb-8 object-cover max-h-[520px]" src="${{safeImg}}" alt="${{safeTitle}}" width="1200" height="900" style="max-width:100%;height:auto;display:block;" />
-                  <div class="article-content text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-                    ${{articleBody}}
-                  </div>
-                </div>
-              `, {{ html: true }});
-            }}
-          }})
-          .on('meta#ogUrl', {{
-            element(e) {{
-              e.setAttribute('content', canonical);
-            }}
-          }})
-          .on('meta#twTitle', {{
-            element(e) {{
-              e.setAttribute('content', safeTitle);
-            }}
-          }})
-          .on('meta#twDescription', {{
-            element(e) {{
-              e.setAttribute('content', safeDesc);
-            }}
-          }})
-          .on('meta#twImage', {{
-            element(e) {{
-              e.setAttribute('content', safeImg);
-            }}
-          }})
-          .on('meta#twUrl', {{
-            element(e) {{
-              e.setAttribute('content', canonical);
-            }}
-          }})
-          .transform(response);
       }}
 
       if (pathname === '/404' || pathname === '/404.html') {{
@@ -490,10 +217,10 @@ export default {{
 }};
 """
 
-    with open(worker_path, 'w', encoding='utf-8') as out:
-        out.write(template)
+    with open(worker_path, 'w', encoding='utf-8') as f:
+        f.write(template)
 
-    print(f'Successfully generated _worker.js with {len(meta)} articles and Edge SSR pre-rendering.')
+    print(f'Successfully generated _worker.js with {len(meta)} articles and 301 duplicate redirects.')
 
 if __name__ == '__main__':
     generate_worker()
