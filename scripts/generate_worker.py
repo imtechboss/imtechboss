@@ -134,7 +134,7 @@ export default {{
           gridHtml += `
             <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col">
               <div class="aspect-[16/10] overflow-hidden bg-gray-100">
-                <a href="post?id=${{encodeURIComponent(a.id)}}">
+                <a href="/${{encodeURIComponent(a.id)}}/">
                   <img src="${{a.image}}" alt="${{st}}" class="w-full h-full object-cover" loading="lazy" />
                 </a>
               </div>
@@ -142,13 +142,13 @@ export default {{
                 <div>
                   <div class="text-[11px] text-gray-500 mb-2"><span>${{a.category || 'Tech'}}</span> &bull; <span>${{a.date || 'Recent'}}</span></div>
                   <h2 class="font-bold text-base sm:text-lg text-gray-900 dark:text-gray-100 line-clamp-2">
-                    <a href="post?id=${{encodeURIComponent(a.id)}}">${{st}}</a>
+                    <a href="/${{encodeURIComponent(a.id)}}/">${{st}}</a>
                   </h2>
                   <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 line-clamp-2">${{se}}</p>
                 </div>
                 <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-between items-center text-xs">
                   <span class="font-semibold text-gray-700 dark:text-gray-300">Tech Boss</span>
-                  <a href="post?id=${{encodeURIComponent(a.id)}}" class="font-bold text-blue-600 hover:underline">Read Article &rarr;</a>
+                  <a href="/${{encodeURIComponent(a.id)}}/" class="font-bold text-blue-600 hover:underline">Read Article &rarr;</a>
                 </div>
               </div>
             </article>
@@ -159,7 +159,7 @@ export default {{
           .on('div#featuredArticleContainer', {{
             element(e) {{
               e.setInnerContent(`
-                <a href="post?id=${{encodeURIComponent(hero.id)}}" class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer">
+                <a href="/${{encodeURIComponent(hero.id)}}/" class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer">
                   <img src="${{heroImg}}" alt="${{heroTitle}}" class="w-full h-full object-cover opacity-80" />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-10 text-white">
                     <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-blue-600 text-white w-max mb-3">${{hero.category || 'Featured'}}</span>
@@ -182,22 +182,17 @@ export default {{
       const id = url.searchParams.get('id');
 
       // 4. Dedicated Post Article Edge SSR: Pre-renders full article text for Google AdSense & SEO crawlers
-      if (pathname === '/post.html') {{
-        const cleanPostUrl = new URL(request.url);
-        cleanPostUrl.pathname = '/post';
-        return Response.redirect(cleanPostUrl.toString(), 301);
-      }}
-
-      if (pathname === '/post') {{
-        if (!id) {{
-          return Response.redirect(new URL('/', request.url).toString(), 301);
-        }}
-        if (id === 'blogger-512') {{
+      if (pathname === '/post.html' || pathname === '/post') {{
+        if (!id || id === 'blogger-512') {{
           return Response.redirect(new URL('/', request.url).toString(), 301);
         }}
         if (id === 'gta-6-official-release-date-system-requirements-map-leaks-2026') {{
-          return Response.redirect('https://imtechboss.com/post?id=gta-6-pc-system-requirements-ray-tracing-vram-fps-targets-2026', 301);
+          return Response.redirect('https://imtechboss.com/gta-6-pc-system-requirements-ray-tracing-vram-fps-targets-2026/', 301);
         }}
+        return Response.redirect('https://imtechboss.com/' + encodeURIComponent(id) + '/', 301);
+      }}
+
+      if (false) {{
         if (!Object.prototype.hasOwnProperty.call(articlesMeta, id)) {{
           return new Response('Article Not Found', {{
             status: 404,

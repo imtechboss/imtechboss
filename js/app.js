@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           const matchedArticle = articles.find(a => a && (String(a.id).toLowerCase() === lowerHash || String(a.id) === rawHash));
           if (matchedArticle) {
-            window.location.href = `post.html?id=${encodeURIComponent(matchedArticle.id)}`;
+            window.location.href = `/${encodeURIComponent(matchedArticle.id)}/`;
           }
         }
       }, 150);
@@ -228,9 +228,9 @@ function initTickerAndClock() {
       btn.addEventListener("click", () => {
         const id = btn.getAttribute("data-id");
         if (id) {
-          window.open('post.html?id=' + encodeURIComponent(id), '_blank');
+          window.open('/' + encodeURIComponent(id) + '/', '_blank');
         } else if (articles.length > 0) {
-          window.open('post.html?id=' + encodeURIComponent(articles[0].id), '_blank');
+          window.open('/' + encodeURIComponent(articles[0].id) + '/', '_blank');
         }
       });
     });
@@ -243,7 +243,7 @@ function initTickerAndClock() {
     breakingBadge.title = "Click to open latest breaking story in new tab";
     breakingBadge.addEventListener("click", () => {
       if (articles.length > 0) {
-        window.open('post.html?id=' + encodeURIComponent(articles[0].id), '_blank');
+        window.open('/' + encodeURIComponent(articles[0].id) + '/', '_blank');
       }
     });
   }
@@ -577,7 +577,7 @@ function renderArticles(isAppending = false) {
       <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group" data-id="${safeId}">
         <!-- Card Image Header -->
         <div class="relative overflow-hidden aspect-[16/10] bg-gray-100 dark:bg-slate-800">
-          <a href="post.html?id=${encodeURIComponent(art.id)}" class="block w-full h-full cursor-pointer">
+          <a href="/${encodeURIComponent(art.id)}/" class="block w-full h-full cursor-pointer">
             <img 
               src="${imgUrl}" 
               alt="${safeTitle}" 
@@ -623,7 +623,7 @@ function renderArticles(isAppending = false) {
               <span>⏱️ ${art.readTime || '3 min read'}</span>
             </div>
             <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
-              <a href="post.html?id=${encodeURIComponent(art.id)}">
+              <a href="/${encodeURIComponent(art.id)}/">
                 ${safeTitle}
               </a>
             </h3>
@@ -643,7 +643,7 @@ function renderArticles(isAppending = false) {
               </span>
             </div>
             <a 
-              href="post.html?id=${encodeURIComponent(art.id)}" 
+              href="/${encodeURIComponent(art.id)}/" 
               class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
             >
               <span>Read</span>
@@ -744,7 +744,7 @@ function renderHero(featuredContainer, trendingContainer) {
 
     featuredContainer.innerHTML = `
       <a 
-        href="post.html?id=${encodeURIComponent(featured.id)}" 
+        href="/${encodeURIComponent(featured.id)}/" 
         class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer"
         data-id="${featured.id}"
       >
@@ -801,7 +801,7 @@ function renderHero(featuredContainer, trendingContainer) {
 
     return `
       <a 
-        href="post.html?id=${encodeURIComponent(art.id)}" 
+        href="/${encodeURIComponent(art.id)}/" 
         class="group flex gap-3 p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200/70 dark:border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer" 
         data-id="${safeId}"
       >
@@ -1134,7 +1134,7 @@ function setupSpotlightSearch() {
 
     searchResults.innerHTML = matches.map(m => `
       <a 
-        href="post.html?id=${encodeURIComponent(m.id)}" 
+        href="/${encodeURIComponent(m.id)}/" 
         class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors group"
       >
         <div class="min-w-0 flex-1 pr-3">

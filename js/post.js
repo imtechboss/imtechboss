@@ -133,6 +133,12 @@ function renderPostDetail() {
   const allArticles = [...customArticles, ...baseArticles];
 
   let targetId = postId;
+  if (!targetId) {
+    const pathSlug = window.location.pathname.replace(/^\/|\/$/g, '').split('/')[0];
+    if (pathSlug && pathSlug !== 'post' && pathSlug !== 'post.html' && pathSlug !== 'index.html') {
+      targetId = decodeURIComponent(pathSlug);
+    }
+  }
   if (!targetId && allArticles.length > 0) {
     targetId = allArticles[0].id;
   }
@@ -165,7 +171,7 @@ function renderPostDetail() {
   const twDesc = document.getElementById("twDescription");
   const twImg = document.getElementById("twImage");
 
-  const canonicalHref = `https://imtechboss.com/post?id=${encodeURIComponent(article.id)}`;
+  const canonicalHref = `https://imtechboss.com/${encodeURIComponent(article.id)}/`;
   const canonicalUrl = document.getElementById("canonicalUrl");
   if (canonicalUrl) canonicalUrl.setAttribute("href", canonicalHref);
   if (ogUrl) ogUrl.setAttribute("content", canonicalHref);
@@ -308,6 +314,7 @@ function renderPostDetail() {
   const imgUrl = article.image || "";
 
   // Render Article Content
+  if (container.dataset.prerendered !== 'true') {
   container.innerHTML = `
     <!-- Top Meta Breadcrumb -->
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-6 border-b border-gray-100 dark:border-slate-800 text-xs">
@@ -637,6 +644,7 @@ function renderPostDetail() {
       </div>
     </div>
   `;
+  } // End if not prerendered
 
   // Attach interactive button listeners
   setupInteractivePostActions(article, likeCount, userHasLiked, isBookmarked, bookmarkedIds);
@@ -994,7 +1002,7 @@ function renderRelatedStories(allArticles, currentArticle, relatedSection, relat
 
     return `
       <a 
-        href="post.html?id=${encodeURIComponent(rel.id)}" 
+        href="/${encodeURIComponent(rel.id)}/" 
         class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
       >
         <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
@@ -1468,7 +1476,7 @@ function setupSpotlightSearchPost() {
 
     searchResults.innerHTML = matches.map(m => `
       <a 
-        href="post.html?id=${encodeURIComponent(m.id)}" 
+        href="/${encodeURIComponent(m.id)}/" 
         class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors group"
       >
         <div class="min-w-0 flex-1 pr-3">
@@ -1547,6 +1555,10 @@ function renderRelatedArticles(currentArticle) {
   const section = document.getElementById("relatedSection");
   const grid = document.getElementById("relatedGrid");
   if (!section || !grid) return;
+  if (grid.children && grid.children.length > 0) {
+    section.classList.remove("hidden");
+    return;
+  }
 
   const allArts = _getArticlesList();
   if (!allArts || allArts.length === 0) return;
@@ -1571,7 +1583,7 @@ function renderRelatedArticles(currentArticle) {
     const imgUrl = art.image || "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80";
 
     return `
-      <a href="post.html?id=${encodeURIComponent(art.id)}" class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-slate-800 shadow-xs hover:shadow-md transition-all">
+      <a href="/${encodeURIComponent(art.id)}/" class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/80 dark:border-slate-800 shadow-xs hover:shadow-md transition-all">
         <div class="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-slate-800 relative">
           <img 
             src="${imgUrl}" 
@@ -1639,11 +1651,11 @@ function setupFloatingReadNext(currentArticle) {
           <span class="text-[9px] uppercase font-black text-blue-600 dark:text-blue-400 tracking-wider">Read Next</span>
           <button id="closeFloatingReadNext" aria-label="Dismiss recommendation" class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm font-bold leading-none p-0.5">×</button>
         </div>
-        <a href="post.html?id=${encodeURIComponent(nextArticle.id)}" class="block text-xs font-bold text-gray-900 dark:text-white truncate hover:text-blue-600 transition-colors">
+        <a href="/${encodeURIComponent(nextArticle.id)}/" class="block text-xs font-bold text-gray-900 dark:text-white truncate hover:text-blue-600 transition-colors">
           ${safeTitle}
         </a>
       </div>
-      <a href="post.html?id=${encodeURIComponent(nextArticle.id)}" class="flex-shrink-0 w-8 h-8 rounded-xl bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center text-xs shadow-md transition-all active:scale-95" title="Read Next Story">
+      <a href="/${encodeURIComponent(nextArticle.id)}/" class="flex-shrink-0 w-8 h-8 rounded-xl bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center text-xs shadow-md transition-all active:scale-95" title="Read Next Story">
         →
       </a>
     `;

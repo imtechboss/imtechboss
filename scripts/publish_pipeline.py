@@ -102,7 +102,7 @@ def main():
     post_id = latest.get('id', '')
     title = latest.get('title', 'Untitled')
     date_str = latest.get('date', '')
-    url = f"https://imtechboss.com/post?id={post_id}"
+    url = f"https://imtechboss.com/{post_id}/"
 
     print(f"  Article ID : {post_id}")
     print(f"  Title      : {title}")
@@ -110,8 +110,12 @@ def main():
     print(f"  Target URL : {url}")
     print(f"  Total Posts: {total}")
 
-    # 2. Re-generate sitemap.xml
-    print_step(2, "Regenerating sitemap.xml")
+    # 2. Pre-generate all static pages (/<slug>/index.html)
+    print_step(2, "Pre-generating all static pages (/<slug>/index.html)")
+    run_command("python scripts/build_static.py")
+
+    # 3. Re-generate sitemap.xml
+    print_step(3, "Regenerating sitemap.xml")
     run_command("python scripts/generate_sitemap.py")
 
     # 3. Re-generate feed.xml

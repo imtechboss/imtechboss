@@ -121,7 +121,7 @@ def generate_sitemap():
         title = article.get('title', '').replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
         xml_lines.append('  <url>')
-        xml_lines.append(f'    <loc>https://imtechboss.com/post?id={aid}</loc>')
+        xml_lines.append(f'    <loc>https://imtechboss.com/{aid}/</loc>')
         xml_lines.append(f'    <lastmod>{date}</lastmod>')
         xml_lines.append('    <changefreq>weekly</changefreq>')
         xml_lines.append('    <priority>0.8</priority>')

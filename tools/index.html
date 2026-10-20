@@ -1,0 +1,1250 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQDRHTFW7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HQDRHTFW7Q');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>Free Tech Tools & Calculators — Tech Boss</title>
+  <meta name="description" content="Explore free interactive tech tools by Tech Boss: PC Bottleneck Calculator, AI Prompt Engineering Studio, and Searchable Developer Cheat Sheets.">
+  <link rel="canonical" href="https://imtechboss.com/tools">
+  <link rel="alternate" type="application/rss+xml" title="Tech Boss RSS Feed" href="https://imtechboss.com/feed.xml">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imtechboss.com/tools">
+  <meta property="og:title" content="Free Interactive Tech Tools — Tech Boss">
+  <meta property="og:description" content="Calculate PC bottlenecks, engineer pro AI prompts, and access instant developer cheat sheets.">
+  <meta property="og:image" content="https://imtechboss.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Interactive Tech Tools — Tech Boss">
+  <meta name="twitter:description" content="Calculate PC bottlenecks, engineer pro AI prompts, and access instant developer cheat sheets.">
+  <meta name="twitter:image" content="https://imtechboss.com/og-image.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Google AdSense Account Verification -->
+  <meta name="google-adsense-account" content="ca-pub-1043419685176632">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1043419685176632" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("pulse_theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/css/style.css?v=7.5">
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col justify-between font-sans transition-colors duration-200">
+
+  <!-- Header -->
+  <header class="border-b border-gray-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-sm group-hover:scale-105 transition-transform">
+          TB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-gray-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            Tech Boss
+          </span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            Interactive Tools Suite
+          </span>
+        </div>
+      </a>
+
+      <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold overflow-x-auto whitespace-nowrap">
+        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+        <a href="tools" class="text-blue-600 dark:text-blue-400 font-bold">Tech Tools</a>
+        <a href="compare" class="text-rose-600 dark:text-rose-400 hover:text-rose-500 font-semibold transition-colors">Compare</a>
+        <a href="deals" class="text-amber-600 dark:text-amber-400 hover:text-amber-500 font-semibold transition-colors">Deals</a>
+        <a href="/stories/" class="hidden sm:inline text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold transition-colors">Stories</a>
+        <a href="about" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+        <a href="contact" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+
+        <button 
+          id="themeToggleBtn"
+          class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors ml-1"
+          title="Toggle Dark / Light Mode"
+          aria-label="Toggle Dark / Light Mode"
+        >
+          <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg id="moonIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Hero -->
+  <main class="flex-grow max-w-6xl mx-auto px-4 py-8 sm:py-12 w-full">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+        ⚡ 100% Free Online Utilities
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-serif-heading text-gray-950 dark:text-white tracking-tight mb-4">
+        Tech Boss Developer &amp; Hardware Tools
+      </h1>
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+        Interactive calculators, prompt engineering studios, and developer cheat sheets designed to streamline your hardware builds, AI workflows, and development tasks.
+      </p>
+
+      <!-- Tool Selector Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+        <button class="tool-tab-btn active px-4 py-2 text-xs font-bold rounded-full transition-all bg-blue-600 text-white shadow" data-target="bottleneckTool">
+          🖥️ PC Bottleneck Calculator
+        </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="promptTool">
+          🤖 AI Prompt Architect
+        </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="cheatsheetTool">
+          ⚡ Command Cheat Sheets
+        </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="gpuMatcherTool">
+          🎮 2026 GPU &amp; Hardware Matcher
+        </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-500" data-target="gameCheckerTool">
+          🕹️ Can My PC Run It?
+        </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-purple-500" data-target="aiVramTool">
+          🧠 Local AI &amp; VRAM Sizer
+        </button>
+      </div>
+    </div>
+
+    <!-- AdSense Top Banner -->
+    <div class="ad-slot-box max-w-4xl mx-auto mb-10 text-center bg-gray-50 dark:bg-slate-900 rounded-2xl p-3 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
+      <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mb-1.5">Sponsored / Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1043419685176632"
+           data-ad-slot="9198547569"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- TOOL 1: PC Bottleneck Calculator -->
+    <section id="bottleneckTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold">
+          🖥️
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">PC Bottleneck &amp; Gaming Resolution Calculator</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Match your processor and GPU to identify component throughput bottlenecks at different resolutions.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Processor (CPU)</label>
+          <select id="cpuSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="98" selected>AMD Ryzen 7 9800X3D (High-End Gaming)</option>
+            <option value="96">AMD Ryzen 9 9950X / 7950X3D</option>
+            <option value="95">Intel Core i9 14900K / 13900K</option>
+            <option value="92">AMD Ryzen 7 7800X3D / 5700X3D</option>
+            <option value="86">Intel Core i7 14700K / 13700K</option>
+            <option value="82">AMD Ryzen 5 7600X / 7600</option>
+            <option value="79">Intel Core i5 14600K / 13600K</option>
+            <option value="68">AMD Ryzen 5 5600X / 3600</option>
+            <option value="65">Intel Core i5 12400F / 10400F</option>
+            <option value="50">Intel Core i7 7700K / Legacy Quad-Core</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Graphics Card (GPU)</label>
+          <select id="gpuSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="100">NVIDIA GeForce RTX 5090 (24GB/32GB)</option>
+            <option value="88">NVIDIA GeForce RTX 5080</option>
+            <option value="85" selected>NVIDIA GeForce RTX 4090</option>
+            <option value="74">NVIDIA GeForce RTX 4080 Super / 4080</option>
+            <option value="72">AMD Radeon RX 7900 XTX</option>
+            <option value="64">NVIDIA GeForce RTX 4070 Ti Super</option>
+            <option value="54">NVIDIA GeForce RTX 4070 Super</option>
+            <option value="42">AMD Radeon RX 7700 XT / 6700 XT</option>
+            <option value="36">NVIDIA GeForce RTX 4060 / 3060 Ti</option>
+            <option value="25">NVIDIA GeForce GTX 1660 Super / RTX 3050</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Target Resolution</label>
+          <select id="resSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="1080">1080p Full HD (CPU Intensive)</option>
+            <option value="1440" selected>1440p Quad HD (Balanced)</option>
+            <option value="2160">4K Ultra HD (GPU Intensive)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <button id="calcBottleneckBtn" class="px-8 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          ⚡ Calculate Bottleneck &amp; Performance
+        </button>
+      </div>
+
+      <!-- Result Card -->
+      <div id="bottleneckResult" class="p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200/80 dark:border-slate-700">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+          <div>
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Estimated Bottleneck Percentage</span>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span id="bottleneckPct" class="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400">4.8%</span>
+              <span id="bottleneckStatus" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
+                Ideal Match (No noticeable bottleneck)
+              </span>
+            </div>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Gaming Experience Tier</span>
+            <p id="gamingTier" class="text-lg font-bold text-gray-900 dark:text-white mt-1">Ultra 4K &amp; 1440p High Refresh</p>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+          <p id="bottleneckAnalysis" class="leading-relaxed">
+            Your processor and graphics card are exceptionally well-balanced. At 1440p resolution, your GPU can operate near its full 99% compute efficiency without waiting on CPU draw calls.
+          </p>
+          <div class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-900/50 flex items-start gap-2.5 text-blue-900 dark:text-blue-300 text-xs">
+            <span class="text-base flex-shrink-0">💡</span>
+            <span id="bottleneckTip">Pro Tip: Enable XMP/EXPO in your motherboard BIOS to maximize memory bandwidth, reducing 1% low frame time dips in competitive gaming.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOL 2: AI Prompt Architect -->
+    <section id="promptTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl font-bold">
+          🤖
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">AI Prompt Engineering Studio</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Transform brief queries into high-yield, structured prompts optimized for ChatGPT, Claude 3.7, and DeepSeek R1.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Target AI Model</label>
+          <select id="promptModel" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="Claude 3.7 Sonnet">Claude 3.7 Sonnet / Opus (Detailed Reasoning)</option>
+            <option value="ChatGPT o3 / GPT-4o">ChatGPT o3 / GPT-4o (Chain-of-Thought)</option>
+            <option value="DeepSeek R1">DeepSeek R1 (Math &amp; Code Synthesis)</option>
+            <option value="Midjourney / Image Gen">Midjourney v6 / Ideogram (Photorealism)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Output Objective</label>
+          <select id="promptGoal" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="Production Code & Architecture">Production Code &amp; Clean Architecture</option>
+            <option value="In-Depth Technical Journalism">In-Depth Technical Article / Journalism</option>
+            <option value="Troubleshooting & Debugging">Troubleshooting &amp; Root Cause Analysis</option>
+            <option value="Actionable Executive Brief">Executive Briefing &amp; Key Metrics</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Persona &amp; Tone</label>
+          <select id="promptTone" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="Staff Systems Engineer">Staff Systems Engineer (Strict &amp; Rigorous)</option>
+            <option value="Senior Tech Journalist">Senior Tech Journalist (Clear &amp; Direct)</option>
+            <option value="Critical Code Reviewer">Critical Code Reviewer (Zero Clichés)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Your Raw Topic / Request</label>
+        <textarea id="rawPromptInput" rows="3" placeholder="e.g. Write a script to monitor cloudflare worker cache hit rates and email me when errors spike" class="w-full p-3.5 rounded-2xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"></textarea>
+      </div>
+
+      <div class="flex justify-between items-center mb-6">
+        <span class="text-[11px] text-gray-400">Click below to structure system context, constraints, and instructions.</span>
+        <button id="generatePromptBtn" class="px-6 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow transition-all active:scale-95">
+          ✨ Generate Engineered Prompt
+        </button>
+      </div>
+
+      <!-- Generated Prompt Box -->
+      <div class="relative rounded-2xl bg-slate-900 text-slate-100 p-5 font-mono text-xs overflow-x-auto border border-slate-800">
+        <button id="copyPromptBtn" class="absolute top-3 right-3 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow">
+          <span>📋 Copy Prompt</span>
+        </button>
+        <pre id="promptOutput" class="whitespace-pre-wrap leading-relaxed pr-24">// Click "Generate Engineered Prompt" above to see the structured output template.</pre>
+      </div>
+    </section>
+
+    <!-- TOOL 3: Command Cheat Sheets -->
+    <section id="cheatsheetTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
+          ⚡
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Developer &amp; Systems Command Cheat Sheets</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Searchable CLI shortcuts and syntax for Linux administration, Git operations, and Docker workflows.</p>
+        </div>
+      </div>
+
+      <!-- Search & Category Filters -->
+      <div class="flex flex-col sm:flex-row items-center gap-3 mb-6">
+        <div class="relative w-full sm:flex-1">
+          <input 
+            type="text" 
+            id="cheatSearchInput" 
+            placeholder="Search commands (e.g., git stash, chmod, docker prune)..." 
+            class="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+          >
+          <svg class="w-4 h-4 absolute left-3 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+
+        <div class="flex gap-1.5 w-full sm:w-auto">
+          <button class="cheat-cat-btn active px-3.5 py-2 text-xs font-bold rounded-xl bg-blue-600 text-white" data-cat="all">All</button>
+          <button class="cheat-cat-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200" data-cat="linux">Linux</button>
+          <button class="cheat-cat-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200" data-cat="git">Git</button>
+          <button class="cheat-cat-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200" data-cat="docker">Docker</button>
+        </div>
+      </div>
+
+      <!-- Commands Table -->
+      <div id="cheatList" class="space-y-3">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- TOOL 4: 2026 GPU & Hardware Matcher -->
+    <section id="gpuMatcherTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl font-bold">
+          🎮
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">2026 GPU &amp; Hardware Matcher Quiz</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Answer 3 questions to find the ideal graphics card, matching processor, and power supply for your specific budget and target titles.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">GPU Budget Range</label>
+          <select id="quizBudget" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="budget">Budget ($300 – $499)</option>
+            <option value="mid" selected>Mid-Range Sweet Spot ($500 – $850)</option>
+            <option value="high">High-End Tier ($900 – $1,400)</option>
+            <option value="enthusiast">No-Compromise Enthusiast ($1,500+)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Primary Workload</label>
+          <select id="quizWorkload" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="esports">Competitive Esports (Apex, CS2, Valorant 240Hz)</option>
+            <option value="aaa" selected>AAA Visual Immersion &amp; Ray Tracing</option>
+            <option value="ai">Local AI / LLM Inference (DeepSeek, Stable Diffusion)</option>
+            <option value="creative">Content Creation &amp; 4K Video Editing</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Monitor Resolution</label>
+          <select id="quizResolution" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="1080">1080p Full HD</option>
+            <option value="1440" selected>1440p Quad HD</option>
+            <option value="4k">4K Ultra HD</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <button id="findGpuBtn" class="px-8 py-3 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          🎯 Find My Perfect GPU Match
+        </button>
+      </div>
+
+      <!-- Match Result Box -->
+      <div id="quizResultBox" class="p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-purple-200/80 dark:border-purple-900/40">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+          <div>
+            <span class="text-xs uppercase font-bold text-purple-600 dark:text-purple-400 tracking-wider">Top Recommended GPU Match</span>
+            <h3 id="matchedGpuTitle" class="text-2xl font-black text-gray-950 dark:text-white mt-1">NVIDIA GeForce RTX 4070 Super (12GB)</h3>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Recommended PSU</span>
+            <p id="matchedPsu" class="text-base font-bold text-gray-900 dark:text-white mt-0.5">650W – 750W Gold</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <strong class="block text-gray-900 dark:text-white mb-1">Recommended Partner Processor:</strong>
+            <span id="matchedCpu" class="text-blue-600 dark:text-blue-400 font-bold">AMD Ryzen 7 7800X3D or Intel Core i5 14600K</span>
+          </div>
+          <div>
+            <strong class="block text-gray-900 dark:text-white mb-1">Expected Frame Rates:</strong>
+            <span id="matchedFps" class="font-semibold text-emerald-600 dark:text-emerald-400">110-140 FPS on 1440p Ultra Settings</span>
+          </div>
+        </div>
+
+        <p id="matchedRationale" class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-200 dark:border-slate-700 pt-3">
+          This configuration provides the best price-to-performance ratio for 1440p high-refresh gaming, featuring AV1 encoding, DLSS 3.5 Frame Generation, and sufficient VRAM headroom for demanding 2026 titles.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOOL 5: Can My PC Run It? Game Specs Matcher -->
+    <section id="gameCheckerTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl font-bold">
+          🕹️
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Can My PC Run It? Live Game Requirements Checker</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Select any modern AAA title and input your hardware configuration to test compatibility and predict real-world FPS metrics.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Target Title</label>
+          <select id="gameSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="gta6" selected>Grand Theft Auto VI (GTA 6)</option>
+            <option value="wukong">Black Myth: Wukong (Full RT)</option>
+            <option value="cyberpunk">Cyberpunk 2077: Phantom Liberty</option>
+            <option value="eldenring">Elden Ring: Shadow of the Erdtree</option>
+            <option value="flightsim">MS Flight Simulator 2024</option>
+            <option value="esports">Valorant / CS2 (High FPS)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Graphics Card</label>
+          <select id="gameGpuSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="100">RTX 5090 / 4090 (Top Tier)</option>
+            <option value="85">RTX 5080 / 4080 Super / RX 7900 XTX</option>
+            <option value="70" selected>RTX 4070 Super / 4070 Ti / RX 7800 XT</option>
+            <option value="50">RTX 4060 / 3060 Ti / RX 6700 XT</option>
+            <option value="35">RTX 3060 (12GB) / RTX 2060 / RX 6600</option>
+            <option value="20">GTX 1660 Super / GTX 1060 (6GB)</option>
+            <option value="10">Intel Iris Xe / AMD 780M Integrated</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Processor (CPU)</label>
+          <select id="gameCpuSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="100" selected>Ryzen 7 9800X3D / 7800X3D / i9 14900K</option>
+            <option value="80">Core i7 14700K / 13700K / Ryzen 7 7700X</option>
+            <option value="65">Ryzen 5 7600X / Core i5 13400 / 12600K</option>
+            <option value="45">Ryzen 5 5600X / 3600 / Core i5 10400F</option>
+            <option value="20">Older Quad-Core (Core i7 7700 / i5 6500)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">System Memory</label>
+          <select id="gameRamSelect" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="32" selected>32GB Dual-Channel (Optimal)</option>
+            <option value="16">16GB Dual-Channel (Standard)</option>
+            <option value="8">8GB (May Cause Stuttering)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <button id="checkCanRunBtn" class="px-8 py-3 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          🔍 Test My System Compatibility
+        </button>
+      </div>
+
+      <!-- Result Card -->
+      <div id="gameCheckResult" class="p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-rose-200/80 dark:border-rose-900/40">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+          <div>
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Estimated Compatibility Tier</span>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span id="gameTierTitle" class="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400">✨ Recommended Ultra Spec</span>
+            </div>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Playability Score</span>
+            <p id="gamePlayabilityScore" class="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5">92 / 100</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-center">
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">1080p Resolution</span>
+            <strong id="fps1080" class="text-base font-bold text-gray-900 dark:text-white">120+ FPS Ultra</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">1440p Resolution</span>
+            <strong id="fps1440" class="text-base font-bold text-blue-600 dark:text-blue-400">85–105 FPS High</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">4K UHD Resolution</span>
+            <strong id="fps4k" class="text-base font-bold text-purple-600 dark:text-purple-400">55–65 FPS (DLSS)</strong>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-900/50 text-xs text-blue-900 dark:text-blue-200 leading-relaxed">
+          <span class="font-bold">💡 Optimization Recommendation: </span>
+          <span id="gameOptimizationTip">Enable DLSS Quality or FSR 3.1 Frame Generation to maintain consistent frame times during high-density urban ray tracing scenes.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOL 6: Local AI & LLM VRAM Calculator -->
+    <section id="aiVramTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl font-bold">
+          🧠
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Local AI &amp; LLM VRAM Sizer (2026 Edition)</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Calculate exact memory required for DeepSeek R1, LLaMA 3.3, and Qwen across quantization formats and context lengths.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">1. AI Model Architecture</label>
+          <select id="llmModelSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="deepseek_r1_671b">DeepSeek R1 (671B MoE - 37B Active)</option>
+            <option value="deepseek_r1_70b" selected>DeepSeek R1 Distill Qwen (70B)</option>
+            <option value="llama33_70b">Meta LLaMA 3.3 (70B Instruct)</option>
+            <option value="deepseek_r1_32b">DeepSeek R1 Distill Qwen (32B)</option>
+            <option value="qwen25_32b">Qwen 2.5 Coder (32B)</option>
+            <option value="deepseek_r1_14b">DeepSeek R1 Distill Qwen (14B)</option>
+            <option value="mistral_123b">Mistral Large 2 (123B)</option>
+            <option value="llama31_8b">Meta LLaMA 3.1 (8B Instruct)</option>
+            <option value="gemma2_27b">Google Gemma 2 (27B)</option>
+            <option value="phi4_14b">Microsoft Phi-4 (14B)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">2. Quantization Precision</label>
+          <select id="llmQuantSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="fp16">FP16 (16-bit Full Unquantized) — 2.00 B/p</option>
+            <option value="q8_0">Q8_0 (8-bit High Precision) — 1.08 B/p</option>
+            <option value="q5_k_m">Q5_K_M (5-bit Sweet Spot) — 0.72 B/p</option>
+            <option value="q4_k_m" selected>Q4_K_M (4-bit Recommended Standard) — 0.58 B/p</option>
+            <option value="q3_k_m">Q3_K_M (3-bit High Compression) — 0.46 B/p</option>
+            <option value="q2_k">Q2_K (2-bit Extreme Emergency) — 0.35 B/p</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">3. Context Window Size</label>
+          <select id="llmContextSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="4096">4,096 Tokens (Standard Conversational)</option>
+            <option value="8192" selected>8,192 Tokens (Coding &amp; Multi-turn)</option>
+            <option value="32768">32,768 Tokens (Full Codebase Search)</option>
+            <option value="65536">65,536 Tokens (Long Documentation)</option>
+            <option value="131072">131,072 Tokens (Extreme 128k Long-Context)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">4. Your Hardware Setup</label>
+          <select id="llmHardwareSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
+            <option value="32">NVIDIA RTX 5090 (32GB GDDR7)</option>
+            <option value="24" selected>NVIDIA RTX 4090 / 3090 (24GB VRAM)</option>
+            <option value="16">NVIDIA RTX 5080 / 4080 / 4070 Ti Super (16GB)</option>
+            <option value="12">NVIDIA RTX 4070 / 4070 Super / 3060 (12GB)</option>
+            <option value="8">NVIDIA RTX 4060 / 3070 / 3060 Ti (8GB)</option>
+            <option value="48">Dual RTX 3090 / 4090 NVLink/PCIe (48GB)</option>
+            <option value="64">Apple Mac Studio / Mini M-Series (64GB Unified)</option>
+            <option value="128">Apple Mac Studio M2/M3 Ultra (128GB Unified)</option>
+            <option value="192">Apple Mac Studio M2/M3 Ultra (192GB Unified)</option>
+            <option value="384">Enterprise Node / Dual Mac Studio (384GB Unified)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <button id="calcLlmVramBtn" class="px-8 py-3 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+          🧠 Calculate VRAM &amp; Hardware Compatibility
+        </button>
+      </div>
+
+      <!-- Result Card -->
+      <div id="llmResultCard" class="p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-purple-200/80 dark:border-purple-900/40">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-slate-700">
+          <div>
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Inference Feasibility Tier</span>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span id="llmStatusTitle" class="text-2xl sm:text-3xl font-black text-amber-500 dark:text-amber-400">🟡 Partial CPU Offloading Required</span>
+            </div>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 tracking-wider">Total Memory Footprint</span>
+            <p id="llmTotalVram" class="text-2xl font-black text-purple-600 dark:text-purple-400 mt-0.5">43.2 GB</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-center">
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">Model Weights</span>
+            <strong id="llmWeightsMem" class="text-base font-bold text-gray-900 dark:text-white">40.6 GB</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">KV Cache Size</span>
+            <strong id="llmKvMem" class="text-base font-bold text-blue-600 dark:text-blue-400">1.6 GB</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <span class="text-[11px] text-gray-400 uppercase font-bold block">CUDA / Context Overhead</span>
+            <strong id="llmOverheadMem" class="text-base font-bold text-purple-600 dark:text-purple-400">1.0 GB</strong>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-purple-50 dark:bg-purple-900/30 border border-purple-100 dark:border-purple-900/50 text-xs text-purple-900 dark:text-purple-200 leading-relaxed mb-4">
+          <span class="font-bold">⚡ Deployment Strategy &amp; Speed: </span>
+          <span id="llmSpeedTip">Model requires 43.2GB total memory. On a single 24GB RTX 4090, 45% of layers must offload to 32GB+ system RAM via llama.cpp or Ollama. Expected speed: 9–14 tokens/second.</span>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-200 font-mono flex items-center justify-between gap-2 overflow-x-auto">
+          <div>
+            <span class="text-purple-400 font-bold">Ollama Command: </span>
+            <code id="llmOllamaCmd" class="text-emerald-400">ollama run deepseek-r1:70b</code>
+          </div>
+          <button id="copyLlmCmdBtn" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] font-sans font-bold text-white transition-colors">
+            Copy
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embed Tool Widget for Webmasters & Bloggers (Backlink Magnet) -->
+    <div class="max-w-4xl mx-auto mt-8 p-6 rounded-3xl bg-slate-900 text-slate-100 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">Webmaster &amp; Blogger Resource</span>
+        <h4 class="text-base font-bold text-white">Embed Tech Boss Interactive Tools on Your Website</h4>
+        <p class="text-xs text-slate-400 mt-0.5">Free responsive iframe widget for tech blogs, PC building communities, and forums.</p>
+      </div>
+      <button id="copyToolEmbedBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2 flex-shrink-0 active:scale-95">
+        <span>&lt;/&gt; Copy Embed Code</span>
+      </button>
+    </div>
+
+    <!-- Bottom Newsletter Subscription CTA -->
+    <div class="max-w-4xl mx-auto mt-12 p-8 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center shadow-lg">
+      <h3 class="text-2xl font-black mb-2">Never Miss a Tech Breakthrough</h3>
+      <p class="text-xs sm:text-sm text-blue-100 max-w-xl mx-auto mb-6">
+        Subscribe to the Tech Boss Dispatch. Curated deep-dives, hardware benchmarks, and AI updates straight to your inbox.
+      </p>
+      <form id="toolsNewsletterForm" class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
+        <input 
+          type="email" 
+          id="toolsNewsletterEmail" 
+          placeholder="Enter your email address" 
+          required 
+          class="flex-1 px-4 py-2.5 rounded-full text-xs text-gray-900 bg-white border-0 focus:outline-none focus:ring-2 focus:ring-white"
+        >
+        <button 
+          type="submit" 
+          class="px-6 py-2.5 rounded-full bg-slate-900 hover:bg-black text-white text-xs font-bold transition-all shadow"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-xs text-gray-500 dark:text-gray-400 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-gray-900 dark:text-white">Tech Boss</span>
+          <span>•</span>
+          <span>© 2026 Tech Boss. All rights reserved.</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="/" class="hover:text-blue-600">Home</a>
+          <a href="tools" class="text-blue-600 font-bold">Tech Tools</a>
+          <a href="compare" class="text-blue-600 dark:text-blue-400 font-bold hover:underline transition-colors">Compare</a>
+          <a href="about" class="hover:text-blue-600">About</a>
+          <a href="terms" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Terms of Service</a>
+        <a href="privacy" class="hover:text-blue-600">Privacy Policy</a>
+          <a href="disclaimer" class="hover:text-blue-600">Disclaimer</a>
+          <a href="contact" class="hover:text-blue-600">Contact Us</a>
+        </div>
+      </div>
+      <p class="text-[11px] text-gray-400 dark:text-gray-500 text-center sm:text-left border-t border-gray-100 dark:border-slate-800/60 pt-4 leading-relaxed">
+        <strong>Affiliate Disclosure:</strong> Tech Boss is reader-supported. When you purchase through links on our site, we may earn an affiliate commission at no extra cost to you. We independently test and verify all tech hardware and software tools.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Interactive Script for Tools -->
+  <script>
+    // Theme Management
+    const themeBtn = document.getElementById("themeToggleBtn");
+    const sunIcon = document.getElementById("sunIcon");
+    const moonIcon = document.getElementById("moonIcon");
+
+    function syncThemeIcons() {
+      const isDark = document.documentElement.classList.contains("dark");
+      if (isDark) {
+        sunIcon.classList.remove("hidden");
+        moonIcon.classList.add("hidden");
+      } else {
+        sunIcon.classList.add("hidden");
+        moonIcon.classList.remove("hidden");
+      }
+    }
+    syncThemeIcons();
+
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        try { localStorage.setItem("pulse_theme", isDark ? "dark" : "light"); } catch (e) {}
+        syncThemeIcons();
+        showToast(isDark ? "Dark mode activated" : "Light mode activated");
+      });
+    }
+
+    function showToast(msg) {
+      const c = document.getElementById("toastContainer");
+      if (!c) return;
+      const t = document.createElement("div");
+      t.className = "px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-semibold shadow-lg transition-all transform translate-y-2 opacity-0 pointer-events-auto border border-slate-800";
+      t.textContent = msg;
+      c.appendChild(t);
+      setTimeout(() => { t.classList.remove("translate-y-2", "opacity-0"); }, 10);
+      setTimeout(() => {
+        t.classList.add("opacity-0", "translate-y-2");
+        setTimeout(() => t.remove(), 300);
+      }, 3000);
+    }
+
+    // Tabs switching
+    function activateTab(targetId) {
+      const btn = document.querySelector(`.tool-tab-btn[data-target="${targetId}"]`);
+      if (btn) {
+        document.querySelectorAll(".tool-tab-btn").forEach(b => {
+          b.classList.remove("bg-blue-600", "text-white", "shadow", "active");
+          b.classList.add("bg-white", "dark:bg-slate-900", "border", "border-gray-200", "dark:border-slate-800", "text-gray-700", "dark:text-gray-300");
+        });
+        btn.classList.add("bg-blue-600", "text-white", "shadow", "active");
+        btn.classList.remove("bg-white", "dark:bg-slate-900", "border", "border-gray-200", "dark:border-slate-800", "text-gray-700", "dark:text-gray-300");
+
+        document.querySelectorAll(".tool-section").forEach(sec => sec.classList.add("hidden"));
+        const targetSec = document.getElementById(targetId);
+        if (targetSec) targetSec.classList.remove("hidden");
+      }
+    }
+
+    document.querySelectorAll(".tool-tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        activateTab(targetId);
+      });
+    });
+
+    // Deep-linking via query string (?tool=vram) or hash (#aiVramTool)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const toolParam = (urlParams.get("tool") || "").toLowerCase();
+      const hash = window.location.hash.replace("#", "").toLowerCase();
+      if (toolParam.includes("vram") || hash.includes("vram") || hash.includes("aivram")) {
+        activateTab("aiVramTool");
+      } else if (toolParam.includes("gpu") || hash.includes("gpu")) {
+        activateTab("gpuMatcherTool");
+      } else if (toolParam.includes("game") || hash.includes("game")) {
+        activateTab("gameCheckerTool");
+      } else if (toolParam.includes("prompt") || hash.includes("prompt")) {
+        activateTab("promptTool");
+      } else if (toolParam.includes("cheat") || hash.includes("cheat")) {
+        activateTab("cheatsheetTool");
+      } else if (toolParam.includes("bottleneck") || hash.includes("bottleneck")) {
+        activateTab("bottleneckTool");
+      }
+    } catch (e) {}
+
+    // 1. Bottleneck Calculator Logic
+    const calcBtn = document.getElementById("calcBottleneckBtn");
+    if (calcBtn) {
+      calcBtn.addEventListener("click", () => {
+        const cpuScore = parseInt(document.getElementById("cpuSelect").value, 10);
+        const gpuScore = parseInt(document.getElementById("gpuSelect").value, 10);
+        const res = parseInt(document.getElementById("resSelect").value, 10);
+
+        // Resolution weights: 1080p is CPU bound (weight 1.3), 1440p balanced (1.0), 4K GPU bound (0.7)
+        let weight = 1.0;
+        if (res === 1080) weight = 1.25;
+        if (res === 2160) weight = 0.72;
+
+        const effectiveCpu = cpuScore * (1 / weight);
+        const diff = Math.abs(effectiveCpu - gpuScore);
+        const maxScore = Math.max(effectiveCpu, gpuScore);
+        const rawPct = Math.min(65, Math.max(2, (diff / maxScore) * 60));
+        const pctFormatted = rawPct.toFixed(1) + "%";
+
+        const pctEl = document.getElementById("bottleneckPct");
+        const statusEl = document.getElementById("bottleneckStatus");
+        const analysisEl = document.getElementById("bottleneckAnalysis");
+        const tierEl = document.getElementById("gamingTier");
+        const tipEl = document.getElementById("bottleneckTip");
+
+        pctEl.textContent = pctFormatted;
+
+        if (rawPct < 8) {
+          pctEl.className = "text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400";
+          statusEl.className = "text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300";
+          statusEl.textContent = "Optimal Match (No bottleneck)";
+          analysisEl.textContent = `Your processor and graphics card operate in near-perfect equilibrium at this resolution. Both units achieve 97-100% theoretical utilization in modern gaming titles without frame pacing hitches.`;
+          tierEl.textContent = res === 2160 ? "Enthusiast 4K Ultra 120Hz+" : "Elite 1440p Competitive High-FPS";
+          tipEl.textContent = "Pro Tip: Pair this hardware with a high-bandwidth PCIe Gen 4/5 NVMe SSD to reduce DirectStorage asset decompression delays.";
+        } else if (effectiveCpu < gpuScore) {
+          // CPU bottleneck
+          pctEl.className = "text-3xl sm:text-4xl font-black text-amber-500 dark:text-amber-400";
+          statusEl.className = "text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300";
+          statusEl.textContent = "Processor Bottleneck Detected";
+          analysisEl.textContent = `Your GPU is significantly faster than your CPU at this resolution. In CPU-heavy titles (e.g., Cyberpunk 2077, Microsoft Flight Simulator), your graphics card will sit at partial load waiting for instructions.`;
+          tierEl.textContent = "Mid-High Tier (GPU Underutilized)";
+          tipEl.textContent = "Pro Tip: Increasing resolution scale to 1440p or 4K with DSR/VSR will shift processing weight back to your GPU, yielding crisper visuals at nearly identical frame rates.";
+        } else {
+          // GPU bottleneck
+          pctEl.className = "text-3xl sm:text-4xl font-black text-blue-500 dark:text-blue-400";
+          statusEl.className = "text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300";
+          statusEl.textContent = "GPU Limited (Standard for Gaming)";
+          analysisEl.textContent = `Your CPU easily feeds your graphics card with frames to spare. This is the optimal configuration for gaming since running GPUs at 99-100% capacity produces consistent frame delivery.`;
+          tierEl.textContent = "GPU-Bound Solid Performance";
+          tipEl.textContent = "Pro Tip: Use DLSS, FSR 3.1, or XeSS Quality scaling to recover 30-40% extra FPS without sacrificing visual fidelity.";
+        }
+
+        showToast("Calculated hardware bottleneck analysis!");
+      });
+    }
+
+    // 2. AI Prompt Generator Logic
+    const genPromptBtn = document.getElementById("generatePromptBtn");
+    const copyPromptBtn = document.getElementById("copyPromptBtn");
+    const rawInput = document.getElementById("rawPromptInput");
+    const promptOutput = document.getElementById("promptOutput");
+
+    if (genPromptBtn) {
+      genPromptBtn.addEventListener("click", () => {
+        const topic = (rawInput.value || "Build a responsive web application dashboard").trim();
+        const model = document.getElementById("promptModel").value;
+        const goal = document.getElementById("promptGoal").value;
+        const tone = document.getElementById("promptTone").value;
+
+        const structured = 
+`[SYSTEM CONTEXT & ROLE]
+You are a world-class ${tone}. Your analysis and implementation must adhere strictly to modern engineering standards, maintain zero filler, and avoid superficial clichés.
+
+[OBJECTIVE]
+${goal}: "${topic}"
+
+[CONSTRAINTS & EXECUTION DIRECTIVES]
+1. Target Architecture: Optimized specifically for ${model} capabilities.
+2. Code & Design: Provide end-to-end executable implementations, robust error boundaries, and production-tested patterns.
+3. Clarity: Structure responses with explicit markdown sections, step-by-step logic, and measurable benchmark criteria.
+4. Tone Guardrails: Be direct, authoritative, and concise. Never use generic buzzwords.
+
+[DELIVERABLE SPECIFICATION]
+Provide:
+1. Executive architectural summary.
+2. Complete, copy-pasteable implementation with clear parameter annotations.
+3. Edge-case handling and security considerations.`;
+
+        promptOutput.textContent = structured;
+        showToast("✨ Structured prompt generated successfully!");
+      });
+    }
+
+    if (copyPromptBtn) {
+      copyPromptBtn.addEventListener("click", () => {
+        const text = promptOutput.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          showToast("📋 Prompt copied to clipboard!");
+        }).catch(() => {
+          showToast("Failed to copy automatically.");
+        });
+      });
+    }
+
+    // 3. Command Cheat Sheets Logic
+    const cheatData = [
+      { cat: 'linux', cmd: 'journalctl -xeu service-name', desc: 'Inspect real-time logs for a specific systemd daemon service' },
+      { cat: 'linux', cmd: 'sudo lsof -i :8080', desc: 'Identify which process is actively binding or listening on port 8080' },
+      { cat: 'linux', cmd: 'htop', desc: 'Interactive real-time process manager, thread monitor, and resource analyzer' },
+      { cat: 'linux', cmd: 'sudo chown -R $USER:$USER /var/www', desc: 'Recursively transfer directory ownership to current user' },
+      { cat: 'linux', cmd: 'tar -czvf backup.tar.gz /target/folder', desc: 'Compress target directory into an encrypted gzip archive' },
+      { cat: 'git', cmd: 'git commit --amend --no-edit', desc: 'Add staged changes into the most recent commit without modifying message' },
+      { cat: 'git', cmd: 'git stash push -m "WIP feature"', desc: 'Safely stash working directory changes with a descriptive label' },
+      { cat: 'git', cmd: 'git stash pop', desc: 'Re-apply the most recently stashed changes and remove them from stash list' },
+      { cat: 'git', cmd: 'git reset --soft HEAD~1', desc: 'Undo the last commit while keeping all modified files safely staged' },
+      { cat: 'git', cmd: 'git clean -fd', desc: 'Force remove all untracked files and directories from the repository' },
+      { cat: 'docker', cmd: 'docker system prune -af --volumes', desc: 'Reclaim storage by removing all unused containers, images, and volumes' },
+      { cat: 'docker', cmd: 'docker compose up -d --build', desc: 'Rebuild container images and launch multi-service stack in background' },
+      { cat: 'docker', cmd: 'docker exec -it container_name /bin/bash', desc: 'Open an interactive terminal shell inside a live running container' },
+      { cat: 'docker', cmd: 'docker logs -f --tail 100 container_name', desc: 'Stream live container stdout/stderr output tracking the last 100 lines' }
+    ];
+
+    const cheatList = document.getElementById("cheatList");
+    const cheatSearch = document.getElementById("cheatSearchInput");
+    let activeCheatCat = 'all';
+
+    function renderCheats() {
+      if (!cheatList) return;
+      const q = (cheatSearch ? cheatSearch.value : '').toLowerCase().trim();
+
+      const filtered = cheatData.filter(item => {
+        const matchesCat = activeCheatCat === 'all' || item.cat === activeCheatCat;
+        const matchesSearch = !q || item.cmd.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        cheatList.innerHTML = `<div class="p-8 text-center text-xs text-gray-500">No commands match your filter.</div>`;
+        return;
+      }
+
+      cheatList.innerHTML = filtered.map(item => `
+        <div class="p-3.5 sm:p-4 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group hover:border-blue-500/50 transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${item.cat === 'linux' ? 'bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-300' : (item.cat === 'git' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300' : 'bg-cyan-100 text-cyan-700 dark:bg-cyan-950/60 dark:text-cyan-300')}">
+                ${item.cat}
+              </span>
+              <p class="text-xs text-gray-600 dark:text-gray-300 truncate">${item.desc}</p>
+            </div>
+            <code class="text-xs sm:text-sm font-mono font-bold text-gray-950 dark:text-gray-100 select-all block bg-white dark:bg-slate-900 px-3 py-1.5 rounded-lg border border-gray-200/60 dark:border-slate-700">
+              ${item.cmd}
+            </code>
+          </div>
+          <button 
+            data-cmd="${item.cmd.replace(/"/g, '&quot;')}"
+            class="cheat-copy-btn px-3.5 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800 text-xs font-bold text-blue-600 dark:text-blue-400 transition-colors flex-shrink-0 self-start sm:self-center shadow-xs"
+          >
+            Copy
+          </button>
+        </div>
+      `).join("");
+    }
+
+    if (cheatList) {
+      cheatList.addEventListener('click', (e) => {
+        const btn = e.target.closest('.cheat-copy-btn');
+        if (btn) {
+          const cmd = btn.getAttribute('data-cmd');
+          if (cmd && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(cmd).then(() => showToast('📋 Command copied to clipboard!'));
+          }
+        }
+      });
+    }
+
+    renderCheats();
+
+    if (cheatSearch) {
+      cheatSearch.addEventListener("input", renderCheats);
+    }
+
+    document.querySelectorAll(".cheat-cat-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".cheat-cat-btn").forEach(b => {
+          b.classList.remove("bg-blue-600", "text-white", "active");
+          b.classList.add("bg-gray-100", "dark:bg-slate-800", "text-gray-700", "dark:text-gray-300");
+        });
+        btn.classList.add("bg-blue-600", "text-white", "active");
+        btn.classList.remove("bg-gray-100", "dark:bg-slate-800", "text-gray-700", "dark:text-gray-300");
+        activeCheatCat = btn.getAttribute("data-cat");
+        renderCheats();
+      });
+    });
+
+    // 4. GPU Matcher Logic
+    const findGpuBtn = document.getElementById("findGpuBtn");
+    if (findGpuBtn) {
+      findGpuBtn.addEventListener("click", () => {
+        const budget = document.getElementById("quizBudget").value;
+        const workload = document.getElementById("quizWorkload").value;
+        const res = document.getElementById("quizResolution").value;
+
+        let gpu = "NVIDIA GeForce RTX 4070 Super (12GB)";
+        let cpu = "AMD Ryzen 7 7800X3D or Intel Core i5 14600K";
+        let psu = "650W – 750W Gold";
+        let fps = "110–140 FPS on 1440p Ultra Settings";
+        let rationale = "Outstanding balanced choice for 1440p high-refresh gaming with full DLSS 3.5 support.";
+
+        if (budget === "enthusiast" || (budget === "high" && workload === "ai") || res === "4k") {
+          if (budget === "enthusiast" || workload === "ai") {
+            gpu = "NVIDIA GeForce RTX 5090 (32GB) or RTX 4090 (24GB)";
+            cpu = "AMD Ryzen 7 9800X3D or Ryzen 9 9950X";
+            psu = "1000W – 1200W ATX 3.1 PCIe 5.1";
+            fps = "144+ FPS in 4K Native Ultra / Path Tracing";
+            rationale = "The ultimate workstation and gaming GPU. 24GB–32GB VRAM allows native execution of 70B quantized DeepSeek LLMs and unrestricted 4K path-traced rendering.";
+          } else {
+            gpu = "NVIDIA GeForce RTX 5080 (16GB) or RTX 4080 Super";
+            cpu = "AMD Ryzen 7 9800X3D or Intel Core i7 14700K";
+            psu = "850W Gold";
+            fps = "100–120 FPS in 4K Ultra Settings";
+            rationale = "High-efficiency 4K gaming powerhouse with next-gen GDDR7 memory bandwidth.";
+          }
+        } else if (budget === "high") {
+          gpu = "NVIDIA GeForce RTX 4070 Ti Super (16GB) / AMD Radeon RX 7900 XT";
+          cpu = "AMD Ryzen 7 7800X3D";
+          psu = "750W – 850W Gold";
+          fps = "120–160 FPS on 1440p / 75+ FPS on 4K";
+          rationale = "The 16GB VRAM buffer ensures maximum longevity against memory-heavy console ports.";
+        } else if (budget === "budget") {
+          gpu = "NVIDIA GeForce RTX 4060 (8GB) or AMD Radeon RX 7600 XT (16GB)";
+          cpu = "AMD Ryzen 5 7600 or Intel Core i5 12400F";
+          psu = "550W – 650W Bronze";
+          fps = "140–200+ FPS on 1080p Esports / 60–80 FPS 1080p AAA";
+          rationale = "Exceptional power efficiency running under 130W, perfect for high-refresh 1080p esports and budget-friendly builds.";
+        }
+
+        document.getElementById("matchedGpuTitle").textContent = gpu;
+        document.getElementById("matchedCpu").textContent = cpu;
+        document.getElementById("matchedPsu").textContent = psu;
+        document.getElementById("matchedFps").textContent = fps;
+        document.getElementById("matchedRationale").textContent = rationale;
+
+        showToast("🎯 Perfect hardware match found!");
+      });
+    }
+
+    // 5. Can My PC Run It Checker Logic
+    const canRunBtn = document.getElementById("checkCanRunBtn");
+    if (canRunBtn) {
+      canRunBtn.addEventListener("click", () => {
+        const game = document.getElementById("gameSelect").value;
+        const gpuVal = parseInt(document.getElementById("gameGpuSelect").value, 10);
+        const cpuVal = parseInt(document.getElementById("gameCpuSelect").value, 10);
+        const ramVal = parseInt(document.getElementById("gameRamSelect").value, 10);
+
+        let composite = Math.round((gpuVal * 0.6) + (cpuVal * 0.3) + ((ramVal / 32) * 10));
+
+        let tierTitle = "✨ Recommended Ultra Spec";
+        let tierColor = "text-emerald-600 dark:text-emerald-400";
+        let fps1080 = "120+ FPS Ultra";
+        let fps1440 = "85–105 FPS High";
+        let fps4k = "55–65 FPS (DLSS)";
+        let tip = "Enable DLSS Quality or FSR 3.1 to maintain smooth frame times.";
+
+        if (composite >= 85) {
+          tierTitle = "👑 Enthusiast 4K Max Settings Ready";
+          tierColor = "text-purple-600 dark:text-purple-400";
+          fps1080 = "165+ FPS Ultra Max";
+          fps1440 = "120–144+ FPS High";
+          fps4k = "75–90+ FPS Full RT";
+          tip = "Your rig exceeds standard targets. You can safely max out Full Path Tracing and Ray Reconstruction.";
+        } else if (composite >= 65) {
+          tierTitle = "✨ Recommended High-FPS Spec";
+          tierColor = "text-emerald-600 dark:text-emerald-400";
+          fps1080 = "110–130 FPS High";
+          fps1440 = "75–90 FPS High";
+          fps4k = "45–55 FPS Balanced";
+          tip = "Ideal balance for 1440p gaming. Keep textures on High and utilize DLSS/FSR for high refresh rates.";
+        } else if (composite >= 40) {
+          tierTitle = "⚡ Minimum 1080p Playable Spec";
+          tierColor = "text-amber-500 dark:text-amber-400";
+          fps1080 = "50–65 FPS Medium";
+          fps1440 = "35–45 FPS Low";
+          fps4k = "20–30 FPS (Not Recommended)";
+          tip = "Lower Volumetric Fog, Shadow Quality, and Crowd Density to maintain a stable 60 FPS floor.";
+        } else {
+          tierTitle = "⚠️ Below Recommended Specifications";
+          tierColor = "text-red-500";
+          fps1080 = "25–35 FPS Low (Stuttering)";
+          fps1440 = "Unplayable (< 25 FPS)";
+          fps4k = "Unplayable (< 15 FPS)";
+          tip = "Hardware will experience VRAM bottlenecks and memory swapping. Consider upgrading to a 12GB+ GPU and 16GB dual-channel RAM.";
+        }
+
+        const titleEl = document.getElementById("gameTierTitle");
+        titleEl.textContent = tierTitle;
+        titleEl.className = "text-2xl sm:text-3xl font-black " + tierColor;
+        document.getElementById("gamePlayabilityScore").textContent = composite + " / 100";
+        document.getElementById("fps1080").textContent = fps1080;
+        document.getElementById("fps1440").textContent = fps1440;
+        document.getElementById("fps4k").textContent = fps4k;
+        document.getElementById("gameOptimizationTip").textContent = tip;
+
+        showToast("🔍 Game compatibility analysis complete!");
+      });
+    }
+
+    // 6. AI & LLM VRAM Calculator Logic
+    const calcLlmBtn = document.getElementById("calcLlmVramBtn");
+    if (calcLlmBtn) {
+      const modelSpecs = {
+        deepseek_r1_671b: { params: 671, name: "DeepSeek R1 (671B)", ollama: "ollama run deepseek-r1:671b", kvRatio: 0.00035 }, // MLA compressed
+        deepseek_r1_70b:  { params: 70,  name: "DeepSeek R1 Distill Qwen (70B)", ollama: "ollama run deepseek-r1:70b", kvRatio: 0.0002 },
+        llama33_70b:      { params: 70,  name: "Meta LLaMA 3.3 (70B)", ollama: "ollama run llama3.3:70b", kvRatio: 0.0002 },
+        deepseek_r1_32b:  { params: 32.5,name: "DeepSeek R1 Distill Qwen (32B)", ollama: "ollama run deepseek-r1:32b", kvRatio: 0.00012 },
+        qwen25_32b:       { params: 32.5,name: "Qwen 2.5 Coder (32B)", ollama: "ollama run qwen2.5-coder:32b", kvRatio: 0.00012 },
+        deepseek_r1_14b:  { params: 14.7,name: "DeepSeek R1 Distill Qwen (14B)", ollama: "ollama run deepseek-r1:14b", kvRatio: 0.00006 },
+        mistral_123b:     { params: 123, name: "Mistral Large 2 (123B)", ollama: "ollama run mistral-large", kvRatio: 0.0003 },
+        llama31_8b:       { params: 8.0, name: "Meta LLaMA 3.1 (8B)", ollama: "ollama run llama3.1:8b", kvRatio: 0.000035 },
+        gemma2_27b:       { params: 27.2,name: "Google Gemma 2 (27B)", ollama: "ollama run gemma2:27b", kvRatio: 0.0001 },
+        phi4_14b:         { params: 14.0,name: "Microsoft Phi-4 (14B)", ollama: "ollama run phi4:14b", kvRatio: 0.00006 }
+      };
+
+      const quantMultipliers = {
+        fp16: 2.00,
+        q8_0: 1.08,
+        q5_k_m: 0.72,
+        q4_k_m: 0.58,
+        q3_k_m: 0.46,
+        q2_k: 0.35
+      };
+
+      calcLlmBtn.addEventListener("click", () => {
+        const modelKey = document.getElementById("llmModelSelect").value;
+        const quantKey = document.getElementById("llmQuantSelect").value;
+        const contextLen = parseInt(document.getElementById("llmContextSelect").value, 10);
+        const gpuVram = parseInt(document.getElementById("llmHardwareSelect").value, 10);
+
+        const spec = modelSpecs[modelKey] || modelSpecs.deepseek_r1_70b;
+        const bPerParam = quantMultipliers[quantKey] || 0.58;
+
+        // Weights footprint
+        const weightsGb = spec.params * bPerParam;
+
+        // KV cache footprint (scales with context length)
+        const kvGb = (contextLen * spec.kvRatio) * (quantKey === 'fp16' ? 1.5 : 1.0);
+
+        // CUDA / context activation overhead
+        const overheadGb = spec.params > 100 ? 2.5 : (spec.params > 30 ? 1.5 : 1.0);
+
+        const totalVram = weightsGb + kvGb + overheadGb;
+
+        // Determine Status Tier
+        let tierTitle = "🟢 100% Fits in GPU VRAM (Maximum Acceleration)";
+        let tierColor = "text-emerald-600 dark:text-emerald-400";
+        let tip = `Entire model loads directly into GPU VRAM. Lightning-fast throughput (40–90 tokens/second) with zero system memory bottlenecks.`;
+
+        if (totalVram <= gpuVram) {
+          tierTitle = "🟢 100% Fits in GPU VRAM (Full Acceleration)";
+          tierColor = "text-emerald-600 dark:text-emerald-400";
+          tip = `The model (${totalVram.toFixed(1)}GB) fits completely inside your ${gpuVram}GB VRAM buffer. You will achieve maximum native speed (~45–90 tok/sec) via Ollama, vLLM, or LM Studio.`;
+        } else if (totalVram <= gpuVram * 2.8) {
+          const offloadPct = Math.min(95, Math.round(((totalVram - gpuVram) / totalVram) * 100));
+          tierTitle = "🟡 Partial CPU Offloading Required";
+          tierColor = "text-amber-500 dark:text-amber-400";
+          tip = `Model requires ${totalVram.toFixed(1)}GB memory. With ${gpuVram}GB VRAM, roughly ${offloadPct}% of transformer layers must offload to system RAM via llama.cpp or Ollama. Expected inference speed: 8–18 tokens/sec.`;
+        } else {
+          tierTitle = "🔴 Insufficient Memory / Severe OOM";
+          tierColor = "text-red-500";
+          tip = `Model footprint (${totalVram.toFixed(1)}GB) heavily exceeds your current ${gpuVram}GB capacity. Offloading over 80% to system RAM will bottleneck memory bus bandwidth down to < 2 tok/sec. Recommended hardware: ${totalVram > 90 ? 'Dual Mac Studio 192GB or Enterprise Node' : 'GPU upgrade to at least ' + Math.ceil(totalVram) + 'GB combined VRAM'}.`;
+        }
+
+        const titleEl = document.getElementById("llmStatusTitle");
+        titleEl.textContent = tierTitle;
+        titleEl.className = "text-2xl sm:text-3xl font-black " + tierColor;
+
+        document.getElementById("llmTotalVram").textContent = totalVram.toFixed(1) + " GB";
+        document.getElementById("llmWeightsMem").textContent = weightsGb.toFixed(1) + " GB";
+        document.getElementById("llmKvMem").textContent = kvGb.toFixed(2) + " GB";
+        document.getElementById("llmOverheadMem").textContent = overheadGb.toFixed(1) + " GB";
+        document.getElementById("llmSpeedTip").textContent = tip;
+        document.getElementById("llmOllamaCmd").textContent = spec.ollama;
+
+        showToast("🧠 AI VRAM analysis calculated!");
+      });
+
+      const copyCmdBtn = document.getElementById("copyLlmCmdBtn");
+      if (copyCmdBtn) {
+        copyCmdBtn.addEventListener("click", () => {
+          const cmdText = document.getElementById("llmOllamaCmd").textContent;
+          navigator.clipboard.writeText(cmdText).then(() => {
+            showToast("📋 Ollama command copied to clipboard!");
+          }).catch(() => {
+            showToast("Failed to copy command");
+          });
+        });
+      }
+    }
+
+    // Newsletter subscription on tools page
+    const toolsForm = document.getElementById("toolsNewsletterForm");
+    const toolsEmail = document.getElementById("toolsNewsletterEmail");
+    if (toolsForm && toolsEmail) {
+      toolsForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const em = toolsEmail.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!em || !emailRegex.test(em)) {
+          showToast("⚠️ Please enter a valid email address.");
+          return;
+        }
+        let subscribers = [];
+        try {
+          const stored = localStorage.getItem("pulse_newsletter_subscribers");
+          if (stored) subscribers = JSON.parse(stored);
+        } catch (err) {}
+        if (!subscribers.includes(em)) {
+          subscribers.push(em);
+          try { localStorage.setItem("pulse_newsletter_subscribers", JSON.stringify(subscribers)); } catch (e) {}
+        }
+        toolsEmail.value = "";
+        showToast("🎉 Successfully subscribed to Tech Boss Dispatch!");
+      });
+    }
+
+    // Embed Code Copy Handler
+    const copyToolEmbedBtn = document.getElementById("copyToolEmbedBtn");
+    if (copyToolEmbedBtn) {
+      copyToolEmbedBtn.addEventListener("click", () => {
+        const embedCode = `<iframe src="https://imtechboss.com/tools" width="100%" height="750" frameborder="0" style="border-radius:16px;border:1px solid #334155;"></iframe>\\n<p style="font-size:11px;font-family:sans-serif;color:#64748b;">Powered by <a href="https://imtechboss.com" target="_blank" rel="noopener">Tech Boss Interactive Tools Suite</a></p>`;
+        navigator.clipboard.writeText(embedCode).then(() => {
+          showToast("📋 Interactive Tools embed code copied to clipboard!");
+        }).catch(() => {
+          showToast("Failed to copy embed code");
+        });
+      });
+    }
+  </script>
+</body>
+</html>

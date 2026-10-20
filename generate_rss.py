@@ -67,7 +67,7 @@ def generate_feed():
         if not img_url:
             img_url = 'https://imtechboss.com/og-image.png'
 
-        post_url = f"https://imtechboss.com/post?id={post_id}"
+        post_url = f"https://imtechboss.com/{post_id}/"
 
         # RFC 822 format for pubDate
         dt = None

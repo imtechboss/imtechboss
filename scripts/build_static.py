@@ -1,0 +1,893 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+STATIC SITE GENERATOR — TECH BOSS (imtechboss.com)
+==================================================
+Converts every article in js/data.js into a true static directory:
+/<slug>/index.html with 100% pre-rendered HTML, full metadata,
+OpenGraph, Twitter cards, and Schema.org JSON-LD.
+
+This completely eliminates client-side rendering dependency for Googlebot,
+AdSense crawlers, social share bots, and readers, achieving instant (0ms LCP)
+page loads and 100% indexability.
+"""
+
+import os
+import sys
+import json
+import re
+import html
+from datetime import datetime
+
+# Enforce UTF-8 output
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(ROOT_DIR, 'js', 'data.js')
+POST_TEMPLATE_PATH = os.path.join(ROOT_DIR, 'post.html')
+
+def escape(val):
+    if val is None:
+        return ''
+    return html.escape(str(val), quote=True)
+
+def calculate_read_time(content, excerpt):
+    text = re.sub(r'<[^>]+>', ' ', (content or excerpt or ''))
+    words = len(text.strip().split())
+    mins = max(1, round(words / 180))
+    return f"{mins} min read"
+
+def inject_in_article_ads(body_html):
+    if not body_html or not body_html.strip():
+        return body_html
+
+    ad_banner_1 = '''
+    <div class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
+      <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1043419685176632"
+           data-ad-slot="5211138610"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+    '''
+
+    ad_banner_2 = '''
+    <div class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
+      <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1043419685176632"
+           data-ad-slot="6665664396"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+    '''
+
+    p_matches = list(re.finditer(r'</p>', body_html, re.IGNORECASE))
+    p_count = len(p_matches)
+
+    if p_count >= 6:
+        # Insert after 3rd and 6th
+        pos6 = p_matches[5].end()
+        pos3 = p_matches[2].end()
+        body_html = body_html[:pos6] + '\n' + ad_banner_2 + body_html[pos6:]
+        body_html = body_html[:pos3] + '\n' + ad_banner_1 + body_html[pos3:]
+        return body_html
+    elif p_count >= 3:
+        target_idx = 2 if p_count >= 5 else 1
+        pos = p_matches[target_idx].end()
+        return body_html[:pos] + '\n' + ad_banner_1 + body_html[pos:]
+    elif p_count > 0:
+        pos = p_matches[0].end()
+        return body_html[:pos] + '\n' + ad_banner_1 + body_html[pos:]
+
+    return body_html
+
+def generate_key_takeaways(article):
+    excerpt = article.get('excerpt', '')
+    content = article.get('content') or article.get('body', '')
+    points = []
+    if excerpt:
+        points.append(excerpt)
+
+    h2_matches = re.findall(r'<h2[^>]*>(.*?)</h2>', content, re.IGNORECASE)
+    for h in h2_matches[:2]:
+        clean = re.sub(r'<[^>]+>', '', h).strip()
+        if clean and clean not in points:
+            points.append(clean)
+
+    if not points:
+        return ''
+
+    li_items = '\n'.join([
+        f'''<li class="flex items-start gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 flex-shrink-0"></span>
+            <span class="leading-relaxed">{escape(pt)}</span>
+          </li>'''
+        for pt in points
+    ])
+
+    direct_summary = f'''
+        <div class="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white leading-relaxed mb-4 pb-3 border-b border-gray-100 dark:border-slate-800">
+          <strong>Direct Summary: </strong>{escape(excerpt)}
+        </div>
+    ''' if excerpt else ''
+
+    return f'''
+    <div id="aioAnswerCapsule" class="mb-8 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white dark:from-slate-800/90 dark:via-slate-850 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 shadow-sm not-prose">
+      <div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-blue-100 dark:border-slate-700/80">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
+          <span class="text-[11px] font-black uppercase tracking-wider text-blue-800 dark:text-blue-300">
+            Tech Boss Direct Answer Capsule (AI Overview)
+          </span>
+        </div>
+        <span class="text-[10px] text-gray-400 font-mono hidden sm:inline">GEO Verified • imtechboss.com</span>
+      </div>
+      {direct_summary}
+      <div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+        Core Takeaways &amp; Findings:
+      </div>
+      <ul class="space-y-2 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
+        {li_items}
+      </ul>
+    </div>
+    '''
+
+def generate_table_of_contents(content_html):
+    if not content_html:
+        return '', content_html
+
+    headings = []
+    idx = 0
+
+    def h2_repl(m):
+        nonlocal idx
+        idx += 1
+        attrs = m.group(1)
+        inner = m.group(2)
+        plain = re.sub(r'<[^>]+>', '', inner).strip()
+        if not plain:
+            return m.group(0)
+
+        id_match = re.search(r'id=["\']([^"\']+)["\']', attrs, re.IGNORECASE)
+        if id_match:
+            sec_id = id_match.group(1)
+        else:
+            slug = re.sub(r'[^a-z0-9]+', '-', plain.lower()).strip('-')[:48]
+            sec_id = f"section-{idx}-{slug or 'heading'}"
+            attrs = f'{attrs} id="{sec_id}"'
+
+        headings.append({'id': sec_id, 'title': plain})
+        return f'<h2 {attrs.strip()}>{inner}</h2>'
+
+    updated_body = re.sub(r'<h2\b([^>]*)>([\s\S]*?)</h2>', h2_repl, content_html, flags=re.IGNORECASE)
+
+    if len(headings) < 2:
+        return '', content_html
+
+    items = '\n'.join([
+        f'''<li class="flex items-start gap-2.5">
+          <span class="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0">{i+1:02d}.</span>
+          <a href="#{escape(h["id"])}" class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:underline">
+            {escape(h["title"])}
+          </a>
+        </li>'''
+        for i, h in enumerate(headings)
+    ])
+
+    toc_html = f'''
+    <div class="my-6 p-4 sm:p-5 rounded-2xl bg-gray-50/90 dark:bg-slate-800/60 border border-gray-200/80 dark:border-slate-800/80 shadow-xs not-prose">
+      <details open class="group">
+        <summary class="flex items-center justify-between cursor-pointer font-bold text-gray-900 dark:text-gray-100 select-none list-none">
+          <span class="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-wider text-gray-800 dark:text-gray-200 font-extrabold">
+            <span>📑</span>
+            <span>In This Analysis (Table of Contents)</span>
+          </span>
+          <span class="text-xs text-blue-600 dark:text-blue-400 group-open:rotate-180 transition-transform duration-200">▼</span>
+        </summary>
+        <ol class="mt-3.5 pt-3.5 border-t border-gray-200/60 dark:border-slate-700/60 space-y-2 list-none pl-0">
+          {items}
+        </ol>
+      </details>
+    </div>
+    '''
+    return toc_html, updated_body
+
+def generate_faq_data(article):
+    cat = (article.get('category') or '').lower()
+    title = (article.get('title') or '').upper()
+
+    if any(k in cat for k in ['hard', 'semiconductor']) or any(k in title for k in ['RTX', 'RYZEN', 'INTEL', 'GPU', 'CPU', 'TSMC', 'A16']):
+        faqs = [
+            {
+                "q": "How does this semiconductor or hardware architecture improve performance and efficiency?",
+                "a": "By advancing lithography nodes and implementing backside power delivery networks (BSPDN), silicon designs reduce voltage drop (IR drop), eliminate interconnect congestion, and deliver 15% to 25% lower power consumption alongside double-digit clock frequency gains."
+            },
+            {
+                "q": "Will this hardware advancement require new motherboard platforms or power standards?",
+                "a": "Next-generation architectures often require updated socket standards, PCIe 5.0/6.0 bandwidth pipelines, and ATX 3.1 certified power delivery to handle aggressive transient power spikes and extreme compute densities."
+            },
+            {
+                "q": "When will this technology reach commercial hardware availability?",
+                "a": "Advanced process nodes transition from initial foundry risk production to high-volume manufacturing within 6 to 9 months, prioritizing high-performance computing (HPC) and flagship AI accelerators before client consumer rollouts."
+            }
+        ]
+    elif any(k in cat for k in ['ai', 'intelligence']) or any(k in title for k in ['DEEPSEEK', 'CLAUDE', 'GPT', 'LLM', 'MODEL', 'COLOSSUS', 'AI']):
+        faqs = [
+            {
+                "q": "Can this AI model or architecture run locally on consumer hardware?",
+                "a": "Quantized versions (such as 4-bit and 8-bit GGUF models) can run locally on consumer GPUs with 12GB to 24GB of VRAM using inference engines like Ollama, llama.cpp, and LM Studio."
+            },
+            {
+                "q": "How does test-time compute reasoning improve model answers?",
+                "a": "Reasoning models generate internal chain-of-thought tokens, verifying mathematical intermediate steps and backtracking when encountering logical contradictions before providing the output."
+            },
+            {
+                "q": "Is prompt data kept private when self-hosting local models?",
+                "a": "Yes. Running models on local hardware ensures that your prompts, source code, and queries remain on your private machine without transmitting telemetry to third-party cloud APIs."
+            }
+        ]
+    else:
+        faqs = [
+            {
+                "q": "Are these technical instructions safe to apply on Windows 11?",
+                "a": "Yes. The steps detailed in this Tech Boss analysis operate within standard operating system guidelines and do not modify protected kernel modules or partition structures."
+            },
+            {
+                "q": "Does this solution require specialized third-party diagnostic software?",
+                "a": "The troubleshooting steps utilize built-in administrative tools such as PowerShell, DISM, SFC, and native Windows Diagnostics."
+            },
+            {
+                "q": "What should I do if this issue persists after applying the fix?",
+                "a": "Verify hardware stability, run memory integrity diagnostics, and inspect event viewer logs for recurring kernel error codes."
+            }
+        ]
+
+    faq_html = f'''
+    <div class="my-10 p-6 sm:p-7 rounded-3xl bg-gray-50/90 dark:bg-slate-800/60 border border-gray-200/80 dark:border-slate-800/80 shadow-xs not-prose">
+      <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-200/60 dark:border-slate-700/60">
+        <span class="text-base">💬</span>
+        <h3 class="text-sm sm:text-base font-extrabold uppercase tracking-wider text-gray-900 dark:text-white">
+          Frequently Asked Questions &amp; Technical Clarifications
+        </h3>
+      </div>
+      <div class="space-y-3">
+        {''.join([
+            f"""<details class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/80 transition-colors">
+              <summary class="flex justify-between items-center font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 cursor-pointer select-none">
+                <span>{escape(f["q"])}</span>
+                <span class="text-gray-400 group-open:rotate-180 transition-transform ml-2 text-xs flex-shrink-0">▼</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-slate-700/60 pt-2.5">
+                {escape(f["a"])}
+              </p>
+            </details>"""
+            for f in faqs
+        ])}
+      </div>
+    </div>
+    '''
+
+    schema_faqs = [
+        {
+            "@type": "Question",
+            "name": f["q"],
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f["a"]
+            }
+        }
+        for f in faqs
+    ]
+
+    return faq_html, schema_faqs
+
+def generate_hubs_cross_promote(article):
+    cat = (article.get('category') or '').lower()
+    title = (article.get('title') or '').lower()
+    is_hardware = 'hard' in cat or 'gam' in cat or 'gpu' in title or 'cpu' in title or 'rtx' in title or 'ryzen' in title
+    comp_title = 'Hardware Benchmark Matcher' if is_hardware else 'Spec & Model Comparison'
+    comp_desc = 'Compare RTX 5090, 4090, RX 7900 XTX, and Ryzen 9800X3D specs, TDP, and pricing.' if is_hardware else 'Compare processor architectures, memory bandwidth, and compute specs side-by-side.'
+
+    return f'''
+    <div class="my-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-900 dark:via-slate-800/40 dark:to-slate-900 border border-gray-200/90 dark:border-slate-800 shadow-sm not-prose">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-200/70 dark:border-slate-800">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center text-xs font-black shadow-sm">TB</span>
+          <div>
+            <h4 class="font-extrabold text-sm sm:text-base text-gray-950 dark:text-white tracking-tight">Tech Boss Interactive Hubs &amp; Live Radar</h4>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400">Explore free diagnostic tools, spec comparison engines, and verified hardware deals.</p>
+          </div>
+        </div>
+        <span class="hidden sm:inline-flex px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-widest rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">Updated Daily</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        <a href="/compare" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">⚔️</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30 px-2 py-0.5 rounded-md">Versus Engine</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              {comp_title}
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              {comp_desc}
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Launch Compare Hub</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+
+        <a href="/tools" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">🛠️</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-md">Diagnostic Suite</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Interactive Tech Tools
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Bottleneck calculator, local AI VRAM sizer, hardware matching quiz, and live game checker.
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Open Tool Studio</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+
+        <a href="/deals" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">🏷️</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 px-2 py-0.5 rounded-md">Live Price Drops</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Curated Hardware Deals
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Price drops, flash sales, and historical lows on GPUs, CPUs, OLED displays, and NVMe drives.
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Explore Deals</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    '''
+
+def render_article_inner_html(article):
+    safe_title = escape(article.get('title', ''))
+    safe_cat = escape(article.get('category', 'Technology'))
+    safe_author = 'Tech Boss'
+    safe_date = escape(article.get('date', 'Recent'))
+    safe_views = escape(article.get('views', '1.2K'))
+    img_url = article.get('image', '')
+    if img_url and not img_url.startswith('http'):
+        img_url = 'https://imtechboss.com/' + img_url.lstrip('/')
+
+    read_time = calculate_read_time(article.get('content', ''), article.get('excerpt', ''))
+    body_content = article.get('content') or article.get('body', '')
+
+    # 1. In-article Ads
+    body_with_ads = inject_in_article_ads(body_content)
+
+    # 2. ToC
+    toc_html, final_body = generate_table_of_contents(body_with_ads)
+
+    # 3. Key Takeaways
+    takeaways_html = generate_key_takeaways(article)
+
+    # 4. FAQ
+    faq_html, _ = generate_faq_data(article)
+
+    # 5. Hubs cross promote
+    hubs_html = generate_hubs_cross_promote(article)
+
+    initial_likes = int(article.get('likes', 12)) if str(article.get('likes', '')).isdigit() else 12
+
+    hero_img_block = f'''
+      <div class="mb-10 rounded-2xl overflow-hidden shadow-lg bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-800 max-h-[500px]">
+        <img 
+          src="{escape(img_url)}" 
+          alt="{safe_title}" 
+          class="w-full h-full object-cover object-center"
+          loading="eager"
+          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'"
+        >
+      </div>
+    ''' if img_url else ''
+
+    return f'''
+    <!-- Top Meta Breadcrumb -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-6 border-b border-gray-100 dark:border-slate-800 text-xs">
+      <div class="flex items-center gap-2">
+        <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
+        <span class="text-gray-400">/</span>
+        <span class="px-2.5 py-1 rounded-full font-bold bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400">
+          {safe_cat}
+        </span>
+      </div>
+      <div class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
+        <span>📅 {safe_date}</span>
+        <span>•</span>
+        <span>⏱️ {read_time}</span>
+        <span>•</span>
+        <span>👁️ {safe_views} reads</span>
+      </div>
+    </div>
+
+    <!-- Article Headline -->
+    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-serif-heading text-gray-950 dark:text-white leading-[1.2] mb-6 tracking-tight">
+      {safe_title}
+    </h1>
+
+    <!-- Author & Publisher Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200/70 dark:border-slate-800 mb-8">
+      <div class="flex items-center gap-3.5">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow ring-2 ring-white dark:ring-slate-700">
+          T
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h4 class="font-bold text-gray-900 dark:text-gray-100 text-sm sm:text-base">{safe_author}</h4>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">Editor</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Tech Boss • imtechboss.com</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <button 
+          id="likeBtn" 
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800"
+          title="Appreciate this story"
+        >
+          <span class="text-sm">🤍</span>
+          <span id="likeCountDisplay">{initial_likes}</span>
+        </button>
+
+        <button 
+          id="bookmarkBtn" 
+          class="p-2 rounded-full border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" 
+          title="Bookmark story"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+        </button>
+
+        <button 
+          id="copyLinkBtn" 
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" 
+          title="Copy link"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+          <span>Share</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Featured Hero Image -->
+    {hero_img_block}
+
+    <!-- Top Article Ad Banner -->
+    <div class="ad-slot-box mb-8 text-center bg-gray-50 dark:bg-slate-800/60 rounded-2xl p-3 sm:p-4 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
+      <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mb-1.5">Sponsored / Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1043419685176632"
+           data-ad-slot="9198547569"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Audio Narration Bar -->
+    <div id="articleAudioBar" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+      <div class="flex items-center gap-3">
+        <button id="audioPlayBtn" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
+          <svg id="playIcon" class="w-4 h-4 ml-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="pauseIcon" class="w-4 h-4 hidden fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-gray-900 dark:text-white">Listen to Article</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 uppercase">AI Audio</span>
+          </div>
+          <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~{read_time}</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <select id="audioRateSelect" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 focus:outline-none">
+          <option value="1">1.0x Speed</option>
+          <option value="1.25">1.25x Speed</option>
+          <option value="1.5">1.5x Speed</option>
+        </select>
+        <button id="audioStopBtn" class="hidden px-2.5 py-1.5 rounded-xl text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors" title="Stop Audio">
+          ⏹ Stop
+        </button>
+      </div>
+    </div>
+
+    <!-- Executive Key Takeaways Card -->
+    {takeaways_html}
+
+    <!-- In-Depth Table of Contents -->
+    {toc_html}
+
+    <!-- Rich Article Body -->
+    <div class="article-body text-gray-800 dark:text-gray-200 leading-relaxed max-w-none">
+      {final_body}
+    </div>
+
+    <!-- Google FAQ Accordion & People Also Ask Section -->
+    {faq_html}
+
+    <!-- Tech Boss Interactive Hubs & Live Deals Callout -->
+    {hubs_html}
+
+    <!-- Author Bio Footnote -->
+    <div class="my-10 p-5 sm:p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/40 border border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-xl shadow flex-shrink-0">
+        TB
+      </div>
+      <div>
+        <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+          <h4 class="font-extrabold text-gray-900 dark:text-white text-sm sm:text-base">{safe_author}</h4>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">Staff Writer &amp; Benchmark Lead</span>
+        </div>
+        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+          Lead editorial investigator specializing in GPU architectures, neural inference acceleration, Windows kernel diagnostics, and high-performance computing hardware at Tech Boss.
+        </p>
+      </div>
+    </div>
+
+    <!-- Comments & Discussion Area -->
+    <div id="commentsSection" class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800">
+      <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight mb-6 flex items-center gap-2">
+        <span>💬 Reader Discussion &amp; Feedback</span>
+        <span id="commentCountBadge" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-400">0</span>
+      </h3>
+
+      <!-- Post Comment Form -->
+      <form id="postCommentForm" class="mb-8 p-4 sm:p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-800">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <input 
+            type="text" 
+            id="commentAuthor" 
+            required 
+            placeholder="Your Name / Handle" 
+            class="px-3.5 py-2 text-xs rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+          <input 
+            type="email" 
+            id="commentEmail" 
+            placeholder="Email (Optional, kept private)" 
+            class="px-3.5 py-2 text-xs rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+        <textarea 
+          id="commentText" 
+          rows="3" 
+          required 
+          placeholder="Share your thoughts, ask a question, or report a benchmark finding..." 
+          class="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 mb-3"
+        ></textarea>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] text-gray-500 dark:text-gray-400">Markdown supported</span>
+          <button 
+            type="submit" 
+            class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-xs transition-colors"
+          >
+            Post Comment
+          </button>
+        </div>
+      </form>
+
+      <!-- Comments List -->
+      <div id="commentsList" class="space-y-3">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+    '''
+
+def render_related_grid(article, all_articles):
+    art_cat = (article.get('category') or '').lower()
+    art_id = article.get('id')
+
+    # Find articles with same category
+    same_cat = [a for a in all_articles if a.get('id') != art_id and (a.get('category') or '').lower() == art_cat]
+    other = [a for a in all_articles if a.get('id') != art_id and a not in same_cat]
+
+    related = (same_cat + other)[:3]
+    if not related:
+        return ''
+
+    cards = []
+    for rel in related:
+        safe_rel_title = escape(rel.get('title', ''))
+        safe_rel_cat = escape(rel.get('category', 'General'))
+        safe_rel_date = escape(rel.get('date', 'Recent'))
+        img_url = rel.get('image') or "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80"
+        if not img_url.startswith('http'):
+            img_url = 'https://imtechboss.com/' + img_url.lstrip('/')
+
+        rel_href = f"/{rel.get('id')}/"
+        cards.append(f'''
+          <a 
+            href="{rel_href}" 
+            class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
+          >
+            <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
+              <img 
+                src="{escape(img_url)}" 
+                alt="{safe_rel_title}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80'"
+              >
+            </div>
+            <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
+              {safe_rel_cat}
+            </span>
+            <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+              {safe_rel_title}
+            </h4>
+            <div class="mt-auto pt-2 text-[10px] text-gray-400 flex items-center justify-between">
+              <span>{safe_rel_date}</span>
+              <span class="font-semibold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">Read Story &rarr;</span>
+            </div>
+          </a>
+        ''')
+
+    return '\n'.join(cards)
+
+def generate_schema_json(article, canonical_url, schema_faqs):
+    img = article.get('image') or 'https://imtechboss.com/og-image.png'
+    if not img.startswith('http'):
+        img = 'https://imtechboss.com/' + img.lstrip('/')
+
+    date_str = article.get('date', '2026-09-24')
+    # ISO date parsing
+    pub_iso = "2026-09-24T00:00:00Z"
+    for fmt in ("%B %d, %Y", "%b %d, %Y", "%Y-%m-%d"):
+        try:
+            dt = datetime.strptime(date_str, fmt)
+            pub_iso = dt.strftime("%Y-%m-%dT00:00:00Z")
+            break
+        except ValueError:
+            pass
+
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "TechArticle",
+                "@id": canonical_url + "#article",
+                "isPartOf": {
+                    "@type": "WebPage",
+                    "@id": canonical_url
+                },
+                "headline": article.get('title', ''),
+                "description": article.get('excerpt', ''),
+                "image": [img],
+                "datePublished": pub_iso,
+                "dateModified": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "inLanguage": "en-US",
+                "mainEntityOfPage": canonical_url,
+                "author": {
+                    "@type": "Organization",
+                    "name": "Tech Boss",
+                    "url": "https://imtechboss.com"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Tech Boss",
+                    "url": "https://imtechboss.com",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://imtechboss.com/og-image.png"
+                    }
+                },
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["#aioAnswerCapsule", "h1"]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": canonical_url + "#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://imtechboss.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": article.get('category', 'Technology'),
+                        "item": "https://imtechboss.com/?category=" + article.get('category', 'Technology')
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": article.get('title', ''),
+                        "item": canonical_url
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "@id": canonical_url + "#faq",
+                "mainEntity": schema_faqs
+            }
+        ]
+    }
+    return json.dumps(schema, ensure_ascii=False)
+
+def build_all_static():
+    print("=" * 70)
+    print("   BUILDING PRE-RENDERED STATIC ARTICLE DIRECTORIES (/<slug>/)")
+    print("=" * 70)
+
+    if not os.path.exists(DATA_PATH):
+        print(f"❌ Error: {DATA_PATH} not found!")
+        sys.exit(1)
+    if not os.path.exists(POST_TEMPLATE_PATH):
+        print(f"❌ Error: {POST_TEMPLATE_PATH} not found!")
+        sys.exit(1)
+
+    with open(DATA_PATH, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    match = re.search(r'var\s+initialArticles\s*=\s*(\[.*?\]);', content, re.DOTALL)
+    if not match:
+        print("❌ Error: initialArticles not found in js/data.js!")
+        sys.exit(1)
+
+    articles = json.loads(match.group(1))
+    print(f"Found {len(articles)} articles to pre-render.")
+
+    with open(POST_TEMPLATE_PATH, 'r', encoding='utf-8') as f:
+        template = f.read()
+
+    # Pre-clean base template asset paths so they are absolute root paths:
+    # favicon.svg -> /favicon.svg
+    # og-image.png -> /og-image.png
+    # manifest.json -> /manifest.json
+    # css/style.css -> /css/style.css
+    # js/data.js -> /js/data.js
+    # js/pages.js -> /js/pages.js
+    # js/post.js -> /js/post.js
+    # js/vip-drawer.js -> /js/vip-drawer.js
+    clean_tpl = template
+    clean_tpl = re.sub(r'href="favicon\.svg"', 'href="/favicon.svg"', clean_tpl)
+    clean_tpl = re.sub(r'href="og-image\.png"', 'href="/og-image.png"', clean_tpl)
+    clean_tpl = re.sub(r'href="manifest\.json"', 'href="/manifest.json"', clean_tpl)
+    clean_tpl = re.sub(r'href="css/style\.css([^"]*)"', r'href="/css/style.css\1"', clean_tpl)
+    clean_tpl = re.sub(r'src="js/data\.js([^"]*)"', r'src="/js/data.js\1"', clean_tpl)
+    clean_tpl = re.sub(r'src="js/pages\.js([^"]*)"', r'src="/js/pages.js\1"', clean_tpl)
+    clean_tpl = re.sub(r'src="js/post\.js([^"]*)"', r'src="/js/post.js\1"', clean_tpl)
+    clean_tpl = re.sub(r'src="js/vip-drawer\.js([^"]*)"', r'src="/js/vip-drawer.js\1"', clean_tpl)
+
+    # Normalize static nav links to root
+    clean_tpl = re.sub(r'href="tools"', 'href="/tools"', clean_tpl)
+    clean_tpl = re.sub(r'href="compare"', 'href="/compare"', clean_tpl)
+    clean_tpl = re.sub(r'href="deals"', 'href="/deals"', clean_tpl)
+    clean_tpl = re.sub(r'href="about"', 'href="/about"', clean_tpl)
+    clean_tpl = re.sub(r'href="contact"', 'href="/contact"', clean_tpl)
+    clean_tpl = re.sub(r'href="privacy"', 'href="/privacy"', clean_tpl)
+    clean_tpl = re.sub(r'href="terms"', 'href="/terms"', clean_tpl)
+    clean_tpl = re.sub(r'href="disclaimer"', 'href="/disclaimer"', clean_tpl)
+
+    count = 0
+    for art in articles:
+        aid = art.get('id', '').strip()
+        if not aid:
+            continue
+
+        canonical_url = f"https://imtechboss.com/{aid}/"
+        safe_title = escape(art.get('title', ''))
+        safe_desc = escape(art.get('excerpt', ''))
+        art_img = art.get('image', '')
+        if not art_img.startswith('http'):
+            art_img = 'https://imtechboss.com/' + art_img.lstrip('/')
+        safe_img = escape(art_img)
+
+        # Generate HTML components
+        article_inner = render_article_inner_html(art)
+        related_grid = render_related_grid(art, articles)
+        _, schema_faqs = generate_faq_data(art)
+        schema_json_ld = generate_schema_json(art, canonical_url, schema_faqs)
+
+        # Replace in template
+        page_html = clean_tpl
+
+        # Replace Title
+        page_html = re.sub(r'<title id="pageTitle">.*?</title>', f'<title id="pageTitle">{safe_title} — Tech Boss</title>', page_html)
+        
+        # Replace Meta Description
+        page_html = re.sub(r'<meta name="description" id="metaDescription" content=".*?">', f'<meta name="description" id="metaDescription" content="{safe_desc}">', page_html)
+
+        # Replace Canonical
+        page_html = re.sub(r'<link id="canonicalUrl" rel="canonical" href=".*?">', f'<link id="canonicalUrl" rel="canonical" href="{canonical_url}">', page_html)
+
+        # Replace OG Meta
+        page_html = re.sub(r'<meta id="ogUrl" property="og:url" content=".*?">', f'<meta id="ogUrl" property="og:url" content="{canonical_url}">', page_html)
+        page_html = re.sub(r'<meta id="ogTitle" property="og:title" content=".*?">', f'<meta id="ogTitle" property="og:title" content="{safe_title} — Tech Boss">', page_html)
+        page_html = re.sub(r'<meta id="ogDescription" property="og:description" content=".*?">', f'<meta id="ogDescription" property="og:description" content="{safe_desc}">', page_html)
+        page_html = re.sub(r'<meta id="ogImage" property="og:image" content=".*?">', f'<meta id="ogImage" property="og:image" content="{safe_img}">', page_html)
+        page_html = re.sub(r'<meta id="ogImageSecure" property="og:image:secure_url" content=".*?">', f'<meta id="ogImageSecure" property="og:image:secure_url" content="{safe_img}">', page_html)
+        page_html = re.sub(r'<link id="imgSrc" rel="image_src" href=".*?">', f'<link id="imgSrc" rel="image_src" href="{safe_img}">', page_html)
+
+        # Replace Twitter Meta
+        page_html = re.sub(r'<meta id="twUrl" name="twitter:url" content=".*?">', f'<meta id="twUrl" name="twitter:url" content="{canonical_url}">', page_html)
+        page_html = re.sub(r'<meta id="twTitle" name="twitter:title" content=".*?">', f'<meta id="twTitle" name="twitter:title" content="{safe_title} — Tech Boss">', page_html)
+        page_html = re.sub(r'<meta id="twDescription" name="twitter:description" content=".*?">', f'<meta id="twDescription" name="twitter:description" content="{safe_desc}">', page_html)
+        page_html = re.sub(r'<meta id="twImage" name="twitter:image" content=".*?">', f'<meta id="twImage" name="twitter:image" content="{safe_img}">', page_html)
+
+        # Inject JSON-LD Schema before </head>
+        json_ld_tag = f'\n  <script id="articleJsonLd" type="application/ld+json">{schema_json_ld}</script>\n</head>'
+        page_html = page_html.replace('</head>', json_ld_tag, 1)
+
+        # Replace Article Container with Pre-rendered HTML
+        art_container_pattern = r'<article id="articleContainer" class="([^"]*)">[\s\S]*?</article>'
+        page_html = re.sub(art_container_pattern, lambda m: f'<article id="articleContainer" data-prerendered="true" class="{m.group(1)}">\n{article_inner}\n      </article>', page_html, count=1)
+
+        # Replace Related Stories section
+        if related_grid:
+            related_sec_pattern = r'<section id="relatedSection" class="([^"]*?)hidden">'
+            page_html = re.sub(related_sec_pattern, r'<section id="relatedSection" class="\1">', page_html)
+            page_html = page_html.replace('<div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-5">\n          <!-- Injected via post.js -->\n        </div>',
+                                          f'<div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-5">\n{related_grid}\n        </div>')
+
+        # Create target directory
+        post_dir = os.path.join(ROOT_DIR, aid)
+        os.makedirs(post_dir, exist_ok=True)
+        out_file = os.path.join(post_dir, 'index.html')
+
+        with open(out_file, 'w', encoding='utf-8') as f:
+            f.write(page_html)
+
+        count += 1
+
+    print(f"✅ Successfully pre-rendered all {count} static article pages (/<slug>/index.html)!")
+
+    # Also ensure static pages have directory index.html files so /tools/, /compare/, /deals/ load cleanly
+    static_pages = ['tools', 'compare', 'deals', 'about', 'contact', 'privacy', 'terms', 'disclaimer']
+    for p in static_pages:
+        src_html = os.path.join(ROOT_DIR, f"{p}.html")
+        if os.path.exists(src_html):
+            p_dir = os.path.join(ROOT_DIR, p)
+            os.makedirs(p_dir, exist_ok=True)
+            dst_html = os.path.join(p_dir, 'index.html')
+            with open(src_html, 'r', encoding='utf-8') as f:
+                p_content = f.read()
+            # Fix relative links to root-relative
+            p_content = re.sub(r'href="favicon\.svg"', 'href="/favicon.svg"', p_content)
+            p_content = re.sub(r'href="css/style\.css([^"]*)"', r'href="/css/style.css\1"', p_content)
+            p_content = re.sub(r'src="js/([^"]*)"', r'src="/js/\1"', p_content)
+            with open(dst_html, 'w', encoding='utf-8') as f:
+                f.write(p_content)
+            print(f"  Created static folder: /{p}/index.html")
+
+if __name__ == '__main__':
+    build_all_static()

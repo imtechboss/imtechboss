@@ -46,6 +46,30 @@ function htmlToMarkdown(html) {
   if (!html) return '';
   let md = html;
   
+  // Tables: convert <table> to GitHub Flavored Markdown table
+  md = md.replace(/<table[^>]*>([\s\S]*?)<\/table>/gi, (match, tableContent) => {
+    const rows = [];
+    const trMatches = tableContent.match(/<tr[^>]*>([\s\S]*?)<\/tr>/gi) || [];
+    let isHeader = true;
+    for (const tr of trMatches) {
+      const cells = [];
+      const cellMatches = tr.match(/<(th|td)[^>]*>([\s\S]*?)<\/(th|td)>/gi) || [];
+      for (const cell of cellMatches) {
+        let text = cell.replace(/<[^>]+>/g, '').trim().replace(/\|/g, '\\|');
+        text = text.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        cells.push(text);
+      }
+      if (cells.length > 0) {
+        rows.push('| ' + cells.join(' | ') + ' |');
+        if (isHeader) {
+          rows.push('| ' + Array(cells.length).fill('---').join(' | ') + ' |');
+          isHeader = false;
+        }
+      }
+    }
+    return rows.length > 0 ? '\n\n' + rows.join('\n') + '\n\n' : '';
+  });
+
   // Headings
   md = md.replace(/<h2[^>]*>(.*?)<\/h2>/gi, '\n\n## $1\n\n');
   md = md.replace(/<h3[^>]*>(.*?)<\/h3>/gi, '\n\n### $1\n\n');
@@ -115,7 +139,7 @@ function getDevToTags(article) {
 
 // Publish an article object to DEV.to
 async function publishArticleToDevTo(article, options = {}) {
-  const canonicalUrl = `https://imtechboss.com/post?id=${article.id}`;
+  const canonicalUrl = `https://imtechboss.com/${article.id}/`;
   
   // Format body markdown from full article content or excerpt
   let bodyMarkdown = '';
@@ -126,8 +150,19 @@ async function publishArticleToDevTo(article, options = {}) {
     bodyMarkdown += `### About This Technical Analysis\nIn late 2026, technology is evolving faster than ever. This guide explores the core technical architecture, benchmark metrics, and practical implementations.\n\n`;
   }
   
-  // Append canonical citation and backlink footer
-  bodyMarkdown += `\n\n---\n\n*Originally published on [Tech Boss (${article.title})](${canonicalUrl}) — Explore interactive performance diagnostics, real-time benchmarks, and technical engineering advisories at [imtechboss.com](https://imtechboss.com).*`;
+  // Append canonical citation and dynamic tailored CTA footer
+  const cat = (article.category || '').toLowerCase();
+  const title = (article.title || '').toLowerCase();
+  let ctaText = 'Explore interactive engineering tools, real-time performance diagnostics, and tech insights at [imtechboss.com](https://imtechboss.com).';
+  if (cat.includes('hard') || cat.includes('gam') || title.includes('gpu') || title.includes('cpu') || title.includes('ps6') || title.includes('zen 6')) {
+    ctaText = 'Explore hardware telemetry benchmarks, GPU architecture breakdowns, and interactive spec comparisons at [imtechboss.com](https://imtechboss.com).';
+  } else if (cat.includes('ai') || title.includes('llm') || title.includes('gpt') || title.includes('model') || title.includes('reasoning')) {
+    ctaText = 'Explore deep neural architecture benchmarks, local LLM quantization guides, and AI tools at [imtechboss.com](https://imtechboss.com).';
+  } else if (title.includes('windows') || title.includes('wifi') || title.includes('fix') || title.includes('how to')) {
+    ctaText = 'Explore step-by-step operating system optimizations, kernel latency fixes, and systems tools at [imtechboss.com](https://imtechboss.com).';
+  }
+
+  bodyMarkdown += `\n\n---\n\n*Originally published on [Tech Boss (${article.title})](${canonicalUrl}) — ${ctaText}*`;
   
   const tags = getDevToTags(article);
   
