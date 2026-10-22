@@ -7,6 +7,46 @@
   <language>en-us</language>
   <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>How to Harden PHP 8.x Servers Against Remote Code Execution (RCE) and Webshell Exploits in 2026</title>
+    <link>https://imtechboss.com/how-to-harden-php-servers-prevent-rce-webshell-exploits-2026/</link>
+    <guid>https://imtechboss.com/how-to-harden-php-servers-prevent-rce-webshell-exploits-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <description>A complete server engineering guide to securing PHP 8.x production environments against php2shell payloads, CGI argument injection, unauthenticated RCE vulnerabilities, and unauthorized file execution.</description>
+    <category>Software &amp; Tech</category>
+  </item>
+  <item>
+    <title>How to Install PS5 Firmware Update Manually via USB Safe Mode &amp; Fix Update Error Codes (2026 Guide)</title>
+    <link>https://imtechboss.com/how-to-install-ps5-firmware-update-usb-safe-mode-fix-errors-2026/</link>
+    <guid>https://imtechboss.com/how-to-install-ps5-firmware-update-usb-safe-mode-fix-errors-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Step-by-step troubleshooting guide to manually installing PlayStation 5 system software updates (including Firmware 14.20) via USB in Safe Mode to resolve corrupted downloads and SU-101312-8 error loops.</description>
+    <category>Gaming Guides</category>
+  </item>
+  <item>
+    <title>How to Configure ZRAM, Swappiness, and EarlyOOM on Linux to Run Heavy IDEs Smoothly on 4GB/8GB RAM PCs</title>
+    <link>https://imtechboss.com/linux-zram-swappiness-optimization-4gb-8gb-ram-guide-2026/</link>
+    <guid>https://imtechboss.com/linux-zram-swappiness-optimization-4gb-8gb-ram-guide-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Eliminate Linux desktop freezes on 4GB and 8GB DDR3/DDR4 systems by configuring zstd-compressed ZRAM block devices, kernel memory page-cluster tuning, and EarlyOOM protection.</description>
+    <category>Software &amp; Tech</category>
+  </item>
+  <item>
+    <title>NextDNS vs Control D vs AdGuard DNS: Complete Router &amp; iOS Configuration Guide for Zero-Latency Ad Blocking (2026)</title>
+    <link>https://imtechboss.com/nextdns-vs-control-d-vs-adguard-dns-router-ios-setup-guide-2026/</link>
+    <guid>https://imtechboss.com/nextdns-vs-control-d-vs-adguard-dns-router-ios-setup-guide-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Compare NextDNS, Control D, and AdGuard DNS across DoH/DoQ latency, blocklist accuracy (HaGeZi vs OISD), iOS configuration profiles, and home ONU router setups.</description>
+    <category>Software &amp; Tech</category>
+  </item>
+  <item>
+    <title>Cursor vs Windsurf vs VS Code + Roo Code: Real-World RAM Usage, Context Indexing &amp; Local LLM Benchmark (2026)</title>
+    <link>https://imtechboss.com/cursor-vs-windsurf-vs-vscode-roo-code-ram-performance-benchmark-2026/</link>
+    <guid>https://imtechboss.com/cursor-vs-windsurf-vs-vscode-roo-code-ram-performance-benchmark-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <description>An engineering benchmark comparing Cursor, Windsurf, and stock VS Code with Roo Code across memory footprint, codebase RAG indexing speed, multi-file edits, and Bring-Your-Own-Key (BYOK) pricing.</description>
+    <category>AI &amp; Technology</category>
+  </item>
+  <item>
     <title>EA Officially Shuts Down BioWare and Cancels Next Mass Effect Game: The Fall of an RPG Titan (2026)</title>
     <link>https://imtechboss.com/ea-shuts-down-bioware-cancels-mass-effect-5-rpg-legacy-2026/</link>
     <guid>https://imtechboss.com/ea-shuts-down-bioware-cancels-mass-effect-5-rpg-legacy-2026/</guid>
@@ -125,46 +165,6 @@
     <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
     <description>The Federal Trade Commission has initiated an aggressive probe into major AI developers, scrutinizing data privacy, deceptive practices, and compliance with the recent White House definition of Super Intelligence.</description>
     <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Chinese State Hackers Impersonate Ex-US Officials to Infiltrate AI Research Networks</title>
-    <link>https://imtechboss.com/chinese-hackers-impersonate-us-officials-steal-ai-researcher-emails-2026/</link>
-    <guid>https://imtechboss.com/chinese-hackers-impersonate-us-officials-steal-ai-researcher-emails-2026/</guid>
-    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
-    <description>A sophisticated state-backed espionage campaign is targeting elite AI researchers at US universities and think tanks using highly convincing personas of former government officials.</description>
-    <category>Cybersecurity</category>
-  </item>
-  <item>
-    <title>Microsoft Overhauls Copilot: Introducing Autopilot Mode and Agent 365</title>
-    <link>https://imtechboss.com/microsoft-copilot-autopilot-agent-365-autonomous-enterprise-overhaul-2026/</link>
-    <guid>https://imtechboss.com/microsoft-copilot-autopilot-agent-365-autonomous-enterprise-overhaul-2026/</guid>
-    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
-    <description>Ahead of Ignite 2026, Microsoft has unveiled a structural redesign of its AI offerings, transitioning from chatbots to continuous ambient agents with the introduction of Copilot Autopilot mode and Agent 365.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse</title>
-    <link>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</link>
-    <guid>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</guid>
-    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
-    <description>Samsung's sub-3nm yields stall at 60%, forcing Qualcomm into an exclusive TSMC agreement for its next-generation Elite Gen 6 silicon.</description>
-    <category>Semiconductors</category>
-  </item>
-  <item>
-    <title>AMD's Lisa Su Touches Down in Seoul for Critical Samsung HBM4 Summit</title>
-    <link>https://imtechboss.com/amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026/</link>
-    <guid>https://imtechboss.com/amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026/</guid>
-    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
-    <description>AMD CEO Lisa Su holds a bilateral summit with Samsung leadership to secure critical HBM4 supply for the upcoming 2nm MI455X AI accelerators.</description>
-    <category>Semiconductors</category>
-  </item>
-  <item>
-    <title>Google Project Suncatcher: The First Orbital AI Supercomputer</title>
-    <link>https://imtechboss.com/google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026/</link>
-    <guid>https://imtechboss.com/google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026/</guid>
-    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
-    <description>Google and Planet Labs launched an MVP satellite carrying Trillium TPUs to test AI inference in orbit, tackling terrestrial power grid bottlenecks.</description>
-    <category>Space &amp; Science</category>
   </item>
 </channel>
 </rss>
