@@ -278,7 +278,7 @@ if idx != -1:
         pub_date = datetime.datetime.strptime(a['date'], '%Y-%m-%d').strftime('%a, %d %b %Y 12:00:00 +0000')
         safe_title = a['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         safe_desc = a['excerpt'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-        url = f"https://imtechboss.com/post.html?id={a['id']}"
+        url = f"https://imtechboss.com/{a['id']}/"
         img = a['image']
         cat = a['category']
         new_items_xml += f"""

@@ -537,8 +537,8 @@ def update_feed_xml():
     for art in articles:
         items_xml += f"""    <item>
       <title>{art['title']}</title>
-      <link>https://imtechboss.com/post.html?id={art['id']}</link>
-      <guid isPermaLink="true">https://imtechboss.com/post.html?id={art['id']}</guid>
+      <link>https://imtechboss.com/{art['id']}/</link>
+      <guid isPermaLink="true">https://imtechboss.com/{art['id']}/</guid>
       <description>{art['excerpt']}</description>
       <category>{art['category']}</category>
       <pubDate>Mon, 28 Sep 2026 05:00:00 +0000</pubDate>
@@ -566,7 +566,7 @@ def update_sitemap_xml():
     for art in articles:
         img_url = art['image'].replace('&', '&amp;')
         urls_xml += f"""  <url>
-    <loc>https://imtechboss.com/post?id={art['id']}</loc>
+    <loc>https://imtechboss.com/{art['id']}/</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

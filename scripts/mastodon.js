@@ -40,7 +40,7 @@ async function uploadMedia(imageUrl, description) {
 async function postArticleToMastodon(article) {
   console.log(`\n🐘 Preparing to post article to Mastodon: "${article.title}"...`);
 
-  const articleUrl = `https://imtechboss.com/post.html?id=${encodeURIComponent(article.id)}`;
+  const articleUrl = `https://imtechboss.com/${encodeURIComponent(article.id)}/`;
   let categoryTag = (article.category || 'Tech').replace(/[^a-zA-Z0-9]/g, '');
   let tags = (article.tags || ['Tech', 'News'])
     .map(t => '#' + t.replace(/[^a-zA-Z0-9]/g, ''))

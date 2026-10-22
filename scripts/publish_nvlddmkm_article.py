@@ -169,7 +169,7 @@ if idx != -1:
     pub_date = datetime.datetime.strptime(article['date'], '%Y-%m-%d').strftime('%a, %d %b %Y 12:00:00 +0000')
     safe_title = article['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
     safe_desc = article['excerpt'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-    url = f"https://imtechboss.com/post.html?id={article['id']}"
+    url = f"https://imtechboss.com/{article['id']}/"
     img = article['image'].replace('&', '&amp;')
     cat = article['category'].replace('&', '&amp;')
     new_item_xml = f"""
@@ -200,7 +200,7 @@ idx = sitemap_content.find(urlset_marker)
 if idx != -1:
     insert_pos = sitemap_content.find('>', idx) + 1
     today_str = datetime.date.today().strftime('%Y-%m-%d')
-    url = f"https://imtechboss.com/post?id={article['id']}"
+    url = f"https://imtechboss.com/{article['id']}/"
     safe_title = article['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
     img = article['image'].replace('&', '&amp;')
     new_url_xml = f"""

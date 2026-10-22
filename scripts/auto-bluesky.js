@@ -90,7 +90,7 @@ async function autoPostLatest() {
   }
 
   // 3. Craft Post
-  const articleUrl = `https://imtechboss.com/post?id=${latest.id}`;
+  const articleUrl = `https://imtechboss.com/${latest.id}/`;
   const tagsText = (latest.tags || []).slice(0, 3).map(t => `#${t.replace(/\s+/g, '')}`).join(' ');
 
   let postText = `🔥 NEW ON TECH BOSS:\n${latest.title}\n\nRead the full guide 👇\n${articleUrl}\n\n${tagsText}`;

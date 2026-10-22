@@ -1684,7 +1684,13 @@ function setupFloatingReadNext(currentArticle) {
 // 6. Executive Key Highlights & Takeaways Extractor
 function generateKeyTakeaways(article) {
   const points = [];
-  const excerpt = (article.excerpt || "").trim();
+  const excerpt = (article.summary || article.excerpt || "").trim();
+  
+  // Use custom takeaways if defined in post object
+  if (article.takeaways && Array.isArray(article.takeaways) && article.takeaways.length > 0) {
+    points.push(...article.takeaways.filter(Boolean));
+  }
+
   const content = article.content || article.body || "";
 
   // Extract real sentence takeaways from H2 sections

@@ -27,7 +27,7 @@ const urls = [
   `https://${host}/deals`,
   `https://${host}/stories/`,
   `https://${host}/sitemap.xml`,
-  ...articles.map(a => `https://${host}/post?id=${a.id}`)
+  ...articles.map(a => `https://${host}/${a.id}/`)
 ];
 
 const payload = JSON.stringify({

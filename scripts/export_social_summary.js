@@ -41,7 +41,7 @@ function extractKeyBullets(article) {
 function generateRedditPost(article) {
   const bullets = extractKeyBullets(article);
   const bulletMd = bullets.map(b => `* ${b}`).join('\n');
-  const url = `https://imtechboss.com/post.html?id=${article.id}`;
+  const url = `https://imtechboss.com/${article.id}/`;
 
   return `### Reddit Post Format (r/hardware, r/technology, r/buildapc, r/pcmasterrace)
 **Suggested Title:** ${article.title}
@@ -68,7 +68,7 @@ Modern architectural bottlenecks show how crucial memory bandwidth, firmware sec
 }
 
 function generateHackerNewsPost(article) {
-  const url = `https://imtechboss.com/post.html?id=${article.id}`;
+  const url = `https://imtechboss.com/${article.id}/`;
   return `### Hacker News Submission (news.ycombinator.com)
 **Title:** ${article.title.replace(/\b(Is The.*Worth It\?|Complete 2026 Guide)\b/gi, '').trim()}
 **URL:** ${url}
@@ -81,7 +81,7 @@ I put together an architectural and diagnostic breakdown analyzing the engineeri
 }
 
 function generateDiscordPost(article) {
-  const url = `https://imtechboss.com/post.html?id=${article.id}`;
+  const url = `https://imtechboss.com/${article.id}/`;
   const bullets = extractKeyBullets(article).slice(0, 3);
   return `### Discord / Telegram Community Format
 🔥 **${article.title}**

@@ -118,8 +118,8 @@ def main():
 
     new_feed_item = f"""    <item>
       <title>{esc_title}</title>
-      <link>https://imtechboss.com/post?id={homeview_article['id']}</link>
-      <guid isPermaLink="true">https://imtechboss.com/post?id={homeview_article['id']}</guid>
+      <link>https://imtechboss.com/{homeview_article['id']}/</link>
+      <guid isPermaLink="true">https://imtechboss.com/{homeview_article['id']}/</guid>
       <pubDate>{now_rfc822}</pubDate>
       <description>{esc_desc}</description>
       <category>{esc_cat}</category>
@@ -144,7 +144,7 @@ def main():
 
     today_str = datetime.utcnow().strftime("%Y-%m-%d")
     sitemap_entry = f"""  <url>
-    <loc>https://imtechboss.com/post?id={homeview_article['id']}</loc>
+    <loc>https://imtechboss.com/{homeview_article['id']}/</loc>
     <lastmod>{today_str}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>

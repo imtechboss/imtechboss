@@ -192,8 +192,8 @@ def main():
         esc_cat = a["category"].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
         new_feed_items += f"""    <item>
       <title>{esc_title}</title>
-      <link>https://imtechboss.com/post?id={a['id']}</link>
-      <guid isPermaLink="true">https://imtechboss.com/post?id={a['id']}</guid>
+      <link>https://imtechboss.com/{a['id']}/</link>
+      <guid isPermaLink="true">https://imtechboss.com/{a['id']}/</guid>
       <pubDate>{now_rfc822}</pubDate>
       <description>{esc_desc}</description>
       <category>{esc_cat}</category>

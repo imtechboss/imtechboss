@@ -47,7 +47,7 @@ rl.question('\nEnter number (1-5) [Default is 1]: ', (answer) => {
   const targetSlug = prioritySlugs[choice - 1] || prioritySlugs[0];
   const targetArticle = articles.find(a => a.id === targetSlug);
 
-  const articleUrl = `https://imtechboss.com/post?id=${targetArticle.id}`;
+  const articleUrl = `https://imtechboss.com/${targetArticle.id}/`;
 
   // Copy URL to Windows clipboard
   try {

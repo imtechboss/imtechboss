@@ -45,10 +45,20 @@ def inject_in_article_ads(body_html):
     return body_html
 
 def generate_key_takeaways(article):
-    excerpt = (article.get('excerpt') or '').strip()
-    content = article.get('content') or article.get('body', '')
-    sections = re.split(r'<h2[^>]*>(.*?)</h2>', content, flags=re.IGNORECASE)
+    # Support custom takeaways or summary from post object (prevents H2 duplication)
+    custom_takeaways = article.get('takeaways')
+    excerpt = (article.get('summary') or article.get('excerpt') or '').strip()
     takeaways = []
+
+    if custom_takeaways:
+        if isinstance(custom_takeaways, list):
+            takeaways = [str(t).strip() for t in custom_takeaways if str(t).strip()]
+        elif isinstance(custom_takeaways, str):
+            takeaways = [t.strip() for t in custom_takeaways.splitlines() if t.strip()]
+
+    if not takeaways:
+        content = article.get('content') or article.get('body', '')
+        sections = re.split(r'<h2[^>]*>(.*?)</h2>', content, flags=re.IGNORECASE)
 
     if len(sections) > 1:
         for i in range(1, len(sections), 2):

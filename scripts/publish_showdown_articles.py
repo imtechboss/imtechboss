@@ -318,7 +318,7 @@ if idx != -1:
         pub_date = datetime.datetime.strptime(a['date'], '%Y-%m-%d').strftime('%a, %d %b %Y 12:00:00 +0000')
         safe_title = a['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         safe_desc = a['excerpt'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-        url = f"https://imtechboss.com/post.html?id={a['id']}"
+        url = f"https://imtechboss.com/{a['id']}/"
         img = a['image'].replace('&', '&amp;')
         cat = a['category']
         new_items_xml += f"""
@@ -351,7 +351,7 @@ if idx != -1:
     new_urls_xml = ""
     today_str = datetime.date.today().strftime('%Y-%m-%d')
     for a in to_add:
-        url = f"https://imtechboss.com/post?id={a['id']}"
+        url = f"https://imtechboss.com/{a['id']}/"
         safe_title = a['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         img = a['image'].replace('&', '&amp;')
         new_urls_xml += f"""

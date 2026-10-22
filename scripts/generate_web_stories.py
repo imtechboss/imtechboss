@@ -134,7 +134,7 @@ for art in top_articles:
     elif 'images.unsplash.com' in image_url and 'w=' in image_url:
         image_url = re.sub(r'w=\d+', 'w=1200', image_url)
     
-    canonical_url = f"https://imtechboss.com/post?id={slug}"
+    canonical_url = f"https://imtechboss.com/{slug}/"
     story_url = f"https://imtechboss.com/stories/{slug}.html"
     
     paragraphs = extract_paragraphs(art.get('content', ''))

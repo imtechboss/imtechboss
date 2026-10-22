@@ -132,8 +132,8 @@ def main():
 
     new_feed_item = f"""    <item>
       <title>{esc_title}</title>
-      <link>https://imtechboss.com/post?id={argon_article['id']}</link>
-      <guid isPermaLink="true">https://imtechboss.com/post?id={argon_article['id']}</guid>
+      <link>https://imtechboss.com/{argon_article['id']}/</link>
+      <guid isPermaLink="true">https://imtechboss.com/{argon_article['id']}/</guid>
       <pubDate>{now_rfc822}</pubDate>
       <description>{esc_desc}</description>
       <category>{esc_cat}</category>

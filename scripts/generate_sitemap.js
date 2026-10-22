@@ -50,8 +50,8 @@ articles.forEach(a => {
   }
 
   // XML escape special characters in loc if needed (standard URL)
-  const loc = `${base}/post.html?id=${encodeURIComponent(a.id)}`;
-  xml += `  <url>\n    <loc>${base}/post.html?id=${a.id}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+  const loc = `${base}/${encodeURIComponent(a.id)}/`;
+  xml += `  <url>\n    <loc>${base}/${a.id}/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
 });
 
 xml += '</urlset>\n';
@@ -77,7 +77,7 @@ top20.forEach(a => {
   const desc = (a.excerpt || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const cat = (a.category || 'Technology').replace(/&/g, '&amp;');
   const pubDate = new Date(a.date || Date.now()).toUTCString();
-  rss += `  <item>\n    <title>${title}</title>\n    <link>${base}/post.html?id=${a.id}</link>\n    <guid>${base}/post.html?id=${a.id}</guid>\n    <pubDate>${pubDate}</pubDate>\n    <description>${desc}</description>\n    <category>${cat}</category>\n  </item>\n`;
+  rss += `  <item>\n    <title>${title}</title>\n    <link>${base}/${a.id}/</link>\n    <guid>${base}/${a.id}/</guid>\n    <pubDate>${pubDate}</pubDate>\n    <description>${desc}</description>\n    <category>${cat}</category>\n  </item>\n`;
 });
 
 rss += '</channel>\n</rss>\n';

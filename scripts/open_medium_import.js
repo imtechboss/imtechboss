@@ -38,7 +38,7 @@ console.log(`---------------------------------------------------------------`);
 prioritySlugs.forEach((slug, idx) => {
   const art = articles.find(a => a.id === slug);
   if (art) {
-    const url = `https://imtechboss.com/post?id=${art.id}`;
+    const url = `https://imtechboss.com/${art.id}/`;
     console.log(`\n[${idx + 1}] ${art.title}`);
     console.log(`    🔗 URL: ${url}`);
     console.log(`    🏷️ Recommended Tags: Tech, Windows, Cybersecurity, Gaming, Software`);

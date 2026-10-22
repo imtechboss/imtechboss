@@ -3,7 +3,7 @@ param(
     [string]$ArticleId = "how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026"
 )
 
-$articleUrl = "https://imtechboss.com/post?id=$ArticleId"
+$articleUrl = "https://imtechboss.com/$ArticleId/"
 
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host "🚀 NATIVE MEDIUM AUTO-POST ENGINE (IN YOUR REAL CHROME)" -ForegroundColor Green

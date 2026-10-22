@@ -141,7 +141,7 @@ async function postArticleToBluesky(article) {
   const { accessJwt, did, handle } = sessionRes.body;
   console.log(`Connected to Bluesky as @${handle}`);
 
-  const articleUrl = `https://imtechboss.com/post.html?id=${encodeURIComponent(article.id)}`;
+  const articleUrl = `https://imtechboss.com/${encodeURIComponent(article.id)}/`;
 
   // Fetch and upload image thumbnail if available
   let thumbBlob = null;

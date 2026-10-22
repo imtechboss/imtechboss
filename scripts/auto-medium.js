@@ -159,7 +159,7 @@ async function runLoginMode(profileName = 'Default') {
 }
 
 async function autoPostArticle(targetArticle, profileName = 'Default') {
-  const articleUrl = `https://imtechboss.com/post?id=${targetArticle.id}`;
+  const articleUrl = `https://imtechboss.com/${targetArticle.id}/`;
   const tags = getMediumTags(targetArticle);
 
   console.log('\n===============================================================');

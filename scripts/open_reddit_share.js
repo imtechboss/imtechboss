@@ -22,7 +22,7 @@ if (!article) {
   process.exit(1);
 }
 
-const articleUrl = `https://imtechboss.com/post?id=${article.id}`;
+const articleUrl = `https://imtechboss.com/${article.id}/`;
 const redditTitle = article.title;
 
 // Direct submit URL for Reddit:

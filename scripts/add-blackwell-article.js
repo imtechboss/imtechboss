@@ -62,7 +62,7 @@ console.log('✅ Updated data.js! Total articles:', initialArticles.length);
 // 2. Update sitemap.xml
 let sitemapContent = fs.readFileSync(sitemapFile, 'utf8');
 const newSitemapEntry = `  <url>
-    <loc>https://imtechboss.com/post.html?id=${newArticle.id}</loc>
+    <loc>https://imtechboss.com/${newArticle.id}/</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -81,8 +81,8 @@ const safeTitle = newArticle.title.replace(/&/g, '&amp;');
 const safeExcerpt = newArticle.excerpt.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const newFeedItem = `    <item>
       <title>${safeTitle}</title>
-      <link>https://imtechboss.com/post.html?id=${newArticle.id}</link>
-      <guid>https://imtechboss.com/post.html?id=${newArticle.id}</guid>
+      <link>https://imtechboss.com/${newArticle.id}/</link>
+      <guid>https://imtechboss.com/${newArticle.id}/</guid>
       <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
       <category>AI &amp; Technology</category>
       <description>&lt;p&gt;&lt;img src="${newArticle.image}" alt="${safeTitle}" /&gt;&lt;/p&gt;&lt;p&gt;${safeExcerpt}&lt;/p&gt;</description>

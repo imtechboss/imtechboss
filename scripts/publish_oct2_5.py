@@ -64,7 +64,7 @@ for art in new_articles:
     img_url = art['image'].replace('&', '&amp;')
     title_esc = art['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
     entry = f"""  <url>
-    <loc>https://imtechboss.com/post?id={art['id']}</loc>
+    <loc>https://imtechboss.com/{art['id']}/</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -95,7 +95,7 @@ for art in new_articles:
     title_esc = art['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
     excerpt_esc = art['excerpt'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
     cat_esc = art['category'].replace('&', '&amp;')
-    link = f"https://imtechboss.com/post.html?id={art['id']}"
+    link = f"https://imtechboss.com/{art['id']}/"
     entry = f"""    <item>
       <title>{title_esc}</title>
       <link>{link}</link>

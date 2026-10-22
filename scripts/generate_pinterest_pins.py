@@ -46,7 +46,7 @@ for art in top_articles:
     elif 'images.unsplash.com' in img:
         img = re.sub(r'w=\d+', 'w=1200', img)
     
-    article_url = f"https://imtechboss.com/post?id={slug}"
+    article_url = f"https://imtechboss.com/{slug}/"
     bullets = extract_bullets(art)
     
     # Pinterest hashtags

@@ -126,7 +126,7 @@ for art in all_articles:
     img_url = art['image'].replace('&', '&amp;')
     title_escaped = art['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
     entry = f"""  <url>
-    <loc>https://imtechboss.com/post?id={art['id']}</loc>
+    <loc>https://imtechboss.com/{art['id']}/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -163,7 +163,7 @@ for art in all_articles:
     title_escaped = art['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
     excerpt_escaped = art['excerpt'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
     category_escaped = art['category'].replace('&', '&amp;')
-    link = f"https://imtechboss.com/post.html?id={art['id']}"
+    link = f"https://imtechboss.com/{art['id']}/"
 
     entry = f"""    <item>
       <title>{title_escaped}</title>

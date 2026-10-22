@@ -110,7 +110,7 @@ async function main() {
     process.exit(0);
   }
 
-  const articleUrl = `https://imtechboss.com/post?id=${article.id}`;
+  const articleUrl = `https://imtechboss.com/${article.id}/`;
   console.log(`Target Article: "${article.title}"`);
   console.log(`Canonical URL:  ${articleUrl}\n`);
 
