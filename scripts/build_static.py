@@ -60,41 +60,41 @@ def generate_key_takeaways(article):
         content = article.get('content') or article.get('body', '')
         sections = re.split(r'<h2[^>]*>(.*?)</h2>', content, flags=re.IGNORECASE)
 
-    if len(sections) > 1:
-        for i in range(1, len(sections), 2):
-            h2 = re.sub(r'<[^>]+>', '', sections[i]).strip()
-            sec_content = sections[i+1] if i+1 < len(sections) else ''
-            p_match = re.search(r'<p[^>]*>(.*?)</p>', sec_content, re.IGNORECASE)
-            sent = ''
-            if p_match:
-                p_text = re.sub(r'<[^>]+>', '', p_match.group(1)).strip()
+        if len(sections) > 1:
+            for i in range(1, len(sections), 2):
+                h2 = re.sub(r'<[^>]+>', '', sections[i]).strip()
+                sec_content = sections[i+1] if i+1 < len(sections) else ''
+                p_match = re.search(r'<p[^>]*>(.*?)</p>', sec_content, re.IGNORECASE)
+                sent = ''
+                if p_match:
+                    p_text = re.sub(r'<[^>]+>', '', p_match.group(1)).strip()
+                    s_split = re.split(r'(?<=[.!?])\s+', p_text)
+                    if s_split and len(s_split[0]) > 25:
+                        sent = s_split[0].strip()
+
+                clean_h2 = re.sub(r'^(\d+[\.\)]|Fix \d+:?|Section \d+:?)\s*', '', h2).strip()
+                # Only add if we have a real sentence explanation, never repeat raw H2 heading alone
+                if sent and sent != excerpt and clean_h2:
+                    item = f'<strong>{clean_h2}:</strong> {sent}'
+                    if item not in takeaways:
+                        takeaways.append(item)
+                if len(takeaways) >= 3:
+                    break
+
+        # If fewer than 2 takeaways found, extract informative sentences from body paragraphs
+        if len(takeaways) < 2:
+            ps = re.findall(r'<p[^>]*>(.*?)</p>', content, re.IGNORECASE)
+            for p in ps:
+                p_text = re.sub(r'<[^>]+>', '', p).strip()
                 s_split = re.split(r'(?<=[.!?])\s+', p_text)
-                if s_split and len(s_split[0]) > 25:
-                    sent = s_split[0].strip()
-
-            clean_h2 = re.sub(r'^(\d+[\.\)]|Fix \d+:?|Section \d+:?)\s*', '', h2).strip()
-            # Only add if we have a real sentence explanation, never repeat raw H2 heading alone
-            if sent and sent != excerpt and clean_h2:
-                item = f'<strong>{clean_h2}:</strong> {sent}'
-                if item not in takeaways:
-                    takeaways.append(item)
-            if len(takeaways) >= 3:
-                break
-
-    # If fewer than 2 takeaways found, extract informative sentences from body paragraphs
-    if len(takeaways) < 2:
-        ps = re.findall(r'<p[^>]*>(.*?)</p>', content, re.IGNORECASE)
-        for p in ps:
-            p_text = re.sub(r'<[^>]+>', '', p).strip()
-            s_split = re.split(r'(?<=[.!?])\s+', p_text)
-            for s in s_split:
-                clean_s = s.strip()
-                if len(clean_s) > 40 and clean_s != excerpt and clean_s not in [re.sub(r'<[^>]+>', '', t) for t in takeaways]:
-                    takeaways.append(clean_s)
-                    if len(takeaways) >= 3:
-                        break
-            if len(takeaways) >= 3:
-                break
+                for s in s_split:
+                    clean_s = s.strip()
+                    if len(clean_s) > 40 and clean_s != excerpt and clean_s not in [re.sub(r'<[^>]+>', '', t) for t in takeaways]:
+                        takeaways.append(clean_s)
+                        if len(takeaways) >= 3:
+                            break
+                if len(takeaways) >= 3:
+                    break
 
     if not takeaways and not excerpt:
         return ''

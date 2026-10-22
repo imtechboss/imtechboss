@@ -1,346 +1,170 @@
-<?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
-  <channel>
-    <title>Tech Boss</title>
-    <link>https://imtechboss.com</link>
-    <description>Latest Technology News, AI Breakthroughs, Software Guides &amp; Gaming</description>
-    <language>en-us</language>
-    <managingEditor>binodbhatt500k@gmail.com (Binod Bhatt)</managingEditor>
-    <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml" />
-    <image>
-      <url>https://imtechboss.com/og-image.png</url>
-      <title>Tech Boss</title>
-      <link>https://imtechboss.com</link>
-    </image>
-    <item>
-      <title>Sony PlayStation 6 (PS6): Full Specs Breakdown, AMD Zen 6 Architecture, PSSR 2.0 &amp; Projected Release Window (2026)</title>
-      <link>https://imtechboss.com/sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026/</link>
-      <guid>https://imtechboss.com/sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026/</guid>
-      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Gaming &amp; Consoles</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sony PlayStation 6 (PS6): Full Specs Breakdown, AMD Zen 6 Architecture, PSSR 2.0 &amp; Projected Release Window (2026)" /&gt;&lt;/p&gt;&lt;p&gt;An in-depth engineering breakdown of Sony's next-generation PlayStation 6: AMD Zen 6 microarchitecture, custom RDNA 5 GPU silicon, PSSR 2.0 machine learning upscaling, 4K 120Hz path tracing, backward compatibility, and the 2027–2028 release roadmap.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Samsung One UI 9: Complete Eligible Galaxy Device List, Core AI Features &amp; Release Roadmap (2026)</title>
-      <link>https://imtechboss.com/samsung-one-ui-9-update-eligible-galaxy-devices-features-rollout-roadmap-2026/</link>
-      <guid>https://imtechboss.com/samsung-one-ui-9-update-eligible-galaxy-devices-features-rollout-roadmap-2026/</guid>
-      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Mobile Tech</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Samsung One UI 9: Complete Eligible Galaxy Device List, Core AI Features &amp; Release Roadmap (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Explore the complete guide to Samsung One UI 9: official eligible Galaxy S, Z, and A-series device lists, on-device AI system improvements, battery longevity modes, revamped Quick Panel mechanics, and rollout schedules.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>How to Fix Micro-Stuttering and DPC Latency in Windows 11 24H2: Complete DX12 &amp; UE5 Optimization Guide (2026)</title>
-      <link>https://imtechboss.com/how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026/</link>
-      <guid>https://imtechboss.com/how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026/</guid>
-      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Tech Guides</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix Micro-Stuttering and DPC Latency in Windows 11 24H2: Complete DX12 &amp; UE5 Optimization Guide (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Eliminate micro-stutters, frame pacing drops, and audio pops in Windows 11 24H2 with verified MSI GPU interrupt modes, DPC latency driver audits, timer resolution tweaks, and Core Isolation adjustments.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Intel Core Ultra 9 285K vs AMD Ryzen 9 9950X3D: The Ultimate 2026 CPU Gaming &amp; Productivity Showdown</title>
-      <link>https://imtechboss.com/intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026/</link>
-      <guid>https://imtechboss.com/intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026/</guid>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Hardware &amp; Components</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Intel Core Ultra 9 285K vs AMD Ryzen 9 9950X3D: The Ultimate 2026 CPU Gaming &amp; Productivity Showdown" /&gt;&lt;/p&gt;&lt;p&gt;A comprehensive 2026 head-to-head benchmark between Intel's Arrow Lake Core Ultra 9 285K and AMD's Zen 5 Ryzen 9 9950X3D, analyzing 4K gaming frame pacing, CUDIMM memory scaling, power efficiency, and thermals.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>How to Completely Disable Windows 11 Telemetry, Copilot Recall, and Background Ads (2026 Step-by-Step Guide)</title>
-      <link>https://imtechboss.com/how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026/</link>
-      <guid>https://imtechboss.com/how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026/</guid>
-      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Tech Guides</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Completely Disable Windows 11 Telemetry, Copilot Recall, and Background Ads (2026 Step-by-Step Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Reclaim your PC privacy and system responsiveness in Windows 11 24H2 with verified Group Policy configurations, clean PowerShell service tweaks, and host-file rules that permanently stop background diagnostic telemetry and Copilot Recall.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>How to Bypass TPM 2.0 &amp; Install Windows 11 24H2 on Unsupported PC (2026 Step-by-Step Guide)</title>
-      <link>https://imtechboss.com/how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026/</link>
-      <guid>https://imtechboss.com/how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026/</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Tech Guides</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Bypass TPM 2.0 &amp; Install Windows 11 24H2 on Unsupported PC (2026 Step-by-Step Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Learn how to bypass TPM 2.0, Secure Boot, and CPU generation hardware blocks to install Windows 11 24H2 on older PCs using Rufus 4.6, the setup server switch, and official registry overrides.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Best Free VPNs for Gaming &amp; Streaming in 2026: Zero Logs, WireGuard Speeds, and No Bandwidth Caps</title>
-      <link>https://imtechboss.com/best-free-vpns-gaming-streaming-no-logs-zero-lag-2026/</link>
-      <guid>https://imtechboss.com/best-free-vpns-gaming-streaming-no-logs-zero-lag-2026/</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Software &amp; Utilities</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Best Free VPNs for Gaming &amp; Streaming in 2026: Zero Logs, WireGuard Speeds, and No Bandwidth Caps" /&gt;&lt;/p&gt;&lt;p&gt;Discover the top free VPN services in 2026 independently tested for low gaming latency, zero logging policies, WireGuard speeds, and reliable streaming unblocking without hidden paywalls.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>How to Speed Up Slow Wi-Fi: Best DNS Settings and Router Tweaks for Minimum Gaming Ping in 2026</title>
-      <link>https://imtechboss.com/how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026/</link>
-      <guid>https://imtechboss.com/how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026/</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Tech Guides</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Speed Up Slow Wi-Fi: Best DNS Settings and Router Tweaks for Minimum Gaming Ping in 2026" /&gt;&lt;/p&gt;&lt;p&gt;Diagnose home Wi-Fi bottlenecks, eliminate bufferbloat, and configure ultra-fast encrypted DNS servers (Cloudflare 1.1.1.1 vs Google 8.8.8.8 vs Quad9) to slash latency and stabilize connection speeds.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip: Molecular Benchmarks Solved in Under 5 Minutes</title>
-      <link>https://imtechboss.com/google-quantum-ai-willow-chip-quantum-advantage-molecules-2026/</link>
-      <guid>https://imtechboss.com/google-quantum-ai-willow-chip-quantum-advantage-molecules-2026/</guid>
-      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Frontier AI &amp; Quantum</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip: Molecular Benchmarks Solved in Under 5 Minutes" /&gt;&lt;/p&gt;&lt;p&gt;Google Quantum AI has published verified benchmarks demonstrating quantum computational advantage on its 105-qubit Willow processor, calculating complex molecular ground-state energies in minutes that would demand 4,200 years on Frontier.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture with Native 1M-Token Context Window</title>
-      <link>https://imtechboss.com/meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026/</link>
-      <guid>https://imtechboss.com/meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026/</guid>
-      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Frontier AI &amp; LLMs</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture with Native 1M-Token Context Window" /&gt;&lt;/p&gt;&lt;p&gt;Meta has made its next-generation open-weights frontier model, Llama 4 Scout, available under permissive research licensing, introducing dynamic Mixture-of-Depths layer routing, native 1-million token context, and FP8 quantized checkpoints.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>NVIDIA Announces Rubin R100 Ultra: 3nm CoWoS-L Architecture with 288GB HBM4 Memory</title>
-      <link>https://imtechboss.com/nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/</link>
-      <guid>https://imtechboss.com/nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Hardware &amp; Computing</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="NVIDIA Announces Rubin R100 Ultra: 3nm CoWoS-L Architecture with 288GB HBM4 Memory" /&gt;&lt;/p&gt;&lt;p&gt;NVIDIA formally reveals the Rubin R100 Ultra GPU platform, integrating dual-die 3nm silicon, 288GB of ultra-fast HBM4 memory, and third-generation Transformer Engines delivering 50 PFLOPS of FP4 inference.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Anthropic Unveils Claude 4.5 Opus: Multi-Agent Orchestration and Autonomous Tool Synthesis</title>
-      <link>https://imtechboss.com/anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026/</link>
-      <guid>https://imtechboss.com/anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026/</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Anthropic Unveils Claude 4.5 Opus: Multi-Agent Orchestration and Autonomous Tool Synthesis" /&gt;&lt;/p&gt;&lt;p&gt;Anthropic debuts Claude 4.5 Opus, featuring native multi-agent coordination, real-time code synthesis environments, and industry-leading performance on complex software engineering benchmarks.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>White House Issues 'Super Intelligence' Executive Order and Signs National AI Safety Compact</title>
-      <link>https://imtechboss.com/white-house-super-intelligence-executive-order-national-tech-compact-2026/</link>
-      <guid>https://imtechboss.com/white-house-super-intelligence-executive-order-national-tech-compact-2026/</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="White House Issues 'Super Intelligence' Executive Order and Signs National AI Safety Compact" /&gt;&lt;/p&gt;&lt;p&gt;The US administration has formally replaced the term Artificial Intelligence with Super Intelligence in a federal directive, establishing external red-teaming mandates and critical infrastructure kill-switch protocols.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Samsung Galaxy Tab S12 Ultra and S12+ Debut with 14.6-inch Dynamic AMOLED and Galaxy AI</title>
-      <link>https://imtechboss.com/samsung-galaxy-tab-s12-ultra-plus-launch-dynamic-amoled-galaxy-ai-2026/</link>
-      <guid>https://imtechboss.com/samsung-galaxy-tab-s12-ultra-plus-launch-dynamic-amoled-galaxy-ai-2026/</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Consumer Tech</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Samsung Galaxy Tab S12 Ultra and S12+ Debut with 14.6-inch Dynamic AMOLED and Galaxy AI" /&gt;&lt;/p&gt;&lt;p&gt;Samsung reveals its flagship Galaxy Tab S12 series, delivering anti-reflective 120Hz displays, customized 3nm silicon, and autonomous desktop-class multitasking.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>CoreWeave Launches Forge: End-to-End Enterprise AI Development and Agent Evaluation Layer</title>
-      <link>https://imtechboss.com/coreweave-launches-forge-enterprise-ai-training-agent-evaluation-layer-2026/</link>
-      <guid>https://imtechboss.com/coreweave-launches-forge-enterprise-ai-training-agent-evaluation-layer-2026/</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="CoreWeave Launches Forge: End-to-End Enterprise AI Development and Agent Evaluation Layer" /&gt;&lt;/p&gt;&lt;p&gt;Specialized GPU cloud provider CoreWeave debuts Forge, a unified developer platform connecting high-density compute clusters directly to autonomous agent benchmarking and telemetry.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Thales Unveils Sentinel Envelope Plus to Block Automated AI-Driven Binary Exploits</title>
-      <link>https://imtechboss.com/thales-sentinel-envelope-plus-defends-against-ai-automated-exploit-generation-2026/</link>
-      <guid>https://imtechboss.com/thales-sentinel-envelope-plus-defends-against-ai-automated-exploit-generation-2026/</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Cybersecurity</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Thales Unveils Sentinel Envelope Plus to Block Automated AI-Driven Binary Exploits" /&gt;&lt;/p&gt;&lt;p&gt;Cybersecurity leader Thales launches Sentinel Envelope Plus, introducing polymorphic binary hardening and real-time execution defense against machine-speed vulnerability discovery.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>FTC Launches Formal Investigation into OpenAI and Anthropic Over Consumer Risks</title>
-      <link>https://imtechboss.com/ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026/</link>
-      <guid>https://imtechboss.com/ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="FTC Launches Formal Investigation into OpenAI and Anthropic Over Consumer Risks" /&gt;&lt;/p&gt;&lt;p&gt;The Federal Trade Commission has initiated an aggressive probe into major AI developers, scrutinizing data privacy, deceptive practices, and compliance with the recent White House definition of Super Intelligence.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Chinese State Hackers Impersonate Ex-US Officials to Infiltrate AI Research Networks</title>
-      <link>https://imtechboss.com/chinese-hackers-impersonate-us-officials-steal-ai-researcher-emails-2026/</link>
-      <guid>https://imtechboss.com/chinese-hackers-impersonate-us-officials-steal-ai-researcher-emails-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Cybersecurity</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Chinese State Hackers Impersonate Ex-US Officials to Infiltrate AI Research Networks" /&gt;&lt;/p&gt;&lt;p&gt;A sophisticated state-backed espionage campaign is targeting elite AI researchers at US universities and think tanks using highly convincing personas of former government officials.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Apple Confirms October 13 Event: J490 Smart Home AI Hub and John Ternus Debut</title>
-      <link>https://imtechboss.com/apple-j490-smart-home-ai-display-october-13-event-john-ternus-2026/</link>
-      <guid>https://imtechboss.com/apple-j490-smart-home-ai-display-october-13-event-john-ternus-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Consumer Tech</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apple Confirms October 13 Event: J490 Smart Home AI Hub and John Ternus Debut" /&gt;&lt;/p&gt;&lt;p&gt;Apple has officially announced a hardware event for October 13, setting the stage for the highly anticipated J490 smart home AI display and marking the first major product launch under new CEO John Ternus.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>CISA Issues 72-Hour Mandate for Critical Cisco SD-WAN Zero-Day (CVE-2026-76504)</title>
-      <link>https://imtechboss.com/cisa-cisco-catalyst-sdwan-zero-day-cve-2026-76504-72-hour-patch-mandate-2026/</link>
-      <guid>https://imtechboss.com/cisa-cisco-catalyst-sdwan-zero-day-cve-2026-76504-72-hour-patch-mandate-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Cybersecurity</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="CISA Issues 72-Hour Mandate for Critical Cisco SD-WAN Zero-Day (CVE-2026-76504)" /&gt;&lt;/p&gt;&lt;p&gt;A critical zero-click authentication bypass vulnerability in Cisco Catalyst SD-WAN Manager has prompted CISA to issue a rare 72-hour federal patch mandate, as state-sponsored actors actively exploit enterprise networks.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Microsoft Overhauls Copilot: Introducing Autopilot Mode and Agent 365</title>
-      <link>https://imtechboss.com/microsoft-copilot-autopilot-agent-365-autonomous-enterprise-overhaul-2026/</link>
-      <guid>https://imtechboss.com/microsoft-copilot-autopilot-agent-365-autonomous-enterprise-overhaul-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Microsoft Overhauls Copilot: Introducing Autopilot Mode and Agent 365" /&gt;&lt;/p&gt;&lt;p&gt;Ahead of Ignite 2026, Microsoft has unveiled a structural redesign of its AI offerings, transitioning from chatbots to continuous ambient agents with the introduction of Copilot Autopilot mode and Agent 365.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse</title>
-      <link>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</link>
-      <guid>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Semiconductors</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse" /&gt;&lt;/p&gt;&lt;p&gt;Samsung's sub-3nm yields stall at 60%, forcing Qualcomm into an exclusive TSMC agreement for its next-generation Elite Gen 6 silicon.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Anthropic Ships Claude Sonnet 5.5: Redefining Agentic Coding</title>
-      <link>https://imtechboss.com/anthropic-claude-sonnet-5-5-terminal-bench-agentic-coding-enterprise-2026/</link>
-      <guid>https://imtechboss.com/anthropic-claude-sonnet-5-5-terminal-bench-agentic-coding-enterprise-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Anthropic Ships Claude Sonnet 5.5: Redefining Agentic Coding" /&gt;&lt;/p&gt;&lt;p&gt;Anthropic released Claude Sonnet 5.5 with a staggering 70.6% on Terminal-Bench 4.0, delivering a 30% speed increase and advanced enterprise cyber defense.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>NASA and SpaceX Execute Historic Crew-13 Launch to ISS</title>
-      <link>https://imtechboss.com/nasa-spacex-crew-13-dragon-grace-iss-launch-october-2026/</link>
-      <guid>https://imtechboss.com/nasa-spacex-crew-13-dragon-grace-iss-launch-october-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Space &amp; Science</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="NASA and SpaceX Execute Historic Crew-13 Launch to ISS" /&gt;&lt;/p&gt;&lt;p&gt;SpaceX's Dragon 'Grace' lifts off from SLC-40, carrying a multinational crew on a critical long-duration scientific expedition to the ISS.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>AMD's Lisa Su Touches Down in Seoul for Critical Samsung HBM4 Summit</title>
-      <link>https://imtechboss.com/amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026/</link>
-      <guid>https://imtechboss.com/amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Semiconductors</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="AMD's Lisa Su Touches Down in Seoul for Critical Samsung HBM4 Summit" /&gt;&lt;/p&gt;&lt;p&gt;AMD CEO Lisa Su holds a bilateral summit with Samsung leadership to secure critical HBM4 supply for the upcoming 2nm MI455X AI accelerators.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Google Project Suncatcher: The First Orbital AI Supercomputer</title>
-      <link>https://imtechboss.com/google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026/</link>
-      <guid>https://imtechboss.com/google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Space &amp; Science</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Google Project Suncatcher: The First Orbital AI Supercomputer" /&gt;&lt;/p&gt;&lt;p&gt;Google and Planet Labs launched an MVP satellite carrying Trillium TPUs to test AI inference in orbit, tackling terrestrial power grid bottlenecks.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Ethereum Genesis Whale Awakens: $356M Moved Amidst Market Turbulence</title>
-      <link>https://imtechboss.com/ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026/</link>
-      <guid>https://imtechboss.com/ethereum-genesis-whale-133k-eth-356m-transfer-crypto-market-3-trillion-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Blockchain &amp; Crypto</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Ethereum Genesis Whale Awakens: $356M Moved Amidst Market Turbulence" /&gt;&lt;/p&gt;&lt;p&gt;An Ethereum whale from the 2015 ICO transferred 133,298 ETH after a 4-year silence, triggering DeFi liquidity shifts as the total crypto market cap nears $3 trillion.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Tesla Delays Roadster, Secures $30B Credit for Cybercab &amp; Optimus</title>
-      <link>https://imtechboss.com/tesla-next-gen-roadster-delay-30-billion-credit-cybercab-optimus-capex-2026/</link>
-      <guid>https://imtechboss.com/tesla-next-gen-roadster-delay-30-billion-credit-cybercab-optimus-capex-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Electric Vehicles</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Tesla Delays Roadster, Secures $30B Credit for Cybercab &amp; Optimus" /&gt;&lt;/p&gt;&lt;p&gt;Tesla pushes the Roadster unveiling to mid-October while finalizing a $30 billion debt facility to fund massive Cybercab scaling and Optimus Gen 3 manufacturing.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>OpenAI, Google, NVIDIA, Meta, Anthropic, and xAI Sign Historic Voluntary AI Safety Accord</title>
-      <link>https://imtechboss.com/big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026/</link>
-      <guid>https://imtechboss.com/big-tech-signs-historic-voluntary-ai-safety-accord-standards-2026/</guid>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="OpenAI, Google, NVIDIA, Meta, Anthropic, and xAI Sign Historic Voluntary AI Safety Accord" /&gt;&lt;/p&gt;&lt;p&gt;Six frontier artificial intelligence companies have signed a landmark US-backed safety accord, establishing third-party external audit requirements and kill-switch protocols for autonomous agents.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>OpenAI Unveils Dots: An Always-On Autonomous Personal AI Agent for End-to-End Task Execution</title>
-      <link>https://imtechboss.com/openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026/</link>
-      <guid>https://imtechboss.com/openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026/</guid>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Technology</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="OpenAI Unveils Dots: An Always-On Autonomous Personal AI Agent for End-to-End Task Execution" /&gt;&lt;/p&gt;&lt;p&gt;OpenAI has introduced Dots, a persistent personal AI assistant capable of multi-app orchestration, automated task scheduling, and background workspace actions with user-defined permission boundaries.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-  </channel>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tech Boss</title>
+  <link>https://imtechboss.com</link>
+  <description>Latest Technology News, Reviews, AI, Gadgets and Gaming</description>
+  <language>en-us</language>
+  <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>EA Officially Shuts Down BioWare and Cancels Next Mass Effect Game: The Fall of an RPG Titan (2026)</title>
+    <link>https://imtechboss.com/ea-shuts-down-bioware-cancels-mass-effect-5-rpg-legacy-2026/</link>
+    <guid>https://imtechboss.com/ea-shuts-down-bioware-cancels-mass-effect-5-rpg-legacy-2026/</guid>
+    <pubDate>Wed, 21 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Electronic Arts (EA) has officially shuttered legendary RPG studio BioWare after 31 years of operation, terminating all development on the upcoming Mass Effect sequel (Mass Effect 5). The decision follows widespread corporate restructuring, commercial underperformance of Dragon Age: The Veilguard, and broader financial pressures across the gaming industry.</description>
+    <category>Gaming</category>
+  </item>
+  <item>
+    <title>Sony PlayStation 6 (PS6): Full Specs Breakdown, AMD Zen 6 Architecture, PSSR 2.0 &amp; Projected Release Window (2026)</title>
+    <link>https://imtechboss.com/sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026/</link>
+    <guid>https://imtechboss.com/sony-playstation-6-ps6-specs-amd-zen-6-rdna-5-pssr-2-release-window-guide-2026/</guid>
+    <pubDate>Sat, 17 Oct 2026 18:15:00 GMT</pubDate>
+    <description>An in-depth engineering breakdown of Sony's next-generation PlayStation 6: AMD Zen 6 microarchitecture, custom RDNA 5 GPU silicon, PSSR 2.0 machine learning upscaling, 4K 120Hz path tracing, backward compatibility, and the 2027–2028 release roadmap.</description>
+    <category>Gaming &amp; Consoles</category>
+  </item>
+  <item>
+    <title>Samsung One UI 9: Complete Eligible Galaxy Device List, Core AI Features &amp; Release Roadmap (2026)</title>
+    <link>https://imtechboss.com/samsung-one-ui-9-update-eligible-galaxy-devices-features-rollout-roadmap-2026/</link>
+    <guid>https://imtechboss.com/samsung-one-ui-9-update-eligible-galaxy-devices-features-rollout-roadmap-2026/</guid>
+    <pubDate>Sat, 17 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Explore the complete guide to Samsung One UI 9: official eligible Galaxy S, Z, and A-series device lists, on-device AI system improvements, battery longevity modes, revamped Quick Panel mechanics, and rollout schedules.</description>
+    <category>Mobile Tech</category>
+  </item>
+  <item>
+    <title>How to Fix Micro-Stuttering and DPC Latency in Windows 11 24H2: Complete DX12 &amp; UE5 Optimization Guide (2026)</title>
+    <link>https://imtechboss.com/how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026/</link>
+    <guid>https://imtechboss.com/how-to-fix-windows-11-24h2-micro-stuttering-dpc-latency-gaming-guide-2026/</guid>
+    <pubDate>Sat, 17 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Eliminate micro-stutters, frame pacing drops, and audio pops in Windows 11 24H2 with verified MSI GPU interrupt modes, DPC latency driver audits, timer resolution tweaks, and Core Isolation adjustments.</description>
+    <category>Tech Guides</category>
+  </item>
+  <item>
+    <title>Intel Core Ultra 9 285K vs AMD Ryzen 9 9950X3D: The Ultimate 2026 CPU Gaming &amp; Productivity Showdown</title>
+    <link>https://imtechboss.com/intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026/</link>
+    <guid>https://imtechboss.com/intel-core-ultra-9-285k-vs-amd-ryzen-9-9950x3d-gaming-benchmarks-2026/</guid>
+    <pubDate>Tue, 13 Oct 2026 18:15:00 GMT</pubDate>
+    <description>A comprehensive 2026 head-to-head benchmark between Intel's Arrow Lake Core Ultra 9 285K and AMD's Zen 5 Ryzen 9 9950X3D, analyzing 4K gaming frame pacing, CUDIMM memory scaling, power efficiency, and thermals.</description>
+    <category>Hardware &amp; Components</category>
+  </item>
+  <item>
+    <title>How to Completely Disable Windows 11 Telemetry, Copilot Recall, and Background Ads (2026 Step-by-Step Guide)</title>
+    <link>https://imtechboss.com/how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026/</link>
+    <guid>https://imtechboss.com/how-to-disable-windows-11-telemetry-copilot-recall-background-ads-2026/</guid>
+    <pubDate>Tue, 13 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Reclaim your PC privacy and system responsiveness in Windows 11 24H2 with verified Group Policy configurations, clean PowerShell service tweaks, and host-file rules that permanently stop background diagnostic telemetry and Copilot Recall.</description>
+    <category>Tech Guides</category>
+  </item>
+  <item>
+    <title>How to Bypass TPM 2.0 &amp; Install Windows 11 24H2 on Unsupported PC (2026 Step-by-Step Guide)</title>
+    <link>https://imtechboss.com/how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026/</link>
+    <guid>https://imtechboss.com/how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026/</guid>
+    <pubDate>Sun, 11 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Learn how to bypass TPM 2.0, Secure Boot, and CPU generation hardware blocks to install Windows 11 24H2 on older PCs using Rufus 4.6, the setup server switch, and official registry overrides.</description>
+    <category>Tech Guides</category>
+  </item>
+  <item>
+    <title>Best Free VPNs for Gaming &amp; Streaming in 2026: Zero Logs, WireGuard Speeds, and No Bandwidth Caps</title>
+    <link>https://imtechboss.com/best-free-vpns-gaming-streaming-no-logs-zero-lag-2026/</link>
+    <guid>https://imtechboss.com/best-free-vpns-gaming-streaming-no-logs-zero-lag-2026/</guid>
+    <pubDate>Sun, 11 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Discover the top free VPN services in 2026 independently tested for low gaming latency, zero logging policies, WireGuard speeds, and reliable streaming unblocking without hidden paywalls.</description>
+    <category>Software &amp; Utilities</category>
+  </item>
+  <item>
+    <title>How to Speed Up Slow Wi-Fi: Best DNS Settings and Router Tweaks for Minimum Gaming Ping in 2026</title>
+    <link>https://imtechboss.com/how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026/</link>
+    <guid>https://imtechboss.com/how-to-speed-up-slow-wifi-best-dns-settings-gaming-ping-2026/</guid>
+    <pubDate>Sun, 11 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Diagnose home Wi-Fi bottlenecks, eliminate bufferbloat, and configure ultra-fast encrypted DNS servers (Cloudflare 1.1.1.1 vs Google 8.8.8.8 vs Quad9) to slash latency and stabilize connection speeds.</description>
+    <category>Tech Guides</category>
+  </item>
+  <item>
+    <title>Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip: Molecular Benchmarks Solved in Under 5 Minutes</title>
+    <link>https://imtechboss.com/google-quantum-ai-willow-chip-quantum-advantage-molecules-2026/</link>
+    <guid>https://imtechboss.com/google-quantum-ai-willow-chip-quantum-advantage-molecules-2026/</guid>
+    <pubDate>Sat, 10 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Google Quantum AI has published verified benchmarks demonstrating quantum computational advantage on its 105-qubit Willow processor, calculating complex molecular ground-state energies in minutes that would demand 4,200 years on Frontier.</description>
+    <category>Frontier AI &amp; Quantum</category>
+  </item>
+  <item>
+    <title>Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture with Native 1M-Token Context Window</title>
+    <link>https://imtechboss.com/meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026/</link>
+    <guid>https://imtechboss.com/meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026/</guid>
+    <pubDate>Sat, 10 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Meta has made its next-generation open-weights frontier model, Llama 4 Scout, available under permissive research licensing, introducing dynamic Mixture-of-Depths layer routing, native 1-million token context, and FP8 quantized checkpoints.</description>
+    <category>Frontier AI &amp; LLMs</category>
+  </item>
+  <item>
+    <title>NVIDIA Announces Rubin R100 Ultra: 3nm CoWoS-L Architecture with 288GB HBM4 Memory</title>
+    <link>https://imtechboss.com/nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/</link>
+    <guid>https://imtechboss.com/nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/</guid>
+    <pubDate>Thu, 08 Oct 2026 18:15:00 GMT</pubDate>
+    <description>NVIDIA formally reveals the Rubin R100 Ultra GPU platform, integrating dual-die 3nm silicon, 288GB of ultra-fast HBM4 memory, and third-generation Transformer Engines delivering 50 PFLOPS of FP4 inference.</description>
+    <category>Hardware &amp; Computing</category>
+  </item>
+  <item>
+    <title>CoreWeave Launches Forge: End-to-End Enterprise AI Development and Agent Evaluation Layer</title>
+    <link>https://imtechboss.com/coreweave-launches-forge-enterprise-ai-training-agent-evaluation-layer-2026/</link>
+    <guid>https://imtechboss.com/coreweave-launches-forge-enterprise-ai-training-agent-evaluation-layer-2026/</guid>
+    <pubDate>Thu, 01 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Specialized GPU cloud provider CoreWeave debuts Forge, a unified developer platform connecting high-density compute clusters directly to autonomous agent benchmarking and telemetry.</description>
+    <category>AI &amp; Technology</category>
+  </item>
+  <item>
+    <title>Thales Unveils Sentinel Envelope Plus to Block Automated AI-Driven Binary Exploits</title>
+    <link>https://imtechboss.com/thales-sentinel-envelope-plus-defends-against-ai-automated-exploit-generation-2026/</link>
+    <guid>https://imtechboss.com/thales-sentinel-envelope-plus-defends-against-ai-automated-exploit-generation-2026/</guid>
+    <pubDate>Thu, 01 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Cybersecurity leader Thales launches Sentinel Envelope Plus, introducing polymorphic binary hardening and real-time execution defense against machine-speed vulnerability discovery.</description>
+    <category>Cybersecurity</category>
+  </item>
+  <item>
+    <title>FTC Launches Formal Investigation into OpenAI and Anthropic Over Consumer Risks</title>
+    <link>https://imtechboss.com/ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026/</link>
+    <guid>https://imtechboss.com/ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026/</guid>
+    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
+    <description>The Federal Trade Commission has initiated an aggressive probe into major AI developers, scrutinizing data privacy, deceptive practices, and compliance with the recent White House definition of Super Intelligence.</description>
+    <category>AI &amp; Technology</category>
+  </item>
+  <item>
+    <title>Chinese State Hackers Impersonate Ex-US Officials to Infiltrate AI Research Networks</title>
+    <link>https://imtechboss.com/chinese-hackers-impersonate-us-officials-steal-ai-researcher-emails-2026/</link>
+    <guid>https://imtechboss.com/chinese-hackers-impersonate-us-officials-steal-ai-researcher-emails-2026/</guid>
+    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
+    <description>A sophisticated state-backed espionage campaign is targeting elite AI researchers at US universities and think tanks using highly convincing personas of former government officials.</description>
+    <category>Cybersecurity</category>
+  </item>
+  <item>
+    <title>Microsoft Overhauls Copilot: Introducing Autopilot Mode and Agent 365</title>
+    <link>https://imtechboss.com/microsoft-copilot-autopilot-agent-365-autonomous-enterprise-overhaul-2026/</link>
+    <guid>https://imtechboss.com/microsoft-copilot-autopilot-agent-365-autonomous-enterprise-overhaul-2026/</guid>
+    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
+    <description>Ahead of Ignite 2026, Microsoft has unveiled a structural redesign of its AI offerings, transitioning from chatbots to continuous ambient agents with the introduction of Copilot Autopilot mode and Agent 365.</description>
+    <category>AI &amp; Technology</category>
+  </item>
+  <item>
+    <title>Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse</title>
+    <link>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</link>
+    <guid>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</guid>
+    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
+    <description>Samsung's sub-3nm yields stall at 60%, forcing Qualcomm into an exclusive TSMC agreement for its next-generation Elite Gen 6 silicon.</description>
+    <category>Semiconductors</category>
+  </item>
+  <item>
+    <title>AMD's Lisa Su Touches Down in Seoul for Critical Samsung HBM4 Summit</title>
+    <link>https://imtechboss.com/amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026/</link>
+    <guid>https://imtechboss.com/amd-lisa-su-samsung-hbm4-supply-summit-mi455x-helios-2026/</guid>
+    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
+    <description>AMD CEO Lisa Su holds a bilateral summit with Samsung leadership to secure critical HBM4 supply for the upcoming 2nm MI455X AI accelerators.</description>
+    <category>Semiconductors</category>
+  </item>
+  <item>
+    <title>Google Project Suncatcher: The First Orbital AI Supercomputer</title>
+    <link>https://imtechboss.com/google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026/</link>
+    <guid>https://imtechboss.com/google-project-suncatcher-orbital-ai-supercomputer-spacex-trillium-tpu-2026/</guid>
+    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
+    <description>Google and Planet Labs launched an MVP satellite carrying Trillium TPUs to test AI inference in orbit, tackling terrestrial power grid bottlenecks.</description>
+    <category>Space &amp; Science</category>
+  </item>
+</channel>
 </rss>
