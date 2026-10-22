@@ -574,7 +574,7 @@ function renderPostDetail() {
             <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Editorial &amp; Engineering Team • imtechboss.com</p>
           </div>
           <a 
-            href="mailto:contact@imtechboss.com" 
+            href="mailto:founder@imtechboss.com" 
             class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow transition-all self-center sm:self-auto"
           >
             <span>Get in Touch</span>
@@ -1168,7 +1168,7 @@ function openPostPageModal(pageKey) {
       const subject = document.getElementById("contactSubject").value.trim();
       const message = document.getElementById("contactMessage").value.trim();
 
-      const mailtoUrl = `mailto:contact@imtechboss.com?subject=${encodeURIComponent('[imtechboss.com] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+      const mailtoUrl = `mailto:founder@imtechboss.com?subject=${encodeURIComponent('[imtechboss.com] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
       window.location.href = mailtoUrl;
       showToast("✉️ Opening email client to send message!");
       contactForm.reset();

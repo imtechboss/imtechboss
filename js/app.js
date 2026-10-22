@@ -961,7 +961,7 @@ function openPageModal(pageKey) {
       const subject = document.getElementById("contactSubject").value.trim();
       const message = document.getElementById("contactMessage").value.trim();
 
-      const mailtoUrl = `mailto:binodbhatt500k@gmail.com?subject=${encodeURIComponent('[imtechboss.com] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+      const mailtoUrl = `mailto:founder@imtechboss.com?subject=${encodeURIComponent('[imtechboss.com] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
       window.location.href = mailtoUrl;
       showToast("✉️ Opening email client to send message!");
       contactForm.reset();
