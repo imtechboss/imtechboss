@@ -1684,24 +1684,51 @@ function setupFloatingReadNext(currentArticle) {
 // 6. Executive Key Highlights & Takeaways Extractor
 function generateKeyTakeaways(article) {
   const points = [];
-  if (article.excerpt) {
-    points.push(article.excerpt);
-  }
+  const excerpt = (article.excerpt || "").trim();
+  const content = article.content || article.body || "";
 
-  const contentForHeadings = article.content || article.body;
-  if (contentForHeadings) {
-    const headings = contentForHeadings.match(/<h2[^>]*>(.*?)<\/h2>/gi);
-    if (headings && headings.length > 0) {
-      headings.slice(0, 2).forEach(h => {
-        const text = h.replace(/<[^>]*>/g, '').trim();
-        if (text && !points.includes(text)) {
-          points.push(text);
+  // Extract real sentence takeaways from H2 sections
+  const h2Regex = /<h2[^>]*>([\s\S]*?)<\/h2>/gi;
+  const h2Matches = [...content.matchAll(h2Regex)];
+  for (let i = 0; i < h2Matches.length && points.length < 3; i++) {
+    const rawH2 = h2Matches[i][1].replace(/<[^>]+>/g, "").trim();
+    const cleanH2 = rawH2.replace(/^(\d+[\.\)]|Fix \d+:?|Section \d+:?)\s*/i, "").trim();
+    const startIndex = h2Matches[i].index + h2Matches[i][0].length;
+    const endIndex = (i + 1 < h2Matches.length) ? h2Matches[i + 1].index : content.length;
+    const secHtml = content.substring(startIndex, endIndex);
+
+    const pMatch = secHtml.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+    if (pMatch) {
+      const pText = pMatch[1].replace(/<[^>]+>/g, "").trim();
+      const sentences = pText.split(/(?<=[.!?])\s+/);
+      const sent = (sentences[0] || "").trim();
+      if (sent.length > 25 && sent !== excerpt && cleanH2) {
+        const item = `${cleanH2}: ${sent}`;
+        if (!points.includes(item)) {
+          points.push(item);
         }
-      });
+      }
     }
   }
 
-  if (points.length === 0) return '';
+  // Fallback to informative body sentences if fewer than 2 points found
+  if (points.length < 2) {
+    const pMatches = content.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi);
+    for (const pm of pMatches) {
+      const pText = pm[1].replace(/<[^>]+>/g, "").trim();
+      const sentences = pText.split(/(?<=[.!?])\s+/);
+      for (const s of sentences) {
+        const cleanS = s.trim();
+        if (cleanS.length > 40 && cleanS !== excerpt && !points.some(pt => pt.includes(cleanS))) {
+          points.push(cleanS);
+          if (points.length >= 3) break;
+        }
+      }
+      if (points.length >= 3) break;
+    }
+  }
+
+  if (points.length === 0 && !excerpt) return '';
 
   return `
     <div id="aioAnswerCapsule" class="mb-8 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white dark:from-slate-800/90 dark:via-slate-850 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 shadow-sm not-prose">
@@ -1715,23 +1742,25 @@ function generateKeyTakeaways(article) {
         <span class="text-[10px] text-gray-400 font-mono hidden sm:inline">GEO Verified • imtechboss.com</span>
       </div>
 
-      ${article.excerpt ? `
-        <div class="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white leading-relaxed mb-4 pb-3 border-b border-gray-100 dark:border-slate-800">
-          <strong>Direct Summary: </strong>${escapeHtml(article.excerpt)}
+      ${excerpt ? `
+        <div class="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white leading-relaxed ${points.length > 0 ? 'mb-4 pb-3 border-b border-gray-100 dark:border-slate-800' : ''}">
+          <strong>Direct Summary: </strong>${escapeHtml(excerpt)}
         </div>
       ` : ''}
 
-      <div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-        Core Takeaways &amp; Findings:
-      </div>
-      <ul class="space-y-2 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
-        ${points.map(pt => `
-          <li class="flex items-start gap-2.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 flex-shrink-0"></span>
-            <span class="leading-relaxed">${escapeHtml(pt)}</span>
-          </li>
-        `).join('')}
-      </ul>
+      ${points.length > 0 ? `
+        <div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+          Core Takeaways &amp; Findings:
+        </div>
+        <ul class="space-y-2 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
+          ${points.map(pt => `
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 flex-shrink-0"></span>
+              <span class="leading-relaxed">${escapeHtml(pt)}</span>
+            </li>
+          `).join('')}
+        </ul>
+      ` : ''}
     </div>
   `;
 }

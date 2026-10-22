@@ -368,7 +368,9 @@ function initNavigation() {
 
   if (mobileMenuBtn && mobileDrawer) {
     mobileMenuBtn.addEventListener("click", () => {
-      mobileDrawer.classList.toggle("hidden");
+      const isHidden = mobileDrawer.classList.toggle("hidden");
+      mobileDrawer.setAttribute("aria-hidden", isHidden ? "true" : "false");
+      mobileMenuBtn.setAttribute("aria-expanded", isHidden ? "false" : "true");
     });
   }
 

@@ -103,37 +103,34 @@ def generate_key_takeaways(article):
             if p_match:
                 p_text = re.sub(r'<[^>]+>', '', p_match.group(1)).strip()
                 s_split = re.split(r'(?<=[.!?])\s+', p_text)
-                if s_split and len(s_split[0]) > 20:
+                if s_split and len(s_split[0]) > 25:
                     sent = s_split[0].strip()
 
             clean_h2 = re.sub(r'^(\d+[\.\)]|Fix \d+:?|Section \d+:?)\s*', '', h2).strip()
-            if sent and sent != excerpt:
+            # Only add if we have a real sentence explanation, never repeat raw H2 heading alone
+            if sent and sent != excerpt and clean_h2:
                 item = f'<strong>{clean_h2}:</strong> {sent}'
-                if item not in takeaways:
-                    takeaways.append(item)
-            elif clean_h2 and clean_h2 != excerpt:
-                item = f'<strong>{clean_h2}</strong>'
                 if item not in takeaways:
                     takeaways.append(item)
             if len(takeaways) >= 3:
                 break
 
-    if len(takeaways) < 3:
+    # If fewer than 2 takeaways found, extract informative sentences from body paragraphs
+    if len(takeaways) < 2:
         ps = re.findall(r'<p[^>]*>(.*?)</p>', content, re.IGNORECASE)
         for p in ps:
             p_text = re.sub(r'<[^>]+>', '', p).strip()
             s_split = re.split(r'(?<=[.!?])\s+', p_text)
             for s in s_split:
-                s = s.strip()
-                clean_s = re.sub(r'<[^>]+>', '', s).strip()
-                if len(clean_s) > 30 and clean_s != excerpt and clean_s not in [re.sub(r'<[^>]+>', '', t) for t in takeaways]:
+                clean_s = s.strip()
+                if len(clean_s) > 40 and clean_s != excerpt and clean_s not in [re.sub(r'<[^>]+>', '', t) for t in takeaways]:
                     takeaways.append(clean_s)
                     if len(takeaways) >= 3:
                         break
             if len(takeaways) >= 3:
                 break
 
-    if not takeaways:
+    if not takeaways and not excerpt:
         return ''
 
     li_items = '\n'.join([
@@ -145,10 +142,19 @@ def generate_key_takeaways(article):
     ])
 
     direct_summary = f'''
-        <div class="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white leading-relaxed mb-4 pb-3 border-b border-gray-100 dark:border-slate-800">
+        <div class="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white leading-relaxed {'mb-4 pb-3 border-b border-gray-100 dark:border-slate-800' if takeaways else ''}">
           <strong>Direct Summary: </strong>{escape(excerpt)}
         </div>
     ''' if excerpt else ''
+
+    takeaways_section = f'''
+      <div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+        Core Takeaways &amp; Findings:
+      </div>
+      <ul class="space-y-2 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
+        {li_items}
+      </ul>
+    ''' if takeaways else ''
 
     return f'''
     <div id="aioAnswerCapsule" class="mb-8 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white dark:from-slate-800/90 dark:via-slate-850 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 shadow-sm not-prose">
@@ -162,12 +168,7 @@ def generate_key_takeaways(article):
         <span class="text-[10px] text-gray-400 font-mono hidden sm:inline">GEO Verified • imtechboss.com</span>
       </div>
       {direct_summary}
-      <div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-        Core Takeaways &amp; Findings:
-      </div>
-      <ul class="space-y-2 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">
-        {li_items}
-      </ul>
+      {takeaways_section}
     </div>
     '''
 
@@ -942,9 +943,11 @@ def build_all_static():
                 # Replace Canonical
         page_html = re.sub(r'<link id="canonicalUrl" rel="canonical" href=".*?">', f'<link id="canonicalUrl" rel="canonical" href="{canonical_url}">', page_html)
 
-        # Legacy blogger posts should be noindex, follow to preserve crawl budget
+        # Search indexing directives
         if aid.startswith('blogger-'):
             page_html = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', page_html)
+        else:
+            page_html = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">', page_html)
 
         # Replace OG Meta
         page_html = re.sub(r'<meta id="ogUrl" property="og:url" content=".*?">', f'<meta id="ogUrl" property="og:url" content="{canonical_url}">', page_html)
