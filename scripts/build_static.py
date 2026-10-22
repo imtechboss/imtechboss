@@ -310,7 +310,7 @@ def generate_faq_data(article):
         faqs = [
             {
                 "q": "Are these technical instructions safe to apply on Windows 11?",
-                "a": "Yes. The steps detailed in this Tech Boss analysis operate within standard operating system guidelines and do not modify protected kernel modules or partition structures."
+                "a": "Yes. The steps detailed in this Tech Boss analysis utilize standard administrative tools and follow official operating system documentation to ensure complete stability."
             },
             {
                 "q": "Does this solution require specialized third-party diagnostic software?",
