@@ -104,9 +104,9 @@ export default {{
     try {{
       const url = new URL(request.url);
       const pathname = url.pathname.toLowerCase();
-      if (pathname === '/test-worker-ping') {
-        return new Response('WORKER_IS_ALIVE_2026', { status: 200 });
-      }
+      if (pathname === '/test-worker-ping') {{
+        return new Response('WORKER_IS_ALIVE_2026', {{ status: 200 }});
+      }}
       const cleanSlug = pathname.replace(/^\\/+|\\/+$/g, '');
 
       // 0. Hard Edge 404 Shield for removed/speculative/blogger posts
