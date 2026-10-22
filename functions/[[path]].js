@@ -51,6 +51,15 @@ export async function onRequest(context) {
     const pathname = url.pathname.toLowerCase();
     const cleanSlug = pathname.replace(/^\/+|\/+$/g, '');
 
+    // 0.1 Redirect legacy query strings /post.html?id=... and /post?id=... -> clean /:id/
+    const id = url.searchParams.get('id');
+    if ((pathname === '/post.html' || pathname === '/post') && id) {
+      if (duplicateRedirects[id]) {
+        return Response.redirect('https://imtechboss.com/' + duplicateRedirects[id] + '/', 301);
+      }
+      return Response.redirect('https://imtechboss.com/' + encodeURIComponent(id) + '/', 301);
+    }
+
     // 0. Worker Ping Check
     if (pathname === '/test-worker-ping') {
       return new Response('PAGES_FUNCTION_ALIVE_2026', { status: 200 });

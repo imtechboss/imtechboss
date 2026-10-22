@@ -45,7 +45,7 @@ def inject_in_article_ads(body_html):
         return body_html
 
     ad_banner_1 = '''
-    <div class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
+    <div data-nosnippet="" aria-hidden="true" class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
       <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block"
@@ -57,7 +57,7 @@ def inject_in_article_ads(body_html):
     '''
 
     ad_banner_2 = '''
-    <div class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
+    <div data-nosnippet="" aria-hidden="true" class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
       <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block"
@@ -538,8 +538,7 @@ def render_article_inner_html(article):
         <span>📅 {safe_date}</span>
         <span>•</span>
         <span>⏱️ {read_time}</span>
-        <span>•</span>
-        <span>👁️ {safe_views} reads</span>
+        
       </div>
     </div>
 
@@ -612,7 +611,7 @@ def render_article_inner_html(article):
     </div>
 
     <!-- Audio Narration Bar -->
-    <div id="articleAudioBar" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+    <div id="articleAudioBar" data-nosnippet="" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
       <div class="flex items-center gap-3">
         <button id="audioPlayBtn" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
           <svg id="playIcon" class="w-4 h-4 ml-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>

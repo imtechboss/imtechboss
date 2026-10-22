@@ -329,8 +329,7 @@ function renderPostDetail() {
         <span>📅 ${safeDate}</span>
         <span>•</span>
         <span>⏱️ ${readTime}</span>
-        <span>•</span>
-        <span>👁️ ${views} reads</span>
+        
       </div>
     </div>
 
@@ -413,7 +412,7 @@ function renderPostDetail() {
     </div>
 
     <!-- Audio Narration Bar -->
-    <div id="articleAudioBar" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+    <div id="articleAudioBar" data-nosnippet="" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
       <div class="flex items-center gap-3">
         <button id="audioPlayBtn" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
           <svg id="playIcon" class="w-4 h-4 ml-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -575,7 +574,7 @@ function renderPostDetail() {
             <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Editorial &amp; Engineering Team • imtechboss.com</p>
           </div>
           <a 
-            href="mailto:binodbhatt500k@gmail.com" 
+            href="mailto:contact@imtechboss.com" 
             class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow transition-all self-center sm:self-auto"
           >
             <span>Get in Touch</span>
@@ -1169,7 +1168,7 @@ function openPostPageModal(pageKey) {
       const subject = document.getElementById("contactSubject").value.trim();
       const message = document.getElementById("contactMessage").value.trim();
 
-      const mailtoUrl = `mailto:binodbhatt500k@gmail.com?subject=${encodeURIComponent('[imtechboss.com] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+      const mailtoUrl = `mailto:contact@imtechboss.com?subject=${encodeURIComponent('[imtechboss.com] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
       window.location.href = mailtoUrl;
       showToast("✉️ Opening email client to send message!");
       contactForm.reset();
