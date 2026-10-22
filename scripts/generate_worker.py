@@ -60,21 +60,67 @@ def generate_worker():
     top_articles_json = json.dumps(top_articles, ensure_ascii=False)
     dup_json = json.dumps(duplicate_redirects, ensure_ascii=False)
 
+    removed_slugs_list = [
+        "openai-gpt6-astra-computer-operator-ai-agent-2026",
+        "apple-mac-mini-m6-first-2nm-chip-desktop-2026",
+        "apple-iphone-18-pro-max-official-review-specs-2026",
+        "iphone-18-pro-max-review-2026",
+        "iphone-18-pro-max-vs-galaxy-s26-ultra",
+        "samsung-galaxy-s26-ultra-review-price-nepal-2026",
+        "samsung-galaxy-tab-s12-ultra-plus-launch-dynamic-amoled-galaxy-ai-2026",
+        "anthropic-claude-sonnet-5-5-terminal-bench-agentic-coding-enterprise-2026",
+        "anthropic-claude-4-5-opus-multi-agent-orchestration-tool-synthesis-2026",
+        "openai-launches-dots-autonomous-always-on-personal-ai-assistant-2026",
+        "xai-grok-4-7-coding-ai-model-elon-musk-2026",
+        "alibaba-zhenwu-v900-china-most-powerful-ai-chip-2026",
+        "white-house-super-intelligence-executive-order-national-tech-compact-2026",
+        "trump-renames-ai-super-intelligence-un-speech-global-regulations-2026",
+        "trump-tv-launch-media-boycott-white-house-2026",
+        "openai-agent-breaches-australian-government-health-portal-2026",
+        "openai-halts-frontier-model-training-sandbox-isolation-flaw-compute-cluster-2026",
+        "cisa-cisco-catalyst-sdwan-zero-day-cve-2026-76504-72-hour-patch-mandate-2026",
+        "critical-citrix-netscaler-zero-day-cve-2026-88772-whipshot-malware-2026",
+        "apple-j490-smart-home-ai-display-october-13-event-john-ternus-2026",
+        "nasa-spacex-crew-13-dragon-grace-iss-launch-october-2026",
+        "spacex-starship-flight-14-first-orbital-launch-starlink-v3-2026",
+        "amd-surpasses-1-trillion-market-cap-datacenter-ai-surge-2026",
+        "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
+        "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026",
+        "google-fitbit-air-launch-gemini-health-biometric-wearable-2026",
+        "oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026"
+    ]
+    removed_json = json.dumps(removed_slugs_list, ensure_ascii=False)
+
     template = f"""// Cloudflare Pages Advanced Mode Worker
 // Automatically injects dynamic OpenGraph & Twitter metadata, plus Edge SSR Pre-Rendering for Google AdSense & SEO
 
 const articlesMeta = {meta_json};
 const topArticles = {top_articles_json};
 const duplicateRedirects = {dup_json};
+const removedSlugs = new Set({removed_json});
 
 export default {{
   async fetch(request, env) {{
     try {{
       const url = new URL(request.url);
       const pathname = url.pathname.toLowerCase();
+      const cleanSlug = pathname.replace(/^\\/+|\\/+$/g, '');
+
+      // 0. Hard Edge 404 Shield for removed/speculative/blogger posts
+      if (removedSlugs.has(cleanSlug) || cleanSlug.startsWith('blogger-')) {{
+        const assetUrl = new URL(request.url);
+        assetUrl.pathname = '/404.html';
+        const notFoundRes = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+        const notFoundHeaders = new Headers(notFoundRes.headers);
+        notFoundHeaders.set('X-Robots-Tag', 'noindex, nofollow');
+        return new Response(notFoundRes.body, {{
+          status: 404,
+          statusText: 'Not Found',
+          headers: notFoundHeaders
+        }});
+      }}
 
       // Check duplicate redirects from merged/deduplicated articles
-      const cleanSlug = pathname.replace(/^\\/+|\\/+$/g, '');
       if (duplicateRedirects[cleanSlug]) {{
         return Response.redirect('https://imtechboss.com/' + duplicateRedirects[cleanSlug] + '/', 301);
       }}
