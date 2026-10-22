@@ -535,7 +535,31 @@ function renderArticles(isAppending = false) {
   // Handle empty state
   if (filtered.length === 0) {
     gridContainer.innerHTML = "";
-    if (emptyState) emptyState.classList.remove("hidden");
+    if (emptyState) {
+      emptyState.className = "text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 p-8";
+      emptyState.innerHTML = `
+        <div class="w-16 h-16 mx-auto mb-4 text-gray-400 dark:text-gray-600">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">No articles found</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Try searching for a different keyword or check other categories.</p>
+        <button id="resetSearchBtn" class="px-4 py-2 text-xs font-semibold rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+          Reset Filters
+        </button>
+      `;
+      const btn = emptyState.querySelector('#resetSearchBtn');
+      if (btn) {
+        btn.onclick = () => {
+          const searchInput = document.getElementById('searchInput');
+          if (searchInput) searchInput.value = '';
+          searchQuery = '';
+          activeCategory = 'All';
+          renderArticles();
+        };
+      }
+    }
     removeLoadMoreButton();
     return;
   }
@@ -577,7 +601,7 @@ function renderArticles(isAppending = false) {
       <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group" data-id="${safeId}">
         <!-- Card Image Header -->
         <div class="relative overflow-hidden aspect-[16/10] bg-gray-100 dark:bg-slate-800">
-          <a href="/${encodeURIComponent(art.id)}/" class="block w-full h-full cursor-pointer">
+          <a href="/${encodeURIComponent(art.id)}/" class="block w-full h-full cursor-pointer" aria-hidden="true" tabindex="-1">
             <img 
               src="${imgUrl}" 
               alt="${safeTitle}" 
@@ -818,7 +842,7 @@ function renderHero(featuredContainer, trendingContainer) {
           <div class="flex items-center gap-2 text-[10px] text-gray-400 mt-1">
             <span>${safeDate}</span>
             <span>•</span>
-            <span>${art.views || '1.2K'} reads</span>
+            <span>⏱️ ${art.readTime || '4 min read'}</span>
           </div>
         </div>
         <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-slate-800">
@@ -985,7 +1009,7 @@ function renderTrendingTopics() {
 
   const topics = (typeof trendingTopics !== 'undefined' && Array.isArray(trendingTopics) && trendingTopics.length > 0)
     ? trendingTopics
-    : ["#Engineering", "#Education", "#Software", "#Android", "#Gaming", "#MacBook", "#Notes", "#Database", "#Mathematics"];
+    : ["#ArtificialIntelligence", "#GPUs", "#Cybersecurity", "#Windows11", "#LLMs", "#PlayStation6", "#Gaming", "#Android", "#MacBook"];
 
   container.innerHTML = topics.map(topic => `
     <button class="topic-tag px-2.5 py-1 text-xs font-semibold rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-gray-700 dark:text-gray-300 transition-colors shadow-sm">
@@ -1126,7 +1150,7 @@ function setupSpotlightSearch() {
       searchResults.innerHTML = `
         <div class="text-center py-8 text-gray-400">
           <p>No stories found matching "<span class="text-gray-900 dark:text-white font-semibold">${escapeHtml(query)}</span>"</p>
-          <p class="text-[11px] text-gray-500 mt-1">Try another keyword like iPhone, Engineering, IOE, or Tech.</p>
+          <p class="text-[11px] text-gray-500 mt-1">Try another keyword like iPhone, Windows 11, GPUs, or AI.</p>
         </div>
       `;
       return;

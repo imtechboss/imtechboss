@@ -3,10 +3,21 @@ node_modules/
 .wrangler/
 .vercel/
 
-# Scratch & Temporary local files
+# Credentials & secrets
+*credentials*.json
+*.pem
+*.key
+
+# Backups & Temp files
+*.backup.*
+*.backup
 scratch/
 *.log
+submission_report.json
+scripts/submission_report.json
+urls.txt
 
 # OS generated files
 .DS_Store
 Thumbs.db
+

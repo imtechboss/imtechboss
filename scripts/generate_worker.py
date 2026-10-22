@@ -139,7 +139,7 @@ export default {{
           gridHtml += `
             <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col">
               <div class="aspect-[16/10] overflow-hidden bg-gray-100">
-                <a href="/${{encodeURIComponent(a.id)}}/">
+                <a href="/${{encodeURIComponent(a.id)}}/" aria-hidden="true" tabindex="-1">
                   <img src="${{a.image}}" alt="${{st}}" class="w-full h-full object-cover" loading="lazy" />
                 </a>
               </div>

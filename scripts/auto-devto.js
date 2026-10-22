@@ -47,6 +47,78 @@ function htmlToMarkdown(html) {
   let md = html;
   
   // Tables: convert <table> to GitHub Flavored Markdown table
+  md = md.replace(/\u003ctable[^\u003e]*\u003e([\\s\\S]*?)\u003c\/table\u003e/gi, (match, tableContent) => {
+    const rows = [];
+    const trMatches = tableContent.match(/\u003ctr[^\u003e]*\u003e([\\s\\S]*?)\u003c\/tr\u003e/gi) || [];
+    let isHeader = true;
+    for (const tr of trMatches) {
+      const cells = [];
+      const cellMatches = tr.match(/\u003c(th|td)[^\u003e]*\u003e([\\s\\S]*?)\u003c\/(th|td)\u003e/gi) || [];
+      for (const cell of cellMatches) {
+        let text = cell.replace(/\u003c[^\u003e]+\u003e/g, '').trim().replace(/\\|/g, '\\\\|');
+        text = text.replace(/\u0026amp;/g, '&').replace(/\u0026quot;/g, '"').replace(/\u0026#39;/g, "'").replace(/\u0026lt;/g, '<').replace(/\u0026gt;/g, '>');
+        cells.push(text);
+      }
+      if (cells.length > 0) {
+        rows.push('| ' + cells.join(' | ') + ' |');
+        if (isHeader) {
+          rows.push('| ' + Array(cells.length).fill('---').join(' | ') + ' |');
+          isHeader = false;
+        }
+      }
+    }
+    // Ensure blank lines before and after the table markdown
+    return rows.length > 0 ? '\n\n' + rows.join('\n') + '\n\n' : '';
+  });
+
+  // Headings
+  md = md.replace(/\u003ch2[^\u003e]*\u003e(.*?)\u003c\/h2\u003e/gi, '\n\n## $1\n\n');
+  md = md.replace(/\u003ch3[^\u003e]*\u003e(.*?)\u003c\/h3\u003e/gi, '\n\n### $1\n\n');
+  md = md.replace(/\u003ch4[^\u003e]*\u003e(.*?)\u003c\/h4\u003e/gi, '\n\n#### $1\n\n');
+
+  // Lists
+  md = md.replace(/\u003cli[^\u003e]*\u003e(.*?)\u003c\/li\u003e/gi, '- $1\n');
+  md = md.replace(/\u003c\/?(ul|ol)[^\u003e]*\u003e/gi, '\n');
+
+  // Blockquotes
+  md = md.replace(/\u003cblockquote[^\u003e]*\u003e(.*?)\u003c\/blockquote\u003e/gis, (m, c) => {
+    const inner = c.replace(/\u003cp[^\u003e]*\u003e(.*?)\u003c\/p\u003e/gi, '$1\n> ').trim();
+    return `\n> ${inner}\n\n`;
+  });
+
+  // Paragraphs
+  md = md.replace(/\u003cp[^\u003e]*\u003e(.*?)\u003c\/p\u003e/gis, '$1\n\n');
+
+  // Bold, italic, code
+  md = md.replace(/\u003cstrong[^\u003e]*\u003e(.*?)\u003c\/strong\u003e/gi, '**$1**');
+  md = md.replace(/\u003cb[^\u003e]*\u003e(.*?)\u003c\/b\u003e/gi, '**$1**');
+  md = md.replace(/\u003cem[^\u003e]*\u003e(.*?)\u003c\/em\u003e/gi, '*$1*');
+  md = md.replace(/\u003ci[^\u003e]*\u003e(.*?)\u003c\/i\u003e/gi, '*$1*');
+  md = md.replace(/\u003ccode[^\u003e]*\u003e(.*?)\u003c\/code\u003e/gi, '`$1`');
+
+  // Strip remaining tags
+  md = md.replace(/\u003c[^\u003e]+\u003e/g, '');
+
+  // Decode common HTML entities
+  md = md.replace(/\u0026amp;/g, '&')
+    .replace(/\u0026quot;/g, '"')
+    .replace(/\u0026#39;/g, "'")
+    .replace(/\u0026lt;/g, '<')
+    .replace(/\u0026gt;/g, '>')
+    .replace(/\u0026mdash;/g, '—')
+    .replace(/\u0026ndash;/g, '–');
+
+  // Ensure a blank line before any table start if missing
+  md = md.replace(/\n\|/g, '\n\n|');
+
+  // Normalize extra whitespace and newlines
+  md = md.replace(/\n{3,}/g, '\n\n').trim();
+  return md;
+}
+  if (!html) return '';
+  let md = html;
+  
+  // Tables: convert <table> to GitHub Flavored Markdown table
   md = md.replace(/<table[^>]*>([\s\S]*?)<\/table>/gi, (match, tableContent) => {
     const rows = [];
     const trMatches = tableContent.match(/<tr[^>]*>([\s\S]*?)<\/tr>/gi) || [];
