@@ -41,51 +41,7 @@ def calculate_read_time(content, excerpt):
     return f"{mins} min read"
 
 def inject_in_article_ads(body_html):
-    if not body_html or not body_html.strip():
-        return body_html
-
-    ad_banner_1 = '''
-    <div data-nosnippet="" aria-hidden="true" class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
-      <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Advertisement</span>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1043419685176632"
-           data-ad-slot="5211138610"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-    '''
-
-    ad_banner_2 = '''
-    <div data-nosnippet="" aria-hidden="true" class="ad-slot-box my-8 text-center bg-gray-50 dark:bg-slate-800 rounded-2xl p-4 sm:p-5 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
-      <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Advertisement</span>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1043419685176632"
-           data-ad-slot="6665664396"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-    '''
-
-    p_matches = list(re.finditer(r'</p>', body_html, re.IGNORECASE))
-    p_count = len(p_matches)
-
-    if p_count >= 6:
-        # Insert after 3rd and 6th
-        pos6 = p_matches[5].end()
-        pos3 = p_matches[2].end()
-        body_html = body_html[:pos6] + '\n' + ad_banner_2 + body_html[pos6:]
-        body_html = body_html[:pos3] + '\n' + ad_banner_1 + body_html[pos3:]
-        return body_html
-    elif p_count >= 3:
-        target_idx = 2 if p_count >= 5 else 1
-        pos = p_matches[target_idx].end()
-        return body_html[:pos] + '\n' + ad_banner_1 + body_html[pos:]
-    elif p_count > 0:
-        pos = p_matches[0].end()
-        return body_html[:pos] + '\n' + ad_banner_1 + body_html[pos:]
-
+    # Empty ad slots removed during AdSense site review to ensure 100% compliance
     return body_html
 
 def generate_key_takeaways(article):
@@ -600,16 +556,7 @@ def render_article_inner_html(article):
     <!-- Featured Hero Image -->
     {hero_img_block}
 
-    <!-- Top Article Ad Banner -->
-    <div class="ad-slot-box mb-8 text-center bg-gray-50 dark:bg-slate-800/60 rounded-2xl p-3 sm:p-4 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
-      <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mb-1.5">Sponsored / Advertisement</span>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1043419685176632"
-           data-ad-slot="9198547569"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
+        -->
 
     <!-- Audio Narration Bar -->
     <div id="articleAudioBar" data-nosnippet="" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
