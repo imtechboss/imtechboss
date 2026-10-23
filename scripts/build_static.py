@@ -199,6 +199,13 @@ def generate_table_of_contents(content_html):
     return toc_html, updated_body
 
 def _format_faq(faqs):
+    normalized = []
+    for f in faqs:
+        q = f.get('q') or f.get('question') or ''
+        a = f.get('a') or f.get('answer') or ''
+        if q and a:
+            normalized.append({'q': q, 'a': a})
+
     faq_html = f'''
     <div class="my-10 p-6 sm:p-7 rounded-3xl bg-gray-50/90 dark:bg-slate-800/60 border border-gray-200/80 dark:border-slate-800/80 shadow-xs not-prose">
       <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-200/60 dark:border-slate-700/60">
@@ -211,14 +218,14 @@ def _format_faq(faqs):
         {'\n'.join([
             f"""<details class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/80 transition-colors">
               <summary class="flex justify-between items-center font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 cursor-pointer select-none">
-                <span>{escape(f["q"])}</span>
+                <span>{escape(f['q'])}</span>
                 <span class="text-gray-400 group-open:rotate-180 transition-transform ml-2 text-xs flex-shrink-0">▼</span>
               </summary>
               <p class="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-slate-700/60 pt-2.5">
-                {escape(f["a"])}
+                {escape(f['a'])}
               </p>
             </details>"""
-            for f in faqs
+            for f in normalized
         ])}
       </div>
     </div>
@@ -227,20 +234,44 @@ def _format_faq(faqs):
     schema_faqs = [
         {
             "@type": "Question",
-            "name": f["q"],
+            "name": f['q'],
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": f["a"]
+                "text": f['a']
             }
         }
-        for f in faqs
+        for f in normalized
     ]
 
     return faq_html, schema_faqs
 
 def generate_faq_data(article):
+    custom_faqs = article.get('faqs')
+    if custom_faqs and isinstance(custom_faqs, list) and len(custom_faqs) > 0:
+        return _format_faq(custom_faqs)
+
     cat = (article.get('category') or '').lower()
     title = (article.get('title') or '').lower()
+
+    # Branch 0: Security & Password Managers
+    if any(k in cat for k in ['cybersecurity', 'security', 'password', 'privacy']) or any(k in title for k in ['password', 'bitwarden', '1password', 'keepass', 'auth', 'scam', 'phish', 'ransomware', 'zero-day', 'vulnerability']):
+        if not any(k in title for k in ['windows 11', 'bsod']):
+            faqs = [
+                {
+                    "q": "How do zero-knowledge password managers protect credentials from database breaches?",
+                    "a": "Zero-knowledge vaults use client-side AES-256 or ChaCha20 encryption with PBKDF2 or Argon2id key derivation. Your master passphrase never leaves your physical device unencrypted, preventing attackers from deciphering stolen database blobs."
+                },
+                {
+                    "q": "Is cloud synchronization secure, or is an offline encrypted vault better?",
+                    "a": "Audited cloud vaults (like Bitwarden and 1Password) offer seamless multi-device synchronization with end-to-end encryption. However, for maximum air-gapped isolation against network vectors, open-source local database managers (like KeePassXC) ensure zero cloud exposure."
+                },
+                {
+                    "q": "What should I do if I lose my Master Password or two-factor authenticator device?",
+                    "a": "Because zero-knowledge services cannot reset or view master keys, you must store your cryptographically generated Emergency Access Recovery Kit in a secure physical location during initial vault provisioning."
+                }
+            ]
+            return _format_faq(faqs)
+
 
     # Branch 1: PC Hardware & Silicon (Check hardware first so CPUs/GPUs aren't swallowed by 'gaming')
     if any(k in cat for k in ['hardware', 'semiconductor']) or any(k in title for k in ['rtx', 'ryzen', 'intel', 'gpu', 'cpu', 'tsmc', 'radeon', 'nvidia', 'amd', 'core ultra', 'motherboard', 'ddr5', 'pcie', 'vram', 'bspdn', 'silicon']):
@@ -565,8 +596,6 @@ def render_article_inner_html(article):
 
     <!-- Featured Hero Image -->
     {hero_img_block}
-
-        -->
 
     <!-- Audio Narration Bar -->
     <div id="articleAudioBar" data-nosnippet="" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">

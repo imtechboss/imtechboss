@@ -166,9 +166,7 @@
             <svg class="w-4 h-4 absolute left-3.5 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
-            <button id="clearSearchBtn" aria-label="Clear search query" class="hidden absolute right-3 top-2.5 text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
-              &times;
-            </button>
+            <button id="clearSearchBtn" aria-label="Clear search query" data-nosnippet="" class="hidden absolute right-3 top-2.5 text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"><span aria-hidden="true" data-nosnippet="">&times;</span></button>
           </div>
         </div>
 
@@ -1261,9 +1259,7 @@
   <div id="pageModal" data-nosnippet="" aria-hidden="true" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto bg-black/60 backdrop-blur-sm">
     <div class="relative bg-white dark:bg-slate-900 w-full max-w-3xl rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-800 my-auto overflow-hidden">
       <!-- Close Button -->
-      <button id="closePageModalBtn" aria-label="Close modal" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 flex items-center justify-center transition-colors shadow">
-        &times;
-      </button>
+      <button id="closePageModalBtn" aria-label="Close modal" data-nosnippet="" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 flex items-center justify-center transition-colors shadow"><span aria-hidden="true" data-nosnippet="">&times;</span></button>
       <div id="pageModalContent" class="max-h-[85vh] overflow-y-auto p-6 sm:p-8">
         <!-- Injected via JS -->
       </div>
@@ -1296,8 +1292,8 @@
 
   <!-- Global Toast Notification -->
   <div id="toastNotification" data-nosnippet="" aria-hidden="true" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none flex items-center gap-2.5 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl text-xs font-semibold">
-    <span id="toastIcon">&#10003;</span>
-    <span id="toastMessage"></span>
+    <span id="toastIcon" aria-hidden="true" data-nosnippet="">&#10003;</span>
+    <span id="toastMessage" data-nosnippet=""></span>
   </div>
 
   <!-- Scripts -->

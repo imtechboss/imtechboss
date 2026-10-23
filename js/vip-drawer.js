@@ -30,13 +30,13 @@
 
     const drawer = document.createElement('div');
     drawer.id = 'tbVipDrawer';
+    drawer.setAttribute('data-nosnippet', '');
+    drawer.setAttribute('aria-hidden', 'true');
     drawer.className = 'fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 max-w-sm w-[calc(100%-2rem)] bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-md border border-blue-500/40 shadow-2xl rounded-3xl p-5 sm:p-6 text-white transition-all duration-500 transform translate-y-8 opacity-0 pointer-events-none';
 
     drawer.innerHTML = `
       <div class="relative">
-        <button id="closeTbVipDrawer" aria-label="Close newsletter invite" class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-sm font-bold transition-colors">
-          ✕
-        </button>
+        <button id="closeTbVipDrawer" aria-label="Close newsletter invite" data-nosnippet="" class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-sm font-bold transition-colors"><span aria-hidden="true" data-nosnippet="">✕</span></button>
 
         <div class="flex items-center gap-2 mb-2">
           <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>

@@ -1648,7 +1648,7 @@ function setupFloatingReadNext(currentArticle) {
       <div class="flex-1 min-w-0">
         <div class="flex items-center justify-between gap-1 mb-0.5">
           <span class="text-[9px] uppercase font-black text-blue-600 dark:text-blue-400 tracking-wider">Read Next</span>
-          <button id="closeFloatingReadNext" aria-label="Dismiss recommendation" class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm font-bold leading-none p-0.5">×</button>
+          <button id="closeFloatingReadNext" aria-label="Dismiss recommendation" data-nosnippet="" class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm font-bold leading-none p-0.5"><span aria-hidden="true" data-nosnippet="">×</span></button>
         </div>
         <a href="/${encodeURIComponent(nextArticle.id)}/" class="block text-xs font-bold text-gray-900 dark:text-white truncate hover:text-blue-600 transition-colors">
           ${safeTitle}
@@ -1833,52 +1833,101 @@ function generateTableOfContents(contentHtml) {
 // 6.5 Google FAQ & People Also Ask Accordion Generator
 function generateFaqSection(article) {
   const cat = (article.category || '').toLowerCase();
-  const title = article.title || '';
+  const title = (article.title || '').toLowerCase();
   let faqs = [];
 
-  if (cat.includes('hard') || title.includes('RTX') || title.includes('Ryzen') || title.includes('Intel') || title.includes('GPU') || title.includes('CPU')) {
+  // Check if article has explicit custom FAQs
+  if (Array.isArray(article.faqs) && article.faqs.length > 0) {
+    faqs = article.faqs;
+  } else if (cat.includes('cyber') || cat.includes('secur') || cat.includes('pass') || cat.includes('privacy') ||
+             title.includes('password') || title.includes('bitwarden') || title.includes('1password') || title.includes('keepass') || title.includes('auth') || title.includes('scam') || title.includes('phish') || title.includes('ransomware') || title.includes('zero-day') || title.includes('vulnerability')) {
     faqs = [
       {
-        q: `Does upgrading to this hardware require a new power supply (PSU)?`,
-        a: `Power requirements depend on total system power draw. For modern high-end components, an ATX 3.1 certified 750W to 1000W power supply with native 12V-2x6 cabling is recommended to prevent transient load shutdowns.`
+        q: "How do zero-knowledge password managers protect credentials from database breaches?",
+        a: "Zero-knowledge vaults use client-side AES-256 or ChaCha20 encryption with PBKDF2 or Argon2id key derivation. Your master passphrase never leaves your physical device unencrypted, preventing attackers from deciphering stolen database blobs."
       },
       {
-        q: `Will this component work with older motherboards?`,
-        a: `Modern components utilize PCIe 4.0 and PCIe 5.0 interfaces which maintain backwards compatibility. However, a motherboard BIOS update is often mandatory for initial memory training and optimal clock profiles.`
+        q: "Is cloud synchronization secure, or is an offline encrypted vault better?",
+        a: "Audited cloud vaults (like Bitwarden and 1Password) offer seamless multi-device synchronization with end-to-end encryption. However, for maximum air-gapped isolation against network vectors, open-source local database managers (like KeePassXC) ensure zero cloud exposure."
       },
       {
-        q: `How much performance uplift can I expect with modern upscaling (DLSS/FSR)?`,
-        a: `Enabling temporal upscalers like DLSS 3.5, FSR 3.1, or XeSS Quality modes typically provides a 30% to 65% framerate improvement by rendering frames at lower internal resolutions before neural reconstruction.`
+        q: "What should I do if I lose my Master Password or two-factor authenticator device?",
+        a: "Because zero-knowledge services cannot reset or view master keys, you must store your cryptographically generated Emergency Access Recovery Kit in a secure physical location during initial vault provisioning."
       }
     ];
-  } else if (cat.includes('ai') || title.includes('DeepSeek') || title.includes('Claude') || title.includes('GPT') || title.includes('LLM') || title.includes('Model')) {
+  } else if (cat.includes('hard') || title.includes('rtx') || title.includes('ryzen') || title.includes('intel') || title.includes('gpu') || title.includes('cpu')) {
     faqs = [
       {
-        q: `Can this AI model run locally on consumer PC hardware?`,
-        a: `Quantized versions (such as 4-bit and 8-bit GGUF models) can run locally on consumer GPUs with 12GB to 24GB of VRAM using inference engines like Ollama, llama.cpp, and LM Studio.`
+        q: "Does upgrading to this hardware require a new power supply (PSU)?",
+        a: "Power requirements depend on total system power draw. For modern high-end components, an ATX 3.1 certified 750W to 1000W power supply with native 12V-2x6 cabling is recommended to prevent transient load shutdowns."
       },
       {
-        q: `How does test-time compute reasoning improve model answers?`,
-        a: `Reasoning models generate internal chain-of-thought tokens, verifying mathematical intermediate steps and backtracking when encountering logical contradictions before providing the output.`
+        q: "Will this component work with older motherboards?",
+        a: "Modern components utilize PCIe 4.0 and PCIe 5.0 interfaces which maintain backwards compatibility. However, a motherboard BIOS update is often mandatory for initial memory training and optimal clock profiles."
       },
       {
-        q: `Is prompt data kept private when self-hosting local models?`,
-        a: `Yes. Running models on local hardware ensures that your prompts, source code, and queries remain on your private machine without transmitting telemetry to third-party cloud APIs.`
+        q: "How much performance uplift can I expect with modern upscaling (DLSS/FSR)?",
+        a: "Enabling temporal upscalers like DLSS 3.5, FSR 3.1, or XeSS Quality modes typically provides a 30% to 65% framerate improvement by rendering frames at lower internal resolutions before neural reconstruction."
+      }
+    ];
+  } else if (cat.includes('ai') || title.includes('deepseek') || title.includes('claude') || title.includes('gpt') || title.includes('llm') || title.includes('model') || title.includes('duet')) {
+    faqs = [
+      {
+        q: "Can this AI model run locally on consumer PC hardware?",
+        a: "Quantized versions (such as 4-bit and 8-bit GGUF models) can run locally on consumer GPUs with 12GB to 24GB of VRAM using inference engines like Ollama, llama.cpp, and LM Studio."
+      },
+      {
+        q: "How does test-time compute reasoning improve model answers?",
+        a: "Reasoning models generate internal chain-of-thought tokens, verifying mathematical intermediate steps and backtracking when encountering logical contradictions before providing the output."
+      },
+      {
+        q: "Is prompt data kept private when self-hosting local models?",
+        a: "Yes. Running models on local hardware ensures that your prompts, source code, and queries remain on your private machine without transmitting telemetry to third-party cloud APIs."
+      }
+    ];
+  } else if (cat.includes('gaming') || cat.includes('console') || title.includes('switch') || title.includes('ps5') || title.includes('ps6') || title.includes('xbox') || title.includes('gta')) {
+    faqs = [
+      {
+        q: "Will this gaming hardware support backward compatibility and 60+ FPS?",
+        a: "Modern console architectures and gaming engines prioritize backward compatibility while leveraging temporal upscaling (PSSR, FSR, DLSS) to achieve fluid 4K 60 FPS to 120 FPS targets."
+      },
+      {
+        q: "What storage specifications are required for modern titles?",
+        a: "DirectStorage and PCIe Gen 4/5 NVMe SSDs with transfer rates exceeding 5,000 MB/s are recommended to eliminate asset decompression hitches and asset pop-in."
+      },
+      {
+        q: "How does frame generation impact display input latency?",
+        a: "Frame generation inserts interpolated frames to increase visual smoothness, but native reflex low-latency technologies should be enabled to prevent added controller input delay."
+      }
+    ];
+  } else if (title.includes('windows 11') || title.includes('bsod') || title.includes('dism') || title.includes('registry') || title.includes('dpc latency')) {
+    faqs = [
+      {
+        q: "Are these technical instructions safe to apply on Windows 11?",
+        a: "Yes. The steps detailed in this Tech Boss analysis utilize standard administrative tools and follow official operating system documentation to ensure complete stability."
+      },
+      {
+        q: "Will these optimization steps reset after a Windows update?",
+        a: "Most software configurations persist across normal restarts, though major seasonal Windows feature updates may occasionally revert specific background telemetry or service preferences."
+      },
+      {
+        q: "Where can I find more technical benchmarks and developer tools?",
+        a: "Explore the Tech Boss Interactive Tools suite, PC Bottleneck Calculator, and dedicated hardware reviews directly on imtechboss.com."
       }
     ];
   } else {
     faqs = [
       {
-        q: `Are these technical instructions safe to apply on Windows 11?`,
-        a: `Yes. The steps detailed in this Tech Boss analysis utilize standard administrative tools and follow official operating system documentation to ensure complete stability.`
+        q: "How are the technical specifications and benchmarks in this analysis verified?",
+        a: "Tech Boss cross-references manufacturer architectural whitepapers, standardized benchmark suites, developer documentation, and verified hardware telemetry to ensure objective technical accuracy."
       },
       {
-        q: `Will these optimization steps reset after a Windows update?`,
-        a: `Most software configurations persist across normal restarts, though major seasonal Windows feature updates may occasionally revert specific background telemetry or service preferences.`
+        q: "Can I use Tech Boss interactive tools to evaluate my setup?",
+        a: "Yes. Tech Boss provides free interactive diagnostics, hardware comparison calculators, and latency testing utilities directly in the Interactive Hubs section."
       },
       {
-        q: `Where can I find more technical benchmarks and developer tools?`,
-        a: `Explore the Tech Boss Interactive Tools suite, PC Bottleneck Calculator, and dedicated hardware reviews directly on imtechboss.com.`
+        q: "How frequently is this technical analysis updated with new data?",
+        a: "Our editorial and engineering radar continuously monitors firmware revisions, driver patches, and industry silicon updates, refreshing analyses as verified test data becomes available."
       }
     ];
   }
@@ -1896,11 +1945,11 @@ function generateFaqSection(article) {
         ${faqs.map((f, i) => `
           <details class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/80 transition-colors">
             <summary class="flex justify-between items-center font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 cursor-pointer select-none">
-              <span>${escapeHtml(f.q)}</span>
+              <span>${escapeHtml(f.q || f.question || "")}</span>
               <span class="text-gray-400 group-open:rotate-180 transition-transform ml-2 text-xs flex-shrink-0">▼</span>
             </summary>
             <p class="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-slate-700/60 pt-2.5">
-              ${escapeHtml(f.a)}
+              ${escapeHtml(f.a || f.answer || "")}
             </p>
           </details>
         `).join('')}
@@ -1913,10 +1962,10 @@ function generateFaqSection(article) {
     "@type": "FAQPage",
     "mainEntity": faqs.map(f => ({
       "@type": "Question",
-      "name": f.q,
+      "name": f.q || f.question || "",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": f.a
+        "text": f.a || f.answer || ""
       }
     }))
   };

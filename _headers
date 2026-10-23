@@ -54,3 +54,15 @@
 
 /js/post.js
   Cache-Control: public, max-age=0, must-revalidate
+
+/post
+  X-Robots-Tag: noindex, follow
+
+/post.html
+  X-Robots-Tag: noindex, follow
+
+/admin
+  X-Robots-Tag: noindex, nofollow
+
+/admin.html
+  X-Robots-Tag: noindex, nofollow

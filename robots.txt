@@ -1,8 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin.html
 
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /admin.html
 
 User-agent: Mediapartners-Google
 Allow: /
