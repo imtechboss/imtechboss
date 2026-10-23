@@ -7,6 +7,46 @@
   <language>en-us</language>
   <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Anthropic Unveils Claude Duet: Always-On Autonomous Agent with 6,000 App Integrations, Proactive Briefs &amp; Opus 5.5 Architecture (2026 Breakdown)</title>
+    <link>https://imtechboss.com/anthropic-unveils-claude-duet-autonomous-agent-opus-5-5-marketplace-2026/</link>
+    <guid>https://imtechboss.com/anthropic-unveils-claude-duet-autonomous-agent-opus-5-5-marketplace-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Anthropic has officially launched Claude Duet, an always-on proactive autonomous agent powered by Claude Opus 5.5 running in persistent cloud virtual machines across 6,000 integrated enterprise applications.</description>
+    <category>AI &amp; Technology</category>
+  </item>
+  <item>
+    <title>Nintendo Switch 2 Hardware Confirmed: Nvidia Tegra T239, 12GB RAM, Full Backward Compatibility &amp; 4K DLSS Dock Specs Breakdown (2026)</title>
+    <link>https://imtechboss.com/nintendo-switch-2-hardware-specs-nvidia-tegra-t239-4k-dlss-backward-compatibility-2026/</link>
+    <guid>https://imtechboss.com/nintendo-switch-2-hardware-specs-nvidia-tegra-t239-4k-dlss-backward-compatibility-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Nintendo President Shuntaro Furukawa has officially confirmed full backward compatibility for the Nintendo Switch 2, backed by leaked customs manifests detailing Nvidia's custom Tegra T239 silicon with 12GB LPDDR5X RAM and 4K DLSS.</description>
+    <category>Gaming</category>
+  </item>
+  <item>
+    <title>How to Fix Windows 11 24H2 BSOD Crashes on Western Digital SN770 &amp; SN580 SSDs: Host Memory Buffer (HMB) Registry Fix &amp; Firmware Guide (2026)</title>
+    <link>https://imtechboss.com/how-to-fix-wd-sn770-sn580-ssd-bsod-crashes-windows-11-24h2-hmb-guide-2026/</link>
+    <guid>https://imtechboss.com/how-to-fix-wd-sn770-sn580-ssd-bsod-crashes-windows-11-24h2-hmb-guide-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 18:15:00 GMT</pubDate>
+    <description>A complete technical troubleshooting guide to resolving repetitive CRITICAL_PROCESS_DIED Blue Screens on Western Digital SN770 and SN580 NVMe SSDs caused by Windows 11 24H2 Host Memory Buffer allocation bugs.</description>
+    <category>Guides</category>
+  </item>
+  <item>
+    <title>NVIDIA Prepping RTX 5080 24GB GDDR7 Refresh to Replace 16GB Model: 32 Gbps Memory, Specs, Pricing &amp; Release Leaks (2026)</title>
+    <link>https://imtechboss.com/nvidia-geforce-rtx-5080-24gb-gddr7-refresh-specs-pricing-leak-2026/</link>
+    <guid>https://imtechboss.com/nvidia-geforce-rtx-5080-24gb-gddr7-refresh-specs-pricing-leak-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Following immense gamer backlash over a 16GB VRAM limit on a $1,199 GPU, supply chain disclosures confirm NVIDIA is developing a 24GB GDDR7 GeForce RTX 5080 refresh utilizing high-density 3GB memory modules.</description>
+    <category>Hardware</category>
+  </item>
+  <item>
+    <title>Critical "Plex2Shell" Zero-Day Chain Hits Millions of Plex Servers: CISA KEV Warning, CVE Breakdown &amp; Immediate Patch Guide (2026)</title>
+    <link>https://imtechboss.com/critical-plex2shell-zero-day-cve-rce-chain-cisa-kev-patch-guide-2026/</link>
+    <guid>https://imtechboss.com/critical-plex2shell-zero-day-cve-rce-chain-cisa-kev-patch-guide-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 18:15:00 GMT</pubDate>
+    <description>CISA has officially added the critical Plex2Shell exploit chain to its Known Exploited Vulnerabilities catalog as attackers actively scan exposed port 32400 to achieve unauthenticated Remote Code Execution on home media servers.</description>
+    <category>Software &amp; Tech</category>
+  </item>
+  <item>
     <title>Amazon Officially Rebrands Kindle Unlimited to Kindle+: AI Virtual Voice Audiobooks, $11.99 Pricing &amp; Feature Breakdown (2026)</title>
     <link>https://imtechboss.com/amazon-rebrands-kindle-unlimited-to-kindle-plus-ai-audiobooks-pricing-2026/</link>
     <guid>https://imtechboss.com/amazon-rebrands-kindle-unlimited-to-kindle-plus-ai-audiobooks-pricing-2026/</guid>
@@ -125,46 +165,6 @@
     <pubDate>Sun, 11 Oct 2026 18:15:00 GMT</pubDate>
     <description>Diagnose home Wi-Fi bottlenecks, eliminate bufferbloat, and configure ultra-fast encrypted DNS servers (Cloudflare 1.1.1.1 vs Google 8.8.8.8 vs Quad9) to slash latency and stabilize connection speeds.</description>
     <category>Tech Guides</category>
-  </item>
-  <item>
-    <title>Google Quantum AI Demonstrates Verifiable Quantum Advantage on 105-Qubit Willow Chip: Molecular Benchmarks Solved in Under 5 Minutes</title>
-    <link>https://imtechboss.com/google-quantum-ai-willow-chip-quantum-advantage-molecules-2026/</link>
-    <guid>https://imtechboss.com/google-quantum-ai-willow-chip-quantum-advantage-molecules-2026/</guid>
-    <pubDate>Sat, 10 Oct 2026 18:15:00 GMT</pubDate>
-    <description>Google Quantum AI has published verified benchmarks demonstrating quantum computational advantage on its 105-qubit Willow processor, calculating complex molecular ground-state energies in minutes that would demand 4,200 years on Frontier.</description>
-    <category>Frontier AI &amp; Quantum</category>
-  </item>
-  <item>
-    <title>Meta Releases Llama 4 Scout: Frontier Open-Weights Mixture-of-Depths Architecture with Native 1M-Token Context Window</title>
-    <link>https://imtechboss.com/meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026/</link>
-    <guid>https://imtechboss.com/meta-llama-4-scout-mixture-of-depths-1m-context-reasoning-2026/</guid>
-    <pubDate>Sat, 10 Oct 2026 18:15:00 GMT</pubDate>
-    <description>Meta has made its next-generation open-weights frontier model, Llama 4 Scout, available under permissive research licensing, introducing dynamic Mixture-of-Depths layer routing, native 1-million token context, and FP8 quantized checkpoints.</description>
-    <category>Frontier AI &amp; LLMs</category>
-  </item>
-  <item>
-    <title>NVIDIA Announces Rubin R100 Ultra: 3nm CoWoS-L Architecture with 288GB HBM4 Memory</title>
-    <link>https://imtechboss.com/nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/</link>
-    <guid>https://imtechboss.com/nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/</guid>
-    <pubDate>Thu, 08 Oct 2026 18:15:00 GMT</pubDate>
-    <description>NVIDIA formally reveals the Rubin R100 Ultra GPU platform, integrating dual-die 3nm silicon, 288GB of ultra-fast HBM4 memory, and third-generation Transformer Engines delivering 50 PFLOPS of FP4 inference.</description>
-    <category>Hardware &amp; Computing</category>
-  </item>
-  <item>
-    <title>CoreWeave Launches Forge: End-to-End Enterprise AI Development and Agent Evaluation Layer</title>
-    <link>https://imtechboss.com/coreweave-launches-forge-enterprise-ai-training-agent-evaluation-layer-2026/</link>
-    <guid>https://imtechboss.com/coreweave-launches-forge-enterprise-ai-training-agent-evaluation-layer-2026/</guid>
-    <pubDate>Thu, 01 Oct 2026 18:15:00 GMT</pubDate>
-    <description>Specialized GPU cloud provider CoreWeave debuts Forge, a unified developer platform connecting high-density compute clusters directly to autonomous agent benchmarking and telemetry.</description>
-    <category>AI &amp; Technology</category>
-  </item>
-  <item>
-    <title>Thales Unveils Sentinel Envelope Plus to Block Automated AI-Driven Binary Exploits</title>
-    <link>https://imtechboss.com/thales-sentinel-envelope-plus-defends-against-ai-automated-exploit-generation-2026/</link>
-    <guid>https://imtechboss.com/thales-sentinel-envelope-plus-defends-against-ai-automated-exploit-generation-2026/</guid>
-    <pubDate>Thu, 01 Oct 2026 18:15:00 GMT</pubDate>
-    <description>Cybersecurity leader Thales launches Sentinel Envelope Plus, introducing polymorphic binary hardening and real-time execution defense against machine-speed vulnerability discovery.</description>
-    <category>Cybersecurity</category>
   </item>
 </channel>
 </rss>
