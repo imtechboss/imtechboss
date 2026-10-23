@@ -965,5 +965,177 @@ def build_all_static():
                 f.write(p_content)
             print(f"  Created static folder: /{p}/index.html")
 
+    # Update Homepage index.html with Pre-rendered Latest Articles
+    update_homepage_prerender(articles)
+
+    # Regenerate _worker.js with updated Edge SSR metadata
+    worker_script = os.path.join(ROOT_DIR, 'scripts', 'generate_worker.py')
+    if os.path.exists(worker_script):
+        import subprocess
+        subprocess.run([sys.executable, worker_script], cwd=ROOT_DIR, check=False)
+
+def update_homepage_prerender(articles):
+    index_path = os.path.join(ROOT_DIR, "index.html")
+    if not os.path.exists(index_path) or not articles:
+        return
+
+    featured = articles[0]
+    trending = articles[1:4]
+    grid_posts = articles[:12]
+
+    feat_id = escape(featured['id'])
+    feat_title = escape(featured['title'])
+    feat_desc = escape(featured.get('excerpt') or featured.get('summary') or '')
+    feat_cat = escape(featured.get('category') or 'AI & Technology')
+    feat_date = escape(featured.get('date') or 'Recent')
+    feat_read = escape(featured.get('readTime') or '4 min read')
+    feat_img = featured.get('image') or 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'
+
+    featured_html = f'''<a 
+            href="/{feat_id}/" 
+            class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer"
+            data-id="{feat_id}"
+          >
+            <img 
+              src="{feat_img}" 
+              alt="{feat_title}" 
+              class="zoom-img w-full h-full object-cover opacity-80 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+              onerror="this.onerror=null; this.src=\'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80\'"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-10 text-white">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-blue-600 text-white shadow">
+                  Featured Story
+                </span>
+                <span class="text-xs text-gray-300 font-medium">{feat_cat}</span>
+                <span class="text-xs text-gray-400">•</span>
+                <span class="text-xs text-gray-300 font-medium">{feat_read}</span>
+              </div>
+              <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold font-serif-heading leading-tight mb-3 group-hover:text-blue-300 transition-colors">
+                {feat_title}
+              </h1>
+              <p class="text-xs sm:text-sm text-gray-300 max-w-2xl line-clamp-2 mb-4 leading-relaxed">
+                {feat_desc}
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center ring-2 ring-white/50">
+                    T
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold">Tech Boss</p>
+                    <p class="text-[10px] text-gray-400">Publisher • {feat_date}</p>
+                  </div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold hover:bg-white/30 transition-colors">
+                  <span>Read Story</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>'''
+
+    trending_items = []
+    for idx, art in enumerate(trending):
+        tid = escape(art['id'])
+        ttitle = escape(art['title'])
+        tcat = escape(art.get('category') or 'General')
+        tdate = escape(art.get('date') or 'Recent')
+        trending_items.append(f'''<a 
+              href="/{tid}/" 
+              class="group flex gap-3 p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200/70 dark:border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer" 
+              data-id="{tid}"
+            >
+              <span class="text-2xl font-black font-serif-heading text-gray-300 dark:text-slate-700 group-hover:text-blue-600 transition-colors flex-shrink-0 w-6">
+                0{idx + 1}
+              </span>
+              <div class="flex-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                  {tcat}
+                </span>
+                <h3 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mt-0.5">
+                  {ttitle}
+                </h3>
+                <span class="text-[10px] text-gray-400 block mt-1">Tech Boss • {tdate}</span>
+              </div>
+            </a>''')
+    trending_html = "\n            ".join(trending_items)
+
+    grid_items = []
+    for art in grid_posts:
+        gid = escape(art['id'])
+        gtitle = escape(art['title'])
+        gdesc = escape(art.get('excerpt') or art.get('summary') or '')
+        gcat = escape(art.get('category') or 'General')
+        gdate = escape(art.get('date') or 'Recent')
+        gread = escape(art.get('readTime') or '4 min read')
+        gimg = art.get('image') or 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'
+
+        grid_items.append(f'''<article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group" data-id="{gid}">
+              <div class="relative overflow-hidden aspect-[16/10] bg-gray-100 dark:bg-slate-800">
+                <a href="/{gid}/" class="block w-full h-full cursor-pointer" aria-hidden="true" tabindex="-1">
+                  <img 
+                    src="{gimg}" 
+                    alt="{gtitle}" 
+                    loading="lazy" 
+                    class="zoom-img w-full h-full object-cover"
+                    onerror="this.onerror=null; this.src=\'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80\'"
+                  >
+                </a>
+                <div class="absolute top-3 left-3 flex gap-2 pointer-events-none">
+                  <span class="px-2.5 py-1 text-[11px] font-bold rounded-full bg-white/90 dark:bg-slate-900/90 text-blue-600 dark:text-blue-400 backdrop-blur-md shadow-sm">
+                    {gcat}
+                  </span>
+                </div>
+              </div>
+              <div class="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2.5">
+                    <span>{gdate}</span>
+                    <span>•</span>
+                    <span>{gread}</span>
+                  </div>
+                  <h2 class="font-bold text-base sm:text-lg text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+                    <a href="/{gid}/">{gtitle}</a>
+                  </h2>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 line-clamp-2 leading-relaxed">
+                    {gdesc}
+                  </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center">
+                      T
+                    </div>
+                    <span class="text-xs text-gray-600 dark:text-gray-300 font-medium">Tech Boss</span>
+                  </div>
+                  <a href="/{gid}/" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+                    <span>Read</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>''')
+    grid_html = "\n          ".join(grid_items)
+
+    with open(index_path, 'r', encoding='utf-8') as f:
+        idx_content = f.read()
+
+    feat_pattern = r'(<div class="lg:col-span-8 group cursor-pointer" id="featuredArticleContainer">)[\s\S]*?(</div>\s*<!-- Trending Highlights Side Column -->)'
+    idx_content = re.sub(feat_pattern, r'\1\n          ' + featured_html + r'\n        \2', idx_content)
+
+    trend_pattern = r'(<div id="trendingListContainer" class="space-y-4">)[\s\S]*?(</div>\s*</div>\s*</div>\s*</section>)'
+    idx_content = re.sub(trend_pattern, r'\1\n            ' + trending_html + r'\n          \2', idx_content)
+
+    grid_pattern = r'(<div id="articlesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">)[\s\S]*?(</div>\s*<!-- Empty State -->)'
+    idx_content = re.sub(grid_pattern, r'\1\n          ' + grid_html + r'\n        \2', idx_content)
+
+    with open(index_path, 'w', encoding='utf-8') as f:
+        f.write(idx_content)
+    print("  Successfully updated Homepage index.html with static pre-rendered articles!")
+
+
 if __name__ == '__main__':
     build_all_static()
