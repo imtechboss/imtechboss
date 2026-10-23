@@ -14,7 +14,7 @@ Whenever a new article is created or published, follow these steps strictly in t
 - **NEVER** use `?w=800` or low-resolution images. Flipboard, Twitter, Facebook, and Pinterest require high-res images ($\ge 1200\text{px}$) to extract featured cards properly.
 
 ### Step 2: Update Codebase Files & Escape XML
-1. **`js/data.js`**: Add article to `initialArticles` array at the top.
+1. **`js/data.js` & `posts.json`**: Add article to both data files simultaneously.
    - **CRITICAL**: The HTML body MUST be stored under the key **`"content"`** (e.g. `"content": "<h2>...</h2><p>...</p>"`).
    - **STRICTLY PROHIBITED**: NEVER use the key `"body"`. The reader (`post.js`) and Edge SSR (`_worker.js`) require `"content"`.
    - Ensure valid JSON structure, rich formatted HTML, and 1200px image URL.
@@ -24,15 +24,15 @@ Whenever a new article is created or published, follow these steps strictly in t
    ```bash
    python scripts/validate_all.py
    ```
-   This validates both article schema/content integrity (`validate_articles.py`) and XML syntax (`validate_xml.py`).
+   This validates article schema, anti-AI tone, XML syntax, and complete site health.
    **DO NOT proceed if validation outputs any error.**
 
-### Step 3: Regenerate Cloudflare Edge Worker
+### Step 3: Regenerate Static Directories & Cloudflare Edge Worker
 - Always run:
   ```bash
-  python scripts/generate_worker.py
+  python scripts/build_static.py
   ```
-- This updates `_worker.js` with OpenGraph (`og:image`, `og:title`), Twitter card tags, and Edge SSR pre-rendering with full article content.
+- This updates all static folders `/<slug>/index.html`, homepage `index.html`, and `_worker.js` with OpenGraph metadata, Twitter cards, and Edge SSR pre-rendering.
 
 ### Step 4: Multi-Engine Real-Time Indexing (MANDATORY)
 - Trigger instant crawler discovery across Google, Microsoft Bing, Yandex, Seznam, and partner engines:
@@ -44,7 +44,7 @@ Whenever a new article is created or published, follow these steps strictly in t
   ```
 
 ### Step 5: Automated Master Pipeline (ONE-COMMAND PUBLISHING)
-- Alternatively, run the all-in-one automated pipeline which regenerates sitemap, feed, worker, runs validations, pushes to Google Indexing API + IndexNow, syndicates to DEV.to, broadcasts to Bluesky/Mastodon, and pushes to Git in one command:
+- Alternatively, run the all-in-one automated pipeline which regenerates static pages, sitemap, feed, worker, runs validations, pushes to Google Indexing API + IndexNow, syndicates to DEV.to, broadcasts to Bluesky/Mastodon, and pushes to Git in one command:
   ```bash
   python scripts/publish_pipeline.py
   ```
@@ -58,9 +58,10 @@ Whenever a new article is created or published, follow these steps strictly in t
 ---
 
 ## 2. Social Sharing & Flipboard Protocol
-- **Flipboard Bookmarklet / Share Button URL Pattern:**
-  `https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://imtechboss.com/post.html?id=' + article.id + '&flip=1')}`
-- Only share or flip **after** `npx wrangler@3 pages deploy` reports `✨ Deployment complete`.
+- **Clean Permalinks Only:** All social sharing and Flipboard links must use clean permalinks:
+  `https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://imtechboss.com/' + article.id + '/')}`
+- Strictly **NEVER** use legacy query parameters like `post.html?id=` in share URLs.
+- Only share or flip **after** Cloudflare Pages deployment is complete and verified live.
 
 ---
 
@@ -74,20 +75,61 @@ Whenever a new article is created or published, follow these steps strictly in t
 ---
 
 ## 4. Zero-Duplicate & Genuine Global News Rule (MANDATORY)
-- **Zero Duplicate Policy:** Before writing, cross-reference `js/data.js` and ensure the topic has never been covered on `imtechboss.com`. Duplicate or rehashed articles are strictly prohibited.
+- **Zero Duplicate Policy:** Before writing, cross-reference `js/data.js` and `posts.json` and ensure the topic has never been covered on `imtechboss.com`. Duplicate or rehashed articles are strictly prohibited.
 - **Genuine Top Worldwide News:** Topics must be grounded in breaking, verified, and high-impact developments in global tech (AI models, semiconductor nodes, GPU/CPU architectures, operating system shifts, cybersecurity).
 - **Multi-Engine Indexing:** Every single new article must be submitted to Bing, Yandex, Google, and IndexNow without exception.
 
 ---
 
 ## 5. Mandatory XML & Sitemap Validation Rule (ZERO ERRORS)
-- **XML Ampersand Escaping Rule:** Raw `&` characters are forbidden in any XML attribute or body tag. Every URL containing query parameters (like `?auto=format&fit=crop&w=1200&q=80`) must strictly be written as `?auto=format&amp;fit=crop&amp;w=1200&amp;q=80`.
+- **XML Ampersand Escaping Rule:** Raw `&` characters are forbidden in any XML attribute or body tag. Every URL containing query parameters must strictly be written as `?auto=format&amp;fit=crop&amp;w=1200&amp;q=80`.
 - **Google Search Console Zero-Error Guarantee:** The sitemap submitted to Google Search Console (`/sitemap.xml`) must at all times remain 100% parseable, well-formed XML with zero unrecognized tokens.
 
 ---
 
 ## 6. Mandatory Article Schema & Content Integrity Rule (ZERO DEFECTS)
-- **Field Name Standard:** Every article object in `js/data.js` MUST use `"content"` for its HTML body text. The key `"body"` is strictly prohibited.
-- **Minimum Word Count:** Every article must strictly contain at least 600+ words (no upper limit) of rich technical analysis, detailed specifications, and proper HTML structure (`<h2>`, `<h3>`, `<p>`, `<ul>`, `<li>`, `<strong>`, `<blockquote>`). Articles under 600 words are strictly prohibited.
-- **No Duplicate Headings/Paragraphs:** Automated validation scans for repeated blocks or duplicate `<h2>` tags. Duplicate content within an article is strictly forbidden.
+- **Field Name Standard:** Every article object in `js/data.js` and `posts.json` MUST use `"content"` for its HTML body text. The key `"body"` is strictly prohibited.
+- **Minimum Word Count:** Every new article must strictly contain at least 600+ words (target 800-1100 words) of rich technical analysis, detailed specifications, benchmark tables, and proper HTML structure (`<h2>`, `<h3>`, `<p>`, `<ul>`, `<li>`, `<strong>`, `<blockquote>`).
+- **No Duplicate Headings/Paragraphs:** Duplicate headings or repeated paragraphs within an article are strictly forbidden.
 - **Pre-Flight Master Check:** Execute `python scripts/validate_all.py` before every worker generation and deploy. If it fails, fix the issue immediately before proceeding.
+
+---
+
+## 7. Zero Orphan Comments & Clean HTML Standard (MANDATORY)
+- **Zero Stray Comments:** Orphaned or broken HTML comment closing tags (`-->`) are strictly prohibited in `post.html`, `index.html`, `tools.html`, and `scripts/build_static.py`.
+- **Automated Check:** `scripts/validate_site_health.py` automatically scans all templates and article pages to guarantee zero visible comment leaks.
+
+---
+
+## 8. Canonical Clean URLs & Duplicate Routing Shield
+- **Canonical Structure:** Every article must have a self-referencing canonical tag pointing strictly to `https://imtechboss.com/{slug}/` (with trailing slash).
+- **No Query Indexing:** Legacy query routes (`/post?id=...`, `/post.html?id=...`) must return a `301 Moved Permanently` to `/{slug}/` and serve `X-Robots-Tag: noindex, follow`.
+- **Robots Directives:** `robots.txt` must disallow administrative endpoints (`/admin`, `/admin.html`).
+
+---
+
+## 9. Category-Aware FAQ Isolation & Anti-Boilerplate Standard
+- **Dedicated FAQ Categorization:** FAQs must strictly correspond to the article topic:
+  - Cybersecurity & Privacy: Client-side AES-256 encryption, zero-knowledge vault security, recovery keys.
+  - Hardware & GPUs: Power supplies (ATX 3.1, 12V-2x6), PCIe bandwidth, memory thermals.
+  - AI & Machine Learning: VRAM sizing, quantization (GGUF 4-bit/8-bit), local inference (Ollama), private telemetry.
+  - Gaming & Consoles: Target FPS, backward compatibility, DirectStorage NVMe speed.
+- **Forbidden Boilerplate:** Generic Windows 11 kernel text or VRAM headings must NEVER be injected into non-Windows or non-hardware articles.
+
+---
+
+## 10. Interactive Tools State Synchronization Standard
+- **Hidden Default Results:** On `/tools`, interactive result containers (`#bottleneckResult`, `#quizResultBox`, `#gameCheckResult`, `#llmResultCard`) must start with class `hidden` on initial page load.
+- **Dynamic Calculation:** Metrics and hardware recommendations are computed and revealed only when the user clicks the action button or modifies dropdowns. This ensures search engine crawlers never index mismatched static defaults.
+
+---
+
+## 11. Crawler-Shielded UI Standard
+- **Snippet Shields:** All modal close buttons (`&times;`, `✕`) and toast notification containers (`#toastNotification`) must be wrapped with `data-nosnippet` and `aria-hidden="true"`.
+- This ensures search engine crawlers (Googlebot, Bingbot) never extract decorative UI symbols or temporary action toasts as snippet text.
+
+---
+
+## 12. Single Source of Truth & Zero One-Off Scripts
+- **Unified Data Stores:** `posts.json` and `js/data.js` must remain in 100% synchronization at all times.
+- **No Standalone Publishing Scripts:** Never create or run isolated one-off publishing scripts that bypass `scripts/publish_pipeline.py` and `scripts/build_static.py`. All updates must flow through the standardized pipeline.

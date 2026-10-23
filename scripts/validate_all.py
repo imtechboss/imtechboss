@@ -4,6 +4,7 @@ Pre-Flight Master Validator for Tech Boss (imtechboss.com)
 Runs:
 1. python scripts/validate_articles.py (Schema, 'content' key, Anti-AI words, images, author)
 2. python scripts/validate_xml.py (Sitemap and RSS XML syntax & escaping)
+3. python scripts/validate_site_health.py (Site health, stray comments, boilerplate leaks, crawler shields)
 DO NOT PROCEED WITH DEPLOYMENT IF THIS EXITS WITH CODE 1.
 """
 
@@ -28,6 +29,7 @@ def main():
     print("=" * 60)
     run_check('validate_articles.py')
     run_check('validate_xml.py')
+    run_check('validate_site_health.py')
     print("\n" + "=" * 60)
     print("✨ ALL PRE-FLIGHT CHECKS PASSED (100% HEALTHY & READY TO DEPLOY)")
     print("=" * 60)
