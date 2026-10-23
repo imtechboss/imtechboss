@@ -7,6 +7,14 @@
   <language>en-us</language>
   <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Amazon Officially Rebrands Kindle Unlimited to Kindle+: AI Virtual Voice Audiobooks, $11.99 Pricing &amp; Feature Breakdown (2026)</title>
+    <link>https://imtechboss.com/amazon-rebrands-kindle-unlimited-to-kindle-plus-ai-audiobooks-pricing-2026/</link>
+    <guid>https://imtechboss.com/amazon-rebrands-kindle-unlimited-to-kindle-plus-ai-audiobooks-pricing-2026/</guid>
+    <pubDate>Thu, 22 Oct 2026 18:15:00 GMT</pubDate>
+    <description>Amazon has officially retired the Kindle Unlimited name in favor of Kindle+, introducing integrated AI Virtual Voice audiobook narration alongside millions of eBooks for an unchanged monthly subscription of $11.99.</description>
+    <category>Software &amp; Tech</category>
+  </item>
+  <item>
     <title>How to Harden PHP 8.x Servers Against Remote Code Execution (RCE) and Webshell Exploits in 2026</title>
     <link>https://imtechboss.com/how-to-harden-php-servers-prevent-rce-webshell-exploits-2026/</link>
     <guid>https://imtechboss.com/how-to-harden-php-servers-prevent-rce-webshell-exploits-2026/</guid>
@@ -157,14 +165,6 @@
     <pubDate>Thu, 01 Oct 2026 18:15:00 GMT</pubDate>
     <description>Cybersecurity leader Thales launches Sentinel Envelope Plus, introducing polymorphic binary hardening and real-time execution defense against machine-speed vulnerability discovery.</description>
     <category>Cybersecurity</category>
-  </item>
-  <item>
-    <title>FTC Launches Formal Investigation into OpenAI and Anthropic Over Consumer Risks</title>
-    <link>https://imtechboss.com/ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026/</link>
-    <guid>https://imtechboss.com/ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026/</guid>
-    <pubDate>Wed, 30 Sep 2026 18:15:00 GMT</pubDate>
-    <description>The Federal Trade Commission has initiated an aggressive probe into major AI developers, scrutinizing data privacy, deceptive practices, and compliance with the recent White House definition of Super Intelligence.</description>
-    <category>AI &amp; Technology</category>
   </item>
 </channel>
 </rss>
