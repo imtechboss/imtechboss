@@ -319,7 +319,7 @@ function renderPostDetail() {
     <!-- Top Meta Breadcrumb -->
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-6 border-b border-gray-100 dark:border-slate-800 text-xs">
       <div class="flex items-center gap-2">
-        <a href="index.html" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
+        <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
         <span class="text-gray-400">/</span>
         <span class="px-2.5 py-1 rounded-full font-bold bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400">
           ${safeCat}
@@ -412,13 +412,13 @@ function renderPostDetail() {
     </div>
 
     <!-- Audio Narration Bar -->
-    <div id="articleAudioBar" data-nosnippet="" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
-      <div class="flex items-center gap-3">
-        <button id="audioPlayBtn" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
+    <div id="articleAudioBar" data-nosnippet="" aria-hidden="true" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+      <div class="flex items-center gap-3" data-nosnippet="" aria-hidden="true">
+        <button id="audioPlayBtn" data-nosnippet="" aria-hidden="true" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
           <svg id="playIcon" class="w-4 h-4 ml-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           <svg id="pauseIcon" class="w-4 h-4 hidden fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
         </button>
-        <div>
+        <div data-nosnippet="" aria-hidden="true">
           <div class="flex items-center gap-2">
             <span class="text-xs font-bold text-gray-900 dark:text-white">Listen to Article</span>
             <span class="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 uppercase">AI Audio</span>
@@ -426,13 +426,13 @@ function renderPostDetail() {
           <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~${readTime}</p>
         </div>
       </div>
-      <div class="flex items-center gap-2">
-        <select id="audioRateSelect" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 focus:outline-none">
+      <div class="flex items-center gap-2" data-nosnippet="" aria-hidden="true">
+        <select id="audioRateSelect" data-nosnippet="" aria-hidden="true" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 focus:outline-none">
           <option value="1">1.0x Speed</option>
           <option value="1.25">1.25x Speed</option>
           <option value="1.5">1.5x Speed</option>
         </select>
-        <button id="audioStopBtn" class="hidden px-2.5 py-1.5 rounded-xl text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors" title="Stop Audio">
+        <button id="audioStopBtn" data-nosnippet="" aria-hidden="true" class="hidden px-2.5 py-1.5 rounded-xl text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors" title="Stop Audio">
           ⏹ Stop
         </button>
       </div>
@@ -474,7 +474,7 @@ function renderPostDetail() {
 
             <!-- Flipboard -->
             <a 
-              href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://imtechboss.com/post.html?id=' + article.id + '&flip=1')}" 
+              href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(article.title)}&url=${encodeURIComponent('https://imtechboss.com/' + encodeURIComponent(article.id) + '/')}" 
               target="_blank" 
               rel="noopener"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f52828] hover:bg-[#d41c1c] text-white text-xs font-bold transition-colors shadow-sm"
@@ -1041,7 +1041,7 @@ function renderNotFound(container, message) {
         ${message} It may have been archived or moved.
       </p>
       <a 
-        href="index.html" 
+        href="/" 
         class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md hover:shadow-lg transition-all"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
@@ -1685,10 +1685,22 @@ function setupFloatingReadNext(currentArticle) {
 function generateKeyTakeaways(article) {
   const points = [];
   const excerpt = (article.summary || article.excerpt || "").trim();
+  const excerptNorm = excerpt.replace(/\s+/g, ' ').toLowerCase();
   
   // Use custom takeaways if defined in post object
   if (article.takeaways && Array.isArray(article.takeaways) && article.takeaways.length > 0) {
-    points.push(...article.takeaways.filter(Boolean));
+    for (const t of article.takeaways) {
+      if (!t) continue;
+      const normT = String(t).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      if (normT && normT !== excerptNorm && !excerptNorm.startsWith(normT) && !normT.startsWith(excerptNorm)) {
+        points.push(t);
+      }
+    }
+    if (points.length >= 2) {
+      // If we have custom takeaways, do not mix auto-generated points
+      const listItems = points.map(pt => `<li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 flex-shrink-0"></span><span class="leading-relaxed">${pt}</span></li>`).join('');
+      return `<div id="aioAnswerCapsule" class="mb-8 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white dark:from-slate-800/90 dark:via-slate-850 dark:to-slate-900 border border-blue-200/80 dark:border-blue-900/50 shadow-sm not-prose"><div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-blue-100 dark:border-slate-700/80"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span><span class="text-[11px] font-black uppercase tracking-wider text-blue-800 dark:text-blue-300">Tech Boss Direct Answer Capsule (AI Overview)</span></div><span class="text-[10px] text-gray-400 font-mono hidden sm:inline">GEO Verified • imtechboss.com</span></div>${excerpt ? `<div class="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white leading-relaxed mb-4 pb-3 border-b border-gray-100 dark:border-slate-800"><strong>Direct Summary: </strong>${escapeHtml(excerpt)}</div>` : ''}<div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Core Takeaways &amp; Findings:</div><ul class="space-y-2 text-xs sm:text-sm text-gray-800 dark:text-gray-200 list-none pl-0 mb-0">${listItems}</ul></div>`;
+    }
   }
 
   const content = article.content || article.body || "";

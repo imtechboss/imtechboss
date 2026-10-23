@@ -159,6 +159,19 @@ export default {{
         }}
       }}
 
+      // 1.5 Clean URL Normalizer: 301 Redirect /*/index.html -> /*/
+      if (pathname.endsWith('/index.html') && pathname !== '/index.html') {{
+        const cleanPath = pathname.slice(0, -'index.html'.length);
+        return new Response(null, {{
+          status: 301,
+          statusText: 'Moved Permanently',
+          headers: {{
+            'Location': 'https://imtechboss.com' + cleanPath,
+            'Cache-Control': 'public, max-age=86400'
+          }}
+        }});
+      }}
+
       // 2. Trailing Slash Fix for Pages Static Assets
       if (pathname.endsWith('.html') && pathname !== '/index.html' && pathname !== '/post.html') {{
         let response = await env.ASSETS.fetch(request);
@@ -237,13 +250,19 @@ export default {{
 
       // 4. Legacy Post Query Parameter Redirects -> Clean Static /slug/
       if (pathname === '/post.html' || pathname === '/post') {{
-        if (!id || id === 'blogger-512') {{
-          return Response.redirect(new URL('/', request.url).toString(), 301);
+        let dest = 'https://imtechboss.com/';
+        if (id && id !== 'blogger-512') {{
+          dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
         }}
-        if (duplicateRedirects[id]) {{
-          return Response.redirect('https://imtechboss.com/' + duplicateRedirects[id] + '/', 301);
-        }}
-        return Response.redirect('https://imtechboss.com/' + encodeURIComponent(id) + '/', 301);
+        return new Response(null, {{
+          status: 301,
+          statusText: 'Moved Permanently',
+          headers: {{
+            'Location': dest,
+            'X-Robots-Tag': 'noindex, follow',
+            'Cache-Control': 'public, max-age=86400'
+          }}
+        }});
       }}
 
       if (pathname === '/404' || pathname === '/404.html') {{

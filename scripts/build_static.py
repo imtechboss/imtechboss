@@ -47,14 +47,20 @@ def inject_in_article_ads(body_html):
 def generate_key_takeaways(article):
     # Support custom takeaways or summary from post object (prevents H2 duplication)
     custom_takeaways = article.get('takeaways')
-    excerpt = (article.get('summary') or article.get('excerpt') or '').strip()
+    raw_excerpt = (article.get('summary') or article.get('excerpt') or '').strip()
+    excerpt = raw_excerpt
+    excerpt_norm = re.sub(r'\s+', ' ', raw_excerpt).strip().lower()
     takeaways = []
 
     if custom_takeaways:
-        if isinstance(custom_takeaways, list):
-            takeaways = [str(t).strip() for t in custom_takeaways if str(t).strip()]
-        elif isinstance(custom_takeaways, str):
-            takeaways = [t.strip() for t in custom_takeaways.splitlines() if t.strip()]
+        raw_list = custom_takeaways if isinstance(custom_takeaways, list) else str(custom_takeaways).splitlines()
+        for t in raw_list:
+            s_t = str(t).strip()
+            if not s_t:
+                continue
+            norm_t = re.sub(r'<[^>]+>', '', s_t).strip().lower()
+            if norm_t and norm_t != excerpt_norm and not excerpt_norm.startswith(norm_t) and not norm_t.startswith(excerpt_norm):
+                takeaways.append(s_t)
 
     if not takeaways:
         content = article.get('content') or article.get('body', '')
@@ -73,8 +79,9 @@ def generate_key_takeaways(article):
                         sent = s_split[0].strip()
 
                 clean_h2 = re.sub(r'^(\d+[\.\)]|Fix \d+:?|Section \d+:?)\s*', '', h2).strip()
-                # Only add if we have a real sentence explanation, never repeat raw H2 heading alone
-                if sent and sent != excerpt and clean_h2:
+                norm_sent = sent.lower()
+                # Only add if we have a real sentence explanation, never repeat raw H2 heading or duplicate excerpt
+                if sent and clean_h2 and norm_sent != excerpt_norm and not excerpt_norm.startswith(norm_sent) and not norm_sent.startswith(excerpt_norm):
                     item = f'<strong>{clean_h2}:</strong> {sent}'
                     if item not in takeaways:
                         takeaways.append(item)
@@ -89,7 +96,8 @@ def generate_key_takeaways(article):
                 s_split = re.split(r'(?<=[.!?])\s+', p_text)
                 for s in s_split:
                     clean_s = s.strip()
-                    if len(clean_s) > 40 and clean_s != excerpt and clean_s not in [re.sub(r'<[^>]+>', '', t) for t in takeaways]:
+                    norm_s = clean_s.lower()
+                    if len(clean_s) > 40 and norm_s != excerpt_norm and not excerpt_norm.startswith(norm_s) and not norm_s.startswith(excerpt_norm) and clean_s not in [re.sub(r'<[^>]+>', '', t) for t in takeaways]:
                         takeaways.append(clean_s)
                         if len(takeaways) >= 3:
                             break
@@ -364,8 +372,44 @@ def generate_faq_data(article):
         ]
         return _format_faq(faqs)
 
-    # Branch 6: Networking, Security & Telecom
-    if any(k in cat for k in ['cybersecurity', 'cloud', 'hosting']) or any(k in title for k in ['vpn', 'wifi', 'wi-fi', 'router', 'dns', 'wireguard', 'isp', '5g', 'telecom', 'ntc', 'ncell']):
+    # Branch 6A: Web Hosting, Cloud & Servers
+    if any(k in cat for k in ['hosting', 'cloud', 'server', 'web']) or any(k in title for k in ['hosting', 'wordpress', 'vps', 'domain', 'server', 'shared hosting', 'litespeed', 'cpanel']):
+        faqs = [
+            {
+                "q": "Why is LiteSpeed Web Server (LSWS) preferred over Apache for WordPress hosting?",
+                "a": "LiteSpeed features an event-driven architecture, native HTTP/3 QUIC support, and built-in LSCache integration, delivering up to 3x faster TTFB and handling significantly higher concurrent traffic with low CPU overhead."
+            },
+            {
+                "q": "What server specifications should I look for in managed WordPress hosting?",
+                "a": "Look for NVMe SSD storage in RAID-10 arrays, at least 1GB to 2GB dedicated RAM per PHP worker, isolated container environments (CloudLinux LVE), free SSL certificates, and automated offsite backups."
+            },
+            {
+                "q": "How does server physical location affect website Core Web Vitals?",
+                "a": "Proximity to your target demographic reduces Round Trip Time (RTT) latency, directly boosting First Contentful Paint (FCP) and Largest Contentful Paint (LCP) metrics. Pairing the origin host with an Anycast CDN further mitigates regional latency."
+            }
+        ]
+        return _format_faq(faqs)
+
+    # Branch 6B: Online Monetization, Digital Business & Careers
+    if any(k in cat for k in ['business', 'money', 'career', 'freelance']) or any(k in title for k in ['earn money', 'freelancing', 'micro-saas', 'monetiz', 'income', 'side hustle', 'digital asset']):
+        faqs = [
+            {
+                "q": "What technical skills offer the highest earning potential for freelancers in 2026?",
+                "a": "Skills in AI model integration, prompt engineering, full-stack API workflows, modern web frameworks (Next.js/Tailwind), and cybersecurity auditing command premium rates and retainer contracts."
+            },
+            {
+                "q": "How can digital creators and developers reliably receive international payments?",
+                "a": "Global creators use multi-currency merchant platforms like Stripe, Payoneer, Wise Business, and specialized digital marketplaces that offer automated compliance and low-fee cross-border payouts."
+            },
+            {
+                "q": "What is the recommended approach to building and scaling a micro-SaaS?",
+                "a": "Identify a painful, recurring problem in a specific niche, build a lightweight MVP using modern serverless platforms, validate with early adopters before scaling, and focus on predictable subscription revenue."
+            }
+        ]
+        return _format_faq(faqs)
+
+    # Branch 6C: Networking, Security & Telecom
+    if any(k in cat for k in ['cybersecurity', 'telecom']) or any(k in title for k in ['vpn', 'wifi', 'wi-fi', 'router', 'dns', 'wireguard', 'isp', '5g', 'telecom', 'ntc', 'ncell']):
         faqs = [
             {
                 "q": "How does protocol selection (WireGuard vs. OpenVPN) impact connection speed and latency?",
@@ -382,19 +426,19 @@ def generate_faq_data(article):
         ]
         return _format_faq(faqs)
 
-    # Branch 7: General Tech & Engineering Fallback (NEVER Windows 11 DISM!)
+    # Branch 7: General Tech & Software Editorial Fallback
     faqs = [
         {
-            "q": "How are the technical specifications and benchmarks in this analysis verified?",
-            "a": "Tech Boss cross-references manufacturer architectural whitepapers, standardized benchmark suites, developer documentation, and verified hardware telemetry to ensure objective technical accuracy."
+            "q": "How does Tech Boss verify the accuracy of its technical analyses?",
+            "a": "Tech Boss adheres to strict hands-on testing protocols, cross-referencing official developer documentation, standardized industry benchmarks, and verified system telemetry before publishing."
         },
         {
-            "q": "Can I use Tech Boss interactive tools to evaluate my setup?",
-            "a": "Yes. Tech Boss provides free interactive diagnostics, hardware comparison calculators, and latency testing utilities directly in the Interactive Hubs section."
+            "q": "Are Tech Boss interactive tools and comparison calculators free to use?",
+            "a": "Yes. All diagnostic tools, hardware versus comparison engines, and interactive calculators on imtechboss.com are 100% free with no login or subscription required."
         },
         {
-            "q": "How frequently is this technical analysis updated with new data?",
-            "a": "Our editorial and engineering radar continuously monitors firmware revisions, driver patches, and industry silicon updates, refreshing analyses as verified test data becomes available."
+            "q": "How often are guides and hardware recommendations updated on Tech Boss?",
+            "a": "Our editorial team continually monitors software releases, driver updates, and market pricing, refreshing articles dynamically as new test data becomes available."
         }
     ]
     return _format_faq(faqs)
@@ -480,6 +524,47 @@ def generate_hubs_cross_promote(article):
     </div>
     '''
 
+def generate_author_bio(article):
+    safe_author = escape(article.get('author') or 'Tech Boss')
+    cat = (article.get('category') or '').lower()
+    title = (article.get('title') or '').lower()
+
+    if any(k in cat for k in ['hosting', 'cloud', 'server']) or any(k in title for k in ['hosting', 'wordpress', 'vps', 'domain', 'server', 'cloud', 'cdn', 'litespeed']):
+        role = "Cloud &amp; Web Infrastructure Lead"
+        bio = "Infrastructure engineer and web systems analyst covering server optimization, LiteSpeed hosting architectures, TTFB latency benchmarks, and enterprise cloud infrastructure at Tech Boss."
+    elif any(k in cat for k in ['frontier ai', 'ai & technology', 'quantum', 'ai']) or any(k in title for k in ['ai', 'gpt', 'llm', 'claude', 'gemini', 'deepseek', 'model', 'ollama', 'neural']):
+        role = "AI &amp; Systems Analyst"
+        bio = "Machine learning specialist evaluating frontier reasoning models, local LLM quantization, neural accelerator benchmarks, and transformer architectures at Tech Boss."
+    elif any(k in cat for k in ['cybersecurity', 'security', 'privacy']) or any(k in title for k in ['security', 'password', 'vpn', 'ransomware', 'malware', 'phishing', 'encryption', 'zero-day', 'cve']):
+        role = "Cybersecurity Researcher"
+        bio = "Security researcher investigating zero-knowledge cryptographic vaults, zero-day threat telemetry, network protocols, and client-side privacy safeguards at Tech Boss."
+    elif any(k in cat for k in ['gaming', 'esports', 'console']) or any(k in title for k in ['gaming', 'game', 'playstation', 'ps5', 'ps6', 'xbox', 'switch', 'steam deck', 'fps', 'rtx 5090']):
+        role = "Gaming &amp; Tech Editor"
+        bio = "Hardware gaming editor evaluating frame latency, DirectStorage throughput, neural reconstruction upscalers, and next-gen console silicon at Tech Boss."
+    elif any(k in cat for k in ['hardware', 'semiconductor']) or any(k in title for k in ['gpu', 'cpu', 'intel', 'amd', 'ryzen', 'nvidia', 'rtx', 'tsmc', 'ddr5', 'motherboard', 'pc build']):
+        role = "Staff Writer &amp; Benchmark Lead"
+        bio = "Lead editorial investigator specializing in GPU architectures, neural inference acceleration, silicon nodes, and high-performance computing hardware at Tech Boss."
+    else:
+        role = "Editorial &amp; Technology Desk"
+        bio = "Technical editor delivering verified software analyses, productivity frameworks, digital workflow guides, and objective tech reporting at Tech Boss."
+
+    return f'''
+    <div class="my-10 p-5 sm:p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/40 border border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-xl shadow flex-shrink-0">
+        TB
+      </div>
+      <div>
+        <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+          <h4 class="font-extrabold text-gray-900 dark:text-white text-sm sm:text-base">{safe_author}</h4>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">{role}</span>
+        </div>
+        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+          {bio}
+        </p>
+      </div>
+    </div>
+    '''
+
 def render_article_inner_html(article):
     safe_title = escape(article.get('title', ''))
     safe_cat = escape(article.get('category', 'Technology'))
@@ -507,6 +592,7 @@ def render_article_inner_html(article):
 
     # 5. Hubs cross promote
     hubs_html = generate_hubs_cross_promote(article)
+    author_bio_html = generate_author_bio(article)
 
     initial_likes = int(article.get('likes', 12)) if str(article.get('likes', '')).isdigit() else 12
 
@@ -598,13 +684,13 @@ def render_article_inner_html(article):
     {hero_img_block}
 
     <!-- Audio Narration Bar -->
-    <div id="articleAudioBar" data-nosnippet="" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
-      <div class="flex items-center gap-3">
-        <button id="audioPlayBtn" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
+    <div id="articleAudioBar" data-nosnippet="" aria-hidden="true" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+      <div class="flex items-center gap-3" data-nosnippet="" aria-hidden="true">
+        <button id="audioPlayBtn" data-nosnippet="" aria-hidden="true" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all flex-shrink-0" title="Listen to this story" aria-label="Listen to this story">
           <svg id="playIcon" class="w-4 h-4 ml-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           <svg id="pauseIcon" class="w-4 h-4 hidden fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
         </button>
-        <div>
+        <div data-nosnippet="" aria-hidden="true">
           <div class="flex items-center gap-2">
             <span class="text-xs font-bold text-gray-900 dark:text-white">Listen to Article</span>
             <span class="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 uppercase">AI Audio</span>
@@ -612,13 +698,13 @@ def render_article_inner_html(article):
           <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~{read_time}</p>
         </div>
       </div>
-      <div class="flex items-center gap-2">
-        <select id="audioRateSelect" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 focus:outline-none">
+      <div class="flex items-center gap-2" data-nosnippet="" aria-hidden="true">
+        <select id="audioRateSelect" data-nosnippet="" aria-hidden="true" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 focus:outline-none">
           <option value="1">1.0x Speed</option>
           <option value="1.25">1.25x Speed</option>
           <option value="1.5">1.5x Speed</option>
         </select>
-        <button id="audioStopBtn" class="hidden px-2.5 py-1.5 rounded-xl text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors" title="Stop Audio">
+        <button id="audioStopBtn" data-nosnippet="" aria-hidden="true" class="hidden px-2.5 py-1.5 rounded-xl text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors" title="Stop Audio">
           ⏹ Stop
         </button>
       </div>
@@ -642,20 +728,7 @@ def render_article_inner_html(article):
     {hubs_html}
 
     <!-- Author Bio Footnote -->
-    <div class="my-10 p-5 sm:p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/40 border border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-      <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-xl shadow flex-shrink-0">
-        TB
-      </div>
-      <div>
-        <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
-          <h4 class="font-extrabold text-gray-900 dark:text-white text-sm sm:text-base">{safe_author}</h4>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">Staff Writer &amp; Benchmark Lead</span>
-        </div>
-        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-          Lead editorial investigator specializing in GPU architectures, neural inference acceleration, Windows kernel diagnostics, and high-performance computing hardware at Tech Boss.
-        </p>
-      </div>
-    </div>
+    {author_bio_html}
 
     <!-- Comments & Discussion Area -->
     <div id="commentsSection" class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800">
@@ -1160,6 +1233,9 @@ def update_homepage_prerender(articles):
 
     grid_pattern = r'(<div id="articlesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">)[\s\S]*?(</div>\s*<!-- Empty State -->)'
     idx_content = re.sub(grid_pattern, r'\1\n          ' + grid_html + r'\n        \2', idx_content)
+
+    badge_pattern = r'<span id="spotlightCountBadge">.*?</span>'
+    idx_content = re.sub(badge_pattern, f'<span id="spotlightCountBadge">{len(articles)} stories indexed</span>', idx_content)
 
     with open(index_path, 'w', encoding='utf-8') as f:
         f.write(idx_content)
