@@ -619,7 +619,7 @@ function renderArticles(isAppending = false) {
           </div>
           <!-- 1-Click Flipboard Share -->
           <a 
-            href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(art.title)}&url=${encodeURIComponent('https://imtechboss.com/post.html?id=' + art.id + '&flip=1')}" 
+            href="https://share.flipboard.com/bookmarklet/popout?v=2&title=${encodeURIComponent(art.title)}&url=${encodeURIComponent('https://imtechboss.com/' + encodeURIComponent(art.id) + '/')}" 
             target="_blank" 
             rel="noopener noreferrer"
             class="absolute top-3 right-12 w-8 h-8 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-500 transition-colors shadow-sm z-10"

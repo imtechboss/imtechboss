@@ -254,31 +254,12 @@ def _format_faq(faqs):
     return faq_html, schema_faqs
 
 def generate_faq_data(article):
+    # Only render FAQs if custom, authentic, verified FAQs are authored for this specific post.
+    # Programmatic synthetic fallback FAQs are completely eliminated to prevent duplicate template boilerplate (BUG-03, BUG-13).
     custom_faqs = article.get('faqs')
     if custom_faqs and isinstance(custom_faqs, list) and len(custom_faqs) > 0:
         return _format_faq(custom_faqs)
-
-    cat = (article.get('category') or '').lower()
-    title = (article.get('title') or '').lower()
-
-    # Branch 0: Security & Password Managers
-    if any(k in cat for k in ['cybersecurity', 'security', 'password', 'privacy']) or any(k in title for k in ['password', 'bitwarden', '1password', 'keepass', 'auth', 'scam', 'phish', 'ransomware', 'zero-day', 'vulnerability']):
-        if not any(k in title for k in ['windows 11', 'bsod']):
-            faqs = [
-                {
-                    "q": "How do zero-knowledge password managers protect credentials from database breaches?",
-                    "a": "Zero-knowledge vaults use client-side AES-256 or ChaCha20 encryption with PBKDF2 or Argon2id key derivation. Your master passphrase never leaves your physical device unencrypted, preventing attackers from deciphering stolen database blobs."
-                },
-                {
-                    "q": "Is cloud synchronization secure, or is an offline encrypted vault better?",
-                    "a": "Audited cloud vaults (like Bitwarden and 1Password) offer seamless multi-device synchronization with end-to-end encryption. However, for maximum air-gapped isolation against network vectors, open-source local database managers (like KeePassXC) ensure zero cloud exposure."
-                },
-                {
-                    "q": "What should I do if I lose my Master Password or two-factor authenticator device?",
-                    "a": "Because zero-knowledge services cannot reset or view master keys, you must store your cryptographically generated Emergency Access Recovery Kit in a secure physical location during initial vault provisioning."
-                }
-            ]
-            return _format_faq(faqs)
+    return '', []
 
 
     # Branch 1: PC Hardware & Silicon (Check hardware first so CPUs/GPUs aren't swallowed by 'gaming')
@@ -906,13 +887,14 @@ def generate_schema_json(article, canonical_url, schema_faqs):
                     }
                 ]
             },
-            {
-                "@type": "FAQPage",
-                "@id": canonical_url + "#faq",
-                "mainEntity": schema_faqs
-            }
         ]
     }
+    if schema_faqs and len(schema_faqs) > 0:
+        schema["@graph"].append({
+            "@type": "FAQPage",
+            "@id": canonical_url + "#faq",
+            "mainEntity": schema_faqs
+        })
     return json.dumps(schema, ensure_ascii=False)
 
 def build_all_static():

@@ -35,7 +35,7 @@ articles.forEach(art => {
   }
   const cleanId = encodeURIComponent(art.id);
   xml += `  <url>
-    <loc>${baseUrl}/post.html?id=${cleanId}</loc>
+    <loc>${baseUrl}/${cleanId}/</loc>
     <lastmod>${dateStr}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

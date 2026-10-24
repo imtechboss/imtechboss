@@ -44,7 +44,7 @@ async function uploadMedia(imageUrl, description) {
 }
 
 async function postStatus(article, mediaId) {
-  const url = `${BASE_URL}/post.html?id=${article.id}`;
+  const url = `${BASE_URL}/${encodeURIComponent(article.id)}/`;
   
   // Format tags as hashtags
   const hashtags = (article.tags || ['Tech', 'News'])

@@ -293,7 +293,19 @@ aside .ad-slot-box {
   overflow: visible;
 }
 
-/* Auto-hide unfilled ad slots so empty boxes do not show when AdSense has no inventory */
+/* Pre-Approval / Zero-Inventory Ad Shield (BUG-26 Fix):
+   Completely hide all ad wrappers unless an active AdSense creative (iframe) is actually serving.
+   Eliminates empty placeholder spam and broken 'Sponsored / Advertisement' boxes during AdSense review. */
+.ad-slot-box,
+.side-ad-gutter {
+  display: none !important;
+}
+
+.ad-slot-box:has(iframe),
+.side-ad-gutter:has(iframe) {
+  display: block !important;
+}
+
 ins.adsbygoogle[data-ad-status="unfilled"],
 .ad-slot-box:has(ins.adsbygoogle[data-ad-status="unfilled"]),
 .side-ad-gutter:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
