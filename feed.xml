@@ -13,6 +13,17 @@
       <link>https://imtechboss.com</link>
     </image>
     <item>
+      <title>How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B &amp; 70B GGUF Sizing Guide)</title>
+      <link>https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/</link>
+      <guid>https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/</guid>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Technology</category>
+      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B &amp; 70B GGUF Sizing Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Calculate exact GPU VRAM requirements for 7B, 14B, 32B, and 70B local LLMs in 2026. Compare Q4_K_M vs Q8_0 GGUF quantization footprints, KV context cache growth, and tokens-per-second benchmarks.&lt;/p&gt;</description>
+      <media:content url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
+    </item>
+    <item>
       <title>Apple Launches iPhone Duo: 7.6-Inch Foldable Super Retina XDR, A20 Pro 2nm Silicon, Zero-Crease Titanium Hinge &amp; $1,999 Pricing Breakdown (2026)</title>
       <link>https://imtechboss.com/apple-iphone-duo-foldable-specs-a20-pro-price-release-guide-2026/</link>
       <guid>https://imtechboss.com/apple-iphone-duo-foldable-specs-a20-pro-price-release-guide-2026/</guid>
@@ -330,17 +341,6 @@
       <media:content url="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
       <media:thumbnail url="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse</title>
-      <link>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</link>
-      <guid>https://imtechboss.com/qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <category>Semiconductors</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse" /&gt;&lt;/p&gt;&lt;p&gt;Samsung's sub-3nm yields stall at 60%, forcing Qualcomm into an exclusive TSMC agreement for its next-generation Elite Gen 6 silicon.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
   </channel>
 </rss>
