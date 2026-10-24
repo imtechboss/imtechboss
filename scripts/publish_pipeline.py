@@ -91,6 +91,7 @@ def get_latest_article():
 def main():
     skip_git = "--no-git" in sys.argv
     skip_social = "--no-social" in sys.argv
+    enable_devto = "--devto" in sys.argv
 
     print_header("TECH BOSS MASTER AUTO-PUBLISHING PIPELINE")
     print(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -138,10 +139,12 @@ def main():
     print_step(7, "Pushing to Microsoft Bing & IndexNow Engines")
     run_command("node scripts/ping_indexnow.js", check=False)
 
-    # 8. DEV.to Syndication (High DA 92 Backlink)
-    if not skip_social:
+    # 8. DEV.to Syndication (High DA 92 Backlink) - Opt-in only to protect AdSense
+    if enable_devto:
         print_step(8, "Syndicating to DEV.to with Canonical Backlink")
         run_command("node scripts/auto-devto.js", check=False)
+    else:
+        print("\n  [INFO] DEV.to syndication paused to guarantee 100% AdSense original content compliance (pass --devto to enable).")
 
     # 9. Decentralized Social Broadcast (Bluesky & Mastodon)
     if not skip_social:
