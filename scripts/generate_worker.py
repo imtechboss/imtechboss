@@ -172,6 +172,20 @@ export default {{
         }});
       }}
 
+      // 1.6 Clean URL Normalizer: 301 Redirect standalone *.html utility/legal pages -> extensionless canonical path
+      const staticUtilityPages = ['/about.html', '/contact.html', '/privacy.html', '/terms.html', '/disclaimer.html', '/tools.html', '/compare.html', '/deals.html'];
+      if (staticUtilityPages.includes(pathname)) {{
+        const cleanPath = pathname.replace(/\\.html$/, '');
+        return new Response(null, {{
+          status: 301,
+          statusText: 'Moved Permanently',
+          headers: {{
+            'Location': 'https://imtechboss.com' + cleanPath,
+            'Cache-Control': 'public, max-age=86400'
+          }}
+        }});
+      }}
+
       // 2. Trailing Slash Fix for Pages Static Assets
       if (pathname.endsWith('.html') && pathname !== '/index.html' && pathname !== '/post.html') {{
         let response = await env.ASSETS.fetch(request);
