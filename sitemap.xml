@@ -62,6 +62,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://imtechboss.com/why-rtx-5090-gpus-are-dismantled-china-blower-ai-servers-2026/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Why Thousands of RTX 5090 GPUs Are Being Dismantled: Inside the China Blower-Style AI Server Conversion Boom</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/nvidia-rtx-spark-client-ai-desktops-laptops-specs-architecture-2026/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>NVIDIA RTX Spark Officially Launches: 1 Petaflop Client AI, 128GB Unified Memory &amp; Desktop Agent Specs Breakdown</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/meta-prometheus-1-million-gpu-ai-supercluster-liquid-cooling-specs-2026/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Meta Unveils 'Prometheus': Inside the 1-Million-GPU Liquid-Cooled Frontier AI Supercluster</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/rtx-5070-12gb-vs-used-rtx-3090-24gb-local-ai-ollama/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
