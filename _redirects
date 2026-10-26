@@ -81,3 +81,7 @@ https://www.imtechboss.com/*  https://imtechboss.com/:splat  301
 /google-fitbit-air-launch-gemini-health-biometric-wearable-2026/*  /404.html  301!
 /oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026  /404.html  301!
 /oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026/*  /404.html  301!
+
+# Purged for Google AdSense Policy Compliance
+/how-to-bypass-android-frp-google-account-lock-2026-guide/* / 301
+/how-to-bypass-android-frp-google-account-lock-2026-guide / 301

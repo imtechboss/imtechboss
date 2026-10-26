@@ -87,7 +87,8 @@ def generate_worker():
         "apple-homeview-299-smart-display-a18-chip-facial-recognition-homeos-2026",
         "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026",
         "google-fitbit-air-launch-gemini-health-biometric-wearable-2026",
-        "oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026"
+        "oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026",
+        "how-to-bypass-android-frp-google-account-lock-2026-guide"
     ]
     removed_json = json.dumps(removed_slugs_list, ensure_ascii=False)
 
