@@ -12,30 +12,16 @@ Allow: /
 User-agent: AdsBot-Google-Mobile
 Allow: /
 
-# 2. Explicitly allow Google Search, Images & Discover
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-News
-Allow: /
-
-# 3. Default rules for all standard search engines
+# 2. Default rules for Googlebot & all standard search engines
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /admin/
 Disallow: /admin.html
-
-# Block internal search result queries or build artifacts (if any exist)
 Disallow: /*?q=*
 Disallow: /*?s=*
 Disallow: /cdn-cgi/
 Disallow: /404.html
 
-# IMPORTANT: Do NOT disallow /assets/, *.js, or *.json 
-# Googlebot needs access to CSS/JS/JSON to render your tools and layouts properly.
-
-# 4. Sitemap Declaration
+# 3. Sitemap Declaration
 Sitemap: https://imtechboss.com/sitemap.xml
