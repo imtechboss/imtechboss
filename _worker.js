@@ -14,6 +14,58 @@ export default {
       if (pathname === '/test-worker-ping') {
         return new Response('WORKER_IS_ALIVE_2026', { status: 200 });
       }
+
+      if (pathname === '/robots.txt') {
+        const robotsContent = `# ==========================================
+# robots.txt for https://imtechboss.com
+# ==========================================
+
+# 1. Explicitly allow Google AdSense & Ad Quality Crawlers
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+# 2. Explicitly allow Google Search, Images & Discover
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+# 3. Default rules for all standard search engines
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+
+# Block internal search result queries or build artifacts (if any exist)
+Disallow: /*?q=*
+Disallow: /*?s=*
+Disallow: /cdn-cgi/
+Disallow: /404.html
+
+# IMPORTANT: Do NOT disallow /assets/, *.js, or *.json 
+# Googlebot needs access to CSS/JS/JSON to render your tools and layouts properly.
+
+# 4. Sitemap Declaration
+Sitemap: https://imtechboss.com/sitemap.xml
+`;
+        return new Response(robotsContent, {
+          status: 200,
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'public, max-age=0, must-revalidate'
+          }
+        });
+      }
       const cleanSlug = pathname.replace(/^\/+|\/+$/g, '');
 
       // 0. Hard Edge 404 Shield for removed/speculative/blogger posts
