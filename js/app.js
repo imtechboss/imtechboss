@@ -573,17 +573,7 @@ function renderArticles(isAppending = false) {
   const visibleArticles = filtered.slice(startIndex, displayedCount);
   const fullVisibleLength = filtered.slice(0, displayedCount).length;
 
-  const adInFeedTemplate = (slotId = "6665664396") => `
-    <div class="col-span-1 sm:col-span-2 ad-slot-box bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-gray-200/90 dark:border-slate-800 shadow-sm text-center overflow-hidden my-1 not-prose">
-      <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mb-2">Sponsored / Advertisement</span>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1043419685176632"
-           data-ad-slot="${slotId}"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-  `;
+  const adInFeedTemplate = (slotId = "6665664396") => "";
 
   let cardsHtml = "";
   visibleArticles.forEach((art, index) => {

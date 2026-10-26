@@ -399,17 +399,7 @@ function renderPostDetail() {
       </div>
     ` : ''}
 
-    <!-- Top Article Ad Banner -->
-    <div class="ad-slot-box mb-8 text-center bg-gray-50 dark:bg-slate-800/60 rounded-2xl p-3 sm:p-4 border border-gray-200/80 dark:border-slate-800 not-prose overflow-hidden shadow-xs">
-      <span class="text-[9px] uppercase font-bold tracking-widest text-gray-400 block mb-1.5">Sponsored / Advertisement</span>
-      <!-- horizontal -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1043419685176632"
-           data-ad-slot="9198547569"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
+    <!-- Top Article Ad Banner (Disabled during AdSense pre-approval) -->
 
     <!-- Audio Narration Bar -->
     <div id="articleAudioBar" data-nosnippet="" aria-hidden="true" aria-label="Audio narration controls" class="mb-8 p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-slate-800/90 dark:to-slate-900 border border-blue-100 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-3 shadow-xs">
@@ -1192,6 +1182,8 @@ function escapeHtml(str) {
 
 // 7. Monetization: In-Article AdSense Injection (Smart Placement for 100% of Articles)
 function injectInArticleAdSense(html) {
+  // Return clean HTML without empty ad placeholders during AdSense pre-approval phase
+  return html;
   if (!html || !html.trim()) return html;
 
   const adBanner = `
