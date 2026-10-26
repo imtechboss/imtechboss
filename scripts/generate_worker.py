@@ -134,6 +134,20 @@ export default {{
         return Response.redirect(url.toString(), 301);
       }}
 
+      // 0.5 Explicit 404 Endpoint Handler (Hard 404 status prevents Soft 404 in Search Console)
+      if (pathname === '/404' || pathname === '/404.html') {{
+        const assetUrl = new URL(request.url);
+        assetUrl.pathname = '/404.html';
+        const notFoundRes = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+        const notFoundHeaders = new Headers(notFoundRes.headers);
+        notFoundHeaders.set('X-Robots-Tag', 'noindex, nofollow');
+        return new Response(notFoundRes.body, {{
+          status: 404,
+          statusText: 'Not Found',
+          headers: notFoundHeaders
+        }});
+      }}
+
       const ADMIN_SECRET = 'binod_boss_2026';
 
       // 1. Secure Admin Access Controller (Key / Cookie Authenticated)
@@ -187,7 +201,7 @@ export default {{
       }}
 
       // 2. Trailing Slash Fix for Pages Static Assets
-      if (pathname.endsWith('.html') && pathname !== '/index.html' && pathname !== '/post.html') {{
+      if (pathname.endsWith('.html') && pathname !== '/index.html' && pathname !== '/post.html' && pathname !== '/404.html') {{
         let response = await env.ASSETS.fetch(request);
         if (response.status === 308 || response.status === 301) {{
           const loc = response.headers.get('Location');
@@ -279,17 +293,7 @@ export default {{
         }});
       }}
 
-      if (pathname === '/404' || pathname === '/404.html') {{
-        const assetUrl = new URL(request.url);
-        assetUrl.pathname = '/404.html';
-        const notFoundRes = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
-        const notFoundHeaders = new Headers(notFoundRes.headers);
-        notFoundHeaders.set('X-Robots-Tag', 'noindex, nofollow');
-        return new Response(notFoundRes.body, {{
-          status: 404,
-          headers: notFoundHeaders
-        }});
-      }}
+
 
       return await env.ASSETS.fetch(request);
     }} catch (err) {{
