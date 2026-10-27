@@ -476,7 +476,7 @@ function renderPostDetail() {
 
             <!-- Pinterest -->
             <a 
-              href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://imtechboss.com/post?id=' + article.id)}&media=${encodeURIComponent(article.image ? (article.image.startsWith('http') ? article.image : 'https://imtechboss.com/' + article.image) : 'https://imtechboss.com/og-image.png')}&description=${encodeURIComponent(article.title)}" 
+              href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent('https://imtechboss.com/' + article.id)}&media=${encodeURIComponent(article.image ? (article.image.startsWith('http') ? article.image : 'https://imtechboss.com/' + article.image) : 'https://imtechboss.com/og-image.png')}&description=${encodeURIComponent(article.title)}" 
               target="_blank" 
               rel="noopener"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e60023] hover:bg-[#ad081b] text-white text-xs font-bold transition-colors shadow-sm"

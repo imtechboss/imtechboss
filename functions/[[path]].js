@@ -51,7 +51,7 @@ export async function onRequest(context) {
     const pathname = url.pathname.toLowerCase();
     const cleanSlug = pathname.replace(/^\/+|\/+$/g, '');
 
-    // 0.1 Redirect legacy query strings /post.html?id=... and /post?id=... -> clean /:id/
+    // 0.1 Redirect legacy query strings /... and /... -> clean /:id/
     const id = url.searchParams.get('id');
     if ((pathname === '/post.html' || pathname === '/post') && id) {
       if (duplicateRedirects[id]) {

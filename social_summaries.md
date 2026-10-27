@@ -31,12 +31,12 @@ Modern architectural bottlenecks show how crucial memory bandwidth, firmware sec
 
 ---
 *Full technical benchmarks, comparative data tables, and diagnostic walk-through:* 
-[Read the full report on Tech Boss](https://imtechboss.com/post.html?id=how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026)
+[Read the full report on Tech Boss](https://imtechboss.com/how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026)
 
 
 ### Hacker News Submission (news.ycombinator.com)
 **Title:** How to Fix 100% Disk Usage in Windows 11 (SSD & HDD): Complete 2026 Diagnostic Guide
-**URL:** https://imtechboss.com/post.html?id=how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026
+**URL:** https://imtechboss.com/how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026
 
 **Optional Top Comment:**
 I put together an architectural and diagnostic breakdown analyzing the engineering details behind this:
@@ -53,5 +53,5 @@ I put together an architectural and diagnostic breakdown analyzing the engineeri
 • Switch to the Disk tab and expand the Disk Activity section.
 • Sort the table by Total (B/sec) in descending order.
 
-👉 **Read Full Breakdown:** https://imtechboss.com/post.html?id=how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026
+👉 **Read Full Breakdown:** https://imtechboss.com/how-to-fix-100-percent-disk-usage-windows-11-ssd-sysmain-guide-2026
 
