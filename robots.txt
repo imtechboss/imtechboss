@@ -18,6 +18,10 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 Disallow: /admin.html
+Disallow: /post
+Disallow: /post/
+Disallow: /post.html
+Disallow: /*?id=*
 Disallow: /*?q=*
 Disallow: /*?s=*
 Disallow: /cdn-cgi/

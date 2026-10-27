@@ -506,42 +506,53 @@ def generate_hubs_cross_promote(article):
     '''
 
 def generate_author_bio(article):
-    safe_author = escape(article.get('author') or 'Tech Boss')
+    safe_author = "Binod Bhatt"
     cat = (article.get('category') or '').lower()
     title = (article.get('title') or '').lower()
 
     if any(k in cat for k in ['hosting', 'cloud', 'server']) or any(k in title for k in ['hosting', 'wordpress', 'vps', 'domain', 'server', 'cloud', 'cdn', 'litespeed']):
         role = "Cloud &amp; Web Infrastructure Lead"
-        bio = "Infrastructure engineer and web systems analyst covering server optimization, LiteSpeed hosting architectures, TTFB latency benchmarks, and enterprise cloud infrastructure at Tech Boss."
+        bio = "Founder and systems engineer at Tech Boss covering server optimization, LiteSpeed hosting architectures, TTFB latency benchmarks, and enterprise cloud infrastructure."
     elif any(k in cat for k in ['frontier ai', 'ai & technology', 'quantum', 'ai']) or any(k in title for k in ['ai', 'gpt', 'llm', 'claude', 'gemini', 'deepseek', 'model', 'ollama', 'neural']):
-        role = "AI &amp; Systems Analyst"
-        bio = "Machine learning specialist evaluating frontier reasoning models, local LLM quantization, neural accelerator benchmarks, and transformer architectures at Tech Boss."
+        role = "AI Systems &amp; Hardware Engineer"
+        bio = "Founder and lead technical editor at Tech Boss, evaluating frontier reasoning models, local LLM quantization, Apple Silicon unified memory architectures, and neural inference acceleration."
     elif any(k in cat for k in ['cybersecurity', 'security', 'privacy']) or any(k in title for k in ['security', 'password', 'vpn', 'ransomware', 'malware', 'phishing', 'encryption', 'zero-day', 'cve']):
-        role = "Cybersecurity Researcher"
-        bio = "Security researcher investigating zero-knowledge cryptographic vaults, zero-day threat telemetry, network protocols, and client-side privacy safeguards at Tech Boss."
+        role = "Cybersecurity &amp; Network Researcher"
+        bio = "Lead technical investigator at Tech Boss specializing in cryptographic vaults, FIDO2 WebAuthn authentication, network protocol security, and operating system safeguards."
     elif any(k in cat for k in ['gaming', 'esports', 'console']) or any(k in title for k in ['gaming', 'game', 'playstation', 'ps5', 'ps6', 'xbox', 'switch', 'steam deck', 'fps', 'rtx 5090']):
-        role = "Gaming &amp; Tech Editor"
-        bio = "Hardware gaming editor evaluating frame latency, DirectStorage throughput, neural reconstruction upscalers, and next-gen console silicon at Tech Boss."
+        role = "Gaming Performance &amp; Silicon Analyst"
+        bio = "Hardware gaming editor at Tech Boss evaluating frame pacing, DirectStorage NVMe bandwidth, neural reconstruction upscalers, and gaming silicon architectures."
     elif any(k in cat for k in ['hardware', 'semiconductor']) or any(k in title for k in ['gpu', 'cpu', 'intel', 'amd', 'ryzen', 'nvidia', 'rtx', 'tsmc', 'ddr5', 'motherboard', 'pc build']):
-        role = "Staff Writer &amp; Benchmark Lead"
-        bio = "Lead editorial investigator specializing in GPU architectures, neural inference acceleration, silicon nodes, and high-performance computing hardware at Tech Boss."
+        role = "Lead Hardware &amp; Benchmark Engineer"
+        bio = "Lead systems investigator at Tech Boss specializing in GPU/CPU silicon nodes, memory latency scaling, DDR5 timings, and high-performance computing hardware."
     else:
-        role = "Editorial &amp; Technology Desk"
-        bio = "Technical editor delivering verified software analyses, productivity frameworks, digital workflow guides, and objective tech reporting at Tech Boss."
+        role = "Founder &amp; Lead Technical Editor"
+        bio = "Founder and lead technical editor at Tech Boss, delivering verified hardware benchmarks, software diagnostics, and objective technology reporting."
 
     return f'''
     <div class="my-10 p-5 sm:p-6 rounded-2xl bg-gray-50 dark:bg-slate-800/40 border border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
       <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-xl shadow flex-shrink-0">
-        TB
+        BB
       </div>
       <div>
         <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
-          <h4 class="font-extrabold text-gray-900 dark:text-white text-sm sm:text-base">{safe_author}</h4>
+          <h4 class="font-extrabold text-gray-900 dark:text-white text-sm sm:text-base">Binod Bhatt</h4>
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">{role}</span>
         </div>
-        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-2">
           {bio}
         </p>
+        <div class="flex items-center justify-center sm:justify-start gap-3 text-xs text-blue-600 dark:text-blue-400 font-semibold" data-nosnippet="" aria-hidden="true">
+          <a href="https://binodbhatt.com.np" target="_blank" rel="author me noopener" class="hover:underline flex items-center gap-1">
+            <span>🌐 Personal Site</span>
+          </a>
+          <span>•</span>
+          <a href="https://github.com/binodbhatt" target="_blank" rel="me noopener" class="hover:underline flex items-center gap-1">
+            <span>💻 GitHub</span>
+          </a>
+          <span>•</span>
+          <a href="https://imtechboss.com/about/" class="hover:underline">About Tech Boss</a>
+        </div>
       </div>
     </div>
     '''
@@ -599,11 +610,10 @@ def render_article_inner_html(article):
           {safe_cat}
         </span>
       </div>
-      <div class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
+      <div class="flex items-center gap-3 text-gray-500 dark:text-gray-400" data-nosnippet="" aria-hidden="true">
         <span>📅 {safe_date}</span>
         <span>•</span>
         <span>⏱️ {read_time}</span>
-        
       </div>
     </div>
 
@@ -616,19 +626,19 @@ def render_article_inner_html(article):
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200/70 dark:border-slate-800 mb-8">
       <div class="flex items-center gap-3.5">
         <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow ring-2 ring-white dark:ring-slate-700">
-          T
+          BB
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h4 class="font-bold text-gray-900 dark:text-gray-100 text-sm sm:text-base">{safe_author}</h4>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">Editor</span>
+            <h4 class="font-bold text-gray-900 dark:text-gray-100 text-sm sm:text-base">Binod Bhatt</h4>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">Lead Technical Editor</span>
           </div>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Tech Boss • imtechboss.com</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Tech Boss • <a href="https://binodbhatt.com.np" target="_blank" rel="author me noopener" class="hover:underline text-blue-600 dark:text-blue-400">binodbhatt.com.np</a></p>
         </div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex items-center gap-2">
+      <!-- Action Buttons (Protected with data-nosnippet & aria-hidden) -->
+      <div class="flex items-center gap-2" data-nosnippet="" aria-hidden="true">
         <button 
           id="likeBtn" 
           class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800"
@@ -845,9 +855,19 @@ def generate_schema_json(article, canonical_url, schema_faqs):
                 "inLanguage": "en-US",
                 "mainEntityOfPage": canonical_url,
                 "author": {
-                    "@type": "Organization",
-                    "name": "Tech Boss",
-                    "url": "https://imtechboss.com"
+                    "@type": "Person",
+                    "name": "Binod Bhatt",
+                    "jobTitle": "Lead Systems & Hardware Engineer",
+                    "url": "https://binodbhatt.com.np",
+                    "sameAs": [
+                        "https://binodbhatt.com.np",
+                        "https://github.com/binodbhatt"
+                    ],
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "Tech Boss",
+                        "url": "https://imtechboss.com"
+                    }
                 },
                 "publisher": {
                     "@type": "Organization",
@@ -1048,6 +1068,10 @@ def build_all_static():
             with open(dst_html, 'w', encoding='utf-8') as f:
                 f.write(p_content)
             print(f"  Created static folder: /{p}/index.html")
+
+    # Generate standalone interactive tool sub-routes (/tools/*)
+    from generate_standalone_tools import generate_standalone_tools
+    generate_standalone_tools()
 
     # Update Homepage index.html with Pre-rendered Latest Articles
     update_homepage_prerender(articles)

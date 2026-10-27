@@ -58,7 +58,13 @@
 /post
   X-Robots-Tag: noindex, follow
 
+/post/*
+  X-Robots-Tag: noindex, follow
+
 /post.html
+  X-Robots-Tag: noindex, follow
+
+/post.html/*
   X-Robots-Tag: noindex, follow
 
 /admin

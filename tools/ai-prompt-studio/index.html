@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQDRHTFW7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HQDRHTFW7Q');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>AI Prompt Engineering Studio — Free System Prompt Generator & Optimizer | Tech Boss</title>
+  <meta name="description" content="Free AI prompt engineering tool for Claude, ChatGPT, and DeepSeek. Generate structured system prompts, specify persona constraints, and export Markdown templates.">
+  <link rel="canonical" href="https://imtechboss.com/tools/ai-prompt-studio/">
+  <link rel="alternate" type="application/rss+xml" title="Tech Boss RSS Feed" href="https://imtechboss.com/feed.xml">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tech Boss">
+  <meta property="og:url" content="https://imtechboss.com/tools/ai-prompt-studio/">
+  <meta property="og:title" content="AI Prompt Engineering Studio — Free System Prompt Generator & Optimizer | Tech Boss">
+  <meta property="og:description" content="Free AI prompt engineering tool for Claude, ChatGPT, and DeepSeek. Generate structured system prompts, specify persona constraints, and export Markdown templates.">
+  <meta property="og:image" content="https://imtechboss.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@imtechboss">
+  <meta name="twitter:title" content="AI Prompt Engineering Studio — Free System Prompt Generator & Optimizer | Tech Boss">
+  <meta name="twitter:description" content="Free AI prompt engineering tool for Claude, ChatGPT, and DeepSeek. Generate structured system prompts, specify persona constraints, and export Markdown templates.">
+  <meta name="twitter:image" content="https://imtechboss.com/og-image.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Google AdSense Account Verification -->
+  <meta name="google-adsense-account" content="ca-pub-1043419685176632">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1043419685176632" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("pulse_theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/css/style.css?v=7.5">
+
+  <!-- Schema.org SoftwareApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://imtechboss.com/tools/ai-prompt-studio/#software",
+        "name": "Tech Boss AI Prompt Engineering Studio",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All (Web Browser)",
+        "url": "https://imtechboss.com/tools/ai-prompt-studio/",
+        "description": "Free AI prompt engineering tool for Claude, ChatGPT, and DeepSeek. Generate structured system prompts, specify persona constraints, and export Markdown templates.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tech Boss",
+          "url": "https://imtechboss.com"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Binod Bhatt",
+          "url": "https://binodbhatt.com.np",
+          "jobTitle": "Lead Systems & Hardware Engineer"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://imtechboss.com/tools/ai-prompt-studio/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://imtechboss.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tech Tools",
+            "item": "https://imtechboss.com/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AI Prompt Engineering Studio",
+            "item": "https://imtechboss.com/tools/ai-prompt-studio/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col justify-between font-sans transition-colors duration-200">
+
+  <!-- Header -->
+  <header class="border-b border-gray-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-sm group-hover:scale-105 transition-transform">
+          TB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-gray-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            Tech Boss
+          </span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            Interactive Tools Suite
+          </span>
+        </div>
+      </a>
+
+      <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold overflow-x-auto whitespace-nowrap">
+        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+        <a href="/tools/" class="text-blue-600 dark:text-blue-400 font-bold">Tech Tools</a>
+        <a href="/compare/" class="text-rose-600 dark:text-rose-400 hover:text-rose-500 font-semibold transition-colors">Compare</a>
+        <a href="/deals/" class="text-amber-600 dark:text-amber-400 hover:text-amber-500 font-semibold transition-colors">Deals</a>
+        <a href="/about/" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+        <a href="/contact/" class="hidden sm:inline text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+
+        <button 
+          id="themeToggleBtn"
+          class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors ml-1"
+          title="Toggle Dark / Light Mode"
+          aria-label="Toggle theme"
+          data-nosnippet=""
+        >
+          <span id="sunIcon" class="hidden">☀️</span>
+          <span id="moonIcon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full">
+    
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+      <span>/</span>
+      <a href="/tools/" class="hover:text-blue-600 transition-colors">Tools</a>
+      <span>/</span>
+      <span class="text-blue-600 dark:text-blue-400 font-semibold truncate">AI Prompt Engineering Studio</span>
+    </nav>
+
+    <!-- Page Title & Direct Answer Capsule (Prime GEO / AI Search Target) -->
+    <div class="mb-8 text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 mb-3">
+        <span>✨</span>
+        <span>Prompt Studio</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-950 dark:text-white tracking-tight mb-4">
+        AI Prompt Engineering Studio
+      </h1>
+      
+      <!-- Direct Answer Capsule for AI Overviews & Featured Snippets -->
+      <div id="aioAnswerCapsule" class="p-4 sm:p-5 rounded-2xl bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/60 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed shadow-xs">
+        <strong class="text-blue-800 dark:text-blue-300 font-bold block mb-1">⚡ Prompt Engineering Architecture:</strong>
+        High-performance prompts follow four structural pillars: Persona & Role definition, Explicit Task Context, Guardrails & Negative Constraints, and Structured Output Formatting. Clear constraints prevent hallucinations and lower token consumption by up to 40%.
+      </div>
+    </div>
+
+    <!-- The Interactive Tool Component -->
+    <div class="mb-12">
+      <section id="promptTool" class="tool-section hidden max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl font-bold">
+          🤖
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">AI Prompt Engineering Studio</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Transform brief queries into high-yield, structured prompts optimized for ChatGPT, Claude 3.7, and DeepSeek R1.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Target AI Model</label>
+          <select id="promptModel" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="Claude 3.7 Sonnet">Claude 3.7 Sonnet / Opus (Detailed Reasoning)</option>
+            <option value="ChatGPT o3 / GPT-4o">ChatGPT o3 / GPT-4o (Chain-of-Thought)</option>
+            <option value="DeepSeek R1">DeepSeek R1 (Math &amp; Code Synthesis)</option>
+            <option value="Midjourney / Image Gen">Midjourney v6 / Ideogram (Photorealism)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Output Objective</label>
+          <select id="promptGoal" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="Production Code & Architecture">Production Code &amp; Clean Architecture</option>
+            <option value="In-Depth Technical Journalism">In-Depth Technical Article / Journalism</option>
+            <option value="Troubleshooting & Debugging">Troubleshooting &amp; Root Cause Analysis</option>
+            <option value="Actionable Executive Brief">Executive Briefing &amp; Key Metrics</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Persona &amp; Tone</label>
+          <select id="promptTone" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <option value="Staff Systems Engineer">Staff Systems Engineer (Strict &amp; Rigorous)</option>
+            <option value="Senior Tech Journalist">Senior Tech Journalist (Clear &amp; Direct)</option>
+            <option value="Critical Code Reviewer">Critical Code Reviewer (Zero Clichés)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Your Raw Topic / Request</label>
+        <textarea id="rawPromptInput" rows="3" placeholder="e.g. Write a script to monitor cloudflare worker cache hit rates and email me when errors spike" class="w-full p-3.5 rounded-2xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"></textarea>
+      </div>
+
+      <div class="flex justify-between items-center mb-6">
+        <span class="text-[11px] text-gray-400">Click below to structure system context, constraints, and instructions.</span>
+        <button id="generatePromptBtn" class="px-6 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow transition-all active:scale-95">
+          ✨ Generate Engineered Prompt
+        </button>
+      </div>
+
+      <!-- Generated Prompt Box -->
+      <div class="relative rounded-2xl bg-slate-900 text-slate-100 p-5 font-mono text-xs overflow-x-auto border border-slate-800">
+        <button id="copyPromptBtn" class="absolute top-3 right-3 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow">
+          <span>📋 Copy Prompt</span>
+        </button>
+        <pre id="promptOutput" class="whitespace-pre-wrap leading-relaxed pr-24">// Click "Generate Engineered Prompt" above to see the structured output template.</pre>
+      </div>
+    </section>
+    </div>
+
+    <!-- Comprehensive Engineering Guide & Technical Documentation -->
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        Best Practices for Prompt Engineering with Claude, ChatGPT & DeepSeek
+      </h2>
+      
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 text-sm">
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">📝 The 4-Part Prompt Structure</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+              <li><strong>1. Persona:</strong> Assign domain expertise (e.g., Senior Systems Architect, Staff Security Engineer).</li>
+              <li><strong>2. Context:</strong> Provide background parameters, target audience, and architectural constraints.</li>
+              <li><strong>3. Guardrails:</strong> Define what the model must NOT do (e.g., no conversational pleasantries, no speculative claims).</li>
+              <li><strong>4. Output Format:</strong> Request Markdown tables, code blocks, or JSON schemas.</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">⚡ Reasoning Model Tuning</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+              <li><strong>DeepSeek R1 & OpenAI o3:</strong> Do not force few-shot examples on reasoning models; allow them to generate self-verification chains of thought.</li>
+              <li><strong>Temperature:</strong> Use 0.0 to 0.2 for coding and deterministic math; use 0.6 to 0.8 for creative writing and brainstorming.</li>
+            </ul>
+          </div>
+        </div>
+        
+    </section>
+
+    <!-- Related Interactive Tools Hub Cluster -->
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 6 Tools &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        
+            <a href="/tools/pc-bottleneck-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PC Bottleneck & Gaming Resolution Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/llm-vram-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🧠</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Local AI & LLM VRAM Sizer (2026 Edition)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">AI & Ollama Sizing</p>
+              </div>
+            </a>
+            
+            <a href="/tools/can-my-pc-run-it/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎮</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Can My PC Run It? Live Game Requirements Checker (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Gaming Performance</p>
+              </div>
+            </a>
+            
+            <a href="/tools/developer-cheat-sheets/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">💻</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Developer & Systems Command Cheat Sheets</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">DevOps & CLI</p>
+              </div>
+            </a>
+            
+            <a href="/tools/gpu-matcher-quiz/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎯</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">2026 GPU & Hardware Matcher Quiz</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Matcher</p>
+              </div>
+            </a>
+            
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 mt-12 py-8 text-xs text-gray-500 dark:text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-gray-800 dark:text-gray-200">Tech Boss</span>
+        <span>&bull;</span>
+        <span>Independent Hardware &amp; AI Benchmarks</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/tools/" class="hover:text-blue-600 transition-colors">Tools Directory</a>
+        <a href="/about/" class="hover:text-blue-600 transition-colors">About</a>
+        <a href="/privacy/" class="hover:text-blue-600 transition-colors">Privacy Policy</a>
+        <a href="/terms/" class="hover:text-blue-600 transition-colors">Terms of Service</a>
+        <a href="/contact/" class="hover:text-blue-600 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" data-nosnippet="" aria-hidden="true" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Shared Modular Tools Logic -->
+  <script src="/js/tools.js?v=2026.1"></script>
+</body>
+</html>

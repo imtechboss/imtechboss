@@ -278,11 +278,25 @@ export default {{
       const id = url.searchParams.get('id');
 
       // 4. Legacy Post Query Parameter Redirects -> Clean Static /slug/
-      if (pathname === '/post.html' || pathname === '/post') {{
+      if (pathname === '/post.html' || pathname === '/post' || pathname.startsWith('/post/') || pathname.startsWith('/post.html/') || cleanSlug === 'post' || cleanSlug === 'post.html') {{
         let dest = 'https://imtechboss.com/';
         if (id && id !== 'blogger-512') {{
           dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
         }}
+        return new Response(null, {{
+          status: 301,
+          statusText: 'Moved Permanently',
+          headers: {{
+            'Location': dest,
+            'X-Robots-Tag': 'noindex, follow',
+            'Cache-Control': 'public, max-age=86400'
+          }}
+        }});
+      }}
+
+      // 4.5 Catch-all for any query parameter ?id=... on root or index.html
+      if (id && (pathname === '/' || pathname === '/index.html')) {{
+        let dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
         return new Response(null, {{
           status: 301,
           statusText: 'Moved Permanently',
