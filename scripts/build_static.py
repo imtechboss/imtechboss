@@ -799,15 +799,15 @@ def build_all_static():
     clean_tpl = re.sub(r'src="js/post\.js([^"]*)"', r'src="/js/post.js\1"', clean_tpl)
     clean_tpl = re.sub(r'src="js/vip-drawer\.js([^"]*)"', r'src="/js/vip-drawer.js\1"', clean_tpl)
 
-    # Normalize static nav links to root
-    clean_tpl = re.sub(r'href="tools"', 'href="/tools"', clean_tpl)
-    clean_tpl = re.sub(r'href="compare"', 'href="/compare"', clean_tpl)
-    clean_tpl = re.sub(r'href="deals"', 'href="/deals"', clean_tpl)
-    clean_tpl = re.sub(r'href="about"', 'href="/about"', clean_tpl)
-    clean_tpl = re.sub(r'href="contact"', 'href="/contact"', clean_tpl)
-    clean_tpl = re.sub(r'href="privacy"', 'href="/privacy"', clean_tpl)
-    clean_tpl = re.sub(r'href="terms"', 'href="/terms"', clean_tpl)
-    clean_tpl = re.sub(r'href="disclaimer"', 'href="/disclaimer"', clean_tpl)
+    # Normalize static nav links to root with canonical trailing slash
+    clean_tpl = re.sub(r'href="tools(?:\.html)?"', 'href="/tools/"', clean_tpl)
+    clean_tpl = re.sub(r'href="compare(?:\.html)?"', 'href="/compare/"', clean_tpl)
+    clean_tpl = re.sub(r'href="deals(?:\.html)?"', 'href="/deals/"', clean_tpl)
+    clean_tpl = re.sub(r'href="about(?:\.html)?"', 'href="/about/"', clean_tpl)
+    clean_tpl = re.sub(r'href="contact(?:\.html)?"', 'href="/contact/"', clean_tpl)
+    clean_tpl = re.sub(r'href="privacy(?:\.html)?"', 'href="/privacy/"', clean_tpl)
+    clean_tpl = re.sub(r'href="terms(?:\.html)?"', 'href="/terms/"', clean_tpl)
+    clean_tpl = re.sub(r'href="disclaimer(?:\.html)?"', 'href="/disclaimer/"', clean_tpl)
 
     count = 0
     for art in articles:
