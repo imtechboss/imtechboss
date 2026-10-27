@@ -1052,7 +1052,7 @@ def build_all_static():
     print(f"✅ Successfully pre-rendered all {count} static article pages (/<slug>/index.html)!")
 
     # Also ensure static pages have directory index.html files so /tools/, /compare/, /deals/ load cleanly
-    static_pages = ['tools', 'compare', 'deals', 'about', 'contact', 'privacy', 'terms', 'disclaimer']
+    static_pages = ['tools', 'compare', 'deals', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'archive']
     for p in static_pages:
         src_html = os.path.join(ROOT_DIR, f"{p}.html")
         if os.path.exists(src_html):
@@ -1073,6 +1073,10 @@ def build_all_static():
     from generate_standalone_tools import generate_standalone_tools
     generate_standalone_tools()
 
+    # Generate static Archive directory (/archive/)
+    from generate_archive import generate_archive
+    generate_archive()
+
     # Update Homepage index.html with Pre-rendered Latest Articles
     update_homepage_prerender(articles)
 
@@ -1089,7 +1093,7 @@ def update_homepage_prerender(articles):
 
     featured = articles[0]
     trending = articles[1:4]
-    grid_posts = articles[:12]
+    grid_posts = articles[:24]
 
     feat_id = escape(featured['id'])
     feat_title = escape(featured['title'])

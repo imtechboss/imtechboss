@@ -72,3 +72,9 @@
 
 /admin.html
   X-Robots-Tag: noindex, nofollow
+
+/index.html
+  X-Robots-Tag: noindex, follow
+
+/*/index.html
+  X-Robots-Tag: noindex, follow

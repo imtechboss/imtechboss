@@ -1,5 +1,9 @@
 https://www.imtechboss.com/*  https://imtechboss.com/:splat  301
 
+# Edge Trailing /index.html Forced 301 Normalization
+/*/index.html  /:splat/  301!
+/index.html    /         301!
+
 # 301! Forced Duplicate Canonical Redirects
 /nvidia-rubin-r100-gpu-architecture-hbm4-288gb-tsmc-3nm-nvlink-6  /nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/  301!
 /nvidia-rubin-r100-gpu-architecture-hbm4-288gb-tsmc-3nm-nvlink-6/*  /nvidia-rubin-r100-ultra-gpu-architecture-hbm4-cowos-3nm-2026/  301!

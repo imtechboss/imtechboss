@@ -8,13 +8,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://imtechboss.com/about</loc>
+    <loc>https://imtechboss.com/about/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://imtechboss.com/contact</loc>
+    <loc>https://imtechboss.com/contact/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -62,31 +62,37 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://imtechboss.com/compare</loc>
+    <loc>https://imtechboss.com/compare/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://imtechboss.com/deals</loc>
+    <loc>https://imtechboss.com/deals/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://imtechboss.com/privacy</loc>
+    <loc>https://imtechboss.com/archive/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/privacy/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://imtechboss.com/terms</loc>
+    <loc>https://imtechboss.com/terms/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://imtechboss.com/disclaimer</loc>
+    <loc>https://imtechboss.com/disclaimer/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

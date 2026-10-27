@@ -53,7 +53,7 @@ def generate_worker():
             'category': a.get('category', 'Technology'),
             'readTime': a.get('readTime', '5 min read')
         }
-        for a in data[:10]
+        for a in data[:24]
     ]
 
     meta_json = json.dumps(meta, ensure_ascii=False)
@@ -174,7 +174,7 @@ export default {{
         }}
       }}
 
-      // 1.5 Clean URL Normalizer: 301 Redirect /*/index.html -> /*/
+      // 1.5 Clean URL Normalizer: 301 Redirect /*/index.html -> /*/ and /index.html -> /
       if (pathname.endsWith('/index.html') && pathname !== '/index.html') {{
         const cleanPath = pathname.slice(0, -'index.html'.length);
         return new Response(null, {{
@@ -182,21 +182,34 @@ export default {{
           statusText: 'Moved Permanently',
           headers: {{
             'Location': 'https://imtechboss.com' + cleanPath,
-            'Cache-Control': 'public, max-age=86400'
+            'Cache-Control': 'public, max-age=86400',
+            'X-Robots-Tag': 'noindex, follow'
+          }}
+        }});
+      }}
+      if (pathname === '/index.html') {{
+        return new Response(null, {{
+          status: 301,
+          statusText: 'Moved Permanently',
+          headers: {{
+            'Location': 'https://imtechboss.com/',
+            'Cache-Control': 'public, max-age=86400',
+            'X-Robots-Tag': 'noindex, follow'
           }}
         }});
       }}
 
-      // 1.6 Clean URL Normalizer: 301 Redirect standalone *.html utility/legal pages -> extensionless canonical path
-      const staticUtilityPages = ['/about.html', '/contact.html', '/privacy.html', '/terms.html', '/disclaimer.html', '/tools.html', '/compare.html', '/deals.html'];
+      // 1.6 Clean URL Normalizer: 301 Redirect standalone *.html utility/legal pages -> canonical trailing slash path
+      const staticUtilityPages = ['/about.html', '/contact.html', '/privacy.html', '/terms.html', '/disclaimer.html', '/tools.html', '/compare.html', '/deals.html', '/archive.html'];
       if (staticUtilityPages.includes(pathname)) {{
-        const cleanPath = pathname.replace(/\\.html$/, '');
+        const cleanPath = pathname.replace(/\.html$/, '') + '/';
         return new Response(null, {{
           status: 301,
           statusText: 'Moved Permanently',
           headers: {{
             'Location': 'https://imtechboss.com' + cleanPath,
-            'Cache-Control': 'public, max-age=86400'
+            'Cache-Control': 'public, max-age=86400',
+            'X-Robots-Tag': 'noindex, follow'
           }}
         }});
       }}

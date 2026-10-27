@@ -6,7 +6,8 @@ let activeCategory = "All";
 let searchQuery = "";
 let onlyBookmarks = false;
 let bookmarkedIds = new Set();
-let displayedCount = 12; // Initial batch of articles to display for instant silky performance
+const BATCH_SIZE = 24;
+let displayedCount = BATCH_SIZE; // Pre-rendered batch for optimal crawl depth and UX
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
@@ -357,7 +358,7 @@ function initNavigation() {
       if (desktopSearch) desktopSearch.value = q;
       if (mobileSearch) mobileSearch.value = q;
       searchQuery = q.toLowerCase();
-      displayedCount = 12;
+      displayedCount = BATCH_SIZE;
       const clearSearchBtn = document.getElementById("clearSearchBtn");
       if (clearSearchBtn) clearSearchBtn.classList.remove("hidden");
       renderArticles();
@@ -377,7 +378,7 @@ function initNavigation() {
   if (bookmarksFilterBtn) {
     bookmarksFilterBtn.addEventListener("click", () => {
       onlyBookmarks = !onlyBookmarks;
-      displayedCount = 12;
+      displayedCount = BATCH_SIZE;
       bookmarksFilterBtn.classList.toggle("text-blue-600", onlyBookmarks);
       bookmarksFilterBtn.classList.toggle("dark:text-blue-400", onlyBookmarks);
       
@@ -398,7 +399,7 @@ function initNavigation() {
 function setCategory(cat) {
   activeCategory = cat;
   onlyBookmarks = false;
-  displayedCount = 12;
+  displayedCount = BATCH_SIZE;
   searchQuery = '';
   
   const desktopSearchInput = document.getElementById("desktopSearchInput");
@@ -449,7 +450,7 @@ function initSearch() {
 
   const handleInput = (val) => {
     searchQuery = (val || "").trim().toLowerCase();
-    displayedCount = 12;
+    displayedCount = BATCH_SIZE;
 
     if (desktopSearch && desktopSearch.value !== val) desktopSearch.value = val;
     if (mobileSearch && mobileSearch.value !== val) mobileSearch.value = val;
@@ -569,7 +570,7 @@ function renderArticles(isAppending = false) {
   if (emptyState) emptyState.classList.add("hidden");
 
   // Slice for instant pagination
-  const startIndex = isAppending ? displayedCount - 12 : 0;
+  const startIndex = isAppending ? displayedCount - BATCH_SIZE : 0;
   const visibleArticles = filtered.slice(startIndex, displayedCount);
   const fullVisibleLength = filtered.slice(0, displayedCount).length;
 
@@ -729,7 +730,7 @@ function showLoadMoreButton(totalCount) {
   if (realBtn) {
     realBtn.textContent = `Load More Stories (${displayedCount} of ${totalCount})`;
     realBtn.onclick = () => {
-      displayedCount += 12;
+      displayedCount += BATCH_SIZE;
       renderArticles(true);
     };
   }
@@ -1026,7 +1027,7 @@ function renderTrendingTopics() {
       if (desktopSearch) desktopSearch.value = query;
       if (mobileSearch) mobileSearch.value = query;
       searchQuery = query.toLowerCase();
-      displayedCount = 12;
+      displayedCount = BATCH_SIZE;
       const clearSearchBtn = document.getElementById("clearSearchBtn");
       if (clearSearchBtn) clearSearchBtn.classList.remove("hidden");
       
