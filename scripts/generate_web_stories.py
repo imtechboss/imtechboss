@@ -154,6 +154,7 @@ for art in top_articles:
   <meta charset="utf-8">
   <title>{safe_title} | Tech Boss Web Stories</title>
   <link rel="canonical" href="{canonical_url}">
+  <meta name="description" content="{safe_excerpt}">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
@@ -322,7 +323,7 @@ hub_html = f"""<!DOCTYPE html>
       </a>
       <div class="flex items-center gap-4 text-sm font-semibold">
         <a href="/" class="text-slate-300 hover:text-white transition">Home</a>
-        <a href="/tools.html" class="text-slate-300 hover:text-white transition">Tools</a>
+        <a href="/tools/" class="text-slate-300 hover:text-white transition">Tools</a>
         <a href="/stories/" class="text-blue-400 font-bold">Web Stories</a>
       </div>
     </div>
@@ -345,9 +346,9 @@ hub_html = f"""<!DOCTYPE html>
   <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500 mt-16">
     <p>&copy; 2026 Tech Boss. All rights reserved.</p>
     <div class="mt-2 space-x-4">
-      <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
-      <a href="/about.html" class="hover:underline">About</a>
-      <a href="/contact.html" class="hover:underline">Contact</a>
+      <a href="/privacy/" class="hover:underline">Privacy Policy</a>
+      <a href="/about/" class="hover:underline">About</a>
+      <a href="/contact/" class="hover:underline">Contact</a>
     </div>
   </footer>
 </body>

@@ -345,7 +345,7 @@ def generate_standalone_tools():
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1043419685176632" crossorigin="anonymous"></script>
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script>
     tailwind.config = {{
       darkMode: 'class',
