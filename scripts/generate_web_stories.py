@@ -300,19 +300,7 @@ hub_html = f"""<!DOCTYPE html>
   <meta name="description" content="Immersive, fast-loading visual Web Stories breaking down the latest PC hardware benchmarks, Windows troubleshooting guides, and AI breakthroughs.">
   <link rel="canonical" href="https://imtechboss.com/stories/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {{
-      darkMode: 'class',
-      theme: {{
-        extend: {{
-          colors: {{
-            primary: '#2563eb',
-          }}
-        }}
-      }}
-    }}
-  </script>
+  <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
   <!-- Header -->

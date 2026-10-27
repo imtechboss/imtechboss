@@ -344,20 +344,8 @@ def generate_standalone_tools():
   <meta name="google-adsense-account" content="ca-pub-1043419685176632">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1043419685176632" crossorigin="anonymous"></script>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-    tailwind.config = {{
-      darkMode: 'class',
-      theme: {{
-        extend: {{
-          fontFamily: {{
-            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-          }}
-        }}
-      }}
-    }}
-  </script>
+  <!-- Pure Compiled CSS (Zero External Scripts) -->
+  <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
   <script>
     try {{
       const savedTheme = localStorage.getItem("pulse_theme");
@@ -367,8 +355,7 @@ def generate_standalone_tools():
       }}
     }} catch (e) {{}}
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=7.5">
-
+  
   <!-- Schema.org SoftwareApplication JSON-LD -->
   <script type="application/ld+json">
   {{

@@ -755,6 +755,12 @@ def generate_schema_json(article, canonical_url, schema_faqs):
     return json.dumps(schema, ensure_ascii=False)
 
 def build_all_static():
+    try:
+        from compile_css import compile_pure_css
+        compile_pure_css()
+    except Exception as e:
+        print(f"compile_css warning: {e}")
+
     print("=" * 70)
     print("   BUILDING PRE-RENDERED STATIC ARTICLE DIRECTORIES (/<slug>/)")
     print("=" * 70)
