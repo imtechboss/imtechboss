@@ -9,15 +9,20 @@ def generate_worker():
     with open(redir_json_path, 'r', encoding='utf-8') as f:
         duplicate_redirects = json.load(f)
 
-    with open(data_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-    match = re.search(r'var\s+initialArticles\s*=\s*(\[.*?\]);?\s*$', content, re.DOTALL)
-    if not match:
-        print('Error: initialArticles not found')
-        return
-
-    data = json.loads(match.group(1))
+    posts_path = os.path.join(base_dir, 'posts.json')
+    if os.path.exists(posts_path):
+        with open(posts_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    else:
+        with open(data_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        idx_start = content.find('[')
+        idx_end = content.rfind(']')
+        if idx_start != -1 and idx_end != -1:
+            data = json.loads(content[idx_start:idx_end+1])
+        else:
+            print('Error: initialArticles not found')
+            return
     meta = {}
     for a in data:
         raw_author = a.get('author', 'Tech Boss')

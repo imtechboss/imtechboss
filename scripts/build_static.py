@@ -838,13 +838,19 @@ def build_all_static():
         # Replace in template
         page_html = clean_tpl
 
+        # Compute concise, high-CTR SERP Title (strictly <= 65 chars with "| Tech Boss")
+        serp_title = escape(art.get('serp_title') or safe_title)
+        if len(serp_title) > 52:
+            serp_title = serp_title[:49].rsplit(' ', 1)[0]
+        full_page_title = f"{serp_title} | Tech Boss"
+
         # Replace Title
-        page_html = re.sub(r'<title id="pageTitle">.*?</title>', f'<title id="pageTitle">{safe_title} — Tech Boss</title>', page_html)
+        page_html = re.sub(r'<title id="pageTitle">.*?</title>', f'<title id="pageTitle">{full_page_title}</title>', page_html)
         
         # Replace Meta Description
         page_html = re.sub(r'<meta name="description" id="metaDescription" content=".*?">', f'<meta name="description" id="metaDescription" content="{safe_desc}">', page_html)
 
-                # Replace Canonical
+        # Replace Canonical
         page_html = re.sub(r'<link id="canonicalUrl" rel="canonical" href=".*?">', f'<link id="canonicalUrl" rel="canonical" href="{canonical_url}">', page_html)
 
         # Search indexing directives
@@ -855,7 +861,7 @@ def build_all_static():
 
         # Replace OG Meta
         page_html = re.sub(r'<meta id="ogUrl" property="og:url" content=".*?">', f'<meta id="ogUrl" property="og:url" content="{canonical_url}">', page_html)
-        page_html = re.sub(r'<meta id="ogTitle" property="og:title" content=".*?">', f'<meta id="ogTitle" property="og:title" content="{safe_title} — Tech Boss">', page_html)
+        page_html = re.sub(r'<meta id="ogTitle" property="og:title" content=".*?">', f'<meta id="ogTitle" property="og:title" content="{full_page_title}">', page_html)
         page_html = re.sub(r'<meta id="ogDescription" property="og:description" content=".*?">', f'<meta id="ogDescription" property="og:description" content="{safe_desc}">', page_html)
         page_html = re.sub(r'<meta id="ogImage" property="og:image" content=".*?">', f'<meta id="ogImage" property="og:image" content="{safe_img}">', page_html)
         page_html = re.sub(r'<meta id="ogImageSecure" property="og:image:secure_url" content=".*?">', f'<meta id="ogImageSecure" property="og:image:secure_url" content="{safe_img}">', page_html)
@@ -863,7 +869,7 @@ def build_all_static():
 
         # Replace Twitter Meta
         page_html = re.sub(r'<meta id="twUrl" name="twitter:url" content=".*?">', f'<meta id="twUrl" name="twitter:url" content="{canonical_url}">', page_html)
-        page_html = re.sub(r'<meta id="twTitle" name="twitter:title" content=".*?">', f'<meta id="twTitle" name="twitter:title" content="{safe_title} — Tech Boss">', page_html)
+        page_html = re.sub(r'<meta id="twTitle" name="twitter:title" content=".*?">', f'<meta id="twTitle" name="twitter:title" content="{full_page_title}">', page_html)
         page_html = re.sub(r'<meta id="twDescription" name="twitter:description" content=".*?">', f'<meta id="twDescription" name="twitter:description" content="{safe_desc}">', page_html)
         page_html = re.sub(r'<meta id="twImage" name="twitter:image" content=".*?">', f'<meta id="twImage" name="twitter:image" content="{safe_img}">', page_html)
 
