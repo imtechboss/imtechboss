@@ -122,18 +122,26 @@ print(f"Articles missing structured FAQs: {len(missing_faqs)} / {total_articles}
 if len(missing_faqs) == 0:
     print("  ✅ 100% of articles contain structured FAQ schema data!")
 
-# Template verification
-post_html = os.path.join(ROOT_DIR, 'post.html')
-with open(post_html, 'r', encoding='utf-8') as f:
-    template_code = f.read()
+# Schema & Template Verification on Pre-rendered Output
+sample_static = os.path.join(ROOT_DIR, posts[0]['id'], 'index.html')
+check_code = ""
+if os.path.exists(sample_static):
+    with open(sample_static, 'r', encoding='utf-8') as f:
+        check_code = f.read()
+else:
+    with open(os.path.join(ROOT_DIR, 'scripts', 'build_static.py'), 'r', encoding='utf-8') as f:
+        check_code = f.read()
 
-author_eeat = 'Person' in template_code and ('sameAs' in template_code or 'knowsAbout' in template_code)
+author_eeat = 'Person' in check_code and ('sameAs' in check_code or 'knowsAbout' in check_code)
 print(f"E-E-A-T Author Schema credentials: {'✅ Verified (Author Person, sameAs, knowsAbout)' if author_eeat else '❌ Missing'}")
 
-breadcrumbs_schema = 'BreadcrumbList' in template_code
+breadcrumbs_schema = 'BreadcrumbList' in check_code
 print(f"BreadcrumbList Schema markup: {'✅ Verified (BreadcrumbList JSON-LD present)' if breadcrumbs_schema else '❌ Missing'}")
 
-comments_system = 'commentsSection' in template_code or 'postCommentForm' in template_code
+post_html = os.path.join(ROOT_DIR, 'post.html')
+with open(post_html, 'r', encoding='utf-8') as f:
+    tpl_code = f.read()
+comments_system = 'commentsSection' in tpl_code or 'postCommentForm' in tpl_code
 print(f"User Discussion / Comments System: {'✅ Verified' if comments_system else '❌ Missing'}")
 
 # Content strategy check

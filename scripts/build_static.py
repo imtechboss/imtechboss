@@ -704,7 +704,14 @@ def generate_schema_json(article, canonical_url, schema_faqs):
                         "@type": "Organization",
                         "name": "Tech Boss",
                         "url": "https://imtechboss.com"
-                    }
+                    },
+                    "knowsAbout": [
+                        "Artificial Intelligence",
+                        "GPU Benchmarking",
+                        "Cloud Infrastructure",
+                        "Cybersecurity",
+                        "Systems Engineering"
+                    ]
                 },
                 "publisher": {
                     "@type": "Organization",
@@ -873,7 +880,9 @@ def build_all_static():
         page_html = re.sub(r'<meta id="twDescription" name="twitter:description" content=".*?">', f'<meta id="twDescription" name="twitter:description" content="{safe_desc}">', page_html)
         page_html = re.sub(r'<meta id="twImage" name="twitter:image" content=".*?">', f'<meta id="twImage" name="twitter:image" content="{safe_img}">', page_html)
 
-        # Inject JSON-LD Schema before </head>
+        # Remove any existing JSON-LD in template so there is strictly ONE unified script block
+        page_html = re.sub(r'<script\b[^>]*type="application/ld\+json"[^>]*>[\s\S]*?</script>\s*', '', page_html)
+        # Inject unified JSON-LD Schema before </head>
         json_ld_tag = f'\n  <script id="articleJsonLd" type="application/ld+json">{schema_json_ld}</script>\n</head>'
         page_html = page_html.replace('</head>', json_ld_tag, 1)
 
