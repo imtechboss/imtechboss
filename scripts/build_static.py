@@ -839,10 +839,10 @@ def build_all_static():
         page_html = clean_tpl
 
         # Compute concise, high-CTR SERP Title (strictly <= 65 chars with "| Tech Boss")
-        serp_title = escape(art.get('serp_title') or safe_title)
-        if len(serp_title) > 52:
-            serp_title = serp_title[:49].rsplit(' ', 1)[0]
-        full_page_title = f"{serp_title} | Tech Boss"
+        raw_serp = art.get('serp_title') or safe_title
+        if len(raw_serp) > 52:
+            raw_serp = raw_serp[:49].rsplit(' ', 1)[0]
+        full_page_title = f"{escape(raw_serp)} | Tech Boss"
 
         # Replace Title
         page_html = re.sub(r'<title id="pageTitle">.*?</title>', f'<title id="pageTitle">{full_page_title}</title>', page_html)
