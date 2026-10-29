@@ -207,7 +207,7 @@ export default {{
       // 1.6 Clean URL Normalizer: 301 Redirect standalone *.html utility/legal pages -> canonical trailing slash path
       const staticUtilityPages = ['/about.html', '/contact.html', '/privacy.html', '/terms.html', '/disclaimer.html', '/tools.html', '/compare.html', '/deals.html', '/archive.html'];
       if (staticUtilityPages.includes(pathname)) {{
-        const cleanPath = pathname.replace(/\.html$/, '') + '/';
+        const cleanPath = pathname.replace(/\\.html$/, '') + '/';
         return new Response(null, {{
           status: 301,
           statusText: 'Moved Permanently',
