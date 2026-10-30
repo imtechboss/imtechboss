@@ -155,8 +155,15 @@ function renderPostDetail() {
     return;
   }
 
-  // Update Page Title and Meta Tags
-  document.title = `${article.title} — Tech Boss`;
+  // Update Page Title and Meta Tags (preserve <=65 char SERP title)
+  let rawSerp = article.serp_title || article.title || "Tech Boss";
+  if (rawSerp.length > 52) {
+    const cut = rawSerp.slice(0, 49);
+    const lastSpace = cut.lastIndexOf(" ");
+    rawSerp = lastSpace > 20 ? cut.slice(0, lastSpace) : cut;
+  }
+  const conciseTitle = `${rawSerp} | Tech Boss`;
+  document.title = conciseTitle;
   const metaDesc = document.getElementById("metaDescription");
   if (metaDesc && article.excerpt) {
     metaDesc.setAttribute("content", article.excerpt);
@@ -175,8 +182,8 @@ function renderPostDetail() {
   const canonicalUrl = document.getElementById("canonicalUrl");
   if (canonicalUrl) canonicalUrl.setAttribute("href", canonicalHref);
   if (ogUrl) ogUrl.setAttribute("content", canonicalHref);
-  if (ogTitle) ogTitle.setAttribute("content", `${article.title} — Tech Boss`);
-  if (twTitle) twTitle.setAttribute("content", `${article.title} — Tech Boss`);
+  if (ogTitle) ogTitle.setAttribute("content", conciseTitle);
+  if (twTitle) twTitle.setAttribute("content", conciseTitle);
   if (article.excerpt) {
     if (ogDesc) ogDesc.setAttribute("content", article.excerpt);
     if (twDesc) twDesc.setAttribute("content", article.excerpt);
