@@ -115,9 +115,9 @@ async function main() {
   const args = process.argv.slice(2);
   let targetUrls = [];
 
-  if (args.length > 0 && args[0].startsWith('http')) {
-    targetUrls = [args[0]];
-    console.log(`Targeting single URL: ${args[0]}`);
+  if (args.length > 0 && args.some(a => a.startsWith('http'))) {
+    targetUrls = args.filter(a => a.startsWith('http'));
+    console.log(`Targeting ${targetUrls.length} specific URL(s)...`);
   } else {
     const allUrls = getSitemapUrls();
     console.log(`Found ${allUrls.length} URLs in sitemap.xml.`);
