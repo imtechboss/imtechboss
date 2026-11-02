@@ -1,5 +1,28 @@
 https://www.imtechboss.com/*  https://imtechboss.com/:splat  301
 
+# Legal and Policy Canonical Trailing-Slash Redirects (Forced)
+/privacy-policy          /privacy/     301!
+/privacy-policy/*        /privacy/     301!
+/about-us                /about/       301!
+/about-us/*              /about/       301!
+/contact-us              /contact/     301!
+/contact-us/*            /contact/     301!
+/terms-of-service        /terms/       301!
+/terms-of-service/*      /terms/       301!
+/terms-and-conditions    /terms/       301!
+/terms-and-conditions/*  /terms/       301!
+
+# Non-Trailing Slash Core Utility Pages (Forced 301! Normalization)
+/about       /about/       301!
+/contact     /contact/     301!
+/privacy     /privacy/     301!
+/terms       /terms/       301!
+/disclaimer  /disclaimer/  301!
+/tools       /tools/       301!
+/compare     /compare/     301!
+/deals       /deals/       301!
+/archive     /archive/     301!
+
 # Edge Trailing /index.html Forced 301 Normalization
 /*/index.html  /:splat/  301!
 /index.html    /         301!
