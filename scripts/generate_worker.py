@@ -219,6 +219,22 @@ export default {{
         }});
       }}
 
+      
+
+      // 1.7 Clean URL Normalizer: 301 Redirect non-trailing-slash utility/legal routes -> canonical trailing slash path
+      const nonSlashPages = ['/about', '/contact', '/privacy', '/terms', '/disclaimer', '/tools', '/compare', '/deals', '/archive'];
+      if (nonSlashPages.includes(pathname)) {{
+        return new Response(null, {{
+          status: 301,
+          statusText: 'Moved Permanently',
+          headers: {{
+            'Location': 'https://imtechboss.com' + pathname + '/',
+            'Cache-Control': 'public, max-age=86400',
+            'X-Robots-Tag': 'noindex, follow'
+          }}
+        }});
+      }}
+
       // 2. Trailing Slash Fix for Pages Static Assets
       if (pathname.endsWith('.html') && pathname !== '/index.html' && pathname !== '/post.html' && pathname !== '/404.html') {{
         let response = await env.ASSETS.fetch(request);
