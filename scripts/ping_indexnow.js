@@ -18,15 +18,18 @@ const host = 'imtechboss.com';
 
 const urls = [
   `https://${host}/`,
-  `https://${host}/about`,
-  `https://${host}/contact`,
-  `https://${host}/privacy`,
-  `https://${host}/disclaimer`,
-  `https://${host}/tools`,
-  `https://${host}/compare`,
-  `https://${host}/deals`,
+  `https://${host}/about/`,
+  `https://${host}/contact/`,
+  `https://${host}/privacy/`,
+  `https://${host}/terms/`,
+  `https://${host}/disclaimer/`,
+  `https://${host}/tools/`,
+  `https://${host}/compare/`,
+  `https://${host}/deals/`,
   `https://${host}/stories/`,
+  `https://${host}/archive/`,
   `https://${host}/sitemap.xml`,
+  `https://${host}/feed.xml`,
   ...articles.map(a => `https://${host}/${a.id}/`)
 ];
 
