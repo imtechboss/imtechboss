@@ -470,7 +470,7 @@ def render_article_inner_html(article):
             <h4 class="font-bold text-gray-900 dark:text-gray-100 text-sm sm:text-base">Binod Bhatt</h4>
             <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">Lead Technical Editor</span>
           </div>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Tech Boss • <a href="https://binodbhatt.com.np" target="_blank" rel="author me noopener" class="hover:underline text-blue-600 dark:text-blue-400">binodbhatt.com.np</a></p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">By <a href="/about/" class="font-bold text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400">Binod Bhatt</a> (Founder & Lead Hardware Editor) • <a href="/about/" class="text-gray-500 hover:underline">Tech Boss</a> • <a href="https://github.com/binodbhatt" target="_blank" rel="author me noopener" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub (@binodbhatt)</a></p>
         </div>
       </div>
 
