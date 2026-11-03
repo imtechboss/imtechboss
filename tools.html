@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -191,6 +191,9 @@
         </button>
         <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-purple-500" data-target="aiVramTool">
           🧠 Local AI &amp; VRAM Sizer
+        </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-slate-700 hover:border-blue-500" data-target="hostingSizerTool">
+          🌐 WordPress Hosting &amp; TTFB Sizer
         </button>
       </div>
     </div>
@@ -695,6 +698,70 @@
         </div>
       </div>
     </section>
+
+
+      <!-- 7. WordPress Hosting Speed & Server Sizer -->
+      <section id="hostingSizerTool" class="tool-section hidden p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-gray-200/80 dark:border-slate-800 shadow-sm scroll-mt-24">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl font-bold">🌐</div>
+          <div>
+            <h2 class="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">WordPress Hosting Speed &amp; Server Sizer</h2>
+            <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Calculate required vCPU cores, RAM, NVMe storage, and estimated TTFB latency for your WordPress site.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Estimated Monthly Pageviews</label>
+            <select id="hostingPageviews" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="low">Under 25,000 / month (Starter / Hobby)</option>
+              <option value="medium" selected>25,000 – 100,000 / month (Growing Blog / SME)</option>
+              <option value="high">100,000 – 500,000 / month (High Traffic Portal)</option>
+              <option value="scale">500,000 – 2,000,000+ / month (Enterprise / Viral)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">WordPress Application Type</label>
+            <select id="hostingSiteType" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="blog" selected>Content Blog / Tech News / Portfolio (Mostly Static)</option>
+              <option value="ecommerce">WooCommerce Store (Dynamic Cart &amp; Checkout)</option>
+              <option value="membership">LMS / Membership / Community (High Uncached PHP)</option>
+              <option value="agency">Multi-Site Network / Client Fleet</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Caching Engine Stack</label>
+            <select id="hostingCacheStack" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="litespeed" selected>LiteSpeed Enterprise + LSCache (Recommended)</option>
+              <option value="nginx">Nginx Microcaching + Redis Object Cache</option>
+              <option value="apache">Apache + File Cache / WP Super Cache</option>
+              <option value="none">No Caching (Raw PHP-FPM Execution)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Primary Visitor Geography</label>
+            <select id="hostingRegion" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="us" selected>North America (US East / West)</option>
+              <option value="eu">Europe (London / Frankfurt / Amsterdam)</option>
+              <option value="asia">Asia-Pacific &amp; South Asia (Singapore / India / Nepal)</option>
+              <option value="global">Global Multi-Region (Cloudflare Enterprise CDN)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calculateHostingBtn" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-sm tracking-wide shadow-md transition-all active:scale-[0.99] flex items-center justify-center gap-2">
+          <span>⚡ Calculate Server Specs &amp; Hosting Tier</span>
+        </button>
+
+        <!-- Hidden by default per Rule 10 -->
+        <div id="hostingResultBox" class="hidden mt-6 p-6 rounded-2xl bg-indigo-50/60 dark:bg-slate-800/80 border border-indigo-100 dark:border-slate-700 space-y-4">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </section>
+
 
     <!-- Embed Tool Widget for Webmasters & Bloggers (Backlink Magnet) -->
     <div class="max-w-4xl mx-auto mt-8 p-6 rounded-3xl bg-slate-900 text-slate-100 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">

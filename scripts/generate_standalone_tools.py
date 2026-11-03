@@ -34,6 +34,39 @@ JS_DIR = os.path.join(ROOT_DIR, 'js')
 
 tools_config = [
     {
+        "id": "hostingSizerTool",
+        "slug": "wordpress-hosting-calculator",
+        "title": "WordPress Hosting Speed & Server Sizer 2026 | Tech Boss",
+        "meta_desc": "Calculate required server vCPU cores, RAM, NVMe storage, and estimated TTFB latency for WordPress blogs, WooCommerce stores, and high-traffic portals in 2026.",
+        "h1": "WordPress Hosting Speed & Server Sizer Calculator (2026)",
+        "capsule_title": "Server Sizing Benchmark:",
+        "capsule_text": "Time to First Byte (TTFB) directly impacts Google search rankings and Core Web Vitals. For blogs under 50,000 monthly pageviews, a LiteSpeed NVMe server delivers optimal sub-200ms TTFB. Dynamic WooCommerce stores require at least 2 vCPUs and 4GB RAM with Redis Object Caching to avoid checkout cart abandonment.",
+        "app_category": "UtilitiesApplication",
+        "name": "Tech Boss WordPress Hosting Sizer",
+        "icon": "🌐",
+        "badge": "Web Infrastructure Sizing",
+        "guide_title": "How to Size WordPress Hosting & Infrastructure for Peak Speed",
+        "guide_html": """
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 text-sm">
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">⚡ TTFB &amp; Core Web Vitals Standards</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+              <li><strong class="text-emerald-500">&lt; 200ms (Good / Optimal):</strong> Recommended by Google for maximum crawl rate and conversion performance.</li>
+              <li><strong class="text-amber-500">200ms – 500ms (Needs Improvement):</strong> Noticeable render delays on mobile networks.</li>
+              <li><strong class="text-rose-500">&gt; 600ms (Poor / Failing):</strong> Penalized by Google Core Web Vitals algorithm.</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🖥️ Cache Engine Performance Scaling</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+              <li><strong>LiteSpeed Enterprise + LSCache:</strong> Up to 12x faster than Apache; serves cached static HTML directly from server memory without triggering PHP workers.</li>
+              <li><strong>Redis Object Caching:</strong> Stores complex database queries in RAM, slashing WooCommerce cart and admin panel load times by up to 70%.</li>
+            </ul>
+          </div>
+        </div>
+        """
+    },
+    {
         "id": "bottleneckTool",
         "slug": "pc-bottleneck-calculator",
         "title": "PC Bottleneck Calculator 2026 — CPU & GPU Gaming Resolution Check | Tech Boss",
@@ -250,6 +283,7 @@ def generate_standalone_tools():
     guarded_js = raw_js
     guarded_listeners = [
         ('calcBtn.addEventListener', 'if (calcBtn) calcBtn.addEventListener'),
+    ('calcHostingBtn.addEventListener', 'if (calcHostingBtn) calcHostingBtn.addEventListener'),
         ('genPromptBtn.addEventListener', 'if (genPromptBtn) genPromptBtn.addEventListener'),
         ('copyPromptBtn.addEventListener', 'if (copyPromptBtn) copyPromptBtn.addEventListener'),
         ('cheatList.addEventListener', 'if (cheatList) cheatList.addEventListener'),
