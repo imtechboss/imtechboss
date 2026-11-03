@@ -1,6 +1,10 @@
 // scripts/republish_all_devto.js
 // Run this script whenever you want to re-publish all DEV.to drafts after AdSense approval
-const API_KEY = 'ZtmMvBpzm7EgsBquEstMv5mq';
+const API_KEY = process.env.DEVTO_API_KEY || '';
+if (!API_KEY) {
+  console.error('❌ DEVTO_API_KEY environment variable is required.');
+  process.exit(1);
+}
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));

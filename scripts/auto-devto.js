@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
-const DEVTO_API_KEY = process.env.DEVTO_API_KEY || 'ZtmMvBpzm7EgsBquEstMv5mq';
+const DEVTO_API_KEY = process.env.DEVTO_API_KEY || '';
 const projectRoot = path.resolve(__dirname, '..');
 const dataPath = path.join(projectRoot, 'js', 'data.js');
 const historyFile = path.join(__dirname, 'devto-history.json');
