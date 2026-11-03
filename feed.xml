@@ -4,6 +4,17 @@
     <title>Tech Boss</title>
     <link>https://imtechboss.com</link>
     <description>Latest Technology News, AI Breakthroughs, Software Guides &amp; Gaming</description>
+    <item>
+      <title>AMD Radeon RX 9070 XT (RDNA 4): 16GB GDDR6, FSR 4 Neural Upscaling &amp; Ray Tracing Architecture vs. RTX 5070 (2026 Analysis)</title>
+      <link>https://imtechboss.com/amd-radeon-rx-9070-xt-rdna-4-specs-fsr-4-benchmarks-vs-rtx-5070-2026/</link>
+      <guid isPermaLink="true">https://imtechboss.com/amd-radeon-rx-9070-xt-rdna-4-specs-fsr-4-benchmarks-vs-rtx-5070-2026/</guid>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
+      <description>AMD unveils the Radeon RX 9070 XT on RDNA 4 silicon with 16GB GDDR6, dedicated matrix AI cores, and FSR 4 machine learning upscaling to rival RTX 5070.</description>
+      <category>Hardware &amp; Silicon</category>
+      <media:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800"/>
+      <media:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+      <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg"/>
+    </item>
     <language>en-us</language>
     <managingEditor>binodbhatt500k@gmail.com (Binod Bhatt)</managingEditor>
     <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml" />
