@@ -1,1 +1,1 @@
-apple-m4-max-architecture-546gb-s-unified-memory-local-ai-benchmarks-vs-rtx-4090
+amd-radeon-rx-9070-xt-rdna-4-specs-fsr-4-benchmarks-vs-rtx-5070-2026
