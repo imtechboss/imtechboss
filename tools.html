@@ -192,6 +192,9 @@
         <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:border-purple-500" data-target="aiVramTool">
           🧠 Local AI &amp; VRAM Sizer
         </button>
+        <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-slate-700 hover:border-amber-500" data-target="psuCalculatorTool">
+          ⚡ PC Power Supply (PSU) Sizer
+        </button>
         <button class="tool-tab-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-slate-700 hover:border-blue-500" data-target="hostingSizerTool">
           🌐 WordPress Hosting &amp; TTFB Sizer
         </button>
@@ -758,6 +761,76 @@
 
         <!-- Hidden by default per Rule 10 -->
         <div id="hostingResultBox" class="hidden mt-6 p-6 rounded-2xl bg-indigo-50/60 dark:bg-slate-800/80 border border-indigo-100 dark:border-slate-700 space-y-4">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </section>
+
+
+
+      <!-- 8. PC Power Supply (PSU) & Wattage Calculator -->
+      <section id="psuCalculatorTool" class="tool-section hidden p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-gray-200/80 dark:border-slate-800 shadow-sm scroll-mt-24">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl font-bold">⚡</div>
+          <div>
+            <h2 class="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">PC Power Supply (PSU) &amp; Wattage Calculator</h2>
+            <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Calculate required PSU wattage for Intel Core Ultra, AMD Ryzen 9000, and RTX 50-series with ATX 3.1 transient spike headroom.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Processor (CPU)</label>
+            <select id="psuCpuSelect" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="120" selected>AMD Ryzen 7 9800X3D (120W TDP / 162W PPT)</option>
+              <option value="170">AMD Ryzen 9 9950X / 7950X (170W TDP / 230W PPT)</option>
+              <option value="250">Intel Core Ultra 9 285K (250W MTP)</option>
+              <option value="250">Intel Core i9 14900K / 13900K (253W–320W PL2)</option>
+              <option value="125">Intel Core Ultra 7 265K / i7 14700K (125W–250W)</option>
+              <option value="105">AMD Ryzen 5 9600X / 7600X (105W TDP)</option>
+              <option value="65">AMD Ryzen 5 7600 / 5600 (65W Eco TDP)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Graphics Card (GPU)</label>
+            <select id="psuGpuSelect" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="600">NVIDIA GeForce RTX 5090 (600W TGP / 1200W Peak Transient)</option>
+              <option value="400" selected>NVIDIA GeForce RTX 5080 (400W TGP / 800W Peak Transient)</option>
+              <option value="285">NVIDIA GeForce RTX 5070 Ti (285W TGP)</option>
+              <option value="250">NVIDIA GeForce RTX 5070 (250W TGP)</option>
+              <option value="320">AMD Radeon RX 9070 XT (320W TGP)</option>
+              <option value="355">AMD Radeon RX 7900 XTX (355W TGP)</option>
+              <option value="450">NVIDIA GeForce RTX 4090 (450W TGP)</option>
+              <option value="320">NVIDIA GeForce RTX 4080 Super (320W TGP)</option>
+              <option value="220">NVIDIA GeForce RTX 4070 Super (220W TGP)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Cooling &amp; Fan Setup</label>
+            <select id="psuCoolingSelect" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="25">Standard Air Cooler (1–2 Fans)</option>
+              <option value="40" selected>240mm / 360mm AIO Liquid Cooler + Pump</option>
+              <option value="65">Custom Water Loop (Dual D5 Pumps + 6x High-Static Fans)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Storage &amp; Overclocking Profile</label>
+            <select id="psuOverclockSelect" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="1.15">Stock Clocks / Eco Mode (15% Safety Margin)</option>
+              <option value="1.25" selected>Precision Boost Overdrive (PBO) / XMP (+25% Headroom)</option>
+              <option value="1.40">Heavy Overclocking &amp; Unlocked Power Limits (+40% Headroom)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="calculatePsuBtn" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold text-sm tracking-wide shadow-md transition-all active:scale-[0.99] flex items-center justify-center gap-2">
+          <span>⚡ Calculate Recommended PSU Wattage &amp; ATX 3.1 Tier</span>
+        </button>
+
+        <!-- Hidden by default per Rule 10 -->
+        <div id="psuResultBox" class="hidden mt-6 p-6 rounded-2xl bg-amber-50/60 dark:bg-slate-800/80 border border-amber-200/60 dark:border-slate-700 space-y-4">
           <!-- Dynamically populated via JS -->
         </div>
       </section>

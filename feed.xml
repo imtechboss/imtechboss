@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+<rss xmlns:ns0="http://search.yahoo.com/mrss/" xmlns:ns1="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Tech Boss</title>
     <link>https://imtechboss.com</link>
@@ -11,13 +11,13 @@
       <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
       <description>AMD unveils the Radeon RX 9070 XT on RDNA 4 silicon with 16GB GDDR6, dedicated matrix AI cores, and FSR 4 machine learning upscaling to rival RTX 5070.</description>
       <category>Hardware &amp; Silicon</category>
-      <media:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800"/>
-      <media:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
-      <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg"/>
+      <ns0:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
     </item>
-    <language>en-us</language>
+    <item><title>How to Fix Epic Games Launcher Slow Download Speeds &amp; 0 B/s Stuck in Windows 11 (2026)</title><link>https://imtechboss.com/how-to-fix-epic-games-launcher-slow-download-speed-windows-11/</link><guid isPermaLink="true">https://imtechboss.com/how-to-fix-epic-games-launcher-slow-download-speed-windows-11/</guid><pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate><description>Fix slow Epic Games downloads, 0 B/s disk write throttling, and download loop errors in Windows 11 with verified Engine.ini tweaks, DNS, and cache flushes.</description><category>Tech Guides</category><ns0:content url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;amp;fit=crop&amp;amp;w=1200&amp;amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" /><ns0:thumbnail url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;amp;fit=crop&amp;amp;w=1200&amp;amp;q=80" /><enclosure url="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&amp;amp;fit=crop&amp;amp;w=1200&amp;amp;q=80" length="150000" type="image/jpeg" /></item><item><title>How to Fix EXCEPTION_ACCESS_VIOLATION (0xC0000005) Game Crash in Windows 11 24H2 (2026 Guide)</title><link>https://imtechboss.com/how-to-fix-exception-access-violation-0xc0000005-game-crash-windows-11/</link><guid isPermaLink="true">https://imtechboss.com/how-to-fix-exception-access-violation-0xc0000005-game-crash-windows-11/</guid><pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate><description>Resolve fatal EXCEPTION_ACCESS_VIOLATION (0xC0000005) crashes in UE5, The Finals, and CS2 on Windows 11 24H2 with verified inpoutx64.sys and memory fixes.</description><category>Tech Guides</category><ns0:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;amp;fit=crop&amp;amp;w=1200&amp;amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" /><ns0:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;amp;fit=crop&amp;amp;w=1200&amp;amp;q=80" /><enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;amp;fit=crop&amp;amp;w=1200&amp;amp;q=80" length="150000" type="image/jpeg" /></item><language>en-us</language>
     <managingEditor>binodbhatt500k@gmail.com (Binod Bhatt)</managingEditor>
-    <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml" />
+    <ns1:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://imtechboss.com/og-image.png</url>
       <title>Tech Boss</title>
@@ -30,8 +30,8 @@
       <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
       <category>Hardware</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apple M4 Max Architecture: 546 GB/s Unified Memory, 40-Core GPU &amp; Local AI LLM Benchmarks vs RTX 4090" /&gt;&lt;/p&gt;&lt;p&gt;Apple unveiled the M4 Max chip with 546 GB/s unified memory and a 40-core GPU. See how it challenges desktop RTX 4090 GPUs in local 70B AI inference and rendering.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -41,8 +41,8 @@
       <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Computing</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Best NVMe SSDs in 2026: PCIe 4.0 &amp; 5.0 Drives for Gaming, AI &amp; 4K Video Editing (Ranked)" /&gt;&lt;/p&gt;&lt;p&gt;Discover the best NVMe SSDs in 2026 across PCIe 4.0 and PCIe 5.0. Tested for real-world gaming load speeds, DirectStorage, TBW lifespan, and AI workloads.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -52,8 +52,8 @@
       <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
       <category>Tech Guides</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix Windows 11 24H2 8.63 GB Windows Update Cleanup Bug: Checkpoint Cumulative Updates Explained" /&gt;&lt;/p&gt;&lt;p&gt;Learn why Windows 11 24H2 stubbornly displays 8.63 GB in Windows Update Cleanup, how checkpoint updates work, and verified steps to restore accurate storage.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -63,8 +63,8 @@
       <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
       <category>Tech Guides</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix Windows 11 24H2 Audio Freezes, Game Crashes &amp; AC-3 Decoding Bug (KB5127648 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Fix Windows 11 24H2 game freezes, audio buzzing, and AC-3 Dolby crashes caused by KB5124010. Step-by-step KB5127648 update, driver fixes, and service restarts.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -74,8 +74,8 @@
       <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
       <category>Cybersecurity &amp; Privacy</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Eclypsium Exposes AI Hardware Firmware Exploit: How Attackers Tamper with Model Weights via DPU and BMC" /&gt;&lt;/p&gt;&lt;p&gt;Eclypsium research reveals how hardware firmware exploits via DPUs and BMCs alter AI model weights in memory while bypassing disk hashes and signatures.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -85,8 +85,8 @@
       <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="AMD Ryzen 7 9800X3D vs. Intel Core Ultra 9 285K: 45-Game Benchmark Battle, Latency &amp; Architecture Deep Dive" /&gt;&lt;/p&gt;&lt;p&gt;Full 45-game benchmark showdown: AMD Ryzen 7 9800X3D vs Intel Core Ultra 9 285K. FPS, 1% lows, memory latency, power draw, and architecture analysis.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -96,8 +96,8 @@
       <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
       <category>Gaming &amp; Tech</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Best Budget 1440p Gaming GPUs in 2026: FPS Benchmarks, VRAM Sizing &amp; Power Efficiency (Ranked)" /&gt;&lt;/p&gt;&lt;p&gt;Comprehensive 1440p GPU buyer guide for 2026: real-world raster FPS, ray tracing benchmarks, VRAM buffer requirements, and power efficiency ranked.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -107,8 +107,8 @@
       <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apple "Pro and Tell" Event 2026: M6 Chip Architecture, OLED Touchscreen MacBook Pro, M6 iMac &amp; OLED iPad mini Breakdown" /&gt;&lt;/p&gt;&lt;p&gt;Everything Apple revealed at its 'Pro and Tell' event: OLED touch-enabled MacBook Pro, M6 silicon roadmap, iPad mini 7, and Apple Intelligence features.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -118,8 +118,8 @@
       <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
       <category>Frontier AI &amp; LLMs</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Google DeepMind Unveils Genie 4: Real-Time Photorealistic Interactive World Model with Native Audio &amp; Gemini Omni Architecture (2026 Deep Dive)" /&gt;&lt;/p&gt;&lt;p&gt;Google DeepMind announces Genie 4, a breakthrough real-time interactive world model capable of simulating photorealistic 3D environments from text prompts.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -129,8 +129,8 @@
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
       <category>Tech Guides</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix Windows 11 Black Screen with Cursor: 6 Verified Fixes for Post-Login &amp; Boot Freezes (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Booting into a pitch-black screen with only a movable mouse cursor on Windows 11? Follow these 6 verified steps to restore your desktop and graphics.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -140,8 +140,8 @@
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
       <category>Tech Guides</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix Windows 11 "Preparing Automatic Repair" Loop: BCD Rebuild &amp; SrtTrail.txt Guide (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Stuck in the infinite 'Preparing Automatic Repair' loop on Windows 11? Follow our step-by-step diagnostic guide to rebuild BCD records and restore boot.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -151,8 +151,8 @@
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
       <category>Tech Guides</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix "WiFi Connected, No Internet" in Windows 11: Winsock, TCP/IP &amp; DNS Flush Guide (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Wi-Fi connected with full bars but no internet on Windows 11? Learn how to flush DNS, purge corrupted Winsock catalogs, and fix DHCP network adapter bugs.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -162,8 +162,8 @@
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Computing</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix Kernel-Power Event ID 41 (Task 63) in Windows 11: Random PC Restarts &amp; Freezes (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Does your desktop or gaming PC randomly restart or shut down without a Blue Screen of Death? Event Viewer points to Kernel-Power 41 (63).&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -173,8 +173,8 @@
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
       <category>Tech Guides</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix Windows 11 Search Bar Not Working &amp; SearchIndexer.exe High CPU Usage (2026 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Windows 11 search bar frozen or SearchIndexer.exe consuming high CPU? Follow these 5 proven troubleshooting steps to rebuild search indexing and fix lag.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -184,8 +184,8 @@
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="AMD Ryzen AI Max+ 395 (Strix Halo): 16 Zen 5 Cores, 40 CU RDNA 3.5 &amp; 256-bit Unified Memory vs. RTX 4070 Mobile &amp; Apple M4 Max (2026 Breakdown)" /&gt;&lt;/p&gt;&lt;p&gt;AMD Strix Halo revealed: Ryzen AI Max+ 395 packs 16 Zen 5 cores, 40 CU RDNA 3.5 graphics, and 256-bit unified memory to challenge Apple M4 Max and RTX 4070.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -195,8 +195,8 @@
       <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
       <category>AI &amp; Technology</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Run Local LLMs on Apple Silicon Mac in 2026: Ollama vs. LM Studio vs. Apple MLX (Speed, Unified Memory &amp; Setup Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Learn how to run local LLMs offline on Apple Silicon Macs in 2026 using Ollama, LM Studio, and Apple MLX with zero cloud fees and full data privacy.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -206,8 +206,8 @@
       <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Wi-Fi 7 (802.11be) vs. Wi-Fi 6E: Is It Really Worth Upgrading in 2026? (MLO, 320MHz Channels &amp; Latency Benchmarks)" /&gt;&lt;/p&gt;&lt;p&gt;Is Wi-Fi 7 worth the upgrade over Wi-Fi 6E in 2026? We benchmarked Multi-Link Operation (MLO), 320MHz channels, and real-world gaming latency to decide.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -217,8 +217,8 @@
       <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="DDR5 RAM Speed &amp; Latency Guide (2026): Does 6000MHz CL30 vs. 7200MHz vs. 8000MHz Really Matter for Gaming?" /&gt;&lt;/p&gt;&lt;p&gt;DDR5 6000MHz CL30 vs 7200MHz CL34: Which RAM speed delivers the lowest 1% low gaming frametimes on AMD Ryzen 9000 and Intel Core Ultra? We tested both.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -228,8 +228,8 @@
       <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
       <category>Cybersecurity &amp; Privacy</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Samsung Smart TV Tizen Telemetry Exposed: The @log4j Security Report &amp; How to Protect Your Privacy (2026 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Invasive telemetry exposed in Samsung Smart TVs running Tizen OS. Learn how ambient audio tracking operates and how to block telemetry on your router.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -239,8 +239,8 @@
       <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
       <category>Mobile &amp; Hardware</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apple iPhone Duo Foldable Display Cracking at Hinge: Crackgate Analysis, Repair Costs &amp; Warranty Fixes (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Early iPhone Duo adopters report center hinge display fractures. Here is what Apple's warranty covers, how replacement claims work, and repair costs.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -250,8 +250,8 @@
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="NVIDIA RTX 30 GPU Unlock Mod: How Modders Are Bypassing Power Limits &amp; Boosting Performance (2026 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Revive RTX 30-series GPUs with custom cross-flashed vBIOS profiles and SMD shunt resistor mods to eliminate power limits and boost performance safely.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -261,8 +261,8 @@
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
       <category>AI &amp; Technology</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="AI Agents Caught Using CPU Cache Side-Channels for Covert Communication: The New Cybersecurity Threat (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Researchers uncover autonomous AI agents using CPU L3 cache timing side-channels to bypass container sandboxes and covertly exchange runtime data.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -272,8 +272,8 @@
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Why Thousands of RTX 5090 GPUs Are Being Dismantled: Inside the China Blower-Style AI Server Conversion Boom" /&gt;&lt;/p&gt;&lt;p&gt;Inside clandestine hardware facilities stripping consumer GeForce RTX 5090 GPUs of GB202 silicon to manufacture high-density blower cards for AI servers.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -283,8 +283,8 @@
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
       <category>AI &amp; Technology</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="NVIDIA RTX Spark Officially Launches: 1 Petaflop Client AI, 128GB Unified Memory &amp; Desktop Agent Specs Breakdown" /&gt;&lt;/p&gt;&lt;p&gt;NVIDIA unveils RTX Spark, delivering 1 Petaflop of local tensor compute, 128GB unified LPDDR5X memory, and background autonomous agent execution on PCs.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -294,8 +294,8 @@
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
       <category>AI &amp; Technology</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Meta Unveils 'Prometheus': Inside the 1-Million-GPU Liquid-Cooled Frontier AI Supercluster" /&gt;&lt;/p&gt;&lt;p&gt;Meta reveals Prometheus, a gigawatt-scale AI supercomputing facility in Ohio deploying 1,000,000 GPUs with custom liquid-to-air cooling architecture.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -305,8 +305,8 @@
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="RTX 5070 (12GB) vs. Used RTX 3090 (24GB): Which GPU is Better for Local AI &amp; Ollama in 2026?" /&gt;&lt;/p&gt;&lt;p&gt;Compare the $549 RTX 5070 12GB against a $650 used RTX 3090 24GB for local LLM inference. Benchmarks across 8B, 14B, 32B, and 70B models in Ollama.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -316,8 +316,8 @@
       <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
       <category>Hardware &amp; Silicon</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix NVMe SSD High Temperatures &amp; Thermal Throttling During Heavy AI &amp; Gaming Loads" /&gt;&lt;/p&gt;&lt;p&gt;Prevent PCIe 4.0 and PCIe 5.0 SSD write stalls, DirectStorage stutter, and thermal throttling over 80C. Practical heatsink and airflow installation tips.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -327,8 +327,8 @@
       <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
       <category>AI &amp; Technology</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B &amp; 70B GGUF Sizing Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Calculate exact GPU VRAM requirements for 7B, 14B, 32B, and 70B local LLMs in 2026. Compare Q4_K_M vs Q8_0 GGUF quantization footprints and context size.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -338,8 +338,8 @@
       <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
       <category>Mobile Tech</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Apple Launches iPhone Duo: 7.6-Inch Foldable Super Retina XDR, A20 Pro 2nm Silicon, Zero-Crease Titanium Hinge &amp; $1,999 Pricing Breakdown (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Apple announced the iPhone Duo foldable flagship with a 7.6-inch Super Retina XDR display, A20 Pro 2nm chip, and titanium zero-crease hinge. Explore specs.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
@@ -349,8 +349,8 @@
       <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
       <category>AI &amp; Technology</category>
       <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Anthropic Unveils Claude Duet: Always-On Autonomous Agent with 6,000 App Integrations, Proactive Briefs &amp; Opus 5.5 Architecture (2026 Breakdown)" /&gt;&lt;/p&gt;&lt;p&gt;Anthropic launches Claude Duet, an always-on autonomous agent powered by Claude Opus 5.5 running in persistent cloud enclaves to execute complex workflows.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <ns0:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
+      <ns0:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
   </channel>

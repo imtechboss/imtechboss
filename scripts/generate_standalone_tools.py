@@ -34,6 +34,21 @@ JS_DIR = os.path.join(ROOT_DIR, 'js')
 
 tools_config = [
     {
+    "id": "psuCalculatorTool",
+    "slug": "pc-power-supply-calculator",
+    "title": "PC Power Supply (PSU) & Wattage Calculator 2026 | Tech Boss",
+    "meta_desc": "Calculate required PC power supply wattage for Intel Core Ultra, AMD Ryzen 9000, RTX 50-series, and RX 9000 GPUs with ATX 3.1 transient spike safety margins.",
+    "h1": "PC Power Supply (PSU) & System Wattage Calculator (2026)",
+    "capsule_title": "PSU Sizing Standard (ATX 3.1 & 12V-2x6):",
+    "capsule_text": "Modern high-end graphics cards exhibit microsecond transient power spikes up to 200% of rated TGP. For RTX 5090 (600W TGP) or RTX 5080 systems, an ATX 3.1 certified power supply with native 12V-2x6 cabling and at least 850W to 1200W capacity is required to prevent sudden over-current protection (OCP) shutdowns.",
+    "app_category": "UtilitiesApplication",
+    "name": "Tech Boss PC Power Supply Calculator",
+    "icon": "\u26a1",
+    "badge": "Hardware Infrastructure & Wattage Diagnostic",
+    "guide_title": "How to Calculate PC Power Supply Headroom for Peak Stability",
+    "guide_html": "\n    <div class=\"grid grid-cols-1 md:grid-cols-2 gap-6 my-8 text-sm\">\n      <div class=\"p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800\">\n        <h3 class=\"font-bold text-base text-gray-900 dark:text-white mb-2\">\u26a1 ATX 3.1 vs. Legacy ATX 2.4 Standards</h3>\n        <ul class=\"space-y-2 text-gray-600 dark:text-gray-300 text-xs\">\n          <li><strong>Transient Excursion Handling:</strong> ATX 3.1 mandates that the power supply sustain 200% of its rated wattage for 100 microseconds without tripping internal protection circuits.</li>\n          <li><strong>12V-2x6 Connector Safety:</strong> Replaces fragile 12VHPWR headers with recessed 4-pin sideband contacts that prevent terminal pin melting even if seated imperfectly.</li>\n        </ul>\n      </div>\n      <div class=\"p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800\">\n        <h3 class=\"font-bold text-base text-gray-900 dark:text-white mb-2\"> 80 PLUS Efficiency Curves</h3>\n        <ul class=\"space-y-2 text-gray-600 dark:text-gray-300 text-xs\">\n          <li><strong>The 50% Load Sweet Spot:</strong> Power supplies achieve maximum electrical conversion efficiency (80 Plus Gold 90%+, Platinum 92%+) when operating between 45% and 60% of total capacity.</li>\n          <li><strong>Thermal &amp; Acoustic Benefit:</strong> Running a 1000W PSU at 500W load allows zero-RPM fan modes to remain active, keeping your gaming PC virtually silent under gaming workloads.</li>\n        </ul>\n      </div>\n    </div>\n    "
+},
+    {
         "id": "hostingSizerTool",
         "slug": "wordpress-hosting-calculator",
         "title": "WordPress Hosting Speed & Server Sizer 2026 | Tech Boss",
@@ -284,6 +299,7 @@ def generate_standalone_tools():
     guarded_listeners = [
         ('calcBtn.addEventListener', 'if (calcBtn) calcBtn.addEventListener'),
     ('calcHostingBtn.addEventListener', 'if (calcHostingBtn) calcHostingBtn.addEventListener'),
+        ('calcPsuBtn.addEventListener', 'if (calcPsuBtn) calcPsuBtn.addEventListener'),
         ('genPromptBtn.addEventListener', 'if (genPromptBtn) genPromptBtn.addEventListener'),
         ('copyPromptBtn.addEventListener', 'if (copyPromptBtn) copyPromptBtn.addEventListener'),
         ('cheatList.addEventListener', 'if (cheatList) cheatList.addEventListener'),
