@@ -34,6 +34,39 @@ JS_DIR = os.path.join(ROOT_DIR, 'js')
 
 tools_config = [
     {
+        "id": "monitorPpiTool",
+        "slug": "monitor-ppi-viewing-distance-calculator",
+        "title": "Gaming Monitor PPI, Viewing Distance & DP 2.1 Bandwidth Calculator | Tech Boss",
+        "meta_desc": "Calculate pixel density (PPI), 20/20 retina viewing distance, uncompressed display bandwidth, and DisplayPort 2.1 vs HDMI 2.1 DSC requirements for 1080p, 1440p, 4K, and Ultrawide monitors.",
+        "h1": "Gaming Monitor PPI, Viewing Distance & Cable Bandwidth Calculator (2026)",
+        "capsule_title": "Monitor Pixel Density & Visual Acuity Standard:",
+        "capsule_text": "A 27-inch 1440p monitor delivers 108.8 PPI with an optimal retina distance of 31.6 inches (80 cm). A 32-inch 4K panel achieves 137.7 PPI, making pixel structures completely invisible beyond 25.0 inches (63 cm). Driving 4K at 240Hz 10-bit HDR consumes 71.66 Gbps uncompressed bandwidth, requiring DisplayPort 2.1 (UHBR20) or DisplayPort 1.4a / HDMI 2.1 with VESA Display Stream Compression (DSC).",
+        "app_category": "UtilitiesApplication",
+        "name": "Tech Boss Gaming Monitor PPI & Bandwidth Calculator",
+        "icon": "🖥️",
+        "badge": "Display Ergonomics & Video Bandwidth Diagnostic",
+        "guide_title": "How to Calculate Monitor PPI, Retina Distance & DisplayPort 2.1 Headroom",
+        "guide_html": """
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 text-sm">
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+        <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🖥️ Pixel Density (PPI) &amp; Visual Acuity Limit</h3>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+          <li><strong>20/20 Acuity Formula:</strong> Human vision resolves approximately 1 arcminute (1/60°). The threshold distance where pixels blend into continuous imagery equals 3438 / PPI inches.</li>
+          <li><strong>The 110 PPI Desktop Baseline:</strong> Standard 24" 1080p (91.8 PPI) and 27" 1440p (108.8 PPI) offer ideal UI scaling without requiring OS fractional scaling interpolation.</li>
+        </ul>
+      </div>
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+        <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">⚡ DisplayPort 2.1 vs. HDMI 2.1 vs. VESA DSC</h3>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+          <li><strong>DisplayPort 1.4a Ceiling:</strong> 25.92 Gbps data cap handles 1440p 240Hz uncompressed, but requires VESA DSC 3:1 for 4K 144Hz+ or 4K 240Hz.</li>
+          <li><strong>DisplayPort 2.1 UHBR20:</strong> Delivers 77.37 Gbps uncompressed bandwidth, driving 4K 240Hz 10-bit HDR natively with zero compression latency or GPU display engine sleep quirks.</li>
+        </ul>
+      </div>
+    </div>
+    """
+    },
+
+    {
     "id": "psuCalculatorTool",
     "slug": "pc-power-supply-calculator",
     "title": "PC Power Supply (PSU) & Wattage Calculator 2026 | Tech Boss",
@@ -300,6 +333,7 @@ def generate_standalone_tools():
         ('calcBtn.addEventListener', 'if (calcBtn) calcBtn.addEventListener'),
     ('calcHostingBtn.addEventListener', 'if (calcHostingBtn) calcHostingBtn.addEventListener'),
         ('calcPsuBtn.addEventListener', 'if (calcPsuBtn) calcPsuBtn.addEventListener'),
+        ('calcMonitorBtn.addEventListener', 'if (calcMonitorBtn) calcMonitorBtn.addEventListener'),
         ('genPromptBtn.addEventListener', 'if (genPromptBtn) genPromptBtn.addEventListener'),
         ('copyPromptBtn.addEventListener', 'if (copyPromptBtn) copyPromptBtn.addEventListener'),
         ('cheatList.addEventListener', 'if (cheatList) cheatList.addEventListener'),

@@ -487,6 +487,255 @@ Provide:
       }
     }
 
+
+    // Deep link updates for new tools
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const toolParam = (urlParams.get("tool") || "").toLowerCase();
+      const hash = window.location.hash.replace("#", "").toLowerCase();
+      if (toolParam.includes("psu") || hash.includes("psu")) {
+        activateTab("psuCalculatorTool");
+      } else if (toolParam.includes("hosting") || hash.includes("hosting")) {
+        activateTab("hostingSizerTool");
+      } else if (toolParam.includes("monitor") || toolParam.includes("ppi") || hash.includes("monitor") || hash.includes("ppi")) {
+        activateTab("monitorPpiTool");
+      }
+    } catch(e) {}
+
+    // 7. WordPress Hosting Speed & Server Sizer Logic
+    const calcHostingBtn = document.getElementById("calculateHostingBtn");
+    if (calcHostingBtn) {
+      if (calcHostingBtn) calcHostingBtn.addEventListener("click", () => {
+        const box = document.getElementById("hostingResultBox");
+        if (box) box.classList.remove("hidden");
+
+        const pv = document.getElementById("hostingPageviews").value;
+        const siteType = document.getElementById("hostingSiteType").value;
+        const cacheStack = document.getElementById("hostingCacheStack").value;
+        const region = document.getElementById("hostingRegion").value;
+
+        let vcpu = "1 vCPU";
+        let ram = "2 GB High-Speed RAM";
+        let storage = "25 GB NVMe SSD";
+        let ttfb = "120ms – 180ms";
+        let tier = "⚡ LiteSpeed Cloud VPS";
+        let recommendation = "Ideal for optimized blogs and SME websites with LiteSpeed Cache enabled.";
+
+        if (pv === "scale" || siteType === "agency" || (pv === "high" && siteType === "ecommerce")) {
+          vcpu = "4 – 8 vCPUs Dedicated";
+          ram = "16 GB – 32 GB ECC RAM";
+          storage = "150 GB – 300 GB Gen 4 NVMe";
+          ttfb = cacheStack === "litespeed" ? "90ms – 140ms" : "180ms – 280ms";
+          tier = "👑 High-Availability Managed Cluster";
+          recommendation = "Enterprise dynamic workload demands dedicated database pooling (Redis Object Cache) and Cloudflare Enterprise Edge CDN.";
+        } else if (pv === "high" || siteType === "ecommerce" || siteType === "membership") {
+          vcpu = "2 – 4 vCPUs";
+          ram = "4 GB – 8 GB RAM";
+          storage = "50 GB – 100 GB NVMe";
+          ttfb = cacheStack === "none" ? "450ms – 750ms (Uncached Lag)" : "140ms – 220ms";
+          tier = "🚀 Performance NVMe VPS (Cloudways / DigitalOcean)";
+          recommendation = "Dynamic cart requests bypass static cache; minimum 4GB RAM required for PHP worker concurrency.";
+        } else if (pv === "medium") {
+          vcpu = "2 vCPUs";
+          ram = "2 GB – 4 GB RAM";
+          storage = "40 GB NVMe";
+          ttfb = "110ms – 190ms";
+          tier = "⚡ Premium LiteSpeed Cloud VPS";
+          recommendation = "Excellent price-to-performance sweet spot for growing blogs handling up to 100k pageviews.";
+        }
+
+        box.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-indigo-200/60 dark:border-slate-700 gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Calculated Server Infrastructure Tier</span>
+              <h3 class="text-xl sm:text-2xl font-black text-gray-900 dark:text-white">${tier}</h3>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-semibold text-gray-500 dark:text-gray-400">Estimated TTFB</span>
+              <div class="text-lg font-black text-emerald-600 dark:text-emerald-400">${ttfb}</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-indigo-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">Compute (vCPU)</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${vcpu}</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-indigo-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">System Memory (RAM)</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${ram}</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-indigo-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">Storage Array</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${storage}</strong>
+            </div>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed bg-white/70 dark:bg-slate-900/60 p-3.5 rounded-xl border border-indigo-100/80 dark:border-slate-800">
+            <strong>Architecture Recommendation:</strong> ${recommendation}
+          </p>
+        `;
+        showToast("🌐 Server specifications calculated!");
+      });
+    }
+
+    // 8. PC Power Supply (PSU) Calculator Logic
+    const calcPsuBtn = document.getElementById("calculatePsuBtn");
+    if (calcPsuBtn) {
+      if (calcPsuBtn) calcPsuBtn.addEventListener("click", () => {
+        const box = document.getElementById("psuResultBox");
+        if (box) box.classList.remove("hidden");
+
+        const cpuW = parseInt(document.getElementById("psuCpuSelect").value, 10);
+        const gpuW = parseInt(document.getElementById("psuGpuSelect").value, 10);
+        const coolW = parseInt(document.getElementById("psuCoolingSelect").value, 10);
+        const ocMargin = parseFloat(document.getElementById("psuOverclockSelect").value);
+
+        // System baseline: motherboard + RAM + NVMe + chipset = ~50W
+        const systemBaseline = 50;
+        const totalBaseW = (cpuW + gpuW + coolW + systemBaseline) * ocMargin;
+
+        // Calculate standard PSU recommendation with headroom
+        let recWattage = 650;
+        if (totalBaseW > 1050) recWattage = 1600;
+        else if (totalBaseW > 850) recWattage = 1200;
+        else if (totalBaseW > 700) recWattage = 1000;
+        else if (totalBaseW > 550) recWattage = 850;
+        else if (totalBaseW > 450) recWattage = 750;
+        else if (totalBaseW > 350) recWattage = 650;
+        else recWattage = 550;
+
+        const isHighTransient = gpuW >= 400; // RTX 5080, RTX 5090, RTX 4090
+        const connectorSpec = isHighTransient 
+          ? "Native 12V-2x6 (PCIe 5.1 / ATX 3.1 600W Header)" 
+          : "Standard 8-pin PCIe or 12V-2x6 Cable";
+        const efficiencyTier = recWattage >= 1000 ? "80 PLUS Platinum / Titanium" : "80 PLUS Gold Certified";
+
+        box.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-amber-200/60 dark:border-slate-700 gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Recommended PSU Capacity</span>
+              <h3 class="text-xl sm:text-2xl font-black text-gray-900 dark:text-white">${recWattage}W Power Supply</h3>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-semibold text-gray-500 dark:text-gray-400">Calculated Peak Sustained</span>
+              <div class="text-lg font-black text-amber-600 dark:text-amber-400">~${Math.round(totalBaseW)} Watts</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">Power Standard</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${isHighTransient ? "ATX 3.1 (Mandatory)" : "ATX 3.0 / ATX 3.1"}</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">Efficiency Target</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${efficiencyTier}</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">GPU Power Delivery</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${connectorSpec}</strong>
+            </div>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed bg-white/70 dark:bg-slate-900/60 p-3.5 rounded-xl border border-amber-100/80 dark:border-slate-800">
+            <strong>Headroom Advice:</strong> Operating at ~50% system load under typical gaming conditions allows the power supply to stay in its 92%+ peak electrical efficiency window while enabling silent zero-RPM fan mode.
+          </p>
+        `;
+        showToast("⚡ PSU wattage calculated!");
+      });
+    }
+
+    // 9. Gaming Monitor PPI & Cable Bandwidth Logic
+    const calcMonitorBtn = document.getElementById("calculateMonitorBtn");
+    if (calcMonitorBtn) {
+      if (calcMonitorBtn) calcMonitorBtn.addEventListener("click", () => {
+        const box = document.getElementById("monitorResultBox");
+        if (box) box.classList.remove("hidden");
+
+        const resVal = document.getElementById("monitorResSelect").value;
+        const [wStr, hStr] = resVal.split("x");
+        const w = parseInt(wStr, 10);
+        const h = parseInt(hStr, 10);
+
+        const diagInches = parseFloat(document.getElementById("monitorSizeSelect").value);
+        const hz = parseInt(document.getElementById("monitorHzSelect").value, 10);
+        const bpc = parseInt(document.getElementById("monitorColorSelect").value, 10);
+
+        // Mathematical calculations
+        const diagPixels = Math.sqrt(w * w + h * h);
+        const ppi = Math.round((diagPixels / diagInches) * 10) / 10;
+        const totalMegaPixels = ((w * h) / 1000000).toFixed(2);
+
+        // 20/20 Visual Acuity (Retina) Distance: 3438 / PPI inches
+        const retinaDistInches = Math.round(3438 / ppi);
+        const retinaDistCm = Math.round(retinaDistInches * 2.54);
+
+        // Uncompressed Video Bandwidth (CVT-RB v2 ~10% blanking overhead)
+        const rawBandwidthGbps = (w * h * hz * bpc * 3 * 1.10) / 1000000000;
+        const displayBandwidth = rawBandwidthGbps.toFixed(2);
+
+        // Cable & DSC Interface Classification
+        let cableRec = "DisplayPort 1.4a or HDMI 2.0";
+        let dscStatus = "✅ Uncompressed Native (No Compression Required)";
+        let cableColor = "text-emerald-600 dark:text-emerald-400";
+
+        if (rawBandwidthGbps > 42.6) {
+          cableRec = "DisplayPort 2.1 (UHBR20) or HDMI 2.1 with DSC";
+          dscStatus = "⚠️ Requires VESA DSC 3:1 Compression on DP 1.4a / HDMI 2.1, or Native DP 2.1 UHBR20";
+          cableColor = "text-purple-600 dark:text-purple-400";
+        } else if (rawBandwidthGbps > 25.9) {
+          cableRec = "HDMI 2.1 (48 Gbps) or DisplayPort 1.4a with DSC";
+          dscStatus = "ℹ️ Native on HDMI 2.1; Requires VESA DSC on DisplayPort 1.4a";
+          cableColor = "text-blue-600 dark:text-blue-400";
+        } else if (rawBandwidthGbps > 14.4) {
+          cableRec = "DisplayPort 1.4a / HDMI 2.1 Native";
+          dscStatus = "✅ Uncompressed Native over DisplayPort 1.4a";
+          cableColor = "text-emerald-600 dark:text-emerald-400";
+        }
+
+        // Sharpness Tier
+        let sharpness = "Sharp & Balanced (Desktop Sweet Spot)";
+        if (ppi >= 150) sharpness = "Ultra-Sharp (Mac Retina / 4K Clarity)";
+        else if (ppi < 95) sharpness = "Standard Definition (Pixels Discernible Close-Up)";
+
+        // Recommended GPU Tier based on Pixels per second
+        const pixelsPerSec = w * h * hz;
+        let gpuTier = "NVIDIA RTX 4070 Super / AMD RX 7800 XT";
+        if (pixelsPerSec >= 3000000000) gpuTier = "NVIDIA GeForce RTX 5090 (32GB) or RTX 4090 (24GB)";
+        else if (pixelsPerSec >= 1500000000) gpuTier = "NVIDIA GeForce RTX 5080 / RTX 4080 Super";
+        else if (pixelsPerSec <= 400000000) gpuTier = "NVIDIA GeForce RTX 4060 / AMD RX 7600 XT";
+
+        box.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-cyan-200/60 dark:border-slate-700 gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Pixel Density &amp; Clarity</span>
+              <h3 class="text-xl sm:text-2xl font-black text-gray-900 dark:text-white">${ppi} PPI <span class="text-sm font-semibold text-gray-500 dark:text-gray-400">(${sharpness})</span></h3>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-semibold text-gray-500 dark:text-gray-400">Total Frame Canvas</span>
+              <div class="text-lg font-black text-cyan-600 dark:text-cyan-400">${totalMegaPixels} MP (${w} × ${h})</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-cyan-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">20/20 Retina Distance</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${retinaDistInches} inches (${retinaDistCm} cm)</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-cyan-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">Display Data Rate</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${displayBandwidth} Gbps (${bpc}-bit HDR)</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-cyan-100 dark:border-slate-800">
+              <span class="text-gray-500 dark:text-gray-400 block font-medium">Target GPU Tier</span>
+              <strong class="text-sm font-bold text-gray-900 dark:text-white">${gpuTier}</strong>
+            </div>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed bg-white/70 dark:bg-slate-900/60 p-3.5 rounded-xl border border-cyan-100/80 dark:border-slate-800">
+            <strong>Cable Interface Standard:</strong> <span class="font-bold ${cableColor}">${cableRec}</span>.<br>
+            <strong>Compression Status:</strong> ${dscStatus}. At a viewing distance beyond <strong>${retinaDistInches} inches</strong>, individual pixel structures become completely indistinguishable to standard 20/20 human vision.
+          </p>
+        `;
+        showToast("🖥️ Monitor PPI and display bandwidth calculated!");
+      });
+    }
+
     // Newsletter subscription on tools page
     const toolsForm = document.getElementById("toolsNewsletterForm");
     const toolsEmail = document.getElementById("toolsNewsletterEmail");
