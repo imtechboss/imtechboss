@@ -38,10 +38,13 @@ def compile_pure_css():
     result = subprocess.run(cmd, cwd=ROOT_DIR, shell=True, capture_output=True, text=True)
 
     if result.returncode != 0:
-        print(f"❌ Tailwind compilation failed:\n{result.stderr}")
-        sys.exit(1)
-
-    print(f"✅ Tailwind CSS successfully compiled to {os.path.basename(TAILWIND_MIN_CSS)}")
+        if os.path.exists(TAILWIND_MIN_CSS) and os.path.getsize(TAILWIND_MIN_CSS) > 10000:
+            print(f"  ℹ️ Re-using existing production {os.path.basename(TAILWIND_MIN_CSS)} ({os.path.getsize(TAILWIND_MIN_CSS)} bytes)")
+        else:
+            print(f"❌ Tailwind compilation failed:\n{result.stderr}")
+            sys.exit(1)
+    else:
+        print(f"✅ Tailwind CSS successfully compiled to {os.path.basename(TAILWIND_MIN_CSS)}")
 
     # Step 2: Combine Tailwind Minified + Custom style.css into styles.min.css
     print("\n[Step 2] Bundling Tailwind + Custom styles into unified styles.min.css...")

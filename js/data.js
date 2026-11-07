@@ -1535,7 +1535,7 @@ var initialArticles = [
   {
     "id": "how-to-bypass-tpm-2-install-windows-11-unsupported-pc-2026",
     "title": "How to Install Windows 11 24H2 on Unsupported Hardware: TPM 2.0 & CPU Requirements Guide (2026)",
-    "excerpt": "Learn how to bypass TPM 2.0, Secure Boot, and CPU generation hardware blocks to install Windows 11 24H2 on older PCs using Rufus 4. Complete benchmark,.",
+    "excerpt": "Learn how to bypass TPM 2.0, Secure Boot, and CPU generation hardware blocks to install Windows 11 24H2 on older PCs using Rufus 4. Complete benchmark.",
     "category": "Tech Guides",
     "date": "October 12, 2026",
     "readTime": "7 min read",
@@ -1777,7 +1777,7 @@ var initialArticles = [
   {
     "id": "qualcomm-snapdragon-8-elite-gen6-tsmc-2nm-samsung-foundry-collapse-2026",
     "title": "Qualcomm Locks Snapdragon 8 Elite Gen 6 to TSMC 2nm as Samsung Foundry Negotiations Collapse",
-    "excerpt": "Samsung's sub-3nm yields stall at 60%, forcing Qualcomm into an exclusive TSMC agreement for its next-generation Elite Gen 6 silicon. Complete benchmark,.",
+    "excerpt": "Samsung's sub-3nm yields stall at 60%, forcing Qualcomm into an exclusive TSMC agreement for its next-generation Elite Gen 6 silicon. Complete benchmark.",
     "category": "Semiconductors",
     "date": "October 1, 2026",
     "author": "Tech Boss",
@@ -2148,7 +2148,7 @@ var initialArticles = [
   {
     "id": "apple-m5-chip-tsmc-2nm-soic-3d-packaging-specs-launch-roadmap-2026",
     "title": "Apple M5 Chip Architecture Leaks: TSMC 2nm GAA Nanosheets & SoIC 3D Stacking Set to Power Next-Gen Macs",
-    "excerpt": "Apple has locked in TSMC's 2nm (N2) node and System-on-Integrated-Chips (SoIC) 3D packaging for the upcoming M5 processor family. Full benchmarks,.",
+    "excerpt": "Apple has locked in TSMC's 2nm (N2) node and System-on-Integrated-Chips (SoIC) 3D packaging for the upcoming M5 processor family. Full benchmarks.",
     "category": "Hardware",
     "date": "September 26, 2026",
     "author": "Tech Boss",
@@ -2409,7 +2409,7 @@ var initialArticles = [
   {
     "id": "best-budget-144hz-240hz-gaming-monitors-under-200-dollars-2026",
     "title": "Best Budget 144Hz & 240Hz Gaming Monitors Under $200 (2026 Edition: Fast IPS vs Curved VA Rankings)",
-    "excerpt": "Finding a high-refresh esports gaming monitor under $200 no longer requires settling for sluggish pixel response or washed-out colors. Full benchmarks,.",
+    "excerpt": "Finding a high-refresh esports gaming monitor under $200 no longer requires settling for sluggish pixel response or washed-out colors. Full benchmarks.",
     "category": "Hardware",
     "date": "September 25, 2026",
     "author": "Tech Boss",
@@ -2638,7 +2638,7 @@ var initialArticles = [
   {
     "id": "rtx-5090-vs-rtx-4090-blackwell-benchmarks-specs-upgrade-guide-2026",
     "title": "RTX 5090 vs RTX 4090: Architecture Breakdown, Blackwell Benchmarks, and Is the $2,000 Upgrade Worth It?",
-    "excerpt": "NVIDIA's flagship GeForce RTX 5090 introduces 32GB GDDR7 on a 512-bit bus, dual-die Blackwell packaging, and 24,576 CUDA cores. Full benchmarks, thermals,.",
+    "excerpt": "NVIDIA's flagship GeForce RTX 5090 introduces 32GB GDDR7 on a 512-bit bus, dual-die Blackwell packaging, and 24,576 CUDA cores. Full benchmarks, thermals.",
     "category": "Hardware",
     "date": "September 25, 2026",
     "author": "Tech Boss",
@@ -3423,7 +3423,7 @@ var initialArticles = [
     "timestamp": 1790140495906,
     "readTime": "5 min read",
     "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=1200&q=80",
-    "excerpt": "Apple is secretly developing a screenless, fabric-strap biometric tracker designed to directly challenge Whoop and Oura. Complete benchmark, diagnostic,.",
+    "excerpt": "Apple is secretly developing a screenless, fabric-strap biometric tracker designed to directly challenge Whoop and Oura. Complete benchmark, diagnostic.",
     "featured": false,
     "trending": true,
     "views": "6,940",
