@@ -1,9 +1,42 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:ns0="http://search.yahoo.com/mrss/" xmlns:ns1="http://www.w3.org/2005/Atom" version="2.0">
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ns0="http://search.yahoo.com/mrss/" xmlns:ns1="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Tech Boss</title>
     <link>https://imtechboss.com</link>
     <description>Latest Technology News, AI Breakthroughs, Software Guides &amp; Gaming</description>
+    <item>
+      <title>How to Fix DXGI_ERROR_DEVICE_HUNG &amp; GetDeviceRemovedReason Game Crash in Windows 11 (2026 Guide)</title>
+      <link>https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</link>
+      <guid isPermaLink="true">https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Resolve fatal DXGI_ERROR_DEVICE_HUNG and GetDeviceRemovedReason DirectX crashes in Windows 11 with verified TdrDelay tweaks, cache purges, and driver fixes.</description>
+      <category>Tech Guides</category>
+      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+    <item>
+      <title>OLED &amp; QD-OLED Monitor Burn-In Prevention Guide: Pixel Care, HDR Settings &amp; Longevity (2026)</title>
+      <link>https://imtechboss.com/oled-monitor-burn-in-prevention-care-guide-2026/</link>
+      <guid isPermaLink="true">https://imtechboss.com/oled-monitor-burn-in-prevention-care-guide-2026/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Prevent OLED and QD-OLED monitor burn-in in Windows 11 with verified pixel cleaning routines, ABL adjustments, HDR calibration, and subpixel text fixes.</description>
+      <category>Mobile &amp; Hardware</category>
+      <media:content url="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+    <item>
+      <title>NVIDIA GeForce RTX 5070 &amp; RTX 5070 Ti Specs, 16GB GDDR7, Blackwell Architecture &amp; 1440p Benchmarks (2026)</title>
+      <link>https://imtechboss.com/nvidia-geforce-rtx-5070-ti-specs-benchmarks-1440p-gaming-2026/</link>
+      <guid isPermaLink="true">https://imtechboss.com/nvidia-geforce-rtx-5070-ti-specs-benchmarks-1440p-gaming-2026/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Explore NVIDIA RTX 5070 and RTX 5070 Ti specs, GB205 silicon, 16GB GDDR7 memory, 1440p gaming benchmarks, and power efficiency against RTX 4070 Ti Super.</description>
+      <category>Mobile &amp; Hardware</category>
+      <media:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
     <item>
       <title>AMD Radeon RX 9070 XT (RDNA 4): 16GB GDDR6, FSR 4 Neural Upscaling &amp; Ray Tracing Architecture vs. RTX 5070 (2026 Analysis)</title>
       <link>https://imtechboss.com/amd-radeon-rx-9070-xt-rdna-4-specs-fsr-4-benchmarks-vs-rtx-5070-2026/</link>

@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Fix DXGI_ERROR_DEVICE_HUNG &amp; GetDeviceRemovedReason Game Crash in Windows 11 (2026 Guide)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/oled-monitor-burn-in-prevention-care-guide-2026/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>OLED &amp; QD-OLED Monitor Burn-In Prevention Guide: Pixel Care, HDR Settings &amp; Longevity (2026)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/nvidia-geforce-rtx-5070-ti-specs-benchmarks-1440p-gaming-2026/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>NVIDIA GeForce RTX 5070 &amp; RTX 5070 Ti Specs, 16GB GDDR7, Blackwell Architecture &amp; 1440p Benchmarks (2026)</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>daily</changefreq>
