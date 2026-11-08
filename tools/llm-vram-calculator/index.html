@@ -201,6 +201,8 @@
           <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">1. AI Model Architecture</label>
           <select id="llmModelSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
             <option value="deepseek_r1_671b">DeepSeek R1 (671B MoE - 37B Active)</option>
+            <option value="deepseek_v3_671b">DeepSeek V3 (671B MoE - 37B Active)</option>
+            <option value="qwen25_72b">Qwen 2.5 (72B Instruct)</option>
             <option value="deepseek_r1_70b" selected>DeepSeek R1 Distill Qwen (70B)</option>
             <option value="llama33_70b">Meta LLaMA 3.3 (70B Instruct)</option>
             <option value="deepseek_r1_32b">DeepSeek R1 Distill Qwen (32B)</option>
@@ -241,24 +243,86 @@
         <div>
           <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">4. Your Hardware Setup</label>
           <select id="llmHardwareSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white">
-            <option value="24" selected>NVIDIA RTX 4090 / 3090 (24GB VRAM)</option>
+            <option value="24" selected>NVIDIA RTX 4090 / 3090 / 5080 24GB (24GB VRAM)</option>
             <option value="32">NVIDIA RTX 5090 (32GB GDDR7)</option>
-            <option value="16">NVIDIA RTX 5080 / 4080 / 4070 Ti Super (16GB)</option>
-            <option value="12">NVIDIA RTX 4070 / 4070 Super / 3060 (12GB)</option>
+            <option value="20">AMD Radeon RX 7900 XT (20GB GDDR6)</option>
+            <option value="16">NVIDIA RTX 5080 / 5070 Ti / 4080 (16GB)</option>
+            <option value="12">NVIDIA RTX 5070 / 4070 / 3060 (12GB)</option>
             <option value="8">NVIDIA RTX 4060 / 3070 / 3060 Ti (8GB)</option>
             <option value="48">Dual RTX 3090 / 4090 NVLink/PCIe (48GB)</option>
             <option value="64">Apple Mac Studio / Mini M-Series (64GB Unified)</option>
-            <option value="128">Apple Mac Studio M2/M3 Ultra (128GB Unified)</option>
+            <option value="128">Apple Mac Studio M2/M3 Ultra / Strix Halo (128GB Unified)</option>
             <option value="192">Apple Mac Studio M2/M3 Ultra (192GB Unified)</option>
             <option value="384">Enterprise Node / Dual Mac Studio (384GB Unified)</option>
           </select>
         </div>
       </div>
 
-      <div class="text-center mb-6">
-        <button id="calcLlmVramBtn" class="px-8 py-3 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
+        <button id="calcLlmVramBtn" class="px-7 py-3 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
           🧠 Calculate VRAM &amp; Hardware Compatibility
         </button>
+        <button id="quick24gbMatrixBtn" type="button" class="px-5 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-purple-600 dark:text-purple-400 font-bold text-xs sm:text-sm border border-purple-300 dark:border-purple-800 transition-all active:scale-95">
+          ⚡ 24GB VRAM Presets: 14B vs 32B vs 70B
+        </button>
+      </div>
+
+      <!-- Quick 24GB VRAM Presets Matrix Card (Hidden initially) -->
+      <div id="llm24gbMatrixCard" class="hidden mb-6 p-6 rounded-2xl bg-gradient-to-br from-purple-500/5 via-slate-900/5 to-purple-900/10 dark:from-purple-950/30 dark:to-slate-900 border border-purple-200 dark:border-purple-800/60">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">⚡</span>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 dark:text-white">24GB VRAM Matrix: 14B vs 32B vs 70B Quantization Fit</h3>
+          </div>
+          <button id="close24gbMatrixBtn" type="button" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-lg font-bold p-1" data-nosnippet aria-hidden="true">&times;</button>
+        </div>
+        <p class="text-xs text-gray-600 dark:text-gray-400 mb-4">Direct hardware sizing for NVIDIA RTX 3090, RTX 4090, and RTX 5080 24GB GPUs running local models in Ollama, LM Studio, or vLLM.</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-gray-200 dark:border-slate-700 text-gray-500 dark:text-gray-400 uppercase font-semibold">
+                <th class="py-2 px-3">Model Size</th>
+                <th class="py-2 px-3">Quantization</th>
+                <th class="py-2 px-3">Weights VRAM</th>
+                <th class="py-2 px-3">Max Context</th>
+                <th class="py-2 px-3">Inference Speed</th>
+                <th class="py-2 px-3">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-slate-800 text-gray-800 dark:text-gray-200 font-medium">
+              <tr>
+                <td class="py-2.5 px-3 font-bold text-purple-600 dark:text-purple-400">14B (Qwen 2.5 / Phi-4)</td>
+                <td class="py-2.5 px-3">Q8_0 (8-bit)</td>
+                <td class="py-2.5 px-3">15.2 GB</td>
+                <td class="py-2.5 px-3">64,000</td>
+                <td class="py-2.5 px-3 font-mono font-bold text-emerald-500">58 tok/s</td>
+                <td class="py-2.5 px-3 text-emerald-500 font-bold">🟢 100% VRAM (Ultra Fast)</td>
+              </tr>
+              <tr class="bg-purple-500/5">
+                <td class="py-2.5 px-3 font-bold text-purple-600 dark:text-purple-400">32B (Qwen 2.5 / R1 Distill)</td>
+                <td class="py-2.5 px-3 font-bold text-purple-600 dark:text-purple-300">Q4_K_M (Sweet Spot)</td>
+                <td class="py-2.5 px-3">19.8 GB</td>
+                <td class="py-2.5 px-3">16,384</td>
+                <td class="py-2.5 px-3 font-mono font-bold text-emerald-500">36 tok/s</td>
+                <td class="py-2.5 px-3 text-emerald-500 font-bold">🟢 Recommended Daily Driver</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold text-purple-600 dark:text-purple-400">70B (LLaMA 3.3 / R1 70B)</td>
+                <td class="py-2.5 px-3">Q4_K_M (Standard)</td>
+                <td class="py-2.5 px-3">40.5 GB</td>
+                <td class="py-2.5 px-3">2,048 (RAM Spill)</td>
+                <td class="py-2.5 px-3 font-mono text-red-400">2.4 tok/s</td>
+                <td class="py-2.5 px-3 text-red-500 font-bold">🔴 Severe CPU Bottleneck</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-4 pt-3 border-t border-purple-200/50 dark:border-purple-800/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <span class="text-gray-500 dark:text-gray-400">Want complete benchmarks, KV cache formulas, and Ollama configs?</span>
+          <a href="/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/" class="font-bold text-purple-600 dark:text-purple-400 hover:underline flex items-center gap-1">
+            Read 24GB VRAM In-Depth Guide &rarr;
+          </a>
+        </div>
       </div>
 
       <!-- Result Card -->

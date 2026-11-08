@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
+    <loc>https://imtechboss.com/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/how-to-fix-high-cpu-memory-system-compressed-memory-windows-11/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Fix High CPU &amp; Memory Usage by &#x27;System and Compressed Memory&#x27; in Windows 11 (2026 Guide)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/windows-11-24h2-bitlocker-ssd-slowdown-benchmarks-fix-guide-2026/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Windows 11 24H2 BitLocker SSD Slowdown: Benchmarks &amp; How to Disable Software Encryption (2026 Guide)</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>daily</changefreq>

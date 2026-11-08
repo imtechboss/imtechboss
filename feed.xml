@@ -1,6 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ns0="http://search.yahoo.com/mrss/" xmlns:ns1="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
+    <item>
+      <title>14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)</title>
+      <link>https://imtechboss.com/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/</link>
+      <guid isPermaLink="true">https://imtechboss.com/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Benchmark 14B, 32B, and 70B local LLMs on 24GB VRAM. Learn exact quantization fits, KV cache scaling, context limits, and tokens-per-second performance.</description>
+      <category>AI &amp; Machine Learning</category>
+      <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+    <item>
+      <title>How to Fix High CPU &amp; Memory Usage by &#x27;System and Compressed Memory&#x27; in Windows 11 (2026 Guide)</title>
+      <link>https://imtechboss.com/how-to-fix-high-cpu-memory-system-compressed-memory-windows-11/</link>
+      <guid isPermaLink="true">https://imtechboss.com/how-to-fix-high-cpu-memory-system-compressed-memory-windows-11/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Fix 100% CPU and RAM spikes caused by System and Compressed Memory in Windows 11. Step-by-step paging executive, SysMain, and memory compression tuning.</description>
+      <category>Windows &amp; OS</category>
+      <media:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Windows 11 24H2 BitLocker SSD Slowdown: Benchmarks &amp; How to Disable Software Encryption (2026 Guide)</title>
+      <link>https://imtechboss.com/windows-11-24h2-bitlocker-ssd-slowdown-benchmarks-fix-guide-2026/</link>
+      <guid isPermaLink="true">https://imtechboss.com/windows-11-24h2-bitlocker-ssd-slowdown-benchmarks-fix-guide-2026/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Windows 11 24H2 enables BitLocker by default, slashing NVMe SSD writes by up to 45%. Here are storage benchmarks and the exact fix to restore full speed.</description>
+      <category>Hardware &amp; Components</category>
+      <media:content url="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
     <title>Tech Boss</title>
     <link>https://imtechboss.com</link>
     <description>Latest Technology News, AI Breakthroughs, Software Guides &amp; Gaming</description>
