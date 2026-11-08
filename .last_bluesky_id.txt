@@ -1,1 +1,1 @@
-nvidia-geforce-rtx-5070-ti-specs-benchmarks-1440p-gaming-2026
+14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026
