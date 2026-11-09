@@ -161,8 +161,32 @@ export default {
         });
       }
 
+      const id = url.searchParams.get('id');
+
+      // 1.9 Universal Legacy & Nested Query Redirect Shield (Catches /post, /post.html, /*/post.html?id=*, ?id=*)
+      if (id || pathname.includes('/post.html') || pathname.includes('/post') || cleanSlug === 'post' || cleanSlug === 'post.html') {
+        let dest = 'https://imtechboss.com/';
+        if (id && !id.startsWith('blogger-') && id !== 'blogger-512' && !removedSlugs.has(id)) {
+          dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
+        } else if (pathname.includes('/post.html')) {
+          const parentSlug = pathname.split('/post.html')[0].replace(/^\/+|\/+$/g, '');
+          if (parentSlug && !parentSlug.startsWith('blogger-') && !removedSlugs.has(parentSlug)) {
+            dest = 'https://imtechboss.com/' + parentSlug + '/';
+          }
+        }
+        return new Response(null, {
+          status: 301,
+          statusText: 'Moved Permanently',
+          headers: {
+            'Location': dest,
+            'X-Robots-Tag': 'noindex, follow',
+            'Cache-Control': 'public, max-age=86400'
+          }
+        });
+      }
+
       // 2. Trailing Slash Fix for Pages Static Assets
-      if (pathname.endsWith('.html') && pathname !== '/index.html' && pathname !== '/post.html' && pathname !== '/404.html') {
+      if (pathname.endsWith('.html') && pathname !== '/index.html' && !pathname.includes('post.html') && pathname !== '/404.html') {
         let response = await env.ASSETS.fetch(request);
         if (response.status === 308 || response.status === 301) {
           const loc = response.headers.get('Location');
@@ -235,29 +259,7 @@ export default {
           .transform(response);
       }
 
-      const id = url.searchParams.get('id');
 
-      // 4. Universal Legacy & Nested Query Redirect Shield (Catches /post, /post.html, /*/post.html?id=*, ?id=*)
-      if (id || pathname.includes('/post.html') || pathname.includes('/post') || cleanSlug === 'post' || cleanSlug === 'post.html') {
-        let dest = 'https://imtechboss.com/';
-        if (id && !id.startsWith('blogger-') && id !== 'blogger-512' && !removedSlugs.has(id)) {
-          dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
-        } else if (pathname.includes('/post.html')) {
-          const parentSlug = pathname.split('/post.html')[0].replace(/^\/+|\/+$/g, '');
-          if (parentSlug && !parentSlug.startsWith('blogger-') && !removedSlugs.has(parentSlug)) {
-            dest = 'https://imtechboss.com/' + parentSlug + '/';
-          }
-        }
-        return new Response(null, {
-          status: 301,
-          statusText: 'Moved Permanently',
-          headers: {
-            'Location': dest,
-            'X-Robots-Tag': 'noindex, follow',
-            'Cache-Control': 'public, max-age=86400'
-          }
-        });
-      }
 
 
 
