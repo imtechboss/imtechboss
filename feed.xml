@@ -2,6 +2,39 @@
 <rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ns0="http://search.yahoo.com/mrss/" xmlns:ns1="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <item>
+      <title>OpenAI Sora Official Launch: Cinematic Benchmarks, Physics Accuracy, Pricing &amp; Alternatives Tested (2026)</title>
+      <link>https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</link>
+      <guid isPermaLink="true">https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI Sora is officially available. We benchmark physics simulation, 1080p cinematic consistency, prompt adherence, pricing tiers, and top free alternatives.</description>
+      <category>AI &amp; Machine Learning</category>
+      <media:content url="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+    <item>
+      <title>How to Fix DPC_WATCHDOG_VIOLATION (0x00000133) BSOD in Windows 11 (2026 Diagnostic Guide)</title>
+      <link>https://imtechboss.com/how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11/</link>
+      <guid isPermaLink="true">https://imtechboss.com/how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11/</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Resolve fatal DPC_WATCHDOG_VIOLATION 0x00000133 BSOD crashes in Windows 11. Step-by-step SATA AHCI driver fixes, NVMe firmware updates, and DPC latency tweaks.</description>
+      <category>Windows &amp; OS</category>
+      <media:content url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+    <item>
+      <title>How to Fix Kernel-Power Event ID 41 (Bugcheck 0) Random Restarts in Windows 11 (2026 Guide)</title>
+      <link>https://imtechboss.com/how-to-fix-kernel-power-event-id-41-random-restarts-windows-11/</link>
+      <guid isPermaLink="true">https://imtechboss.com/how-to-fix-kernel-power-event-id-41-random-restarts-windows-11/</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Fix abrupt Windows 11 restarts and black screen shutdowns caused by Kernel-Power Event ID 41. Detailed PSU, Fast Startup, RAM, and BIOS voltage troubleshooting.</description>
+      <category>Hardware &amp; Components</category>
+      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+    <item>
       <title>14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)</title>
       <link>https://imtechboss.com/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/</link>
       <guid isPermaLink="true">https://imtechboss.com/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/</guid>
