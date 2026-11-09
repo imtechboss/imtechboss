@@ -237,26 +237,17 @@ export default {
 
       const id = url.searchParams.get('id');
 
-      // 4. Legacy Post Query Parameter Redirects -> Clean Static /slug/
-      if (pathname === '/post.html' || pathname === '/post' || pathname.startsWith('/post/') || pathname.startsWith('/post.html/') || cleanSlug === 'post' || cleanSlug === 'post.html') {
+      // 4. Universal Legacy & Nested Query Redirect Shield (Catches /post, /post.html, /*/post.html?id=*, ?id=*)
+      if (id || pathname.includes('/post.html') || pathname.includes('/post') || cleanSlug === 'post' || cleanSlug === 'post.html') {
         let dest = 'https://imtechboss.com/';
-        if (id && id !== 'blogger-512') {
+        if (id && !id.startsWith('blogger-') && id !== 'blogger-512' && !removedSlugs.has(id)) {
           dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
-        }
-        return new Response(null, {
-          status: 301,
-          statusText: 'Moved Permanently',
-          headers: {
-            'Location': dest,
-            'X-Robots-Tag': 'noindex, follow',
-            'Cache-Control': 'public, max-age=86400'
+        } else if (pathname.includes('/post.html')) {
+          const parentSlug = pathname.split('/post.html')[0].replace(/^\/+|\/+$/g, '');
+          if (parentSlug && !parentSlug.startsWith('blogger-') && !removedSlugs.has(parentSlug)) {
+            dest = 'https://imtechboss.com/' + parentSlug + '/';
           }
-        });
-      }
-
-      // 4.5 Catch-all for any query parameter ?id=... on root or index.html
-      if (id && (pathname === '/' || pathname === '/index.html')) {
-        let dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
+        }
         return new Response(null, {
           status: 301,
           statusText: 'Moved Permanently',
