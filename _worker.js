@@ -17,7 +17,7 @@ export default {
       const cleanSlug = pathname.replace(/^\/+|\/+$/g, '');
 
       // 0. Hard Edge 404 Shield for removed/speculative/blogger posts
-      if (removedSlugs.has(cleanSlug) || cleanSlug.startsWith('blogger-')) {
+      if ((removedSlugs.has(cleanSlug) || cleanSlug.startsWith('blogger-')) && !url.searchParams.get('id')) {
         const assetUrl = new URL(request.url);
         assetUrl.pathname = '/404.html';
         const notFoundRes = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
