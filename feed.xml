@@ -1,7 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ns0="http://search.yahoo.com/mrss/" xmlns:ns1="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <item>
+        <item>
+      <title>How to Fix IRQL_NOT_LESS_OR_EQUAL (0x0000000A) BSOD in Windows 11: Complete Diagnostic &amp; Stability Guide (2026)</title>
+      <link>https://imtechboss.com/how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11/</link>
+      <guid isPermaLink="true">https://imtechboss.com/how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11/</guid>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Encountering the dreaded IRQL_NOT_LESS_OR_EQUAL (0x0000000A) blue screen error in Windows 11? Learn the root causes from memory paging violations to faulty kernel drivers, and execute step-by-step diagnostic fixes to restore 100% system stability.</description>
+      <category>Windows &amp; OS</category>
+      <media:content url="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" width="1200" height="800" />
+      <media:thumbnail url="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+      <enclosure url="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" length="150000" type="image/jpeg" />
+    </item>
+<item>
       <title>OpenAI Sora Official Launch: Cinematic Benchmarks, Physics Accuracy, Pricing &amp; Alternatives Tested (2026)</title>
       <link>https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</link>
       <guid isPermaLink="true">https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</guid>

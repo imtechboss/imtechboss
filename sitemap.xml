@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
+    <url>
+    <loc>https://imtechboss.com/how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Fix IRQL_NOT_LESS_OR_EQUAL (0x0000000A) BSOD in Windows 11: Complete Diagnostic &amp; Stability Guide (2026)</image:title>
+    </image:image>
+  </url>
+<url>
     <loc>https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
