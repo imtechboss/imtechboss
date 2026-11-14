@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-    <url>
+      <url>
+    <loc>https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks &amp; VRAM Guide</image:title>
+    </image:image>
+  </url>
+<url>
     <loc>https://imtechboss.com/how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
