@@ -134,7 +134,11 @@ print("-" * 80)
 valid_slugs = set(p['id'] for p in posts)
 valid_routes = set(valid_slugs)
 valid_routes.update(['', 'about', 'contact', 'tools', 'compare', 'deals', 'privacy', 'terms', 'disclaimer', 'archive', 'stories', 'pins'])
-valid_routes.update(['tools/pc-bottleneck-calculator', 'tools/llm-vram-calculator', 'tools/can-my-pc-run-it', 'tools/ai-prompt-studio', 'tools/developer-cheat-sheets', 'tools/gpu-matcher-quiz'])
+tools_dir = os.path.join(ROOT_DIR, 'tools')
+if os.path.exists(tools_dir):
+    for d in os.listdir(tools_dir):
+        if os.path.isdir(os.path.join(tools_dir, d)):
+            valid_routes.add(f'tools/{d}')
 
 in_links = {slug: 0 for slug in valid_slugs}
 out_links = {slug: 0 for slug in valid_slugs}
