@@ -1,7 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-      <url>
+  <url>
+    <loc>https://imtechboss.com/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/about/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/contact/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/pc-bottleneck-calculator/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/llm-vram-calculator/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/can-my-pc-run-it/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/ai-prompt-studio/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/developer-cheat-sheets/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/gpu-matcher-quiz/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/pc-power-supply-calculator/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/wordpress-hosting-calculator/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/monitor-ppi-viewing-distance-calculator/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/compare/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/deals/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/archive/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/privacy/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/terms/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/disclaimer/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/stories/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -11,7 +131,7 @@
       <image:title>Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks &amp; VRAM Guide</image:title>
     </image:image>
   </url>
-<url>
+  <url>
     <loc>https://imtechboss.com/how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -21,11 +141,11 @@
       <image:title>How to Fix IRQL_NOT_LESS_OR_EQUAL (0x0000000A) BSOD in Windows 11: Complete Diagnostic &amp; Stability Guide (2026)</image:title>
     </image:image>
   </url>
-<url>
+  <url>
     <loc>https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>OpenAI Sora Official Launch: Cinematic Benchmarks, Physics Accuracy, Pricing &amp; Alternatives Tested (2026)</image:title>
@@ -34,8 +154,8 @@
   <url>
     <loc>https://imtechboss.com/how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11/</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Fix DPC_WATCHDOG_VIOLATION (0x00000133) BSOD in Windows 11 (2026 Diagnostic Guide)</image:title>
@@ -44,8 +164,8 @@
   <url>
     <loc>https://imtechboss.com/how-to-fix-kernel-power-event-id-41-random-restarts-windows-11/</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Fix Kernel-Power Event ID 41 (Bugcheck 0) Random Restarts in Windows 11 (2026 Guide)</image:title>
@@ -54,8 +174,8 @@
   <url>
     <loc>https://imtechboss.com/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/</loc>
     <lastmod>2026-11-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)</image:title>
@@ -64,172 +184,52 @@
   <url>
     <loc>https://imtechboss.com/how-to-fix-high-cpu-memory-system-compressed-memory-windows-11/</loc>
     <lastmod>2026-11-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>How to Fix High CPU &amp; Memory Usage by &#x27;System and Compressed Memory&#x27; in Windows 11 (2026 Guide)</image:title>
+      <image:title>How to Fix High CPU &amp; Memory Usage by 'System and Compressed Memory' in Windows 11 (2026 Guide)</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://imtechboss.com/windows-11-24h2-bitlocker-ssd-slowdown-benchmarks-fix-guide-2026/</loc>
     <lastmod>2026-11-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Windows 11 24H2 BitLocker SSD Slowdown: Benchmarks &amp; How to Disable Software Encryption (2026 Guide)</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>How to Fix DXGI_ERROR_DEVICE_HUNG &amp; GetDeviceRemovedReason Game Crash in Windows 11 (2026 Guide)</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/oled-monitor-burn-in-prevention-care-guide-2026/</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>OLED &amp; QD-OLED Monitor Burn-In Prevention Guide: Pixel Care, HDR Settings &amp; Longevity (2026)</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://imtechboss.com/nvidia-geforce-rtx-5070-ti-specs-benchmarks-1440p-gaming-2026/</loc>
     <lastmod>2026-11-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>NVIDIA GeForce RTX 5070 &amp; RTX 5070 Ti Specs, 16GB GDDR7, Blackwell Architecture &amp; 1440p Benchmarks (2026)</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/about/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/contact/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://imtechboss.com/oled-monitor-burn-in-prevention-care-guide-2026/</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/pc-bottleneck-calculator/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/llm-vram-calculator/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/can-my-pc-run-it/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/ai-prompt-studio/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/developer-cheat-sheets/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/gpu-matcher-quiz/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/pc-power-supply-calculator/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/wordpress-hosting-calculator/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/tools/monitor-ppi-viewing-distance-calculator/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/compare/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>OLED &amp; QD-OLED Monitor Burn-In Prevention Guide: Pixel Care, HDR Settings &amp; Longevity (2026)</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://imtechboss.com/deals/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/archive/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/privacy/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/terms/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/disclaimer/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://imtechboss.com/stories/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How to Fix DXGI_ERROR_DEVICE_HUNG &amp; GetDeviceRemovedReason Game Crash in Windows 11 (2026 Guide)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://imtechboss.com/how-to-fix-ea-app-xbox-app-slow-download-speed-windows-11/</loc>
@@ -543,7 +543,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1613,7 +1613,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/how-to-recover-corrupted-nvme-ssd-data-windows-11/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1643,7 +1643,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/best-free-anti-ransomware-tools-windows-11-2026/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1653,7 +1653,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/windows-11-slow-after-update-fix-2026/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1663,7 +1663,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/how-to-disable-vbs-windows-11-gaming-performance/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1683,7 +1683,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/how-to-fix-steam-slow-download-speed-windows-11/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1713,7 +1713,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/lm-studio-tutorial-complete-guide-2026/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1793,7 +1793,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/antimalware-service-executable-high-cpu-memory-fix-windows-11/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1863,7 +1863,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/nepal-freelancing-dollar-income-esewa-tax-guide-2026/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1873,7 +1873,7 @@
   </url>
   <url>
     <loc>https://imtechboss.com/land-solution-nepal-cadastral-calculator/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
