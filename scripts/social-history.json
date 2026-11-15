@@ -238,7 +238,11 @@
     "how-to-stream-live-sports-4k-without-cable-wnba-college-football-guide-2026",
     "how-to-watch-notre-dame-vs-byu-live-stream-tv-channel-peacock-cord-cutting-guide-2026",
     "apple-iphone-duo-foldable-specs-a20-pro-price-release-guide-2026",
-    "how-to-fix-ea-app-xbox-app-slow-download-speed-windows-11"
+    "how-to-fix-ea-app-xbox-app-slow-download-speed-windows-11",
+    "14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026",
+    "best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks",
+    "how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11",
+    "how-much-vram-for-local-llms-2026-gguf-benchmarks"
   ],
   "history": [
     {
@@ -2146,6 +2150,34 @@
       "postedAt": "2026-11-06T06:31:26.917Z",
       "bskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3mzmr3gcc7d2a",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117568090023643222"
+    },
+    {
+      "id": "14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026",
+      "title": "14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length & Speed Guide (2026)",
+      "postedAt": "2026-11-15T05:39:00.399Z",
+      "blueskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3n2dcdybl5i2p",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117618844690891599"
+    },
+    {
+      "id": "best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks",
+      "title": "Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks & VRAM Guide",
+      "postedAt": "2026-11-15T05:39:08.958Z",
+      "blueskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3n2dceahtd52h",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117618845251651101"
+    },
+    {
+      "id": "how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11",
+      "title": "How to Fix IRQL_NOT_LESS_OR_EQUAL (0x0000000A) BSOD in Windows 11: Complete Diagnostic & Stability Guide (2026)",
+      "postedAt": "2026-11-15T05:39:17.814Z",
+      "blueskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3n2dceitv7327",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117618845830975957"
+    },
+    {
+      "id": "how-much-vram-for-local-llms-2026-gguf-benchmarks",
+      "title": "How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B & 70B GGUF Sizing Guide)",
+      "postedAt": "2026-11-15T05:39:28.585Z",
+      "blueskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3n2dceqzm7327",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117618846532655705"
     }
   ]
 }
