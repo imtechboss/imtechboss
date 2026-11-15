@@ -242,7 +242,9 @@
     "14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026",
     "best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks",
     "how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11",
-    "how-much-vram-for-local-llms-2026-gguf-benchmarks"
+    "how-much-vram-for-local-llms-2026-gguf-benchmarks",
+    "how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11",
+    "how-to-fix-kernel-power-event-id-41-random-restarts-windows-11"
   ],
   "history": [
     {
@@ -2178,6 +2180,20 @@
       "postedAt": "2026-11-15T05:39:28.585Z",
       "blueskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3n2dceqzm7327",
       "mastodonUrl": "https://mastodon.social/@imtechboss/117618846532655705"
+    },
+    {
+      "id": "how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11",
+      "title": "How to Fix DPC_WATCHDOG_VIOLATION (0x00000133) BSOD in Windows 11 (2026 Diagnostic Guide)",
+      "postedAt": "2026-11-15T14:23:16.973Z",
+      "blueskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3n2e7ne3av32p",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117620906238243474"
+    },
+    {
+      "id": "how-to-fix-kernel-power-event-id-41-random-restarts-windows-11",
+      "title": "How to Fix Kernel-Power Event ID 41 (Bugcheck 0) Random Restarts in Windows 11 (2026 Guide)",
+      "postedAt": "2026-11-15T14:23:30.857Z",
+      "blueskyUri": "at://did:plc:6lgvutvz3xaeecpkqu7qmrqd/app.bsky.feed.post/3n2e7nsj5lf2n",
+      "mastodonUrl": "https://mastodon.social/@imtechboss/117620907152153069"
     }
   ]
 }
