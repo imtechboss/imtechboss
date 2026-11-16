@@ -213,15 +213,15 @@
         </div>
       </div>
 
-      <!-- Embed Widget Tool Box -->
+      <!-- Citation Widget Tool Box -->
       <div class="p-6 rounded-3xl bg-slate-900 text-slate-100 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">Webmaster &amp; Blogger Tool</span>
-          <h4 class="text-base font-bold text-white">Embed this comparison on your website</h4>
-          <p class="text-xs text-slate-400 mt-0.5">Free embeddable iframe for blogs, forums, and tech publications.</p>
+          <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">Webmaster &amp; Blogger Resource</span>
+          <h4 class="text-base font-bold text-white">Cite this comparison in your post or forum thread</h4>
+          <p class="text-xs text-slate-400 mt-0.5">Copy a clean Markdown link to this hardware &amp; AI benchmark tool.</p>
         </div>
         <button id="copyEmbedCodeBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2">
-          <span>&lt;/&gt; Copy Embed Code</span>
+          <span>🔗 Copy Citation Link</span>
         </button>
       </div>
     </section>
@@ -612,13 +612,15 @@
       showToast("⚔️ Comparison updated!");
     });
 
-    // Copy Embed Code
+    // Copy Citation Link
     document.getElementById("copyEmbedCodeBtn").addEventListener("click", () => {
-      const code = `<iframe src="https://imtechboss.com/compare" width="100%" height="700" frameborder="0" style="border-radius:16px;border:1px solid #1e293b;"></iframe>\n<p style="font-size:11px;font-family:sans-serif;color:#64748b;">Powered by <a href="https://imtechboss.com" target="_blank" rel="noopener">Tech Boss Comparison Engine</a></p>`;
+      const itemA = document.getElementById("selectItemA").selectedOptions[0]?.text || "Component A";
+      const itemB = document.getElementById("selectItemB").selectedOptions[0]?.text || "Component B";
+      const code = `[${itemA} vs ${itemB} — Tech Boss Comparison Engine](https://imtechboss.com/compare/)`;
       navigator.clipboard.writeText(code).then(() => {
-        showToast("📋 Embed code copied to clipboard!");
+        showToast("🔗 Citation Markdown copied to clipboard!");
       }).catch(() => {
-        showToast("Error copying embed code");
+        showToast("Error copying citation link");
       });
     });
 

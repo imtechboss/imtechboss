@@ -93,7 +93,16 @@ def generate_worker():
         "google-gemini-4-argon-frontier-reasoning-model-1m-token-output-2026",
         "google-fitbit-air-launch-gemini-health-biometric-wearable-2026",
         "oneplus-16-esports-flagship-185hz-amoled-8500mah-silicon-carbon-battery-2026",
-        "how-to-bypass-android-frp-google-account-lock-2026-guide"
+        "how-to-bypass-android-frp-google-account-lock-2026-guide",
+        "ea-shuts-down-bioware-cancels-mass-effect-5-rpg-legacy-2026",
+        "apple-iphone-duo-foldable-specs-a20-pro-price-release-guide-2026",
+        "apple-iphone-duo-foldable-display-crack-hinge-damage-warranty-guide-2026",
+        "apple-event-pro-and-tell-m6-macbook-pro-oled-touchscreen-ipad-mini-2026",
+        "anthropic-unveils-claude-duet-autonomous-agent-opus-5-5-marketplace-2026",
+        "ftc-federal-investigation-openai-anthropic-consumer-risk-ai-regulation-2026",
+        "how-to-stream-live-sports-4k-without-cable-wnba-college-football-guide-2026",
+        "how-to-watch-notre-dame-vs-byu-live-stream-tv-channel-peacock-cord-cutting-guide-2026",
+        "gta-6-settings-optimization-120fps"
     ]
     removed_json = json.dumps(removed_slugs_list, ensure_ascii=False)
 
@@ -212,7 +221,7 @@ export default {{
           status: 301,
           statusText: 'Moved Permanently',
           headers: {{
-            'Location': 'https://imtechboss.com' + cleanPath,
+            'Location': 'https://imtechboss.com' + cleanPath + (url.search || ''),
             'Cache-Control': 'public, max-age=86400',
             'X-Robots-Tag': 'noindex, follow'
           }}
@@ -228,7 +237,7 @@ export default {{
           status: 301,
           statusText: 'Moved Permanently',
           headers: {{
-            'Location': 'https://imtechboss.com' + pathname + '/',
+            'Location': 'https://imtechboss.com' + pathname + '/' + (url.search || ''),
             'Cache-Control': 'public, max-age=86400',
             'X-Robots-Tag': 'noindex, follow'
           }}
@@ -268,7 +277,7 @@ export default {{
         if (id && !id.startsWith('blogger-') && id !== 'blogger-512' && !removedSlugs.has(id)) {{
           dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
         }} else if (pathname.includes('/post.html')) {{
-          const parentSlug = pathname.split('/post.html')[0].replace(/^\/+|\/+$/g, '');
+          const parentSlug = pathname.split('/post.html')[0].replace(/^\\/+|\\/+$/g, '');
           if (parentSlug && !parentSlug.startsWith('blogger-') && !removedSlugs.has(parentSlug)) {{
             dest = 'https://imtechboss.com/' + parentSlug + '/';
           }}

@@ -24,4 +24,5 @@ Thumbs.db
 
 Blogger/
 scratch/
-
+__pycache__/
+*.pyc

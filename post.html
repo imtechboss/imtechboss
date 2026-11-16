@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preload" href="/css/styles.min.css?v=1.0" as="style">
-  <link rel="preload" href="/js/data.js" as="script">
+  <link rel="preload" href="/js/data.js?v=7.7" as="script">
 
   <!-- Google tag (gtag.js) - Google Analytics 4 -->
 
@@ -322,7 +322,7 @@
 
           <div class="hidden sm:flex items-center gap-1 border-l border-gray-200 dark:border-slate-800 pl-2">
 
-            <a href="mailto:<!--email_off-->founder@imtechboss.com<!--/email_off-->" class="p-2 rounded-full text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="Email Binod">
+            <a href="mailto:founder@imtechboss.com" class="p-2 rounded-full text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="Email Binod">
 
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
 
@@ -389,17 +389,14 @@
 
       </article>
 
-      <!-- Comments & Discussion Area -->
-      <div id="commentsSection" class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800 hidden">
-        <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight mb-6">Reader Discussion &amp; Feedback</h3>
-        <form id="postCommentForm"></form>
-      </div>
-
-
-
-
-      
-
+      <!-- Related Stories Section -->
+      <section id="relatedSection" class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800 hidden">
+        <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight text-gray-950 dark:text-white mb-6">Recommended Next Guides</h3>
+        <div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <!-- Injected via post.js -->
+        </div>
+      </section>
+    </main>
   </div>
 
 
@@ -478,6 +475,24 @@
 
 
 
+  <!-- Global Spotlight Search Modal (Ctrl + K) -->
+  <div id="searchModal" data-nosnippet="" aria-hidden="true" class="fixed inset-0 z-50 hidden flex items-start justify-center pt-16 sm:pt-24 p-4 bg-black/75 backdrop-blur-sm">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[80vh]">
+      <div class="p-4 border-b border-gray-200 dark:border-slate-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="spotlightSearchInput" placeholder="Search stories, hardware reviews, and guides..." aria-label="Search stories, notes, and reviews" class="w-full bg-transparent text-sm sm:text-base text-gray-900 dark:text-white focus:outline-none font-medium">
+        <button id="closeSearchModalBtn" aria-label="Close modal" data-nosnippet="" class="p-1 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-500 hover:text-gray-900 dark:hover:text-white"><span aria-hidden="true" data-nosnippet="">&times;</span></button>
+      </div>
+      <div id="spotlightSearchResults" class="p-3 overflow-y-auto space-y-1 divide-y divide-gray-100 dark:divide-slate-800/40 text-xs">
+        <p class="text-gray-400 text-center py-8">Type keywords above to search curated tech articles...</p>
+      </div>
+      <div class="p-3 bg-gray-50 dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-gray-500">
+        <span>Shortcut: Press <kbd class="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-slate-800 font-mono">Ctrl + K</kbd> anytime</span>
+        <span id="spotlightCountBadge">170+ stories indexed</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Global Toast Notification -->
 
   <div id="toastNotification" data-nosnippet="" aria-hidden="true" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none flex items-center gap-2.5 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl text-xs font-semibold">
@@ -492,13 +507,13 @@
 
   <!-- Scripts -->
 
-  <script src="js/data.js?v=7.7"></script>
+  <script src="/js/data.js?v=7.7"></script>
 
-  <script src="js/pages.js?v=7.7"></script>
+  <script src="/js/pages.js?v=7.7"></script>
 
-  <script src="js/post.js?v=7.7"></script>
+  <script src="/js/post.js?v=7.7"></script>
 
-  <script src="js/vip-drawer.js?v=7.7" defer></script>
+  <script src="/js/vip-drawer.js?v=7.7" defer></script>
 
   <script>
 

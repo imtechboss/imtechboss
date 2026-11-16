@@ -124,7 +124,7 @@
         <div class="p-5 rounded-xl border border-gray-200 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-800/40 text-center">
           <div class="text-2xl mb-2">✉️</div>
           <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">Direct Email</h3>
-          <!--email_off--><a href="mailto:founder@imtechboss.com" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline break-all">founder@imtechboss.com</a><!--/email_off-->
+          <!--email_off--><a href="mailto:founder@imtechboss.com" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap">founder@imtechboss.com</a><!--/email_off-->
         </div>
         <div class="p-5 rounded-xl border border-gray-200 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-800/40 text-center">
           <div class="text-2xl mb-2">🌐</div>
@@ -145,31 +145,34 @@
       <!-- Contact Form -->
       <div class="p-6 rounded-2xl bg-gray-50/50 dark:bg-slate-800/30 border border-gray-200 dark:border-slate-800">
         <h2 class="text-lg font-bold text-gray-950 dark:text-white mb-4">Send a Message</h2>
-        <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been routed to founder@imtechboss.com.');" class="space-y-4">
+        <form id="contactComposeForm" onsubmit="event.preventDefault(); const n=document.getElementById('cfName').value.trim(); const e=document.getElementById('cfEmail').value.trim(); const s=document.getElementById('cfSubject').value.trim(); const m=document.getElementById('cfMsg').value.trim(); const body=`From: ${n} (${e})\n\n${m}`; window.location.href=`mailto:founder@imtechboss.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(body)}`; document.getElementById('contactComposeStatus').classList.remove('hidden');" class="space-y-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-1">Your Name *</label>
-              <input type="text" required placeholder="Binod" class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+              <input id="cfName" type="text" required placeholder="e.g. Alex Chen" class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
             </div>
             <div>
               <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-1">Your Email *</label>
-              <input type="email" required placeholder="your.name@example.com" class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+              <input id="cfEmail" type="email" required placeholder="your.name@example.com" class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
             </div>
           </div>
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-1">Subject *</label>
-            <input type="text" required placeholder="News tip, feedback, or hardware inquiry" class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
+            <input id="cfSubject" type="text" required placeholder="News tip, feedback, or hardware inquiry" class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white">
           </div>
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-1">Message *</label>
-            <textarea rows="5" required placeholder="Please describe your message in detail..." class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"></textarea>
+            <textarea id="cfMsg" rows="5" required placeholder="Please describe your message in detail..." class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"></textarea>
+          </div>
+          <div id="contactComposeStatus" class="hidden p-3 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 text-xs text-blue-800 dark:text-blue-200">
+            Opening your default email application to deliver your message to <strong>founder@imtechboss.com</strong>. If you use webmail in a browser, please email <strong>founder@imtechboss.com</strong> directly.
           </div>
           <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
             <span class="text-[11px] text-gray-500 dark:text-gray-400">
               Direct inquiries can also be sent directly to <strong><!--email_off-->founder@imtechboss.com<!--/email_off--></strong>
             </span>
             <button type="submit" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow transition-all active:scale-95">
-              Send Message
+              Compose Email to Editorial Desk
             </button>
           </div>
         </form>

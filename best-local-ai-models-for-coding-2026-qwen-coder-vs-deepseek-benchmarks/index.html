@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preload" href="/css/styles.min.css?v=1.0" as="style">
-  <link rel="preload" href="/js/data.js" as="script">
+  <link rel="preload" href="/js/data.js?v=7.7" as="script">
 
   <!-- Google tag (gtag.js) - Google Analytics 4 -->
 
@@ -139,7 +139,7 @@
   <!-- Pure Compiled CSS (Zero External Scripts, Zero Redirects) -->
   <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
   
-  <script id="articleJsonLd" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/#article", "isPartOf": {"@type": "WebPage", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/"}, "headline": "Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks & VRAM Guide", "description": "Compare the best local AI coding models in 2026. Benchmarks for Qwen 2.5 Coder 32B, DeepSeek-R1-Distill, and Codestral across 16GB, 24GB, and Apple Silicon setups.", "image": ["https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80"], "datePublished": "2026-11-14T00:00:00Z", "dateModified": "2026-11-16T11:26:20Z", "inLanguage": "en-US", "mainEntityOfPage": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/", "author": {"@type": "Person", "name": "Binod Bhatt", "jobTitle": "Lead Systems & Hardware Engineer", "url": "https://binodbhatt.com.np", "sameAs": ["https://binodbhatt.com.np", "https://github.com/binodbhatt"], "worksFor": {"@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com"}, "knowsAbout": ["Artificial Intelligence", "GPU Benchmarking", "Cloud Infrastructure", "Cybersecurity", "Systems Engineering"]}, "publisher": {"@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com", "logo": {"@type": "ImageObject", "url": "https://imtechboss.com/og-image.png"}}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#aioAnswerCapsule", "h1"]}}, {"@type": "BreadcrumbList", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com/"}, {"@type": "ListItem", "position": 2, "name": "AI & Machine Learning", "item": "https://imtechboss.com/?category=AI & Machine Learning"}, {"@type": "ListItem", "position": 3, "name": "Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks & VRAM Guide", "item": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/"}]}, {"@type": "FAQPage", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/#faq", "mainEntity": [{"@type": "Question", "name": "Is 16GB VRAM enough to run local coding models comfortably?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On 16GB GPUs such as the RTX 5070 Ti or RTX 4070 Ti Super, Qwen 2.5 Coder 14B (Q6_K or Q8_0 quantization) runs entirely in VRAM at 50+ tokens per second with zero CPU offloading while leaving enough headroom for a 32K context window."}}, {"@type": "Question", "name": "Which model is better for VS Code inline autocomplete vs multi-file refactoring?", "acceptedAnswer": {"@type": "Answer", "text": "For inline autocomplete (Fill-In-The-Middle), use a fast 1.5B or 7B model like qwen2.5-coder:1.5b or 7b to keep latency under 150ms. Reserve 32B models like Qwen 2.5 Coder 32B or DeepSeek-R1-Distill-32B for sidebar chat, bug tracing, and multi-file refactoring."}}, {"@type": "Question", "name": "How does Apple Silicon (M4 Max) compare to an RTX 4090 for coding LLMs?", "acceptedAnswer": {"@type": "Answer", "text": "An RTX 4090 generates tokens roughly 2x faster for models up to 32B parameters due to its 1,008 GB/s GDDR6X bandwidth. However, an M4 Max with 64GB or 128GB unified memory can load 70B+ parameter weights and massive 64K-128K code repositories cleanly via Apple MLX without overflowing VRAM."}}, {"@type": "Question", "name": "Does KV cache quantization degrade code syntax accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Setting KV cache quantization to q8_0 in Ollama reduces long-context memory footprint by nearly 45% with virtually zero impact on syntax precision. Avoid dropping KV cache down to q4_0 for programming tasks, as aggressive 4-bit cache quantization can occasionally corrupt variable names and bracket pairs over 16K contexts."}}]}]}</script>
+  <script id="articleJsonLd" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/#article", "isPartOf": {"@type": "WebPage", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/"}, "headline": "Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks & VRAM Guide", "description": "Compare the best local AI coding models in 2026. Benchmarks for Qwen 2.5 Coder 32B, DeepSeek-R1-Distill, and Codestral across 16GB, 24GB, and Apple Silicon setups.", "image": ["https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80"], "datePublished": "2026-11-14T00:00:00Z", "dateModified": "2026-11-14T00:00:00Z", "inLanguage": "en-US", "mainEntityOfPage": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/", "author": {"@type": "Person", "name": "Binod Bhatt", "jobTitle": "Lead Systems & Hardware Engineer", "url": "https://binodbhatt.com.np", "sameAs": ["https://binodbhatt.com.np", "https://github.com/binodbhatt"], "worksFor": {"@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com"}, "knowsAbout": ["Artificial Intelligence", "GPU Benchmarking", "Cloud Infrastructure", "Cybersecurity", "Systems Engineering"]}, "publisher": {"@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com", "logo": {"@type": "ImageObject", "url": "https://imtechboss.com/og-image.png"}}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#aioAnswerCapsule", "h1"]}}, {"@type": "BreadcrumbList", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com/"}, {"@type": "ListItem", "position": 2, "name": "AI & Machine Learning", "item": "https://imtechboss.com/?category=AI & Machine Learning"}, {"@type": "ListItem", "position": 3, "name": "Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks & VRAM Guide", "item": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/"}]}, {"@type": "FAQPage", "@id": "https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/#faq", "mainEntity": [{"@type": "Question", "name": "Is 16GB VRAM enough to run local coding models comfortably?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On 16GB GPUs such as the RTX 5070 Ti or RTX 4070 Ti Super, Qwen 2.5 Coder 14B (Q6_K or Q8_0 quantization) runs entirely in VRAM at 50+ tokens per second with zero CPU offloading while leaving enough headroom for a 32K context window."}}, {"@type": "Question", "name": "Which model is better for VS Code inline autocomplete vs multi-file refactoring?", "acceptedAnswer": {"@type": "Answer", "text": "For inline autocomplete (Fill-In-The-Middle), use a fast 1.5B or 7B model like qwen2.5-coder:1.5b or 7b to keep latency under 150ms. Reserve 32B models like Qwen 2.5 Coder 32B or DeepSeek-R1-Distill-32B for sidebar chat, bug tracing, and multi-file refactoring."}}, {"@type": "Question", "name": "How does Apple Silicon (M4 Max) compare to an RTX 4090 for coding LLMs?", "acceptedAnswer": {"@type": "Answer", "text": "An RTX 4090 generates tokens roughly 2x faster for models up to 32B parameters due to its 1,008 GB/s GDDR6X bandwidth. However, an M4 Max with 64GB or 128GB unified memory can load 70B+ parameter weights and massive 64K-128K code repositories cleanly via Apple MLX without overflowing VRAM."}}, {"@type": "Question", "name": "Does KV cache quantization degrade code syntax accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Setting KV cache quantization to q8_0 in Ollama reduces long-context memory footprint by nearly 45% with virtually zero impact on syntax precision. Avoid dropping KV cache down to q4_0 for programming tasks, as aggressive 4-bit cache quantization can occasionally corrupt variable names and bracket pairs over 16K contexts."}}]}]}</script>
 </head>
 
 <body class="bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-200">
@@ -324,7 +324,7 @@
 
           <div class="hidden sm:flex items-center gap-1 border-l border-gray-200 dark:border-slate-800 pl-2">
 
-            <a href="mailto:<!--email_off-->founder@imtechboss.com<!--/email_off-->" class="p-2 rounded-full text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="Email Binod">
+            <a href="mailto:founder@imtechboss.com" class="p-2 rounded-full text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="Email Binod">
 
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
 
@@ -574,8 +574,8 @@
         </li>
 <li class="flex items-start gap-2.5">
           <span class="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0">06.</span>
-          <a href="#section-6-local-coding-llms-amp-hardware-faq" class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:underline">
-            Local Coding LLMs &amp;amp; Hardware FAQ
+          <a href="#section-6-local-coding-llms-hardware-faq" class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:underline">
+            Local Coding LLMs &amp; Hardware FAQ
           </a>
         </li>
         </ol>
@@ -678,7 +678,7 @@ SYSTEM "You are a senior systems software engineer. Output clean, production-rea
 <h2 id="section-5-when-to-choose-deepseek-r1-over-qwen-2-5-coder">When to Choose DeepSeek-R1 Over Qwen 2.5 Coder</h2>
 <p>While <strong>Qwen 2.5 Coder 32B</strong> dominates direct syntax generation, boilerplate creation, and unit test scaffolding due to strict instruction following, <strong>DeepSeek-R1-Distill-Qwen-32B</strong> utilizes Reinforcement Learning chain-of-thought (<code>&lt;think&gt;</code>) tags before outputting code. That internal verification pass makes DeepSeek-R1 superior for diagnosing subtle race conditions, pointer leaks, regex edge cases, and complex SQL query optimization—even though it takes several extra seconds to emit its hidden reasoning trace.</p>
 
-<h2 id="section-6-local-coding-llms-amp-hardware-faq">Local Coding LLMs &amp; Hardware FAQ</h2>
+<h2 id="section-6-local-coding-llms-hardware-faq">Local Coding LLMs &amp; Hardware FAQ</h2>
 <h3>Is 16GB VRAM enough to run local coding models comfortably?</h3>
 <p>Yes. On 16GB GPUs such as the RTX 5070 Ti or RTX 4070 Ti Super, Qwen 2.5 Coder 14B (Q6_K or Q8_0 quantization) runs entirely in VRAM at 50+ tokens per second with zero CPU offloading while leaving enough headroom for a 32K context window.</p>
 
@@ -757,7 +757,7 @@ SYSTEM "You are a senior systems software engineer. Output clean, production-rea
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-        <a href="/compare" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+        <a href="/compare/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">⚔️</span>
@@ -776,7 +776,7 @@ SYSTEM "You are a senior systems software engineer. Output clean, production-rea
           </span>
         </a>
 
-        <a href="/tools" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+        <a href="/tools/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">🛠️</span>
@@ -823,14 +823,14 @@ SYSTEM "You are a senior systems software engineer. Output clean, production-rea
       <div class="flex items-center gap-2 mb-2.5 pb-2 border-b border-gray-200/60 dark:border-slate-700/60">
         <span class="text-base">🧠</span>
         <h4 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-gray-900 dark:text-white">
-          AI Systems Lab — Inference & Throughput Methodology
+          AI & LLM Technical Verification Protocol
         </h4>
       </div>
       <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-        Local model benchmarks, token generation throughput (tokens/sec), and time-to-first-token (TTFT) are tested on isolated bare-metal runtimes without cloud rate-limits.
+        Quantization memory calculations (GGUF Q4_K_M, Q8_0, FP16), KV-cache scaling, and model capability notes are checked against open-weights model cards, llama.cpp runtime budgets, and release notes.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono text-gray-700 dark:text-gray-300">
-        <div>• <strong>Local Runtimes:</strong> Ollama v0.5+, vLLM, LM Studio</div><div>• <strong>Quantization:</strong> GGUF Q4_K_M, Q8_0, FP16 baseline</div><div>• <strong>Compute Stack:</strong> CUDA 12.6, PyTorch 2.5, ROCm 6.2</div><div>• <strong>Prompt Suites:</strong> HumanEval, MT-Bench &amp; Real-World Code</div>
+        <div>• <strong>Local Runtimes:</strong> Ollama, LM Studio &amp; llama.cpp Sizing</div><div>• <strong>Quantization Math:</strong> GGUF 4-bit to 16-bit VRAM Envelopes</div><div>• <strong>Sizing Calculator:</strong> Live /tools/llm-vram-calculator/ Estimator</div><div>• <strong>Editorial Policy:</strong> Zero Hype; Explicit Speculative Tags</div>
       </div>
     </div>
     
@@ -914,17 +914,91 @@ SYSTEM "You are a senior systems software engineer. Output clean, production-rea
     
       </article>
 
-      <!-- Comments & Discussion Area -->
-      <div id="commentsSection" class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800 hidden">
-        <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight mb-6">Reader Discussion &amp; Feedback</h3>
-        <form id="postCommentForm"></form>
-      </div>
+      <!-- Related Stories Section -->
+      <section id="relatedSection" class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-800 ">
+        <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight text-gray-950 dark:text-white mb-6">Recommended Next Guides</h3>
+        <div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-5">
 
+          <a 
+            href="/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/" 
+            class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
+          >
+            <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
+              <img 
+                src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
+                alt="OpenAI Sora Official Launch: Cinematic Benchmarks, Physics Accuracy, Pricing &amp; Alternatives Tested (2026)" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80'"
+              >
+            </div>
+            <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
+              AI &amp; Machine Learning
+            </span>
+            <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+              OpenAI Sora Official Launch: Cinematic Benchmarks, Physics Accuracy, Pricing &amp; Alternatives Tested (2026)
+            </h4>
+            <div class="mt-auto pt-2 text-[10px] text-gray-400 flex items-center justify-between">
+              <span>2026-11-09</span>
+              <span class="font-semibold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">Read Story &rarr;</span>
+            </div>
+          </a>
+        
 
+          <a 
+            href="/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/" 
+            class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
+          >
+            <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
+              <img 
+                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
+                alt="14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80'"
+              >
+            </div>
+            <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
+              AI &amp; Machine Learning
+            </span>
+            <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+              14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)
+            </h4>
+            <div class="mt-auto pt-2 text-[10px] text-gray-400 flex items-center justify-between">
+              <span>2026-11-08</span>
+              <span class="font-semibold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">Read Story &rarr;</span>
+            </div>
+          </a>
+        
 
-
-      
-
+          <a 
+            href="/how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11/" 
+            class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
+          >
+            <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
+              <img 
+                src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
+                alt="How to Fix IRQL_NOT_LESS_OR_EQUAL (0x0000000A) BSOD in Windows 11: Complete Diagnostic &amp; Stability Guide (2026)" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80'"
+              >
+            </div>
+            <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
+              Windows &amp; OS
+            </span>
+            <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+              How to Fix IRQL_NOT_LESS_OR_EQUAL (0x0000000A) BSOD in Windows 11: Complete Diagnostic &amp; Stability Guide (2026)
+            </h4>
+            <div class="mt-auto pt-2 text-[10px] text-gray-400 flex items-center justify-between">
+              <span>2026-11-11</span>
+              <span class="font-semibold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">Read Story &rarr;</span>
+            </div>
+          </a>
+        
+        </div>
+      </section>
+    </main>
   </div>
 
 
@@ -1002,6 +1076,24 @@ SYSTEM "You are a senior systems software engineer. Output clean, production-rea
   </div>
 
 
+
+  <!-- Global Spotlight Search Modal (Ctrl + K) -->
+  <div id="searchModal" data-nosnippet="" aria-hidden="true" class="fixed inset-0 z-50 hidden flex items-start justify-center pt-16 sm:pt-24 p-4 bg-black/75 backdrop-blur-sm">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[80vh]">
+      <div class="p-4 border-b border-gray-200 dark:border-slate-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="spotlightSearchInput" placeholder="Search stories, hardware reviews, and guides..." aria-label="Search stories, notes, and reviews" class="w-full bg-transparent text-sm sm:text-base text-gray-900 dark:text-white focus:outline-none font-medium">
+        <button id="closeSearchModalBtn" aria-label="Close modal" data-nosnippet="" class="p-1 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-500 hover:text-gray-900 dark:hover:text-white"><span aria-hidden="true" data-nosnippet="">&times;</span></button>
+      </div>
+      <div id="spotlightSearchResults" class="p-3 overflow-y-auto space-y-1 divide-y divide-gray-100 dark:divide-slate-800/40 text-xs">
+        <p class="text-gray-400 text-center py-8">Type keywords above to search curated tech articles...</p>
+      </div>
+      <div class="p-3 bg-gray-50 dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-gray-500">
+        <span>Shortcut: Press <kbd class="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-slate-800 font-mono">Ctrl + K</kbd> anytime</span>
+        <span id="spotlightCountBadge">170+ stories indexed</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Global Toast Notification -->
 

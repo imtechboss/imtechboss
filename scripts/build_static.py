@@ -45,6 +45,10 @@ def inject_in_article_ads(body_html):
     return body_html
 
 def generate_key_takeaways(article):
+    # Skip redundant Direct Answer Capsule when body already contains an embedded answer-capsule
+    raw_body = (article.get('content') or article.get('body', ''))
+    if 'class="answer-capsule"' in raw_body.lower() or "class='answer-capsule'" in raw_body.lower():
+        return ''
     # Support custom takeaways or summary from post object (prevents H2 duplication)
     custom_takeaways = article.get('takeaways')
     raw_excerpt = (article.get('summary') or article.get('excerpt') or '').strip()
@@ -158,7 +162,8 @@ def generate_table_of_contents(content_html):
         idx += 1
         attrs = m.group(1)
         inner = m.group(2)
-        plain = re.sub(r'<[^>]+>', '', inner).strip()
+        from html import unescape
+        plain = unescape(re.sub(r'<[^>]+>', '', inner)).strip()
         if not plain:
             return m.group(0)
 
@@ -282,7 +287,7 @@ def generate_hubs_cross_promote(article):
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-        <a href="/compare" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+        <a href="/compare/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">⚔️</span>
@@ -301,7 +306,7 @@ def generate_hubs_cross_promote(article):
           </span>
         </a>
 
-        <a href="/tools" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+        <a href="/tools/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">🛠️</span>
@@ -347,63 +352,63 @@ def generate_methodology_box(article):
     title = (article.get('title') or '').lower()
 
     if any(k in cat for k in ['hardware', 'semiconductor']) or any(k in title for k in ['gpu', 'cpu', 'intel', 'amd', 'ryzen', 'nvidia', 'rtx', 'tsmc', 'ddr5', 'motherboard', 'nvme', 'pc build', 'silicon']):
-        badge = "Hardware Lab — Rigorous Benchmarking Methodology"
-        desc = "All hardware benchmarks, thermal metrics, and power measurements are captured in a temperature-controlled 21°C environment using calibrated instrumentation and high-precision telemetry."
+        badge = "Hardware Editorial Verification Standard"
+        desc = "Silicon specifications, TDP envelopes, memory bandwidth figures, and pricing tables are cross-checked against vendor datasheets, JEDEC/PCI-SIG standards, and architectural whitepapers."
         specs = [
-            ("Testbed CPU", "AMD Ryzen 7 7800X3D / Intel Core Ultra 9"),
-            ("System Memory", "32GB DDR5-6000 CL30 EXPO Dual-Channel"),
-            ("Primary Storage", "Samsung 990 Pro 2TB PCIe 4.0 NVMe"),
-            ("Telemetry Tools", "CapFrameX 0.1% Frametimes & HWInfo64")
+            ("Reference Stack", "JEDEC DDR5, PCIe SIG & Vendor Datasheets"),
+            ("Telemetry Scope", "TGP Limits, Bus Width & Thermal Density"),
+            ("Comparison Hub", "Interactive /compare/ Spec Matrix"),
+            ("Accuracy Audits", "Timestamped Revisions on Driver/SKU Updates")
         ]
         icon = "🔬"
     elif any(k in cat for k in ['frontier ai', 'ai & technology', 'quantum', 'ai']) or any(k in title for k in ['ai', 'gpt', 'llm', 'claude', 'gemini', 'deepseek', 'model', 'ollama', 'neural', 'inference']):
-        badge = "AI Systems Lab — Inference & Throughput Methodology"
-        desc = "Local model benchmarks, token generation throughput (tokens/sec), and time-to-first-token (TTFT) are tested on isolated bare-metal runtimes without cloud rate-limits."
+        badge = "AI & LLM Technical Verification Protocol"
+        desc = "Quantization memory calculations (GGUF Q4_K_M, Q8_0, FP16), KV-cache scaling, and model capability notes are checked against open-weights model cards, llama.cpp runtime budgets, and release notes."
         specs = [
-            ("Local Runtimes", "Ollama v0.5+, vLLM, LM Studio"),
-            ("Quantization", "GGUF Q4_K_M, Q8_0, FP16 baseline"),
-            ("Compute Stack", "CUDA 12.6, PyTorch 2.5, ROCm 6.2"),
-            ("Prompt Suites", "HumanEval, MT-Bench & Real-World Code")
+            ("Local Runtimes", "Ollama, LM Studio & llama.cpp Sizing"),
+            ("Quantization Math", "GGUF 4-bit to 16-bit VRAM Envelopes"),
+            ("Sizing Calculator", "Live /tools/llm-vram-calculator/ Estimator"),
+            ("Editorial Policy", "Zero Hype; Explicit Speculative Tags")
         ]
         icon = "🧠"
     elif any(k in cat for k in ['cybersecurity', 'security', 'privacy']) or any(k in title for k in ['security', 'password', 'vpn', 'ransomware', 'malware', 'phishing', 'encryption', 'zero-day', 'cve', 'wireguard']):
-        badge = "Security Lab — Verification & Cryptographic Standards"
-        desc = "Security guidelines and protocol verifications are conducted in sandboxed network topologies to audit packet leaks, handshake delays, and encryption cipher validity."
+        badge = "Security & Privacy Editorial Standards"
+        desc = "Security recommendations, cipher choices, and firewall rules are reviewed against NIST standards, vendor CVE advisories, and documented zero-knowledge architectural audits."
         specs = [
-            ("Packet Audit", "Wireshark DNS/IPv6 Leak Testing"),
-            ("Protocols", "WireGuard, IPsec, OpenVPN 2.6"),
-            ("Auth Standard", "FIDO2 / WebAuthn Hardware Keys"),
-            ("Sandboxing", "Proxmox VE Isolated Sandboxes")
+            ("Standards", "NIST SP 800-53 & OWASP Verification"),
+            ("Transport Crypto", "WireGuard / TLS 1.3 / AES-256-GCM Audits"),
+            ("Authentication", "FIDO2 / WebAuthn Hardware Token Support"),
+            ("Updates", "Prompt Errata on Security Advisories")
         ]
         icon = "🛡️"
     elif any(k in cat for k in ['windows', 'disk', 'ram', 'repair', 'cursor', 'fix', 'wifi', 'troubleshooting']) or any(k in title for k in ['windows', 'fix', 'error', 'bug', 'crash', 'freeze', 'optimize']):
-        badge = "Diagnostic Lab — Operating System Testbed & Safety"
-        desc = "All troubleshooting procedures, registry modifications, and performance fixes are tested across clean retail and enterprise installations prior to publishing."
+        badge = "OS Troubleshooting Verification & Safety"
+        desc = "Windows PowerShell commands, DISM/SFC recovery sequences, and driver isolation steps follow official Microsoft documentation and non-destructive diagnostic workflows."
         specs = [
-            ("Primary OS", "Windows 11 Enterprise (24H2 / 23H2)"),
-            ("Diagnostics", "Windows Performance Analyzer (WPA)"),
-            ("Kernel Analysis", "WinDbg Preview & Driver Verifier"),
-            ("Rollback Safety", "System Restore Point Verified")
+            ("Target Platform", "Windows 11 (24H2 / 23H2) Servicing"),
+            ("Core Diagnostics", "DISM, SFC, Event Viewer & WinDbg Codes"),
+            ("Safety Baseline", "System Restore Point Advisories Included"),
+            ("Documentation", "Cross-Checked with Microsoft Learn Docs")
         ]
         icon = "⚙️"
     elif any(k in cat for k in ['gaming', 'esports', 'console']) or any(k in title for k in ['gaming', 'game', 'playstation', 'ps5', 'ps6', 'xbox', 'switch', 'steam deck', 'fps', 'rtx 5090']):
-        badge = "Gaming Lab — Frame Pacing & Latency Testbed"
-        desc = "Gaming evaluations measure real-world 1% low frametimes, input latency, and memory allocation across competitive and ray-traced benchmark sequences."
+        badge = "Gaming & Graphics Analysis Standards"
+        desc = "Gaming coverage separates confirmed shipping frame-time measurements and DirectStorage specifications from pre-release supply-chain roadmaps."
         specs = [
-            ("Display Suite", "4K 144Hz / 240Hz OLED with G-Sync"),
-            ("Frametime Capture", "CapFrameX & PresentMon 2.0"),
-            ("DirectStorage", "PCIe 4.0 7000 MB/s Asset Streaming"),
-            ("Microcode", "Latest AMD AGESA & Intel Microcode")
+            ("Frame Telemetry", "1% Low Frametime & Input Latency Focus"),
+            ("Display Pipeline", "HDMI 2.1 / DP 2.1 VESA DSC Bandwidth"),
+            ("Sizing Tools", "PC Bottleneck & Can My PC Run It Hubs"),
+            ("Transparency", "Roadmap Specs Clearly Labeled Pre-Release")
         ]
         icon = "🎮"
     else:
-        badge = "Tech Boss Editorial Standards & Verification Protocol"
-        desc = "Our reporting adheres strictly to objective technical journalism. Specifications, pricing, and architectural claims are independently verified through manufacturer whitepapers and physical testing."
+        badge = "Tech Boss Editorial & Fact-Checking Standard"
+        desc = "Reporting follows objective technical journalism. Hardware specs, regulatory notices, and regional guides are verified against primary official announcements and published documentation."
         specs = [
-            ("Fact-Checking", "IEEE / JEDEC / PCI-SIG Standards"),
-            ("Independence", "100% Unsponsored Objective Reviews"),
-            ("Disclosure", "Full Transparency on Testing Setups"),
-            ("Maintenance", "Continuously Maintained for 2026 Accuracy")
+            ("Primary Sources", "Vendor Disclosures & Official Regulatory Docs"),
+            ("Independence", "Unsponsored Editorial Scoring"),
+            ("Affiliates", "Explicitly Tagged rel=sponsored nofollow"),
+            ("Corrections", "Report Technical Errata via /contact/")
         ]
         icon = "⚡"
 
@@ -503,8 +508,10 @@ def render_article_inner_html(article):
     # 3. Key Takeaways
     takeaways_html = generate_key_takeaways(article)
 
-    # 4. FAQ
+    # 4. FAQ (Suppress duplicate visible accordion when inline FAQ heading already exists in body)
     faq_html, _ = generate_faq_data(article)
+    if 'frequently asked questions' in body_content.lower():
+        faq_html = ''
 
     # 5. Hubs cross promote
     hubs_html = generate_hubs_cross_promote(article)
@@ -779,7 +786,7 @@ def generate_schema_json(article, canonical_url, schema_faqs):
                 "description": article.get('excerpt', ''),
                 "image": [img],
                 "datePublished": pub_iso,
-                "dateModified": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "dateModified": pub_iso,
                 "inLanguage": "en-US",
                 "mainEntityOfPage": canonical_url,
                 "author": {
@@ -1134,7 +1141,7 @@ def update_homepage_prerender(articles):
         gcat = escape(art.get('category') or 'General')
         gdate = escape(art.get('date') or 'Recent')
         gread = escape(art.get('readTime') or '4 min read')
-        gimg = art.get('image') or 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'
+        gimg = art.get('image') or 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'
 
         grid_items.append(f'''<article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group" data-id="{gid}">
               <div class="relative overflow-hidden aspect-[16/10] bg-gray-100 dark:bg-slate-800">
@@ -1144,7 +1151,7 @@ def update_homepage_prerender(articles):
                     alt="{gtitle}" 
                     loading="lazy" 
                     class="zoom-img w-full h-full object-cover"
-                    onerror="this.onerror=null; this.src=\'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80\'"
+                    onerror="this.onerror=null; this.src=\'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80\'"
                   >
                 </a>
                 <div class="absolute top-3 left-3 flex gap-2 pointer-events-none">

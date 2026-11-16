@@ -973,15 +973,15 @@
       </section>
 
 
-    <!-- Embed Tool Widget for Webmasters & Bloggers (Backlink Magnet) -->
+    <!-- Share & Cite Tools Suite -->
     <div class="max-w-4xl mx-auto mt-8 p-6 rounded-3xl bg-slate-900 text-slate-100 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
-        <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">Webmaster &amp; Blogger Resource</span>
-        <h4 class="text-base font-bold text-white">Embed Tech Boss Interactive Tools on Your Website</h4>
-        <p class="text-xs text-slate-400 mt-0.5">Free responsive iframe widget for tech blogs, PC building communities, and forums.</p>
+        <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">Webmaster &amp; Forum Resource</span>
+        <h4 class="text-base font-bold text-white">Cite Tech Boss Interactive Tools</h4>
+        <p class="text-xs text-slate-400 mt-0.5">Copy a ready-to-share link and Markdown attribution for PC building forums, READMEs, and blogs.</p>
       </div>
       <button id="copyToolEmbedBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2 flex-shrink-0 active:scale-95">
-        <span>&lt;/&gt; Copy Embed Code</span>
+        <span>🔗 Copy Citation Link</span>
       </button>
     </div>
 
@@ -1376,50 +1376,58 @@ Provide:
     // 5. Can My PC Run It Checker Logic
     const canRunBtn = document.getElementById("checkCanRunBtn");
     if (canRunBtn) {
+      const gameProfiles = {
+        gta6: { label: "GTA VI", weightOffset: -12, ramMin: 16, tip: "Target 16GB+ VRAM or balanced textures; heavy open-world streaming demands Gen4 NVMe and fast dual-channel RAM." },
+        wukong: { label: "Black Myth: Wukong", weightOffset: -10, ramMin: 16, tip: "Full Ray Tracing heavily taxes RT cores; use DLSS/FSR Super Resolution at 65–75% render scale." },
+        cyberpunk: { label: "Cyberpunk 2077: Phantom Liberty", weightOffset: -6, ramMin: 16, tip: "Dogtown crowd density stresses 6-core CPUs; keep Crowd Density on Medium and use DLSS Quality." },
+        eldenring: { label: "Elden Ring", weightOffset: +8, ramMin: 16, tip: "Engine caps at 60 FPS natively; prioritize frametime stability and disable Ray Tracing for locked performance." },
+        flightsim: { label: "MS Flight Simulator 2024", weightOffset: -14, ramMin: 32, tip: "Photogrammetry and avionics are heavily CPU single-thread & 32GB RAM bound; 3D V-Cache helps 1% lows." },
+        esports: { label: "Valorant / CS2", weightOffset: +28, ramMin: 8, tip: "Esports engines are CPU-bound at 1080p; disable heavy post-processing and use NVIDIA Reflex Low Latency." }
+      };
       canRunBtn.addEventListener("click", () => {
         const gRes = document.getElementById("gameCheckResult"); if (gRes) gRes.classList.remove("hidden");
         const game = document.getElementById("gameSelect").value;
         const gpuVal = parseInt(document.getElementById("gameGpuSelect").value, 10);
         const cpuVal = parseInt(document.getElementById("gameCpuSelect").value, 10);
         const ramVal = parseInt(document.getElementById("gameRamSelect").value, 10);
+        const prof = gameProfiles[game] || gameProfiles.cyberpunk;
 
-        let composite = Math.round((gpuVal * 0.6) + (cpuVal * 0.3) + ((ramVal / 32) * 10));
+        let rawScore = (gpuVal * 0.6) + (cpuVal * 0.3) + ((ramVal / 32) * 10) + prof.weightOffset;
+        if (ramVal < prof.ramMin) rawScore -= 12;
+        let composite = Math.max(5, Math.min(100, Math.round(rawScore)));
 
         let tierTitle = "✨ Recommended Ultra Spec";
         let tierColor = "text-emerald-600 dark:text-emerald-400";
         let fps1080 = "120+ FPS Ultra";
         let fps1440 = "85–105 FPS High";
         let fps4k = "55–65 FPS (DLSS)";
-        let tip = "Enable DLSS Quality or FSR 3.1 to maintain smooth frame times.";
+        let tip = prof.tip;
 
         if (composite >= 85) {
-          tierTitle = "👑 Enthusiast 4K Max Settings Ready";
+          tierTitle = `👑 ${prof.label}: Enthusiast 4K Max Ready`;
           tierColor = "text-purple-600 dark:text-purple-400";
-          fps1080 = "165+ FPS Ultra Max";
-          fps1440 = "120–144+ FPS High";
-          fps4k = "75–90+ FPS Full RT";
-          tip = "Your rig exceeds standard targets. You can safely max out Full Path Tracing and Ray Reconstruction.";
+          fps1080 = game === "esports" ? "360+ FPS Competitive" : "150+ FPS Ultra Max";
+          fps1440 = game === "esports" ? "280+ FPS High" : "115–140 FPS High";
+          fps4k = game === "esports" ? "200+ FPS Max" : "70–90 FPS High/RT";
         } else if (composite >= 65) {
-          tierTitle = "✨ Recommended High-FPS Spec";
+          tierTitle = `✨ ${prof.label}: Recommended High-FPS Spec`;
           tierColor = "text-emerald-600 dark:text-emerald-400";
-          fps1080 = "110–130 FPS High";
-          fps1440 = "75–90 FPS High";
-          fps4k = "45–55 FPS Balanced";
-          tip = "Ideal balance for 1440p gaming. Keep textures on High and utilize DLSS/FSR for high refresh rates.";
+          fps1080 = game === "esports" ? "240+ FPS Competitive" : "105–125 FPS High";
+          fps1440 = game === "esports" ? "180+ FPS High" : "75–90 FPS High";
+          fps4k = game === "esports" ? "120+ FPS High" : "45–58 FPS Upscaled";
         } else if (composite >= 40) {
-          tierTitle = "⚡ Minimum 1080p Playable Spec";
+          tierTitle = `⚡ ${prof.label}: Minimum 1080p Playable`;
           tierColor = "text-amber-500 dark:text-amber-400";
-          fps1080 = "50–65 FPS Medium";
-          fps1440 = "35–45 FPS Low";
-          fps4k = "20–30 FPS (Not Recommended)";
-          tip = "Lower Volumetric Fog, Shadow Quality, and Crowd Density to maintain a stable 60 FPS floor.";
+          fps1080 = game === "esports" ? "144+ FPS Low/Med" : "50–65 FPS Medium";
+          fps1440 = game === "esports" ? "100+ FPS Low" : "35–45 FPS Low";
+          fps4k = game === "esports" ? "60+ FPS" : "20–30 FPS (Not Recommended)";
         } else {
-          tierTitle = "⚠️ Below Recommended Specifications";
+          tierTitle = `⚠️ ${prof.label}: Below Recommended Specs`;
           tierColor = "text-red-500";
           fps1080 = "25–35 FPS Low (Stuttering)";
           fps1440 = "Unplayable (< 25 FPS)";
           fps4k = "Unplayable (< 15 FPS)";
-          tip = "Hardware will experience VRAM bottlenecks and memory swapping. Consider upgrading to a 12GB+ GPU and 16GB dual-channel RAM.";
+          tip = `Hardware may experience VRAM/RAM bottlenecks in ${prof.label} (minimum ${prof.ramMin}GB RAM recommended). ` + prof.tip;
         }
 
         const titleEl = document.getElementById("gameTierTitle");
@@ -1554,35 +1562,42 @@ Provide:
         const siteType = document.getElementById("hostingSiteType").value;
         const cacheStack = document.getElementById("hostingCacheStack").value;
         const region = document.getElementById("hostingRegion").value;
+        const regionMap = {
+          us: { dc: "US-East (Virginia) / US-West", note: "Pair origin with Cloudflare Free/Pro DNS for <120ms coast-to-coast TTFB.", offset: 0 },
+          eu: { dc: "EU-Central (Frankfurt / Amsterdam)", note: "Keep database and object cache co-located inside GDPR-compliant EU zones.", offset: 5 },
+          asia: { dc: "Singapore (AP-South) Edge + Cloudflare", note: "Crucial for India/Nepal/APAC routing—origin in Singapore cuts round-trip latency vs US hosts by ~180ms.", offset: 15 },
+          global: { dc: "Multi-Region Edge + Cloudflare APO", note: "Enable HTML edge caching with Cloudflare APO so global TTFB stays below 120ms everywhere.", offset: -15 }
+        };
+        const reg = regionMap[region] || regionMap.us;
 
         let vcpu = "1 vCPU";
         let ram = "2 GB High-Speed RAM";
         let storage = "25 GB NVMe SSD";
-        let ttfb = "120ms – 180ms";
+        let ttfb = `${Math.max(70, 120 + reg.offset)}ms – ${Math.max(120, 180 + reg.offset)}ms`;
         let tier = "⚡ LiteSpeed Cloud VPS";
-        let recommendation = "Ideal for optimized blogs and SME websites with LiteSpeed Cache enabled.";
+        let recommendation = `Deploy in ${reg.dc}. ${reg.note}`;
 
         if (pv === "scale" || siteType === "agency" || (pv === "high" && siteType === "ecommerce")) {
           vcpu = "4 – 8 vCPUs Dedicated";
           ram = "16 GB – 32 GB ECC RAM";
           storage = "150 GB – 300 GB Gen 4 NVMe";
-          ttfb = cacheStack === "litespeed" ? "90ms – 140ms" : "180ms – 280ms";
+          ttfb = cacheStack === "litespeed" ? `${Math.max(75, 90 + reg.offset)}ms – ${140 + reg.offset}ms` : `${180 + reg.offset}ms – ${280 + reg.offset}ms`;
           tier = "👑 High-Availability Managed Cluster";
-          recommendation = "Enterprise dynamic workload demands dedicated database pooling (Redis Object Cache) and Cloudflare Enterprise Edge CDN.";
+          recommendation = `Deploy in ${reg.dc}. Dedicated database pooling (Redis Object Cache) + Cloudflare Edge CDN required. ${reg.note}`;
         } else if (pv === "high" || siteType === "ecommerce" || siteType === "membership") {
           vcpu = "2 – 4 vCPUs";
           ram = "4 GB – 8 GB RAM";
           storage = "50 GB – 100 GB NVMe";
-          ttfb = cacheStack === "none" ? "450ms – 750ms (Uncached Lag)" : "140ms – 220ms";
+          ttfb = cacheStack === "none" ? `${450 + reg.offset}ms – ${750 + reg.offset}ms (Uncached Lag)` : `${140 + reg.offset}ms – ${220 + reg.offset}ms`;
           tier = "🚀 Performance NVMe VPS (Cloudways / DigitalOcean)";
-          recommendation = "Dynamic cart requests bypass static cache; minimum 4GB RAM required for PHP worker concurrency.";
+          recommendation = `Deploy in ${reg.dc}. Dynamic cart requests bypass page cache; minimum 4GB RAM required for PHP workers. ${reg.note}`;
         } else if (pv === "medium") {
           vcpu = "2 vCPUs";
           ram = "2 GB – 4 GB RAM";
           storage = "40 GB NVMe";
-          ttfb = "110ms – 190ms";
+          ttfb = `${110 + reg.offset}ms – ${190 + reg.offset}ms`;
           tier = "⚡ Premium LiteSpeed Cloud VPS";
-          recommendation = "Excellent price-to-performance sweet spot for growing blogs handling up to 100k pageviews.";
+          recommendation = `Deploy in ${reg.dc}. Ideal sweet spot for growing blogs up to 100k pageviews. ${reg.note}`;
         }
 
         box.innerHTML = `
@@ -1803,15 +1818,15 @@ Provide:
       });
     }
 
-    // Embed Code Copy Handler
+    // Citation Copy Handler
     const copyToolEmbedBtn = document.getElementById("copyToolEmbedBtn");
     if (copyToolEmbedBtn) {
       copyToolEmbedBtn.addEventListener("click", () => {
-        const embedCode = `<iframe src="https://imtechboss.com/tools" width="100%" height="750" frameborder="0" style="border-radius:16px;border:1px solid #334155;"></iframe>\\n<p style="font-size:11px;font-family:sans-serif;color:#64748b;">Powered by <a href="https://imtechboss.com" target="_blank" rel="noopener">Tech Boss Interactive Tools Suite</a></p>`;
-        navigator.clipboard.writeText(embedCode).then(() => {
-          showToast("📋 Interactive Tools embed code copied to clipboard!");
+        const citeCode = `[Tech Boss Interactive Hardware & AI Calculators](https://imtechboss.com/tools/)`;
+        navigator.clipboard.writeText(citeCode).then(() => {
+          showToast("🔗 Citation link copied to clipboard!");
         }).catch(() => {
-          showToast("Failed to copy embed code");
+          showToast("Failed to copy citation link");
         });
       });
     }

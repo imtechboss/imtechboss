@@ -150,6 +150,9 @@
   let triggered = false;
   function triggerOnce() {
     if (triggered || isDismissed()) return;
+    const pageModal = document.getElementById('pageModal');
+    const searchModal = document.getElementById('searchModal');
+    if ((pageModal && !pageModal.classList.contains('hidden')) || (searchModal && !searchModal.classList.contains('hidden'))) return;
     triggered = true;
     createDrawer();
     setTimeout(showDrawer, 100);

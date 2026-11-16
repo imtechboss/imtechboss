@@ -382,8 +382,8 @@ def generate_standalone_tools():
             print(f"❌ Section {s_id} not found in tools.html!")
             continue
 
-        # In standalone page, remove class="tool-section hidden" and make it visible
-        s_content_clean = re.sub(r'class="tool-section hidden"', 'class="tool-section"', s_content)
+        # In standalone page, remove hidden only from outer tool-section (preserve hidden on result cards per Rule 10)
+        s_content_clean = re.sub(rf'(<section\s+id="{re.escape(s_id)}"[^>]*class="[^"]*)\bhidden\b\s*', r'\1', s_content, count=1)
 
         canonical_url = f"https://imtechboss.com/tools/{slug}/"
 
@@ -604,7 +604,7 @@ def generate_standalone_tools():
     <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
-        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 6 Tools &rarr;</a>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 9 Tools &rarr;</a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {other_tools_html}

@@ -138,10 +138,7 @@ print(f"E-E-A-T Author Schema credentials: {'✅ Verified (Author Person, sameAs
 breadcrumbs_schema = 'BreadcrumbList' in check_code
 print(f"BreadcrumbList Schema markup: {'✅ Verified (BreadcrumbList JSON-LD present)' if breadcrumbs_schema else '❌ Missing'}")
 
-post_html = os.path.join(ROOT_DIR, 'post.html')
-with open(post_html, 'r', encoding='utf-8') as f:
-    tpl_code = f.read()
-comments_system = 'commentsSection' in tpl_code or 'postCommentForm' in tpl_code
+comments_system = 'commentsSection' in check_code or 'postCommentForm' in check_code
 print(f"User Discussion / Comments System: {'✅ Verified' if comments_system else '❌ Missing'}")
 
 # Content strategy check

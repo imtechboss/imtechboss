@@ -80,7 +80,7 @@ function initSecretAdminTrigger() {
         showToast("🚀 Opening Admin Studio...");
       }
       setTimeout(() => {
-        window.location.href = "admin.html";
+        window.location.href = "/admin.html";
       }, 250);
       return;
     }
@@ -96,7 +96,7 @@ function initSecretAdminTrigger() {
 
   document.addEventListener("keydown", (e) => {
     if (e.ctrlKey && e.shiftKey && (e.key === "A" || e.key === "a")) {
-      window.location.href = "admin.html";
+      window.location.href = "/admin.html";
     }
   });
 }
@@ -1175,7 +1175,7 @@ function initNotificationBell() {
 
   const bell = document.createElement("button");
   bell.id = "smartNotificationBell";
-  bell.className = "fixed bottom-6 left-6 z-40 p-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center group focus:outline-none";
+  bell.className = "fixed bottom-6 left-6 z-20 hidden sm:flex p-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 items-center justify-center group focus:outline-none";
   bell.title = "Get Instant Breaking Tech Alerts";
   bell.setAttribute("aria-label", "Subscribe to push notifications");
 

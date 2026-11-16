@@ -35,7 +35,7 @@ function initPostSecretAdminTrigger() {
         showToast("🚀 Opening Admin Studio...");
       }
       setTimeout(() => {
-        window.location.href = "admin.html";
+        window.location.href = "/admin.html";
       }, 250);
       return;
     }
@@ -54,7 +54,7 @@ function initPostSecretAdminTrigger() {
       const el = document.activeElement;
       if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.isContentEditable)) return;
       e.preventDefault();
-      window.location.href = "admin.html";
+      window.location.href = "/admin.html";
     }
   });
 }
@@ -1364,31 +1364,11 @@ function setupCodeCopyButtons(container) {
   });
 }
 
-// 10. High-Converting Resource Download Counter
+// 10. Clean Resource Links (Removed artificial countdown timers)
 function setupDownloadCounters(container) {
   const downloadLinks = container.querySelectorAll('.article-body a[href*="mediafire"], .article-body a[href*="drive.google.com"], .article-body a[href*=".apk"], .article-body a[href*=".zip"], .article-body a[href*=".pdf"], .article-body a[href*="mega.nz"]');
   downloadLinks.forEach(link => {
-    const originalHref = link.getAttribute("href");
-    link.addEventListener("click", (e) => {
-      if (link.dataset.downloadReady === "true") return;
-      e.preventDefault();
-
-      let countdown = 5;
-      link.classList.add("pointer-events-none", "opacity-80");
-      link.innerHTML = `<span class="inline-flex items-center gap-1.5 font-bold">⏳ Generating secure link (${countdown}s)...</span>`;
-
-      const timer = setInterval(() => {
-        countdown--;
-        if (countdown > 0) {
-          link.innerHTML = `<span class="inline-flex items-center gap-1.5 font-bold">⏳ Generating secure link (${countdown}s)...</span>`;
-        } else {
-          clearInterval(timer);
-          link.dataset.downloadReady = "true";
-          link.classList.remove("pointer-events-none", "opacity-80");
-          link.innerHTML = `<span class="inline-flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400">🚀 Link Ready! Click to Open →</span>`;
-        }
-      }, 1000);
-    });
+    link.setAttribute("rel", "noopener noreferrer");
   });
 }
 
@@ -1912,7 +1892,7 @@ function generateHubsCrossPromote(article) {
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
         <!-- Card 1: Compare Tool -->
-        <a href="compare.html" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+        <a href="/compare/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">⚔️</span>
@@ -1932,7 +1912,7 @@ function generateHubsCrossPromote(article) {
         </a>
 
         <!-- Card 2: Tech Deals Radar -->
-        <a href="deals.html" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+        <a href="/deals/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">🏷️</span>
@@ -1952,7 +1932,7 @@ function generateHubsCrossPromote(article) {
         </a>
 
         <!-- Card 3: Free Interactive Tools -->
-        <a href="${isAI ? 'tools.html?tool=vram' : 'tools.html?tool=bottleneck'}" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+        <a href="${isAI ? '/tools/llm-vram-calculator/' : '/tools/pc-bottleneck-calculator/'}" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">${isAI ? '🧠' : '🖥️'}</span>
@@ -2092,7 +2072,7 @@ function initNotificationBell() {
 
   const bell = document.createElement("button");
   bell.id = "smartNotificationBell";
-  bell.className = "fixed bottom-6 left-6 z-40 p-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center group focus:outline-none";
+  bell.className = "fixed bottom-6 left-6 z-20 hidden sm:flex p-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 items-center justify-center group focus:outline-none";
   bell.title = "Get Instant Breaking Tech Alerts";
   bell.setAttribute("aria-label", "Subscribe to push notifications");
 
