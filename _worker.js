@@ -19,11 +19,18 @@ export default {
       // 0. Hard Edge 404 Shield for removed/speculative/blogger posts
       if ((removedSlugs.has(cleanSlug) || cleanSlug.startsWith('blogger-')) && !url.searchParams.get('id')) {
         const assetUrl = new URL(request.url);
-        assetUrl.pathname = '/404.html';
-        const notFoundRes = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+        assetUrl.pathname = '/404';
+        let notFoundRes = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+        if ((notFoundRes.status === 308 || notFoundRes.status === 301 || notFoundRes.status === 302) && notFoundRes.headers.get('Location')) {
+          const locUrl = new URL(notFoundRes.headers.get('Location'), request.url);
+          notFoundRes = await env.ASSETS.fetch(new Request(locUrl.toString(), request));
+        }
         const notFoundHeaders = new Headers(notFoundRes.headers);
         notFoundHeaders.set('X-Robots-Tag', 'noindex, nofollow');
-        return new Response(notFoundRes.body, {
+        notFoundHeaders.set('Content-Type', 'text/html; charset=utf-8');
+        const bodyText = await notFoundRes.text();
+        const html404 = bodyText && bodyText.length > 200 ? bodyText : '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>404 Not Found — Tech Boss</title></head><body style="font-family:sans-serif;text-align:center;padding:4rem"><h1>404 — Page Not Found</h1><p>This story has been removed or moved. <a href="/">Return to Tech Boss Home</a></p></body></html>';
+        return new Response(html404, {
           status: 404,
           statusText: 'Not Found',
           headers: notFoundHeaders

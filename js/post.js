@@ -2068,6 +2068,7 @@ function setupArticleAudioPlayer(article, container) {
 
 // 8. Smart Push Notification Opt-In Bell (Post Reader)
 function initNotificationBell() {
+  if (window.innerWidth < 768) return;
   if (document.getElementById("smartNotificationBell")) return;
 
   const bell = document.createElement("button");
