@@ -951,9 +951,11 @@ def build_all_static():
         # Replace Canonical
         page_html = re.sub(r'<link id="canonicalUrl" rel="canonical" href=".*?">', f'<link id="canonicalUrl" rel="canonical" href="{canonical_url}">', page_html)
 
-        # Search indexing directives
-        if aid.startswith('blogger-'):
+        # Search indexing directives & AdSense inventory hygiene
+        noindex_slugs = {'top-5-ways-earn-money-online-2026'}
+        if aid.startswith('blogger-') or aid in noindex_slugs:
             page_html = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', page_html)
+            page_html = re.sub(r'\s*<script[^>]*pagead2\.googlesyndication\.com[^>]*></script>', '', page_html)
         else:
             page_html = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">', page_html)
 

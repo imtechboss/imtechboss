@@ -64,12 +64,6 @@ def generate_sitemap():
         '    <priority>0.7</priority>',
         '  </url>',
         '  <url>',
-        '    <loc>https://imtechboss.com/contact/</loc>',
-        f'    <lastmod>{today}</lastmod>',
-        '    <changefreq>monthly</changefreq>',
-        '    <priority>0.7</priority>',
-        '  </url>',
-        '  <url>',
         '    <loc>https://imtechboss.com/tools/</loc>',
         f'    <lastmod>{today}</lastmod>',
         '    <changefreq>weekly</changefreq>',
@@ -136,34 +130,10 @@ def generate_sitemap():
         '    <priority>0.8</priority>',
         '  </url>',
         '  <url>',
-        '    <loc>https://imtechboss.com/deals/</loc>',
-        f'    <lastmod>{today}</lastmod>',
-        '    <changefreq>monthly</changefreq>',
-        '    <priority>0.7</priority>',
-        '  </url>',
-        '  <url>',
         '    <loc>https://imtechboss.com/archive/</loc>',
         f'    <lastmod>{today}</lastmod>',
         '    <changefreq>daily</changefreq>',
         '    <priority>0.9</priority>',
-        '  </url>',
-        '  <url>',
-        '    <loc>https://imtechboss.com/privacy/</loc>',
-        f'    <lastmod>{today}</lastmod>',
-        '    <changefreq>monthly</changefreq>',
-        '    <priority>0.5</priority>',
-        '  </url>',
-        '  <url>',
-        '    <loc>https://imtechboss.com/terms/</loc>',
-        f'    <lastmod>{today}</lastmod>',
-        '    <changefreq>monthly</changefreq>',
-        '    <priority>0.5</priority>',
-        '  </url>',
-        '  <url>',
-        '    <loc>https://imtechboss.com/disclaimer/</loc>',
-        f'    <lastmod>{today}</lastmod>',
-        '    <changefreq>monthly</changefreq>',
-        '    <priority>0.5</priority>',
         '  </url>',
         '  <url>',
         '    <loc>https://imtechboss.com/stories/</loc>',
@@ -173,9 +143,10 @@ def generate_sitemap():
         '  </url>',
     ]
 
+    noindex_slugs = {'top-5-ways-earn-money-online-2026'}
     for article in data:
         aid = article.get('id', '')
-        if aid.startswith('blogger-'):
+        if aid.startswith('blogger-') or aid in noindex_slugs:
             continue
         date = clean_date(article.get('date', ''))
         raw_image = article.get('image', '')

@@ -231,17 +231,36 @@
       
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8 text-sm">
           <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
-            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🐧 Linux & Server Administration</h3>
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🐧 Linux &amp; Server Administration</h3>
             <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
-              <li>Use <code>htop</code> and <code>journalctl -xe</code> to diagnose system load and failed systemd services.</li>
-              <li>Inspect network sockets with <code>ss -tulpn</code> to identify port conflicts and open daemons.</li>
+              <li>Use <code>htop</code> and <code>journalctl -xe -u nginx --since "1 hour ago"</code> to diagnose CPU load spikes and failed systemd units rapidly.</li>
+              <li>Inspect listening TCP/UDP sockets with <code>ss -tulpn</code> and trace open file descriptors using <code>lsof -i :443</code> to resolve port binding conflicts.</li>
+              <li>Audit filesystem saturation via <code>df -hT</code> and pinpoint oversized log directories with <code>du -sh /var/log/* | sort -hr</code> before disks reach 100% inode exhaustion.</li>
+              <li>Verify live kernel memory pressure and swap thrashing using <code>vmstat 1</code> and <code>free -h</code> during database or container bursts.</li>
             </ul>
           </div>
           <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
-            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🐳 Docker & Git Best Practices</h3>
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🐳 Docker &amp; Git Workflows</h3>
             <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
-              <li>Clean dangling images and volumes with <code>docker system prune -af --volumes</code>.</li>
-              <li>Inspect branch topology cleanly with <code>git log --oneline --graph --decorate</code>.</li>
+              <li>Reclaim build cache and dangling volumes safely with <code>docker system df</code> followed by <code>docker builder prune --filter "until=168h"</code>.</li>
+              <li>Stream container standard error output and inspect bridge IP routing with <code>docker logs -f --tail 100 &lt;id&gt;</code> and <code>docker network inspect bridge</code>.</li>
+              <li>Inspect branch topology cleanly with <code>git log --oneline --graph --decorate</code> and locate regressions in O(log n) commits using <code>git bisect start</code>.</li>
+              <li>Recover accidentally reset commits locally by checking <code>git reflog</code> before force-pushing rewritten history.</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🪟 Windows PowerShell &amp; Kernel Repair</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+              <li>Repair corrupted component stores and protected system binaries sequentially using <code>DISM /Online /Cleanup-Image /RestoreHealth</code> then <code>sfc /scannow</code>.</li>
+              <li>Query Kernel-Power Event ID 41 and BSOD bugcheck events directly from elevated PowerShell via <code>Get-WinEvent -FilterHashtable @{LogName='System'; Id=41,1001} -MaxEvents 15</code>.</li>
+              <li>Flush stale DNS resolver caches and reset Winsock LSP stacks cleanly with <code>ipconfig /flushdns</code> and <code>netsh winsock reset</code>.</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+            <h3 class="font-bold text-base text-gray-900 dark:text-white mb-2">🌐 Network TLS &amp; Latency Debugging</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-xs">
+              <li>Measure exact DNS lookup, TCP handshake, TLS negotiation, and TTFB timing breakdown with <code>curl -w "dns:%{time_namelookup} connect:%{time_connect} tls:%{time_appconnect} ttfb:%{time_starttransfer}\n" -o /dev/null -s https://example.com</code>.</li>
+              <li>Validate HTTP/2, HSTS headers, and certificate chains from terminal using <code>openssl s_client -connect host:443 -servername host</code>.</li>
             </ul>
           </div>
         </div>

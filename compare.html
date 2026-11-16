@@ -32,7 +32,6 @@
 
   <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-1043419685176632">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1043419685176632" crossorigin="anonymous"></script>
 
   <!-- Pure Compiled CSS (Zero External Scripts, Zero Redirects) -->
   <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
@@ -224,6 +223,42 @@
         <button id="copyEmbedCodeBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2">
           <span>&lt;/&gt; Copy Embed Code</span>
         </button>
+      </div>
+    </section>
+
+    <!-- Engineering Comparison Methodology -->
+    <section class="max-w-4xl mx-auto mt-12 bg-white dark:bg-slate-900 rounded-3xl border border-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-gray-950 dark:text-white tracking-tight">How Our Benchmark Comparison Engine Scores Silicon &amp; Models</h2>
+        <p class="mt-2">
+          Raw clock speeds and core counts mislead buyers when architectures change across generations. Our comparison matrix weighs sustained real-world throughput, memory subsystem bandwidth, and power efficiency envelopes rather than synthetic peak boost claims.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+        <div class="p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-800 space-y-2">
+          <h3 class="font-bold text-base text-gray-950 dark:text-white">Graphics Cards: VRAM Bus Width vs. Raster Throughput</h3>
+          <p>
+            Modern 1440p and 4K textures combined with frame-generation buffers punish narrow 128-bit memory buses. Even when an older card trails slightly in ray tracing cores, 16GB to 24GB VRAM prevents catastrophic frame-time stuttering and enables larger local quantized LLMs without spilling weights onto slow PCIe system RAM.
+          </p>
+        </div>
+        <div class="p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-800 space-y-2">
+          <h3 class="font-bold text-base text-gray-950 dark:text-white">Processors: 3D V-Cache Hit Rates vs. Multi-Thread Scaling</h3>
+          <p>
+            Gaming engines rely heavily on L3 cache latency rather than 24-core Cinebench throughput. Conversely, Docker compilation, LLVM builds, and mixed video encoding favor higher total core count and DDR5 dual-channel bandwidth. For full system sizing, pair this tool with our <a href="/tools/pc-bottleneck-calculator/" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">PC Bottleneck Calculator</a> and <a href="/tools/pc-power-supply-calculator/" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">PSU Wattage Estimator</a>.
+          </p>
+        </div>
+        <div class="p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-800 space-y-2">
+          <h3 class="font-bold text-base text-gray-950 dark:text-white">AI Models: Context Window Memory vs. Reasoning Accuracy</h3>
+          <p>
+            Frontier API and open-weights reasoning models balance MMLU/HumanEval accuracy against active parameter cost per token and KV-cache footprint at 32K–128K context windows. Test exact quantized VRAM footprints using our <a href="/tools/llm-vram-calculator/" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">LLM VRAM Calculator</a> before deploying locally.
+          </p>
+        </div>
+        <div class="p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-800 space-y-2">
+          <h3 class="font-bold text-base text-gray-950 dark:text-white">Thermal &amp; Power Efficiency Tradeoffs</h3>
+          <p>
+            Performance per watt governs long-term acoustic noise, VRM temperatures, and power supply transient headroom under ATX 3.1 specifications. High-TDP flagship GPUs require robust single-rail 12V-2x6 power delivery and high-airflow chassis layouts to sustain boost clocks during multi-hour compute runs.
+          </p>
+        </div>
       </div>
     </section>
   </main>
