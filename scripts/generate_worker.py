@@ -278,8 +278,9 @@ export default {{
 
       const id = url.searchParams.get('id');
 
-      // 1.9 Universal Legacy & Nested Query Redirect Shield (Catches /post, /post.html, /*/post.html?id=*, ?id=*)
-      if (id || pathname.includes('/post.html') || pathname.includes('/post') || cleanSlug === 'post' || cleanSlug === 'post.html') {{
+      // 1.9 Universal Legacy & Nested Query Redirect Shield (Catches /post, /post.html, /*/post.html?id=*, ?id=* — never static JS/CSS/image assets)
+      const isStaticAsset = /\.(js|css|svg|png|jpe?g|webp|ico|json|xml|txt|woff2?)$/i.test(pathname);
+      if (!isStaticAsset && (id || pathname === '/post' || pathname === '/post/' || pathname.endsWith('/post') || pathname.endsWith('/post/') || pathname.endsWith('/post.html'))) {{
         let dest = 'https://imtechboss.com/';
         if (id && !id.startsWith('blogger-') && id !== 'blogger-512' && !removedSlugs.has(id)) {{
           dest = duplicateRedirects[id] ? ('https://imtechboss.com/' + duplicateRedirects[id] + '/') : ('https://imtechboss.com/' + encodeURIComponent(id) + '/');
