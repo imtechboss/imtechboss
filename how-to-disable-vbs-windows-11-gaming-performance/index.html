@@ -393,7 +393,7 @@
       <div class="flex items-center gap-3 text-gray-500 dark:text-gray-400" data-nosnippet="" aria-hidden="true">
         <span>📅 2026-11-15</span>
         <span>•</span>
-        <span>⏱️ 8 min read</span>
+        <span>⏱️ 9 min read</span>
       </div>
     </div>
 
@@ -476,7 +476,7 @@
             <span class="text-xs font-bold text-gray-900 dark:text-white">Listen to Article</span>
             <span class="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 uppercase">AI Audio</span>
           </div>
-          <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~8 min read</p>
+          <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~9 min read</p>
         </div>
       </div>
       <div class="flex items-center gap-2" data-nosnippet="" aria-hidden="true">
@@ -561,6 +561,8 @@
 
 <h2 id="section-1-1-what-exactly-is-virtualization-based-security-">1. What Exactly Is Virtualization-Based Security (VBS) and Why Does It Hurt Gaming FPS?</h2>
 <p>Traditionally, the Windows kernel (`ntoskrnl.exe`), device drivers, and game engines operated directly on bare-metal CPU ring levels (`Ring 0` for kernel drivers and `Ring 3` for user applications). When <strong>Virtualization-Based Security (VBS)</strong> is enabled alongside <strong>Core Isolation Memory Integrity (HVCI)</strong>, Windows 11 inserts the Microsoft Hyper-V hypervisor (`Ring -1`) underneath the operating system itself.</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-vbs-hvci-architecture.webp" alt="Windows 11 VBS and HVCI Memory Integrity versus direct kernel execution diagram" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Architectural comparison of Hyper-V VTL1 Memory Integrity verification versus direct kernel access on dedicated gaming PCs.</figcaption></figure>
+
 <p>This creates two isolated execution worlds on your CPU: the normal operating system (`VTL0`) and a hardened <strong>Virtual Secure Mode (`VTL1`)</strong>. Every time a high-framerate game engine, DirectX 12 shader compiler, or GPU driver allocates executable memory pages or performs kernel context switches, the CPU must cross the hypervisor boundary using <strong>Second Level Address Translation (SLAT / Intel EPT / AMD NPT)</strong> to verify that no memory page is simultaneously writable and executable (`W^X` enforcement).</p>
 <p>In GPU-bound 4K ultra scenarios, you may only lose 2% to 4% FPS. However, in high-refresh-rate 1080p and 1440p competitive titles—or simulation games that execute millions of rapid CPU draw calls and L3 cache lookups per second—that continuous SLAT memory translation overhead causes measurable micro-stutter and lower 1% low frame rates.</p>
 
@@ -618,6 +620,8 @@
 
 <h2 id="section-3-3-step-1-how-to-check-if-vbs-is-currently-active">3. Step 1: How to Check If VBS Is Currently Active on Your PC</h2>
 <p>Before changing any settings, verify whether VBS is actually running on your machine (taking less than 10 seconds):</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/tool-pc-bottleneck-check.webp" alt="Tech Boss PC Bottleneck and Gaming Resolution Calculator screenshot" width="1200" height="806" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Checking CPU and GPU balance at 1440p using the Tech Boss PC Bottleneck Calculator.</figcaption></figure>
+
 <ol>
   <li>Press <code>Win + R</code> on your keyboard, type <code>msinfo32</code>, and press <strong>Enter</strong> to open the Windows <strong>System Information</strong> utility.</li>
   <li>Ensure <strong>System Summary</strong> is selected on the left pane, and scroll down the right pane until you find the row labeled <strong>Virtualization-based security</strong>.</li>

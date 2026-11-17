@@ -563,6 +563,8 @@
 
 <h2 id="section-1-critical-rule-0-cease-all-write-operations-immed">Critical Rule 0: Cease All Write Operations Immediately</h2>
 <p>Solid-state drives utilize an internal controller feature known as <strong>TRIM</strong>. Whenever blocks are marked as deleted or unallocated, the background garbage collection algorithm physically purges the electrical charges to prepare the blocks for new writes. Writing new files, running aggressive disk defragmentation, or formatting the partition can cause TRIM to permanently erase files that would otherwise be 100% recoverable.</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-nvme-corruption-recovery.webp" alt="Safe NVMe SSD corruption recovery flow showing stop-writes rule and WinFR order" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Recommended non-destructive NVMe recovery order: halt writes first, check S.M.A.R.T., extract to a separate drive via WinFR, then repair MFT.</figcaption></figure>
+
 
 <h2 id="section-2-1-inspect-physical-hardware-health-and-s-m-a-r-t">1. Inspect Physical Hardware Health and S.M.A.R.T. Status</h2>
 <p>Before attempting software-level file extraction, you must determine whether the corruption is logical (filesystem error) or physical (failing NAND memory controller):</p>

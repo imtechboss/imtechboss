@@ -589,6 +589,8 @@
 
 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4" id="section-1-deconstructing-event-id-41-why-bugcheckcode-0-ma">Deconstructing Event ID 41: Why BugcheckCode 0 Matters</h2>
 <p class="text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">Event ID 41 states: <em>"The system has rebooted without cleanly shutting down first."</em> Clicking the Details tab reveals the BugcheckCode parameter:</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-windows-bsod-kernel-triage.webp" alt="Windows 11 Kernel-Power Event ID 41 diagnostic decision matrix" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Distinguishing sudden PSU transient shutdowns (Event ID 41 BugcheckCode 0) from driver/IRQ BugChecks.</figcaption></figure>
+
 <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
   <li><strong>BugcheckCode 0:</strong> Represents raw power interruption. The motherboard power-good signal dropped, triggering instant hardware reset before Windows could execute a crash dump routine.</li>
   <li><strong>BugcheckCode Non-Zero:</strong> Indicates that a traditional blue screen error occurred (such as memory corruption or driver crash), but the machine automatically rebooted before the crash screen could be observed.</li>
@@ -645,6 +647,8 @@
 
 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4" id="section-3-fix-2-diagnose-power-supply-transients-pcie-dais">Fix 2: Diagnose Power Supply Transients &amp; PCIe Daisy Chaining</h2>
 <p class="text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">Modern graphics cards (such as the RTX 4080, RTX 4090, RX 7900 XTX, and RTX 50-series) produce millisecond power transients up to double their sustained TDP. When a power supply's Over Current Protection (OCP) detects a momentary spike, it shuts down instantly:</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/tool-psu-wattage-atx31.webp" alt="Tech Boss PC Power Supply Calculator showing ATX 3.1 headroom and transient margin" width="1200" height="1015" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Calculating real system power draw and PCIe transient headroom inside our PC Power Supply Calculator.</figcaption></figure>
+
 <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
   <li><strong>Eliminate Daisy-Chained Cables:</strong> Always power high-draw GPUs with individual, discrete 8-pin PCIe cables originating from separate ports on your PSU. Never use a single split pigtail cable to power dual 8-pin inputs.</li>
   <li><strong>Check 12V-2x6 Connector Seating:</strong> On 16-pin power connections, verify that the connector is pushed completely flush with zero gap between the connector housing and the graphics card header. A loose pin connection induces micro-arcing and immediate shutdown.</li>

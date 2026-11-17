@@ -567,6 +567,8 @@
 <p>
   The DirectX Graphics Infrastructure (DXGI) acts as the bridge between graphics applications and the underlying operating system kernel. When a title crashes with <code>DXGI_ERROR_DEVICE_HUNG</code>, the failure originates from one of four architectural points:
 </p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-windows-bsod-kernel-triage.webp" alt="Windows 11 DirectX GPU driver hang versus kernel BugCheck isolation matrix" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Comparing GPU/PCIe timeout hangs against IRQL and Kernel-Power crash paths for cleaner driver troubleshooting.</figcaption></figure>
+
 <ul>
   <li><strong>TDR (Timeout Detection and Recovery) Threshold Exceeded:</strong> By default, Windows allocates exactly 2,000 milliseconds (2 seconds) for a GPU command buffer to complete execution. If a complex shader calculation or Ray Tracing BVH traversal takes 2.01 seconds, the Windows kernel assumes hardware failure and forcibly resets the display driver.</li>
   <li><strong>Microsecond Transient Voltage Dropouts:</strong> Modern GPUs feature aggressive boost algorithms that shift clock speeds by hundreds of megahertz within milliseconds. When transitioning from high load to low load, temporary voltage sags cause the GPU core to lose synchronization with the memory controller.</li>

@@ -561,6 +561,8 @@
 
 <h2 id="section-1-1-the-exact-mathematical-formula-for-llm-vram-co">1. The Exact Mathematical Formula for LLM VRAM Consumption</h2>
 <p>When you download a GGUF, EXL2, or AWQ model file from Hugging Face or via <code>ollama pull</code>, the file size on your NVMe SSD is <strong>not</strong> the total amount of GPU VRAM required to run the model. Many developers buy a 16GB GPU expecting to run a 15.4 GB model file at 32k context, only to encounter Out-Of-Memory (OOM) crashes or sluggish CPU fallback.</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-llm-24gb-vram-allocation.webp" alt="24GB VRAM allocation breakdown comparing 14B, 32B, and 70B Q4_K_M local LLMs" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Memory footprint comparison showing weights, KV context cache, and CUDA overhead across 14B, 32B, and 70B local models.</figcaption></figure>
+
 <p>To size your GPU hardware accurately, you must calculate total VRAM allocation using the four-part memory equation:</p>
 <pre><code>Total VRAM (GB) = M_weights + M_kv_cache + M_compute_buffer + M_os_display</code></pre>
 <p>Let us break down how each of the four components scales in real time:</p>
@@ -648,6 +650,8 @@
 
 <h2 id="section-3-3-quantization-perplexity-trade-offs-q4-k-m-vs-q">3. Quantization Perplexity Trade-Offs: Q4_K_M vs. Q5_K_M vs. Q8_0 vs. IQ-Quants</h2>
 <p>Choosing the right quantization level is the difference between a smart coding assistant and a lobotomized chatbot. Not all parameters inside a neural network are equally sensitive to rounding errors. Modern <strong>K-quants</strong> (such as <code>Q4_K_M</code> and <code>Q5_K_M</code>) allocate higher bit precision (6-bit) to critical attention projection and feed-forward down-projection tensors (`attn_v`, `ffn_down`) while keeping standard layers at 4-bit or 5-bit.</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/tool-llm-vram-calculator-32b.webp" alt="Tech Boss Local AI and LLM VRAM Sizer live output for 32B Q4_K_M on 24GB GPU" width="1200" height="1113" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Live sizing calculation in our LLM VRAM Calculator verifying full GPU acceleration for a 32B Q4_K_M model at 8K context.</figcaption></figure>
+
 <ul>
   <li><strong>FP16 / BF16 (16-bit):</strong> Zero quantization loss, but wastes double the VRAM and cuts token generation speed in half compared to 8-bit. Only needed for full-parameter training.</li>
   <li><strong>Q8_0 (8-bit):</strong> Mathematically indistinguishable from FP16 (perplexity increase &lt; 0.004). Ideal for 7B and 8B models when you have a 12GB or 16GB GPU and want zero accuracy degradation in strict JSON schema extraction.</li>

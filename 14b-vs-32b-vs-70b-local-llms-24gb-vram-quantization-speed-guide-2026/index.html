@@ -589,6 +589,8 @@
 
 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4" id="section-1-the-physics-of-24gb-vram-parameter-weights-vs-kv">The Physics of 24GB VRAM: Parameter Weights vs. KV Cache</h2>
 <p class="text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">Local inference memory consumption is governed by three primary components: model weight precision, Key-Value (KV) cache allocation for context memory, and CUDA activation overhead. When loading models via Ollama, llama.cpp, or vLLM, exceeding available VRAM by even 100MB triggers CPU offloading across the PCIe bus, causing token generation speed to collapse from 45 tokens per second to under 3 tokens per second.</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-llm-24gb-vram-allocation.webp" alt="14B vs 32B vs 70B local LLM VRAM memory budget breakdown at Q4_K_M" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">24GB VRAM allocation breakdown illustrating why 32B Q4_K_M fits cleanly on RTX 3090/4090 while 70B spills into system RAM.</figcaption></figure>
+
 
 <div class="overflow-x-auto my-6">
   <table class="w-full text-left border-collapse border border-gray-200 dark:border-slate-700 text-sm">
@@ -658,6 +660,8 @@
 
 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4" id="section-3-when-should-you-pick-14b-over-32b">When Should You Pick 14B Over 32B?</h2>
 <p class="text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">A 14B model like Qwen 2.5 14B or Microsoft Phi-4 provides distinct advantages when your workflow requires massive context lengths or concurrent multi-turn agent execution:</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/tool-llm-vram-calculator-32b.webp" alt="Live DeepSeek R1 32B Q4_K_M calculation inside Tech Boss LLM VRAM Calculator" width="1200" height="1113" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Exact memory breakdown (18.8 GB weights + 0.98 GB KV cache + 1.5 GB overhead = 21.3 GB) verified in our live VRAM Sizer.</figcaption></figure>
+
 <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
   <li><strong>Extended 64K+ Context Window:</strong> Because the 14B weights occupy only 9GB at Q4 or 15GB at Q8, you can feed entire PDF documents, 2,000-line codebases, and comprehensive database schemas directly into VRAM without exceeding the 24GB ceiling.</li>
   <li><strong>Blistering Speed:</strong> 14B models achieve 55 to 65 tokens per second on consumer hardware. For high-volume automated batch processing or document extraction, this speed advantage is indispensable.</li>

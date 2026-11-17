@@ -559,6 +559,8 @@
 
 <h2 id="section-1-1-run-dism-and-sfc-scans-to-repair-system-integr">1. Run DISM and SFC Scans to Repair System Integrity</h2>
 <p>Cumulative updates can occasionally fail to replace legacy system binaries cleanly, resulting in silent corrupted DLL dependencies. The official built-in repair sequence resolves this in over 60% of cases:</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-windows-update-lag-fix.webp" alt="Windows 11 post-update slowdown and cache repair four-step triage diagram" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Four-step post-update recovery pipeline covering DISM/SFC verification, SoftwareDistribution cache reset, Search Index, and startup tuning.</figcaption></figure>
+
 <ol>
   <li>Press <strong>Win + X</strong> and select <strong>Terminal (Admin)</strong> or PowerShell (Admin).</li>
   <li>Run the online servicing image cleanup command first:

@@ -559,6 +559,8 @@
 
 <h2 id="section-1-step-1-check-resource-monitor-before-touching-se">Step 1: Check Resource Monitor Before Touching Settings</h2>
 <p>Task Manager only shows the aggregate percentage. To identify the exact process locking your I/O queue:</p>
+<figure style="margin:2rem 0;padding:12px;border-radius:16px;border:1px solid rgba(148,163,184,0.28);background:rgba(15,23,42,0.04);"><img src="/images/diagram-msmpeng-cpu-triage.webp" alt="Windows 11 24H2 Defender and memory triage reference diagram" width="1200" height="675" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.18);" /><figcaption style="margin-top:10px;text-align:center;font-size:0.85rem;line-height:1.45;opacity:0.8;">Defender scan throttling and Controlled Folder Access workflow for stabilizing Windows 11 memory and disk activity.</figcaption></figure>
+
 <ol>
   <li>Press <kbd>Win</kbd> + <kbd>R</kbd>, type <code>resmon</code>, and press <strong>Enter</strong>.</li>
   <li>Switch to the <strong>Disk</strong> tab and expand the <strong>Disk Activity</strong> section.</li>
