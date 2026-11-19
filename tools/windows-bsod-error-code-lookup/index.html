@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQDRHTFW7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HQDRHTFW7Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>Windows BSOD Error Code Lookup Tool (2026) — Tech Boss</title>
+  <meta name="description" content="Look up Windows 11 BSOD stop codes (0x0000000A, 0x00000133, Event ID 41, 0x00000116) for exact kernel root causes, WinDbg commands, and verified driver fixes.">
+  <link rel="canonical" href="https://imtechboss.com/tools/windows-bsod-error-code-lookup/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imtechboss.com/tools/windows-bsod-error-code-lookup/">
+  <meta property="og:title" content="Windows BSOD Error Code Lookup Tool (2026) — Tech Boss">
+  <meta property="og:description" content="Look up Windows 11 BSOD stop codes (0x0000000A, 0x00000133, Event ID 41, 0x00000116) for exact kernel root causes, WinDbg commands, and verified driver fixes.">
+  <meta property="og:site_name" content="Tech Boss">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Windows BSOD Error Code Lookup Tool (2026) — Tech Boss">
+  <meta name="twitter:description" content="Look up Windows 11 BSOD stop codes (0x0000000A, 0x00000133, Event ID 41, 0x00000116) for exact kernel root causes, WinDbg commands, and verified driver fixes.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563eb%22/><text x=%2250%25%22 y=%2254%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2250%22>TB</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Windows BSOD Stop Code & Event ID Lookup",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "url": "https://imtechboss.com/tools/windows-bsod-error-code-lookup/",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://imtechboss.com/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Windows BSOD Stop Code & Event ID Lookup", "item": "https://imtechboss.com/tools/windows-bsod-error-code-lookup/" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("pulse_theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && systemDark)) document.documentElement.classList.add("dark");
+    } catch (e) {}
+  </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col justify-between font-sans transition-colors duration-200">
+  <header class="border-b border-gray-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-sm">TB</div>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-gray-950 dark:text-white">Tech Boss</span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Interactive Tools Suite</span>
+        </div>
+      </a>
+      <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold overflow-x-auto whitespace-nowrap">
+        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
+        <a href="/tools/" class="text-blue-600 dark:text-blue-400 font-bold">All 17 Tools</a>
+        <a href="/compare/" class="text-rose-600 dark:text-rose-400">Compare</a>
+        <a href="/about/" class="hidden sm:inline text-gray-600 dark:text-gray-300">About</a>
+        <a href="/contact/" class="hidden sm:inline text-gray-600 dark:text-gray-300">Contact</a>
+        <button id="themeToggleBtn" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800" aria-label="Toggle Dark Mode">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-8 sm:py-10 w-full">
+    <nav class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-blue-600">Home</a><span>/</span>
+      <a href="/tools/" class="hover:text-blue-600">Tools</a><span>/</span>
+      <span class="text-gray-900 dark:text-gray-200 font-semibold truncate">Windows BSOD Stop Code & Event ID Lookup</span>
+    </nav>
+
+    <div class="mb-8">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[11px] font-bold uppercase tracking-wider mb-3">
+        🛡️ Windows 11 Diagnostics
+      </span>
+      <h1 class="text-2xl sm:text-4xl font-black text-gray-950 dark:text-white tracking-tight mb-3">Windows BSOD Stop Code & Event ID Lookup</h1>
+      <div class="p-4 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/60 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <strong class="text-blue-800 dark:text-blue-300 font-bold block mb-1">⚡ Instant Kernel Crash Triage</strong>
+        Select or search any Windows 11 BugCheck hex code or Event Viewer ID below to isolate whether the crash stems from RAM/XMP instability, storage controller latency, GPU driver timeouts, or PSU transient power loss.
+      </div>
+    </div>
+
+    <div class="mb-12">
+        <section id="bsodLookupTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Select Common BSOD / Event Code</label>
+              <select id="bsodCodeSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="0x0000000A">0x0000000A — IRQL_NOT_LESS_OR_EQUAL</option>
+                <option value="0x00000133">0x00000133 — DPC_WATCHDOG_VIOLATION</option>
+                <option value="EVENT_41">Event ID 41 — Kernel-Power Unexpected Restart</option>
+                <option value="0x00000116">0x00000116 — VIDEO_TDR_FAILURE (nvlddmkm / amdkmdag)</option>
+                <option value="0x0000001A">0x0000001A — MEMORY_MANAGEMENT</option>
+                <option value="0x00000124">0x00000124 — WHEA_UNCORRECTABLE_ERROR</option>
+                <option value="0x0000007E">0x0000007E — SYSTEM_THREAD_EXCEPTION_NOT_HANDLED</option>
+                <option value="DXGI_HUNG">DXGI_ERROR_DEVICE_HUNG — DirectX GPU Hang</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Or Filter by Keyword / Hex</label>
+              <input id="bsodSearchInput" type="text" placeholder="e.g. 0x133, watchdog, nvlddmkm, 41" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white" />
+            </div>
+          </div>
+          <button id="lookupBsodBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow transition-colors">
+            🔍 Diagnose Stop Code &amp; Get Fix Steps
+          </button>
+          <div id="bsodResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        </div>
+
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">How to Read Windows 11 Crash Dumps Before Changing Hardware</h2>
+      
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">Most Windows 11 Blue Screen of Death (BSOD) crashes look identical on screen, which leads PC owners to reinstall Windows or replace healthy parts unnecessarily. Separating software driver faults from physical hardware instability starts with two built-in logs: <strong>Event Viewer (System Log)</strong> and <strong>Kernel Minidumps</strong> stored under <code>C:\Windows\Minidump</code>.</p>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white mt-5 mb-2">1. Distinguish BugCheck Codes from BugcheckCode 0</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">When Windows catches a bad driver or memory address in time, it halts execution and writes a non-zero hex stop code such as <code>0x0000000A</code> or <code>0x00000133</code>. If your PC simply clicks off and reboots with Event ID 41 and <code>BugcheckCode: 0</code>, the OS never had a chance to log a dump—pointing directly toward power delivery transients, motherboard VRM protection, or BIOS idle C-state voltage drops.</p>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white mt-5 mb-2">2. Use WinDbg !analyze -v to Name the Exact Driver</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">Install the official WinDbg app from the Microsoft Store, open the latest <code>.dmp</code> file, and run <code>!analyze -v</code>. Scroll down to <code>MODULE_NAME</code> and <code>IMAGE_NAME</code>. Drivers like <code>nvlddmkm.sys</code> (NVIDIA), <code>amdkmdag.sys</code> (AMD), <code>storahci.sys</code> (storage), or <code>rt640x64.sys</code> (Realtek Ethernet) tell you the exact component to update or roll back cleanly.</p>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white mt-5 mb-2">3. Always Test Stock BIOS Defaults First</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">DDR5 XMP/EXPO profiles and CPU undervolts (AMD Curve Optimizer / Intel adaptive offsets) are the number-one hidden trigger behind intermittent <code>0x0000000A</code>, <code>0x0000001A</code>, and <code>0x00000124</code> crashes. Returning memory to stock JEDEC speeds for 48 hours confirms immediately whether your silicon or your drivers are at fault.</p>
+        
+    </section>
+
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 17 Tools &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a href="/tools/monitor-ppi-viewing-distance-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🖥️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Gaming Monitor PPI, Viewing Distance & Cable Bandwidth Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Display Ergonomics & Video Bandwidth Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/pc-power-supply-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PC Power Supply (PSU) & System Wattage Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Infrastructure & Wattage Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/wordpress-hosting-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🌐</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">WordPress Hosting Speed & Server Sizer Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Web Infrastructure Sizing</p>
+              </div>
+            </a>
+            
+            <a href="/tools/pc-bottleneck-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PC Bottleneck & Gaming Resolution Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/llm-vram-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🧠</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Local AI & LLM VRAM Sizer (2026 Edition)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">AI & Ollama Sizing</p>
+              </div>
+            </a>
+            
+            <a href="/tools/can-my-pc-run-it/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎮</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Can My PC Run It? Live Game Requirements Checker (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Gaming Performance</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ai-prompt-studio/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">✨</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">AI Prompt Engineering Studio</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Prompt Studio</p>
+              </div>
+            </a>
+            
+            <a href="/tools/developer-cheat-sheets/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">💻</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Developer & Systems Command Cheat Sheets</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">DevOps & CLI</p>
+              </div>
+            </a>
+            
+            <a href="/tools/gpu-matcher-quiz/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎯</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">2026 GPU & Hardware Matcher Quiz</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Matcher</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ollama-command-generator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚙️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Ollama CLI & Modelfile Command Generator</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Local AI Engineering</p>
+              </div>
+            </a>
+            
+            <a href="/tools/dual-gpu-vram-split-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎛️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Dual-GPU VRAM Split Calculator (llama.cpp & Ollama)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Multi-GPU Local AI</p>
+              </div>
+            </a>
+            
+            <a href="/tools/json-jwt-cron-dev-toolkit/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🧰</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Offline JSON Formatter, JWT Decoder & Cron Explainer</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">100% Client-Side Dev Utilities</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ssd-nvme-pcie-speed-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">💾</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">NVMe SSD PCIe Gen 3 vs Gen 4 vs Gen 5 Speed Calculator</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Storage & Motherboard Engineering</p>
+              </div>
+            </a>
+            
+            <a href="/tools/local-ai-electricity-cost-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">GPU Rig & Local AI Electricity Cost Calculator (USD & NPR)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Global USD & Nepal NEA Tariff</p>
+              </div>
+            </a>
+            
+            <a href="/tools/nepal-laptop-budget-finder/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🇳🇵</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nepal Laptop Budget & Specs Finder (NPR 2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Nepal Tech Buying Advisor</p>
+              </div>
+            </a>
+            
+            <a href="/tools/nepal-isp-router-mesh-advisor/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">📡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nepal ISP Router, Wi-Fi 6 Mesh & Ping Optimizer</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Nepal Fiber & Wi-Fi 6 Planner</p>
+              </div>
+            </a>
+            </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 mt-12 py-8 text-xs text-gray-500 dark:text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div><span class="font-bold text-gray-800 dark:text-gray-200">Tech Boss</span> &bull; Free Engineering &amp; Nepal Tech Utilities</div>
+      <div class="flex items-center gap-4">
+        <a href="/tools/" class="hover:text-blue-600">All Tools</a>
+        <a href="/about/" class="hover:text-blue-600">About</a>
+        <a href="/privacy/" class="hover:text-blue-600">Privacy</a>
+        <a href="/terms/" class="hover:text-blue-600">Terms</a>
+        <a href="/contact/" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tbThemeBtn = document.getElementById('themeToggleBtn');
+    if (tbThemeBtn) tbThemeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try { localStorage.setItem('pulse_theme', isDark ? 'dark' : 'light'); } catch (e) {}
+    });
+    
+        (function() {
+          const DB = {
+            "0x0000000A": {
+              name: "IRQL_NOT_LESS_OR_EQUAL (0x0000000A)",
+              subsystem: "Kernel Driver / DDR5 XMP-EXPO RAM Stability",
+              severity: "High — Driver or Memory Access Violation",
+              cause: "A kernel-mode driver or system process attempted to read/write pageable memory at an elevated Interrupt Request Level (IRQL).",
+              steps: [
+                "Open C:\Windows\Minidump in WinDbg and run !analyze -v to read the MODULE_NAME causing the fault.",
+                "Disable DDR5 XMP/EXPO in BIOS temporarily and test stability at stock JEDEC speeds.",
+                "Run Admin Terminal: DISM /Online /Cleanup-Image /RestoreHealth followed by sfc /scannow.",
+                "Clean-reinstall GPU and Realtek/Intel NIC drivers rather than relying on Windows Update stubs."
+              ],
+              guide: "/how-to-fix-irql-not-less-or-equal-0x0000000a-bsod-windows-11/"
+            },
+            "0x00000133": {
+              name: "DPC_WATCHDOG_VIOLATION (0x00000133)",
+              subsystem: "Storage Controller (SATA/NVMe) / PCIe ASPM Latency",
+              severity: "High — Deferred Procedure Call Timeout",
+              cause: "A single DPC routine ran longer than the Windows watchdog timeout on a CPU core, commonly triggered by outdated AHCI/NVMe drivers or PCIe power saving.",
+              steps: [
+                "Open Device Manager -> IDE ATA/ATAPI Controllers and switch vendor drivers to Standard SATA AHCI Controller.",
+                "Set PCI Express -> Link State Power Management to Off inside Control Panel Power Options.",
+                "Update NVMe SSD firmware using Samsung Magician, WD Dashboard, or Crucial Storage Executive.",
+                "Run LatencyMon for 10 minutes to catch the exact .sys driver spiking ISR/DPC execution time."
+              ],
+              guide: "/how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11/"
+            },
+            "EVENT_41": {
+              name: "Kernel-Power Event ID 41 (BugcheckCode 0)",
+              subsystem: "Power Supply Transients / BIOS C-States / Fast Startup",
+              severity: "Critical — Abrupt Hardware Power Loss",
+              cause: "Windows rebooted without cleanly shutting down. When BugcheckCode is 0, power dropped before the OS could write a crash dump.",
+              steps: [
+                "Disable Windows Fast Startup in Control Panel -> Power Options -> Choose what the power buttons do.",
+                "Replace daisy-chained PCIe GPU cables with dedicated 8-pin or native 12V-2x6 ATX 3.1 cables.",
+                "Verify PSU wattage headroom with our PC Power Supply Calculator to rule out GPU transient trips.",
+                "If restarts happen at desktop idle, disable Global C-State Control or set Power Supply Idle Control to Typical Current Idle in BIOS."
+              ],
+              guide: "/how-to-fix-kernel-power-event-id-41-random-restarts-windows-11/"
+            },
+            "0x00000116": {
+              name: "VIDEO_TDR_FAILURE (0x00000116)",
+              subsystem: "GPU Driver Timeout (nvlddmkm.sys / amdkmdag.sys)",
+              severity: "High — Display Driver Reset Failed",
+              cause: "Windows Timeout Detection and Recovery (TDR) tried to reset an unresponsive GPU driver after 2 seconds and failed.",
+              steps: [
+                "Boot into Safe Mode, wipe display drivers cleanly with Display Driver Uninstaller (DDU), and install the latest WHQL Studio/Game Ready driver.",
+                "Remove GPU core/memory overclocks and inspect 12V-2x6 / 8-pin power connector seating.",
+                "Check GPU hotspot temperatures under load to rule out dried thermal paste or fan curve failure."
+              ],
+              guide: "/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/"
+            },
+            "0x0000001A": {
+              name: "MEMORY_MANAGEMENT (0x0000001A)",
+              subsystem: "Physical RAM Modules / Pagefile / Corrupted Storage",
+              severity: "High — Memory Page Table Corruption",
+              cause: "Severe memory management error caused by defective DRAM cells, overly tight XMP timings, or corrupted virtual memory pagefiles.",
+              steps: [
+                "Run Windows Memory Diagnostic (mdsched.exe) or MemTest86 from USB for at least 2 full passes.",
+                "Test one RAM stick at a time in slot A2 to isolate a faulty DIMM.",
+                "Check NVMe SSD S.M.A.R.T. health because failing pagefile sectors also trigger 0x1A."
+              ],
+              guide: "/how-to-fix-100-percent-memory-disk-leak-windows-11-24h2/"
+            },
+            "0x00000124": {
+              name: "WHEA_UNCORRECTABLE_ERROR (0x00000124)",
+              subsystem: "CPU Hardware / VCore Undervolt / PCIe Bus",
+              severity: "Critical — Hardware Machine Check Exception",
+              cause: "The processor reported a fatal hardware error directly to Windows Hardware Error Architecture (WHEA).",
+              steps: [
+                "Reset BIOS Curve Optimizer (AMD PBO) or Intel undervolt offsets back to 0 immediately.",
+                "Update motherboard BIOS to the latest stable AGESA / Intel microcode release.",
+                "Check Event Viewer -> System for WHEA-Logger Event ID 18/19 to see whether the failing APIC ID is a CPU core or PCIe device."
+              ],
+              guide: "/how-to-fix-kernel-power-event-id-41-random-restarts-windows-11/"
+            },
+            "0x0000007E": {
+              name: "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED (0x0000007E)",
+              subsystem: "Third-Party Kernel Driver / Outdated BIOS",
+              severity: "Medium-High — Unhandled Kernel Exception",
+              cause: "A system thread threw an exception that the error handler could not catch, typically right after a driver or Windows cumulative update.",
+              steps: [
+                "Boot into Safe Mode and roll back the most recently installed driver or Windows Update.",
+                "Check C:\Windows\Minidump in WinDbg to identify the offending third-party .sys module.",
+                "Ensure at least 15–20% free disk space on C: for system pagefile and update staging."
+              ],
+              guide: "/windows-11-slow-after-update-fix-2026/"
+            },
+            "DXGI_HUNG": {
+              name: "DXGI_ERROR_DEVICE_HUNG",
+              subsystem: "DirectX 12 Pipeline / GPU Shader Timeout",
+              severity: "Medium-High — Game Engine GPU Hang",
+              cause: "The graphics card stopped responding to DirectX command buffers due to driver bugs, aggressive factory OC, or unstable shader compilation.",
+              steps: [
+                "Clear DirectX Shader Cache via Windows Disk Cleanup and game-specific shader folders.",
+                "Enable Debug Mode in NVIDIA Control Panel (Help -> Debug Mode) to test reference clocks.",
+                "Disable Hardware-Accelerated GPU Scheduling (HAGS) temporarily if crashes occur during dual-monitor video playback."
+              ],
+              guide: "/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/"
+            }
+          };
+
+          const sel = document.getElementById('bsodCodeSelect');
+          const inp = document.getElementById('bsodSearchInput');
+          const btn = document.getElementById('lookupBsodBtn');
+          const box = document.getElementById('bsodResultBox');
+
+          function render() {
+            let key = sel.value;
+            const q = (inp.value || '').trim().toLowerCase();
+            if (q) {
+              const found = Object.keys(DB).find(k => k.toLowerCase().includes(q) || DB[k].name.toLowerCase().includes(q) || DB[k].cause.toLowerCase().includes(q));
+              if (found) {
+                key = found;
+                sel.value = found;
+              }
+            }
+            const item = DB[key];
+            if (!item) return;
+            box.innerHTML = `
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b border-gray-200 dark:border-slate-700">
+                <h3 class="text-lg font-extrabold text-gray-900 dark:text-white">${item.name}</h3>
+                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300">${item.severity}</span>
+              </div>
+              <p class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1">Primary Subsystem: ${item.subsystem}</p>
+              <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">${item.cause}</p>
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Ordered Fix Checklist:</div>
+              <ol class="list-decimal pl-5 space-y-1.5 text-sm text-gray-800 dark:text-gray-200 mb-4">
+                ${item.steps.map(s => `<li>${s}</li>`).join('')}
+              </ol>
+              <a href="${item.guide}" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">Read Full Step-by-Step Repair Guide &rarr;</a>
+            `;
+            box.classList.remove('hidden');
+          }
+          if (btn) btn.addEventListener('click', render);
+        })();
+        
+  </script>
+</body>
+</html>

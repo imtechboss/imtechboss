@@ -604,7 +604,7 @@ def generate_standalone_tools():
     <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
-        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 9 Tools &rarr;</a>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 17 Tools &rarr;</a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {other_tools_html}
@@ -645,7 +645,16 @@ def generate_standalone_tools():
             f.write(page_html)
         print(f"  ✅ Generated: /tools/{slug}/index.html ({len(page_html)} bytes)")
 
-    print(f"\n🎉 Successfully created all 6 standalone interactive tool pages!")
+    try:
+        from extended_tools_data import render_extended_tools
+    except ImportError:
+        import sys
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from extended_tools_data import render_extended_tools
+    existing_summary = [{"slug": t["slug"], "icon": t["icon"], "h1": t["h1"], "badge": t["badge"]} for t in tools_config]
+    render_extended_tools(ROOT_DIR, existing_summary)
+
+    print(f"\n🎉 Successfully created all 17 standalone interactive tool pages!")
 
 if __name__ == '__main__':
     generate_standalone_tools()

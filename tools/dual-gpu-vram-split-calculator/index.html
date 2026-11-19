@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQDRHTFW7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HQDRHTFW7Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>Dual-GPU VRAM Split Calculator (2026) — Tech Boss</title>
+  <meta name="description" content="Calculate exact llama.cpp --tensor-split ratios and combined VRAM budgets for mismatched dual-GPU setups like RTX 3090 24GB + RTX 3060 12GB.">
+  <link rel="canonical" href="https://imtechboss.com/tools/dual-gpu-vram-split-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imtechboss.com/tools/dual-gpu-vram-split-calculator/">
+  <meta property="og:title" content="Dual-GPU VRAM Split Calculator (2026) — Tech Boss">
+  <meta property="og:description" content="Calculate exact llama.cpp --tensor-split ratios and combined VRAM budgets for mismatched dual-GPU setups like RTX 3090 24GB + RTX 3060 12GB.">
+  <meta property="og:site_name" content="Tech Boss">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dual-GPU VRAM Split Calculator (2026) — Tech Boss">
+  <meta name="twitter:description" content="Calculate exact llama.cpp --tensor-split ratios and combined VRAM budgets for mismatched dual-GPU setups like RTX 3090 24GB + RTX 3060 12GB.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563eb%22/><text x=%2250%25%22 y=%2254%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2250%22>TB</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Dual-GPU VRAM Split Calculator (llama.cpp & Ollama)",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "url": "https://imtechboss.com/tools/dual-gpu-vram-split-calculator/",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://imtechboss.com/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Dual-GPU VRAM Split Calculator (llama.cpp & Ollama)", "item": "https://imtechboss.com/tools/dual-gpu-vram-split-calculator/" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("pulse_theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && systemDark)) document.documentElement.classList.add("dark");
+    } catch (e) {}
+  </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col justify-between font-sans transition-colors duration-200">
+  <header class="border-b border-gray-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-sm">TB</div>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-gray-950 dark:text-white">Tech Boss</span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Interactive Tools Suite</span>
+        </div>
+      </a>
+      <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold overflow-x-auto whitespace-nowrap">
+        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
+        <a href="/tools/" class="text-blue-600 dark:text-blue-400 font-bold">All 17 Tools</a>
+        <a href="/compare/" class="text-rose-600 dark:text-rose-400">Compare</a>
+        <a href="/about/" class="hidden sm:inline text-gray-600 dark:text-gray-300">About</a>
+        <a href="/contact/" class="hidden sm:inline text-gray-600 dark:text-gray-300">Contact</a>
+        <button id="themeToggleBtn" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800" aria-label="Toggle Dark Mode">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-8 sm:py-10 w-full">
+    <nav class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-blue-600">Home</a><span>/</span>
+      <a href="/tools/" class="hover:text-blue-600">Tools</a><span>/</span>
+      <span class="text-gray-900 dark:text-gray-200 font-semibold truncate">Dual-GPU VRAM Split Calculator (llama.cpp & Ollama)</span>
+    </nav>
+
+    <div class="mb-8">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[11px] font-bold uppercase tracking-wider mb-3">
+        🎛️ Multi-GPU Local AI
+      </span>
+      <h1 class="text-2xl sm:text-4xl font-black text-gray-950 dark:text-white tracking-tight mb-3">Dual-GPU VRAM Split Calculator (llama.cpp & Ollama)</h1>
+      <div class="p-4 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/60 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <strong class="text-blue-800 dark:text-blue-300 font-bold block mb-1">⚡ Mismatched Dual-GPU Layer Balancing</strong>
+        Enter both GPU VRAM sizes and your target GGUF model to compute combined usable VRAM, display-headroom safety margin, and exact llama.cpp --tensor-split weights.
+      </div>
+    </div>
+
+    <div class="mb-12">
+        <section id="dualGpuTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Primary GPU (Display + Compute)</label>
+              <select id="gpu1Vram" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="24" selected>24 GB (RTX 3090 / 4090 / 7900 XTX)</option>
+                <option value="32">32 GB (RTX 5090)</option>
+                <option value="16">16 GB (RTX 5070 Ti / 4080 / 4060 Ti)</option>
+                <option value="12">12 GB (RTX 3060 / 4070 / 5070)</option>
+                <option value="8">8 GB (RTX 4060 / 3070)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Secondary GPU (Headless Compute)</label>
+              <select id="gpu2Vram" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="24">24 GB (RTX 3090 / 4090 / P40)</option>
+                <option value="16">16 GB (RTX 4060 Ti / 5070 Ti)</option>
+                <option value="12" selected>12 GB (RTX 3060 / 4070)</option>
+                <option value="8">8 GB (RTX 3060 Ti / 4060)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Target Model Size (Q4_K_M)</label>
+              <select id="dualModelGb" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="21.5">32B Q4_K_M (~21.5 GB total w/ 8K ctx)</option>
+                <option value="30.5" selected>49B–56B / 32B Q6_K (~30.5 GB total)</option>
+                <option value="44.0">70B Q4_K_M (~44.0 GB total w/ 8K ctx)</option>
+                <option value="65.0">123B Mistral Large Q4 (~65.0 GB)</option>
+              </select>
+            </div>
+          </div>
+          <button id="calcDualGpuBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition-colors">
+            🎛️ Compute Dual-GPU Tensor Split
+          </button>
+          <div id="dualGpuResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        </div>
+
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Engineering Mismatched Dual-GPU Rigs for Local LLMs</h2>
+      
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">You do not need two identical flagship cards to run 48GB+ local language models. Pairing a used 24GB RTX 3090 with an affordable 12GB RTX 3060 gives you 36GB of raw VRAM—enough to run 32B models at Q6_K/Q8_0 precision or 70B models at IQ3_XS/IQ4_XS quantization without touching slow system DDR5.</p>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white mt-5 mb-2">Why GPU 0 Needs Extra Headroom</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">Your primary display GPU holds the Windows Desktop Window Manager (DWM), browser GPU buffers, and CUDA context overhead (typically 1.5–2.0 GB). Using an even 50/50 split on mismatched GPUs—or ignoring display overhead—causes instant Out-Of-Memory (OOM) crashes on GPU 0 while GPU 1 still sits half-empty.</p>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white mt-5 mb-2">PCIe Bandwidth &amp; Power Supply Notes</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Under <code>--split-mode layer</code>, only compact activation tensors cross the PCIe bus between GPUs, meaning even a PCIe Gen 3 x4 chipset slot works reliably for inference. Always verify combined transient wattage with our <a href="/tools/pc-power-supply-calculator/" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">PC Power Supply Calculator</a>.</p>
+        
+    </section>
+
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 17 Tools &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a href="/tools/monitor-ppi-viewing-distance-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🖥️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Gaming Monitor PPI, Viewing Distance & Cable Bandwidth Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Display Ergonomics & Video Bandwidth Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/pc-power-supply-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PC Power Supply (PSU) & System Wattage Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Infrastructure & Wattage Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/wordpress-hosting-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🌐</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">WordPress Hosting Speed & Server Sizer Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Web Infrastructure Sizing</p>
+              </div>
+            </a>
+            
+            <a href="/tools/pc-bottleneck-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PC Bottleneck & Gaming Resolution Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/llm-vram-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🧠</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Local AI & LLM VRAM Sizer (2026 Edition)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">AI & Ollama Sizing</p>
+              </div>
+            </a>
+            
+            <a href="/tools/can-my-pc-run-it/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎮</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Can My PC Run It? Live Game Requirements Checker (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Gaming Performance</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ai-prompt-studio/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">✨</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">AI Prompt Engineering Studio</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Prompt Studio</p>
+              </div>
+            </a>
+            
+            <a href="/tools/developer-cheat-sheets/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">💻</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Developer & Systems Command Cheat Sheets</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">DevOps & CLI</p>
+              </div>
+            </a>
+            
+            <a href="/tools/gpu-matcher-quiz/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎯</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">2026 GPU & Hardware Matcher Quiz</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Matcher</p>
+              </div>
+            </a>
+            
+            <a href="/tools/windows-bsod-error-code-lookup/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🛡️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Windows BSOD Stop Code & Event ID Lookup</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Windows 11 Diagnostics</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ollama-command-generator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚙️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Ollama CLI & Modelfile Command Generator</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Local AI Engineering</p>
+              </div>
+            </a>
+            
+            <a href="/tools/json-jwt-cron-dev-toolkit/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🧰</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Offline JSON Formatter, JWT Decoder & Cron Explainer</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">100% Client-Side Dev Utilities</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ssd-nvme-pcie-speed-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">💾</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">NVMe SSD PCIe Gen 3 vs Gen 4 vs Gen 5 Speed Calculator</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Storage & Motherboard Engineering</p>
+              </div>
+            </a>
+            
+            <a href="/tools/local-ai-electricity-cost-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">GPU Rig & Local AI Electricity Cost Calculator (USD & NPR)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Global USD & Nepal NEA Tariff</p>
+              </div>
+            </a>
+            
+            <a href="/tools/nepal-laptop-budget-finder/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🇳🇵</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nepal Laptop Budget & Specs Finder (NPR 2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Nepal Tech Buying Advisor</p>
+              </div>
+            </a>
+            
+            <a href="/tools/nepal-isp-router-mesh-advisor/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">📡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nepal ISP Router, Wi-Fi 6 Mesh & Ping Optimizer</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Nepal Fiber & Wi-Fi 6 Planner</p>
+              </div>
+            </a>
+            </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 mt-12 py-8 text-xs text-gray-500 dark:text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div><span class="font-bold text-gray-800 dark:text-gray-200">Tech Boss</span> &bull; Free Engineering &amp; Nepal Tech Utilities</div>
+      <div class="flex items-center gap-4">
+        <a href="/tools/" class="hover:text-blue-600">All Tools</a>
+        <a href="/about/" class="hover:text-blue-600">About</a>
+        <a href="/privacy/" class="hover:text-blue-600">Privacy</a>
+        <a href="/terms/" class="hover:text-blue-600">Terms</a>
+        <a href="/contact/" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tbThemeBtn = document.getElementById('themeToggleBtn');
+    if (tbThemeBtn) tbThemeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try { localStorage.setItem('pulse_theme', isDark ? 'dark' : 'light'); } catch (e) {}
+    });
+    
+        (function() {
+          const btn = document.getElementById('calcDualGpuBtn');
+          const box = document.getElementById('dualGpuResultBox');
+          if (!btn || !box) return;
+          btn.addEventListener('click', () => {
+            const g1 = parseFloat(document.getElementById('gpu1Vram').value);
+            const g2 = parseFloat(document.getElementById('gpu2Vram').value);
+            const need = parseFloat(document.getElementById('dualModelGb').value);
+            const usable1 = Math.max(0, g1 - 1.8);
+            const usable2 = Math.max(0, g2 - 0.6);
+            const totalUsable = +(usable1 + usable2).toFixed(1);
+            const r1 = Math.round((usable1 / (usable1 + usable2)) * 100);
+            const r2 = 100 - r1;
+            const fits = totalUsable >= need;
+            const status = fits
+              ? `<span class="text-emerald-600 dark:text-emerald-400 font-extrabold">✅ 100% Dual-GPU Offload Fits (${totalUsable} GB usable vs ${need} GB needed)</span>`
+              : `<span class="text-rose-600 dark:text-rose-400 font-extrabold">⚠️ Short by ${(need - totalUsable).toFixed(1)} GB — Will Spill to System RAM</span>`;
+            box.innerHTML = `
+              <div class="mb-3 text-base">${status}</div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-xs">
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><div class="text-gray-500">GPU 0 Usable (OS Reserve)</div><div class="text-base font-bold text-gray-900 dark:text-white">${usable1.toFixed(1)} GB</div></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><div class="text-gray-500">GPU 1 Usable (Headless)</div><div class="text-base font-bold text-gray-900 dark:text-white">${usable2.toFixed(1)} GB</div></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><div class="text-gray-500">Recommended Split Ratio</div><div class="text-base font-bold text-indigo-600 dark:text-indigo-400">${r1},${r2}</div></div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-900 text-emerald-300 font-mono text-xs overflow-x-auto">
+                llama-server -m model.gguf -ngl 99 --split-mode layer --tensor-split ${r1},${r2} -fa
+              </div>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        
+  </script>
+</body>
+</html>

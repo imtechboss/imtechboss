@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQDRHTFW7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HQDRHTFW7Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>NVMe SSD PCIe Speed & Bottleneck Calculator — Tech Boss</title>
+  <meta name="description" content="Check real-world sequential read/write ceilings when pairing PCIe Gen 3, Gen 4, or Gen 5 NVMe SSDs with older x4 or x2 motherboard M.2 slots.">
+  <link rel="canonical" href="https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/">
+  <meta property="og:title" content="NVMe SSD PCIe Speed & Bottleneck Calculator — Tech Boss">
+  <meta property="og:description" content="Check real-world sequential read/write ceilings when pairing PCIe Gen 3, Gen 4, or Gen 5 NVMe SSDs with older x4 or x2 motherboard M.2 slots.">
+  <meta property="og:site_name" content="Tech Boss">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NVMe SSD PCIe Speed & Bottleneck Calculator — Tech Boss">
+  <meta name="twitter:description" content="Check real-world sequential read/write ceilings when pairing PCIe Gen 3, Gen 4, or Gen 5 NVMe SSDs with older x4 or x2 motherboard M.2 slots.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563eb%22/><text x=%2250%25%22 y=%2254%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2250%22>TB</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "NVMe SSD PCIe Gen 3 vs Gen 4 vs Gen 5 Speed Calculator",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "url": "https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://imtechboss.com/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "NVMe SSD PCIe Gen 3 vs Gen 4 vs Gen 5 Speed Calculator", "item": "https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("pulse_theme");
+      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && systemDark)) document.documentElement.classList.add("dark");
+    } catch (e) {}
+  </script>
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col justify-between font-sans transition-colors duration-200">
+  <header class="border-b border-gray-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-sm">TB</div>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-gray-950 dark:text-white">Tech Boss</span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Interactive Tools Suite</span>
+        </div>
+      </a>
+      <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold overflow-x-auto whitespace-nowrap">
+        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
+        <a href="/tools/" class="text-blue-600 dark:text-blue-400 font-bold">All 17 Tools</a>
+        <a href="/compare/" class="text-rose-600 dark:text-rose-400">Compare</a>
+        <a href="/about/" class="hidden sm:inline text-gray-600 dark:text-gray-300">About</a>
+        <a href="/contact/" class="hidden sm:inline text-gray-600 dark:text-gray-300">Contact</a>
+        <button id="themeToggleBtn" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800" aria-label="Toggle Dark Mode">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-8 sm:py-10 w-full">
+    <nav class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-blue-600">Home</a><span>/</span>
+      <a href="/tools/" class="hover:text-blue-600">Tools</a><span>/</span>
+      <span class="text-gray-900 dark:text-gray-200 font-semibold truncate">NVMe SSD PCIe Gen 3 vs Gen 4 vs Gen 5 Speed Calculator</span>
+    </nav>
+
+    <div class="mb-8">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[11px] font-bold uppercase tracking-wider mb-3">
+        💾 Storage & Motherboard Engineering
+      </span>
+      <h1 class="text-2xl sm:text-4xl font-black text-gray-950 dark:text-white tracking-tight mb-3">NVMe SSD PCIe Gen 3 vs Gen 4 vs Gen 5 Speed Calculator</h1>
+      <div class="p-4 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/60 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <strong class="text-blue-800 dark:text-blue-300 font-bold block mb-1">⚡ Real M.2 Slot Throughput Ceiling</strong>
+        NVMe drives negotiate down to the lower PCIe generation and lane width of either the drive or motherboard M.2 slot. Check your real effective ceiling before upgrading.
+      </div>
+    </div>
+
+    <div class="mb-12">
+        <section id="nvmeSpeedTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">NVMe SSD Rating</label>
+              <select id="nvmeDriveGen" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="3">PCIe Gen 3.0 x4 (~3,500 MB/s)</option>
+                <option value="4" selected>PCIe Gen 4.0 x4 (~7,400 MB/s)</option>
+                <option value="5">PCIe Gen 5.0 x4 (~14,500 MB/s)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Motherboard M.2 Slot Gen</label>
+              <select id="nvmeSlotGen" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="3" selected>PCIe Gen 3.0 Slot</option>
+                <option value="4">PCIe Gen 4.0 Slot</option>
+                <option value="5">PCIe Gen 5.0 Slot</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Active M.2 Lanes</label>
+              <select id="nvmeLanes" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="4" selected>x4 Lanes (Standard Primary M.2)</option>
+                <option value="2">x2 Lanes (Shared Chipset / Budget Laptop)</option>
+              </select>
+            </div>
+          </div>
+          <button id="calcNvmeBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-bold text-sm shadow transition-colors">
+            💾 Calculate Effective NVMe Speed
+          </button>
+          <div id="nvmeResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        </div>
+
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">Understanding Real-World NVMe Speed vs. Marketing Box Numbers</h2>
+      
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">Sequential throughput (e.g., 7,400 MB/s on PCIe Gen 4 or 14,500 MB/s on PCIe Gen 5) only matters when copying huge video files or loading 20GB+ local LLM GGUF weights from disk into VRAM. For Windows boot times and application launches, 4K random read latency (QD1) matters far more than raw sequential bandwidth.</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">If your NVMe drive suddenly shows RAW partitions or severe slowdown after Windows 11 24H2 BitLocker encryption, check our <a href="/windows-11-24h2-bitlocker-ssd-slowdown-benchmarks-fix-guide-2026/" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">Windows 11 24H2 BitLocker SSD Fix</a> and <a href="/how-to-recover-corrupted-nvme-ssd-data-windows-11/" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">NVMe Data Recovery Guide</a>.</p>
+        
+    </section>
+
+    <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 17 Tools &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a href="/tools/monitor-ppi-viewing-distance-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🖥️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Gaming Monitor PPI, Viewing Distance & Cable Bandwidth Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Display Ergonomics & Video Bandwidth Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/pc-power-supply-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PC Power Supply (PSU) & System Wattage Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Infrastructure & Wattage Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/wordpress-hosting-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🌐</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">WordPress Hosting Speed & Server Sizer Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Web Infrastructure Sizing</p>
+              </div>
+            </a>
+            
+            <a href="/tools/pc-bottleneck-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PC Bottleneck & Gaming Resolution Calculator (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Diagnostic</p>
+              </div>
+            </a>
+            
+            <a href="/tools/llm-vram-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🧠</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Local AI & LLM VRAM Sizer (2026 Edition)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">AI & Ollama Sizing</p>
+              </div>
+            </a>
+            
+            <a href="/tools/can-my-pc-run-it/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎮</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Can My PC Run It? Live Game Requirements Checker (2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Gaming Performance</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ai-prompt-studio/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">✨</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">AI Prompt Engineering Studio</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Prompt Studio</p>
+              </div>
+            </a>
+            
+            <a href="/tools/developer-cheat-sheets/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">💻</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Developer & Systems Command Cheat Sheets</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">DevOps & CLI</p>
+              </div>
+            </a>
+            
+            <a href="/tools/gpu-matcher-quiz/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎯</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">2026 GPU & Hardware Matcher Quiz</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Hardware Matcher</p>
+              </div>
+            </a>
+            
+            <a href="/tools/windows-bsod-error-code-lookup/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🛡️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Windows BSOD Stop Code & Event ID Lookup</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Windows 11 Diagnostics</p>
+              </div>
+            </a>
+            
+            <a href="/tools/ollama-command-generator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚙️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Ollama CLI & Modelfile Command Generator</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Local AI Engineering</p>
+              </div>
+            </a>
+            
+            <a href="/tools/dual-gpu-vram-split-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🎛️</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Dual-GPU VRAM Split Calculator (llama.cpp & Ollama)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Multi-GPU Local AI</p>
+              </div>
+            </a>
+            
+            <a href="/tools/json-jwt-cron-dev-toolkit/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🧰</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Offline JSON Formatter, JWT Decoder & Cron Explainer</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">100% Client-Side Dev Utilities</p>
+              </div>
+            </a>
+            
+            <a href="/tools/local-ai-electricity-cost-calculator/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">GPU Rig & Local AI Electricity Cost Calculator (USD & NPR)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Global USD & Nepal NEA Tariff</p>
+              </div>
+            </a>
+            
+            <a href="/tools/nepal-laptop-budget-finder/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">🇳🇵</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nepal Laptop Budget & Specs Finder (NPR 2026)</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Nepal Tech Buying Advisor</p>
+              </div>
+            </a>
+            
+            <a href="/tools/nepal-isp-router-mesh-advisor/" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-3 group">
+              <span class="text-2xl">📡</span>
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Nepal ISP Router, Wi-Fi 6 Mesh & Ping Optimizer</h4>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">Nepal Fiber & Wi-Fi 6 Planner</p>
+              </div>
+            </a>
+            </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 mt-12 py-8 text-xs text-gray-500 dark:text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div><span class="font-bold text-gray-800 dark:text-gray-200">Tech Boss</span> &bull; Free Engineering &amp; Nepal Tech Utilities</div>
+      <div class="flex items-center gap-4">
+        <a href="/tools/" class="hover:text-blue-600">All Tools</a>
+        <a href="/about/" class="hover:text-blue-600">About</a>
+        <a href="/privacy/" class="hover:text-blue-600">Privacy</a>
+        <a href="/terms/" class="hover:text-blue-600">Terms</a>
+        <a href="/contact/" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tbThemeBtn = document.getElementById('themeToggleBtn');
+    if (tbThemeBtn) tbThemeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try { localStorage.setItem('pulse_theme', isDark ? 'dark' : 'light'); } catch (e) {}
+    });
+    
+        (function() {
+          const btn = document.getElementById('calcNvmeBtn');
+          const box = document.getElementById('nvmeResultBox');
+          if (!btn || !box) return;
+          const MAX_PER_LANE = { 3: 875, 4: 1850, 5: 3625 };
+          btn.addEventListener('click', () => {
+            const dGen = parseInt(document.getElementById('nvmeDriveGen').value, 10);
+            const sGen = parseInt(document.getElementById('nvmeSlotGen').value, 10);
+            const lanes = parseInt(document.getElementById('nvmeLanes').value, 10);
+            const effGen = Math.min(dGen, sGen);
+            const driveMax = MAX_PER_LANE[dGen] * 4;
+            const effSpeed = MAX_PER_LANE[effGen] * lanes;
+            const lossPct = Math.max(0, Math.round(((driveMax - effSpeed) / driveMax) * 100));
+            box.innerHTML = `
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 text-xs">
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><div class="text-gray-500">Negotiated Link</div><div class="text-base font-extrabold text-cyan-600 dark:text-cyan-400">PCIe Gen ${effGen}.0 x${lanes}</div></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><div class="text-gray-500">Effective Sequential Cap</div><div class="text-base font-extrabold text-gray-900 dark:text-white">~${effSpeed.toLocaleString()} MB/s</div></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><div class="text-gray-500">Sequential Bottleneck</div><div class="text-base font-extrabold ${lossPct > 0 ? 'text-amber-600' : 'text-emerald-600'}">${lossPct}% Capped</div></div>
+              </div>
+              <p class="text-xs text-gray-600 dark:text-gray-300">${lossPct > 0 ? 'Your drive is backward-compatible and will run cooler, but peak sequential transfers are capped by the motherboard slot. Random 4K OS responsiveness remains fast.' : 'Full rated sequential throughput unlocked with zero PCIe slot bottleneck.'}</p>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        
+  </script>
+</body>
+</html>

@@ -3,93 +3,201 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://imtechboss.com/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/about/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/pc-bottleneck-calculator/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/llm-vram-calculator/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/can-my-pc-run-it/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/ai-prompt-studio/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/developer-cheat-sheets/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/gpu-matcher-quiz/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/pc-power-supply-calculator/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/wordpress-hosting-calculator/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/tools/monitor-ppi-viewing-distance-calculator/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/windows-bsod-error-code-lookup/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/ollama-command-generator/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/dual-gpu-vram-split-calculator/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/json-jwt-cron-dev-toolkit/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/local-ai-electricity-cost-calculator/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/nepal-laptop-budget-finder/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/tools/nepal-isp-router-mesh-advisor/</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/compare/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/archive/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imtechboss.com/stories/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/best-laptops-under-1-lakh-npr-nepal-2026-coding-csit-guide/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Best Laptops Under 1 Lakh NPR in Nepal (2026): Coding, CSIT &amp; Engineering Picks</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/best-gaming-local-ai-pc-build-nepal-2026-budget-guide/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Best Gaming &amp; Local AI PC Build in Nepal (2026): Rs. 1.5 Lakh vs Rs. 2.5 Lakh NPR</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/dollar-card-nepal-2026-chatgpt-claude-aws-bank-fees-guide/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Dollar Card in Nepal (2026): Bank Fees, Limits &amp; Fixes for ChatGPT, Claude, AWS &amp; Domains</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/worldlink-vianet-cgnet-router-wifi-mesh-gaming-ping-fix-nepal/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>WorldLink, Vianet &amp; CGNet Router Setup in Nepal: Fix Gaming Ping &amp; Concrete Wall Wi-Fi</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/nepali-developers-international-payments-wise-payoneer-swift-2026/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>How Nepali Developers Receive International Payments (2026): SWIFT, Payoneer &amp; Tax Basics</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://imtechboss.com/run-local-ai-ollama-budget-gaming-laptop-nepal-rtx-3050-4050-4060/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Run Local AI (Ollama) on Budget Gaming Laptops in Nepal: RTX 3050, 4050 &amp; 4060 Guide</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://imtechboss.com/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/</loc>
