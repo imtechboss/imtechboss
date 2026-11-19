@@ -3,34 +3,18 @@ const fs = require('fs');
 const path = require('path');
 
 const baseDir = path.resolve(__dirname, '..');
-const dataContent = fs.readFileSync(path.join(baseDir, 'js', 'data.js'), 'utf8');
-
-const match = dataContent.match(/var\s+initialArticles\s*=\s*(\[.*?\]);/s);
-if (!match) {
-  console.error('initialArticles not found');
-  process.exit(1);
-}
-
-const articles = JSON.parse(match[1]);
+const sitemapContent = fs.readFileSync(path.join(baseDir, 'sitemap.xml'), 'utf8');
 
 const key = 'a8f3b9c712e44d569801a23c45d6e7f8';
 const host = 'imtechboss.com';
 
+const locMatches = [...sitemapContent.matchAll(/<loc>(https:\/\/imtechboss\.com\/[^<]*)<\/loc>/g)].map(m => m[1]);
 const urls = [
-  `https://${host}/`,
-  `https://${host}/about/`,
-  `https://${host}/contact/`,
-  `https://${host}/privacy/`,
-  `https://${host}/terms/`,
-  `https://${host}/disclaimer/`,
-  `https://${host}/tools/`,
-  `https://${host}/compare/`,
-  `https://${host}/deals/`,
-  `https://${host}/stories/`,
-  `https://${host}/archive/`,
-  `https://${host}/sitemap.xml`,
-  `https://${host}/feed.xml`,
-  ...articles.map(a => `https://${host}/${a.id}/`)
+  ...new Set([
+    ...locMatches,
+    `https://${host}/sitemap.xml`,
+    `https://${host}/feed.xml`,
+  ])
 ];
 
 const payload = JSON.stringify({
@@ -72,7 +56,7 @@ function submitToEndpoint(hostname, endpointPath) {
 }
 
 async function main() {
-  console.log(`Submitting all ${articles.length} articles (${urls.length} URLs total) to Bing & IndexNow...`);
+  console.log(`Submitting all ${urls.length} clean sitemap URLs (including 17 tools + sitemap.xml + feed.xml) to Bing & IndexNow...`);
   await submitToEndpoint('api.indexnow.org', '/IndexNow');
   await submitToEndpoint('www.bing.com', '/IndexNow');
   await submitToEndpoint('yandex.com', '/indexnow');
