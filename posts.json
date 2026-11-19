@@ -2,7 +2,7 @@
   {
     "id": "best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks",
     "title": "Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks & VRAM Guide",
-    "serp_title": "Best Local LLM for Coding 2026: Qwen 32B vs DeepSeek R1",
+    "serp_title": "Best Local LLM for Coding 2026: Qwen vs DeepSeek",
     "excerpt": "Compare the best local coding LLMs in 2026: Qwen 2.5 Coder 32B, DeepSeek-R1-Distill, and Codestral across 16GB, 24GB VRAM, and Apple Silicon VS Code setups.",
     "category": "AI & Machine Learning",
     "author": "Tech Boss",
@@ -140,7 +140,7 @@
   {
     "id": "14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026",
     "title": "14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length & Speed Guide (2026)",
-    "serp_title": "14B vs 32B vs 70B LLM on 24GB VRAM: Quantization & Speed",
+    "serp_title": "14B vs 32B vs 70B LLM on 24GB VRAM: Speed Guide",
     "excerpt": "Compare 14B, 32B, and 70B local LLMs on a 24GB GPU. See exact Q4_K_M VRAM fits, KV cache context budgets, PCIe spill cliffs, and interactive VRAM sizing.",
     "category": "AI & Machine Learning",
     "readTime": "7 min read",
@@ -4384,7 +4384,7 @@
         "answer": "Yes. Modern Let's Encrypt certificates provide the exact same 256-bit TLS encryption as expensive commercial certificates and are fully recognized by Google and major browsers."
       }
     ],
-    "serp_title": "Best WordPress Hosting 2026: LiteSpeed vs Nginx & TTFB"
+    "serp_title": "Best WordPress Hosting 2026: LiteSpeed vs Nginx"
   },
   {
     "id": "best-laptop-video-editing-2026-budget-pro",
@@ -4491,7 +4491,7 @@
         "answer": "While PCIe 5.0 offers maximum futureproofing throughput, modern graphics cards and accelerators maintain over 97% of maximum performance across high-speed PCIe 4.0 x16 interfaces."
       }
     ],
-    "serp_title": "Recover Corrupted NVMe SSD Files in Windows 11 (Safe Flow)"
+    "serp_title": "Recover Corrupted NVMe SSD Files (Windows 11)"
   },
   {
     "id": "best-cheap-cloud-vps-hosting-developers-ai-2026",
@@ -4604,7 +4604,7 @@
         "a": "Occasionally yes, because games frequently write save files into the Documents folder. You can safely whitelist trusted game executables via Windows Security > Virus & threat protection > Ransomware protection > Allow an app through Controlled folder access."
       }
     ],
-    "serp_title": "Free Ransomware Protection for Windows 11: 5 Best Tools"
+    "serp_title": "Free Ransomware Protection Windows 11: 5 Best Tools"
   },
   {
     "id": "windows-11-slow-after-update-fix-2026",
@@ -4638,7 +4638,7 @@
         "answer": "Yes. Modifying Windows services, clearing Winsock catalogs, and repairing bootloader BCD stores requires running Terminal or Command Prompt as an administrator."
       }
     ],
-    "serp_title": "Windows 11 Slow After Update? 7 Safe Fixes (DISM & Cache)"
+    "serp_title": "Windows 11 Slow After Update? 7 Safe Fixes (2026)"
   },
   {
     "id": "how-to-disable-vbs-windows-11-gaming-performance",
