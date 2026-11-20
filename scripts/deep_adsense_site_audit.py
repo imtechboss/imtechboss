@@ -137,8 +137,8 @@ def run_deep_audit():
 
         # Check H: Author & Metadata
         raw_author = author if isinstance(author, str) else (author.get('name', '') if isinstance(author, dict) else '')
-        if raw_author != 'Tech Boss':
-            schema_issues.append((pid, f"Author name is '{raw_author}', expected 'Tech Boss'"))
+        if raw_author not in ('Binod Bhatt', 'Tech Boss'):
+            schema_issues.append((pid, f"Author name is '{raw_author}', expected 'Binod Bhatt'"))
 
         # Check I: Static Folder & index.html Existence
         static_dir = os.path.join(ROOT_DIR, pid)
