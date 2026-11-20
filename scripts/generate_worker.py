@@ -343,7 +343,7 @@ export default {{
                   <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 line-clamp-2">${{se}}</p>
                 </div>
                 <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-between items-center text-xs">
-                  <span class="font-semibold text-gray-700 dark:text-gray-300">Tech Boss</span>
+                  <span class="font-semibold text-gray-700 dark:text-gray-300">Binod Bhatt</span>
                   <a href="/${{encodeURIComponent(a.id)}}/" class="font-bold text-blue-600 hover:underline">Read Article &rarr;</a>
                 </div>
               </div>
@@ -361,7 +361,7 @@ export default {{
                     <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-blue-600 text-white w-max mb-3">${{hero.category || 'Featured'}}</span>
                     <h1 class="text-xl sm:text-2xl md:text-3xl font-bold font-serif-heading leading-tight mb-2">${{heroTitle}}</h1>
                     <p class="text-xs sm:text-sm text-gray-300 line-clamp-2 mb-4 leading-relaxed">${{heroDesc}}</p>
-                    <div class="text-xs text-gray-400">By Tech Boss &bull; ${{hero.date || 'Recent'}}</div>
+                    <div class="text-xs text-gray-400">By Binod Bhatt &bull; ${{hero.date || 'Recent'}}</div>
                   </div>
                 </a>
               `, {{ html: true }});

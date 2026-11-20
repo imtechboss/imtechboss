@@ -69,6 +69,8 @@ CORE_AND_TOOL_ROUTES = [
     ("https://imtechboss.com/compare/", "compare/index.html"),
     ("https://imtechboss.com/archive/", "archive/index.html"),
     ("https://imtechboss.com/stories/", "stories/index.html"),
+    ("https://imtechboss.com/nepal/", "nepal/index.html"),
+    ("https://imtechboss.com/author/binod-bhatt/", "author/binod-bhatt/index.html"),
     ("https://imtechboss.com/about/", "about/index.html"),
 ]
 

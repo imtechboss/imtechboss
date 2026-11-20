@@ -31,7 +31,11 @@ def escape(val):
 
 def map_to_cluster(cat):
     c = (cat or '').lower()
-    if any(k in c for k in ['ai', 'frontier', 'llm', 'deepseek', 'gpt', 'model', 'machine learning']):
+    if any(k in c for k in ['nepal']):
+        return 'Nepal Tech, Telecom & Digital Guides'
+    elif any(k in c for k in ['blockchain', 'crypto', 'web3', 'market', 'policy', 'space']):
+        return 'Tech Policy, Blockchain & Frontier Tech'
+    elif any(k in c for k in ['ai', 'frontier', 'llm', 'deepseek', 'gpt', 'model', 'machine learning']):
         return 'Artificial Intelligence & Local LLMs'
     elif any(k in c for k in ['hardware', 'silicon', 'gpu', 'cpu', 'semiconductor', 'components', 'computing']):
         return 'PC Hardware, GPUs & Next-Gen Silicon'
@@ -74,6 +78,16 @@ CLUSTER_METADATA = {
         'icon': '📱',
         'color': 'amber',
         'desc': 'Mobile SoC microarchitectures, battery chemistry innovations, satellite communications, and emerging consumer computing form factors.'
+    },
+    'Nepal Tech, Telecom & Digital Guides': {
+        'icon': '🇳🇵',
+        'color': 'teal',
+        'desc': 'Practical Nepal guides covering laptop & PC pricing in NPR, WorldLink/Vianet/CGNet Wi-Fi mesh, Dollar Cards, foreign IT payments, and local AI.'
+    },
+    'Tech Policy, Blockchain & Frontier Tech': {
+        'icon': '🌐',
+        'color': 'indigo',
+        'desc': 'Coverage of global technology regulation, spaceflight engineering, and blockchain network infrastructure.'
     }
 }
 
@@ -142,7 +156,9 @@ def generate_archive():
         'Windows OS & Software Optimization Guides',
         'Cybersecurity, Privacy & Network Defense',
         'Gaming Hardware, Consoles & Esports',
-        'Mobile Technology, Gadgets & Future Tech'
+        'Mobile Technology, Gadgets & Future Tech',
+        'Nepal Tech, Telecom & Digital Guides',
+        'Tech Policy, Blockchain & Frontier Tech',
     ]
 
     for cl_name in cluster_order:
@@ -179,7 +195,7 @@ def generate_archive():
                 </p>
               </div>
               <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
-                <span class="text-gray-500 dark:text-gray-400 font-medium">Tech Boss &bull; {date}</span>
+                <span class="text-gray-500 dark:text-gray-400 font-medium">Binod Bhatt &bull; {date}</span>
                 <a href="/{pid}/" class="inline-flex items-center gap-1 font-bold text-blue-600 dark:text-blue-400 hover:underline">
                   <span>Read Guide</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -329,7 +345,7 @@ def generate_archive():
         Tech Boss Article Archive
       </h1>
       <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-        Full directory of all {total_articles}+ peer-reviewed hardware benchmarks, deep reasoning AI guides, Windows optimization manuals, and security audits published on Tech Boss.
+        Full directory of all {total_articles}+ independent hardware guides, local AI VRAM sizing benchmarks, Windows troubleshooting manuals, and security audits published on Tech Boss.
       </p>
 
       <!-- Instant Live Filter Box -->

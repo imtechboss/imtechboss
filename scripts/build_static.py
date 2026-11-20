@@ -565,7 +565,7 @@ def render_article_inner_html(article):
             <h4 class="font-bold text-gray-900 dark:text-gray-100 text-sm sm:text-base">Binod Bhatt</h4>
             <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">Lead Technical Editor</span>
           </div>
-          <p class="text-xs text-gray-500 dark:text-gray-400">By <a href="/about/" class="font-bold text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400">Binod Bhatt</a> (Founder & Lead Hardware Editor) • <a href="/about/" class="text-gray-500 hover:underline">Tech Boss</a> • <a href="https://github.com/binodbhatt" target="_blank" rel="author me noopener" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub (@binodbhatt)</a></p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">By <a href="/author/binod-bhatt/" class="font-bold text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400">Binod Bhatt</a> (Founder & Lead Hardware Editor) • <a href="/about/" class="text-gray-500 hover:underline">Tech Boss</a> • <a href="https://github.com/binodbhatt" target="_blank" rel="author me noopener" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub (@binodbhatt)</a></p>
         </div>
       </div>
 
@@ -793,8 +793,9 @@ def generate_schema_json(article, canonical_url, schema_faqs):
                     "@type": "Person",
                     "name": "Binod Bhatt",
                     "jobTitle": "Lead Systems & Hardware Engineer",
-                    "url": "https://binodbhatt.com.np",
+                    "url": "https://imtechboss.com/author/binod-bhatt/",
                     "sameAs": [
+                        "https://imtechboss.com/author/binod-bhatt/",
                         "https://binodbhatt.com.np",
                         "https://github.com/binodbhatt"
                     ],
@@ -1049,6 +1050,13 @@ def update_homepage_prerender(articles):
     if not os.path.exists(index_path) or not articles:
         return
 
+    def fmt_display_date(d_str):
+        iso = format_iso_date(d_str)
+        try:
+            return datetime.strptime(iso, '%Y-%m-%d').strftime('%b %d, %Y')
+        except Exception:
+            return str(d_str or 'Recent')
+
     featured = articles[0]
     trending = articles[1:4]
     grid_posts = articles[:24]
@@ -1090,11 +1098,11 @@ def update_homepage_prerender(articles):
               <div class="flex items-center justify-between pt-2">
                 <div class="flex items-center gap-3">
                   <div class="w-9 h-9 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center ring-2 ring-white/50">
-                    T
+                    BB
                   </div>
                   <div>
-                    <p class="text-xs font-bold">Tech Boss</p>
-                    <p class="text-[10px] text-gray-400">Publisher • {feat_date}</p>
+                    <p class="text-xs font-bold">Binod Bhatt</p>
+                    <p class="text-[10px] text-gray-400">Founder &amp; Editor • {escape(fmt_display_date(feat_date))}</p>
                   </div>
                 </div>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold hover:bg-white/30 transition-colors">
@@ -1112,7 +1120,7 @@ def update_homepage_prerender(articles):
         tid = escape(art['id'])
         ttitle = escape(art['title'])
         tcat = escape(art.get('category') or 'General')
-        tdate = escape(art.get('date') or 'Recent')
+        tdate = escape(fmt_display_date(art.get('date') or ''))
         trending_items.append(f'''<a 
               href="/{tid}/" 
               class="group flex gap-3 p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200/70 dark:border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer" 
@@ -1128,7 +1136,7 @@ def update_homepage_prerender(articles):
                 <h3 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mt-0.5">
                   {ttitle}
                 </h3>
-                <span class="text-[10px] text-gray-400 block mt-1">Tech Boss • {tdate}</span>
+                <span class="text-[10px] text-gray-400 block mt-1">Binod Bhatt • {tdate}</span>
               </div>
             </a>''')
     trending_html = "\n            ".join(trending_items)
@@ -1139,7 +1147,7 @@ def update_homepage_prerender(articles):
         gtitle = escape(art['title'])
         gdesc = escape(art.get('excerpt') or art.get('summary') or '')
         gcat = escape(art.get('category') or 'General')
-        gdate = escape(art.get('date') or 'Recent')
+        gdate = escape(fmt_display_date(art.get('date') or ''))
         gread = escape(art.get('readTime') or '4 min read')
         gimg = art.get('image') or 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'
 
@@ -1177,9 +1185,9 @@ def update_homepage_prerender(articles):
                 <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between">
                   <div class="flex items-center gap-2">
                     <div class="w-6 h-6 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center">
-                      T
+                      BB
                     </div>
-                    <span class="text-xs text-gray-600 dark:text-gray-300 font-medium">Tech Boss</span>
+                    <span class="text-xs text-gray-600 dark:text-gray-300 font-medium">Binod Bhatt</span>
                   </div>
                   <a href="/{gid}/" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
                     <span>Read</span>
