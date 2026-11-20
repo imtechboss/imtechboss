@@ -1051,11 +1051,13 @@ def update_homepage_prerender(articles):
         return
 
     def fmt_display_date(d_str):
-        iso = format_iso_date(d_str)
+        s = str(d_str or '').strip()
         try:
-            return datetime.strptime(iso, '%Y-%m-%d').strftime('%b %d, %Y')
+            if re.match(r'^\d{4}-\d{2}-\d{2}$', s):
+                return datetime.strptime(s, '%Y-%m-%d').strftime('%b %d, %Y')
+            return datetime.strptime(s.replace(',', ''), '%B %d %Y').strftime('%b %d, %Y')
         except Exception:
-            return str(d_str or 'Recent')
+            return s or 'Recent'
 
     featured = articles[0]
     trending = articles[1:4]

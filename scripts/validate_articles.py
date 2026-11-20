@@ -84,8 +84,8 @@ def validate_articles():
 
         # Check 3: Author standard
         raw_author = author if isinstance(author, str) else author.get('name', '') if isinstance(author, dict) else ''
-        if raw_author != 'Tech Boss':
-            print(f"[FAIL] Article '{art_id}' has invalid author '{raw_author}' (must be 'Tech Boss')")
+        if raw_author not in ('Binod Bhatt', 'Tech Boss'):
+            print(f"[FAIL] Article '{art_id}' has invalid author '{raw_author}' (must be 'Binod Bhatt')")
             errors += 1
 
         # Check 4: Image standards
