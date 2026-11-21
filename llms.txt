@@ -1,0 +1,38 @@
+# Tech Boss (imtechboss.com) — AI Architecture, PC Hardware, Cybersecurity & Nepal Tech
+
+> Official technology publication and engineering utility hub authored by Binod Bhatt (https://imtechboss.com). Covers frontier AI models, local LLM deployment (Ollama, LM Studio, GGUF quantization), PC hardware & GPU benchmarks, Windows 11 & Linux engineering fixes, cybersecurity defense, and Nepal-specific developer & hardware guides.
+
+## 17 Interactive Engineering & AI Tools
+- [Tech Boss Tools Hub](https://imtechboss.com/tools/): All browser-based calculators and developer utilities.
+- [LLM VRAM Calculator](https://imtechboss.com/tools/llm-vram-calculator/): Compute exact GPU VRAM needs across 4-bit/8-bit/FP16 quantizations and context windows.
+- [Dual-GPU VRAM Split Calculator](https://imtechboss.com/tools/dual-gpu-vram-split-calculator/): Split multi-GPU model layers and PCIe overhead cleanly.
+- [Ollama Command Generator](https://imtechboss.com/tools/ollama-command-generator/): Build ready-to-run local AI commands and Modelfiles.
+- [Local AI Electricity Cost Calculator](https://imtechboss.com/tools/local-ai-electricity-cost-calculator/): Estimate power draw and cost for self-hosted LLM rigs.
+- [PC Bottleneck Calculator](https://imtechboss.com/tools/pc-bottleneck-calculator/): Analyze CPU/GPU balance across 1080p, 1440p, and 4K targets.
+- [PC Power Supply (PSU) Calculator](https://imtechboss.com/tools/pc-power-supply-calculator/): Size ATX 3.1 / 12V-2x6 power supplies safely.
+- [Can My PC Run It Checker](https://imtechboss.com/tools/can-my-pc-run-it/): Match hardware specs against modern PC game requirements.
+- [GPU Matcher Quiz](https://imtechboss.com/tools/gpu-matcher-quiz/): Interactive GPU selection helper by workload and budget.
+- [SSD NVMe PCIe Speed Calculator](https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/): Compare Gen 3, Gen 4, and Gen 5 real sequential throughput.
+- [Monitor PPI & Viewing Distance Calculator](https://imtechboss.com/tools/monitor-ppi-viewing-distance-calculator/): Calculate retina clarity distance and pixel density.
+- [AI Prompt Studio](https://imtechboss.com/tools/ai-prompt-studio/) & [JSON / JWT / Cron Dev Toolkit](https://imtechboss.com/tools/json-jwt-cron-dev-toolkit/).
+- [Windows BSOD Error Code Lookup](https://imtechboss.com/tools/windows-bsod-error-code-lookup/) & [Developer Cheat Sheets](https://imtechboss.com/tools/developer-cheat-sheets/).
+- [Nepal Laptop Budget Finder](https://imtechboss.com/tools/nepal-laptop-budget-finder/) & [Nepal ISP Router Mesh Advisor](https://imtechboss.com/tools/nepal-isp-router-mesh-advisor/).
+
+## Key Topics & Featured Coverage (177+ Articles)
+- [Nepal Tech Hub](https://imtechboss.com/nepal/): Hardware prices in NPR, Dollar Card limits, ISP ping fixes, and local dev tax guides.
+- [Best Laptops Under 1 Lakh NPR in Nepal (2026)](https://imtechboss.com/best-laptops-under-1-lakh-npr-nepal-2026-coding-csit-guide/)
+- [Best Gaming & Local AI PC Build in Nepal (2026)](https://imtechboss.com/best-gaming-local-ai-pc-build-nepal-2026-budget-guide/)
+- [Dollar Card in Nepal (2026): Bank Fees & Limits for ChatGPT, Claude, AWS](https://imtechboss.com/dollar-card-nepal-2026-chatgpt-claude-aws-bank-fees-guide/)
+- [How Nepali Developers Receive International Payments (2026)](https://imtechboss.com/nepali-developers-international-payments-wise-payoneer-swift-2026/)
+- [Run Local AI (Ollama) on Budget Gaming Laptops in Nepal](https://imtechboss.com/run-local-ai-ollama-budget-gaming-laptop-nepal-rtx-3050-4050-4060/)
+- [How Much VRAM for Local LLMs in 2026 (GGUF Benchmarks)](https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/)
+- [LM Studio Tutorial 2026 (Windows & Mac)](https://imtechboss.com/lm-studio-tutorial-complete-guide-2026/)
+- [Windows 11 Slow After Update: 7 Tested Fixes](https://imtechboss.com/windows-11-slow-after-update-fix-2026/)
+- [Hardware & Software Comparisons](https://imtechboss.com/compare/)
+- [Web Stories](https://imtechboss.com/stories/)
+
+## Sitemaps, Feeds & Author
+- [About Binod Bhatt & Editorial Standards](https://imtechboss.com/about/)
+- [Full Article Archive](https://imtechboss.com/archive/)
+- [XML Sitemap](https://imtechboss.com/sitemap.xml)
+- [RSS Feed](https://imtechboss.com/feed.xml)
