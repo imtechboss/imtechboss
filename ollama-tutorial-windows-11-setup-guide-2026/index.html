@@ -393,7 +393,7 @@
       <div class="flex items-center gap-3 text-gray-500 dark:text-gray-400" data-nosnippet="" aria-hidden="true">
         <span>📅 2026-09-20</span>
         <span>•</span>
-        <span>⏱️ 4 min read</span>
+        <span>⏱️ 5 min read</span>
       </div>
     </div>
 
@@ -476,7 +476,7 @@
             <span class="text-xs font-bold text-gray-900 dark:text-white">Listen to Article</span>
             <span class="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 uppercase">AI Audio</span>
           </div>
-          <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~4 min read</p>
+          <p id="audioStatusText" class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Click to play narration • ~5 min read</p>
         </div>
       </div>
       <div class="flex items-center gap-2" data-nosnippet="" aria-hidden="true">
@@ -576,6 +576,12 @@
           <span class="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0">06.</span>
           <a href="#section-6-ollama-environment-variables-windows-configurati" class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:underline">
             Ollama Environment Variables (Windows Configuration)
+          </a>
+        </li>
+<li class="flex items-start gap-2.5">
+          <span class="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0">07.</span>
+          <a href="#section-7-ollama-how-to-delete-unload-update-models-gpu-do" class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:underline">
+            Ollama How to Delete, Unload &amp; Update Models + GPU Docker Offloading
           </a>
         </li>
         </ol>
@@ -718,7 +724,14 @@ setx OLLAMA_HOST "0.0.0.0:11434"</code></pre>
     <li class="flex items-start gap-2"><span class="text-cyan-400 font-bold select-none">➔</span> <a href="https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/" class="text-slate-200 hover:text-cyan-300 font-medium underline underline-offset-2 transition-colors">How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B & 70B GGUF Sizing Guide)</a></li>
   </ul>
 </div>
-
+<h2 id="section-7-ollama-how-to-delete-unload-update-models-gpu-do">Ollama How to Delete, Unload &amp; Update Models + GPU Docker Offloading</h2>
+<p>Use these essential daily Ollama CLI commands to free SSD storage, release locked GPU VRAM immediately, or run Ollama inside Docker with NVIDIA GPU acceleration:</p>
+<ul>
+<li><strong>Ollama How to Delete / Remove a Model:</strong> Run <code>ollama list</code> to view installed tags, then run <code>ollama rm modelname:tag</code> to free disk space.</li>
+<li><strong>Ollama How to Unload Model from GPU VRAM Immediately:</strong> Run <code>ollama stop modelname:tag</code> or pass <code>--keepalive 0</code> so Ollama releases all GDDR6/GDDR6X VRAM back to Windows 11 right away.</li>
+<li><strong>Ollama How to Update Models &amp; Engine:</strong> Re-run <code>ollama pull modelname:tag</code> to fetch updated weights, and run <code>ollama --version</code> after updating the Windows/Linux binary.</li>
+<li><strong>Ollama GPU Docker &amp; VRAM Offloading:</strong> Launch Docker with <code>docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</code> and tune layer offloading with our <a href="/tools/ollama-command-generator/">Ollama Command &amp; Modelfile Generator</a>.</li>
+</ul>
     </div>
 
     <!-- Google FAQ Accordion & People Also Ask Section -->
