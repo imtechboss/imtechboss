@@ -70,7 +70,7 @@ Whenever a new article is created or published, follow these steps strictly in t
   - Banned words: *delve, landscape, pivotal, testament, game-changer, in conclusion, tapestries, realm, beacon, seamlessly*.
 - **Tone:** Authoritative, direct, fast-paced technical journalism.
 - **Language:** English for article content; Romanized Nepali for communication with the publisher (Binod Bhatt).
-- **Author:** Always `"Tech Boss"`.
+- **Author:** Always `"Binod Bhatt"` (linking to `/author/binod-bhatt/`).
 
 ---
 
@@ -133,3 +133,15 @@ Whenever a new article is created or published, follow these steps strictly in t
 ## 12. Single Source of Truth & Zero One-Off Scripts
 - **Unified Data Stores:** `posts.json` and `js/data.js` must remain in 100% synchronization at all times.
 - **No Standalone Publishing Scripts:** Never create or run isolated one-off publishing scripts that bypass `scripts/publish_pipeline.py` and `scripts/build_static.py`. All updates must flow through the standardized pipeline.
+
+---
+
+## 13. Mobile Apps (BR Patro) Mandatory Release & Auto-Push Protocol
+Whenever a new version of BR Patro is built (`build.bat` or `bump_version.bat`):
+- **Automated Pipeline Step [5/5]:** `build.bat` must automatically run `scripts/auto_push_release.py`.
+- **GitHub Release Automation:** Creates/updates GitHub release tag `v<versionName>` and uploads the signed release APK to `imtechboss/imtechboss`.
+- **Website Download Portal & Promo Banner Sync (Mandatory & Automatic):** Automatically updates `brbhatta.com` (`src/app/patro/page.tsx`, `src/components/InteractiveOnlinePatro.tsx`, `src/components/PatroAppPromoBanner.tsx`, `src/data/articles.ts`, `public/api/patro-broadcast.json`, `npm run build` -> `out/`) and `binodbhatt.com.np/patro/index.html` without asking for confirmation, and runs `verify_website_versions()` to confirm zero stale version strings remain.
+- **Cloudflare Edge Deployment:** Runs `deploy_pages.ps1` to deploy `brbhatta.com` immediately to Cloudflare Pages edge and deploys `binodbhatt.com.np` (`binodbhatt-portal`).
+- **Git Push:** Commits and pushes the website portal to GitHub `main`.
+- **Zero Stale Versions Rule:** Never build or release a new APK version without immediately syncing `/patro`, all promo banners, `articles.ts`, and mirrors and deploying to production.
+

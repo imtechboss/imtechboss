@@ -26,3 +26,6 @@ Blogger/
 scratch/
 __pycache__/
 *.pyc
+google index.json
+check_imtechboss_gsc.js
+*.bat
