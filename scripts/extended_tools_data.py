@@ -808,6 +808,620 @@ EXTENDED_TOOLS = [
         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">The cleanest fix in Nepal is running one affordable Cat6 cable from the main ONT LAN port to a secondary Wi-Fi 6 router placed upstairs in <strong>Access Point (AP) mode</strong>. See our full <a href="/worldlink-vianet-cgnet-router-wifi-mesh-gaming-ping-fix-nepal/" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">WorldLink, Vianet &amp; CGNet Router Optimization Guide</a>.</p>
         """
     },
+    {
+        "slug": "nepal-land-area-converter",
+        "icon": "📐",
+        "badge": "Nepal Land & Cadastral Math",
+        "h1": "Nepal Land Area Converter (Ropani-Aana & Bigha-Kattha)",
+        "title": "Nepal Land Area Converter: Ropani-Aana-Paisa & Bigha-Kattha (2026) — Tech Boss",
+        "description": "Convert Nepal land units accurately between Ropani-Aana-Paisa-Daam, Bigha-Kattha-Dhur, Square Feet, Square Meter, and estimate NPR land valuation.",
+        "capsule_title": "Standard Nepal Survey Conversion",
+        "capsule_text": "1 Ropani equals 16 Aana (5,476 sq. ft / 508.74 sq. m) and 1 Aana equals 4 Paisa (342.25 sq. ft). In the Terai system, 1 Bigha equals 20 Kattha (72,900 sq. ft) and 1 Kattha equals 20 Dhur (3,645 sq. ft). Enter any measurement below for instant conversion and NPR valuation.",
+        "tool_html": """
+        <section id="nepalLandTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Input Unit System</label>
+              <select id="landInputMode" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="ropani" selected>Hill System (Ropani - Aana - Paisa - Daam)</option>
+                <option value="bigha">Terai System (Bigha - Kattha - Dhur)</option>
+                <option value="sqft">Square Feet (Sq. Ft)</option>
+                <option value="sqm">Square Meter (Sq. m — Mero Kitta)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Optional Price per Aana or Kattha (NPR)</label>
+              <input id="landRateNpr" type="number" min="0" step="10000" placeholder="e.g. 3500000 (Rs. 35 Lakh)" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white" />
+            </div>
+          </div>
+
+          <div id="landRopaniInputs" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">Ropani</label><input id="inRopani" type="number" min="0" step="any" value="0" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">Aana</label><input id="inAana" type="number" min="0" step="any" value="4" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">Paisa</label><input id="inPaisa" type="number" min="0" step="any" value="0" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">Daam</label><input id="inDaam" type="number" min="0" step="any" value="0" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+          </div>
+
+          <div id="landBighaInputs" class="hidden grid grid-cols-3 gap-3 mb-5">
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">Bigha</label><input id="inBigha" type="number" min="0" step="any" value="0" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">Kattha</label><input id="inKattha" type="number" min="0" step="any" value="1" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">Dhur</label><input id="inDhur" type="number" min="0" step="any" value="0" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+          </div>
+
+          <div id="landFlatInput" class="hidden mb-5">
+            <label id="landFlatLabel" class="block text-[11px] font-bold text-gray-500 mb-1">Area Value</label>
+            <input id="inFlatArea" type="number" min="0" step="any" value="1369" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+          </div>
+
+          <button id="calcNepalLandBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition-colors">
+            📐 Convert Land Area &amp; Calculate Valuation
+          </button>
+          <div id="nepalLandResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const modeSel = document.getElementById('landInputMode');
+          const ropDiv = document.getElementById('landRopaniInputs');
+          const bigDiv = document.getElementById('landBighaInputs');
+          const flatDiv = document.getElementById('landFlatInput');
+          const flatLbl = document.getElementById('landFlatLabel');
+          const btn = document.getElementById('calcNepalLandBtn');
+          const box = document.getElementById('nepalLandResultBox');
+          if (!modeSel || !btn || !box) return;
+
+          const SQFT_PER_ROPANI = 5476;
+          const SQFT_PER_AANA = 342.25;
+          const SQFT_PER_PAISA = 85.5625;
+          const SQFT_PER_DAAM = 21.390625;
+          const SQFT_PER_BIGHA = 72900;
+          const SQFT_PER_KATTHA = 3645;
+          const SQFT_PER_DHUR = 182.25;
+          const SQM_TO_SQFT = 10.7639104167;
+
+          modeSel.addEventListener('change', () => {
+            const m = modeSel.value;
+            ropDiv.classList.toggle('hidden', m !== 'ropani');
+            bigDiv.classList.toggle('hidden', m !== 'bigha');
+            flatDiv.classList.toggle('hidden', m !== 'sqft' && m !== 'sqm');
+            if (m === 'sqft') flatLbl.textContent = 'Area in Square Feet (Sq. Ft)';
+            if (m === 'sqm') flatLbl.textContent = 'Area in Square Meters (Sq. m — Mero Kitta / Lalpurja)';
+          });
+
+          btn.addEventListener('click', () => {
+            const m = modeSel.value;
+            let sqft = 0;
+            if (m === 'ropani') {
+              const r = parseFloat(document.getElementById('inRopani').value) || 0;
+              const a = parseFloat(document.getElementById('inAana').value) || 0;
+              const p = parseFloat(document.getElementById('inPaisa').value) || 0;
+              const d = parseFloat(document.getElementById('inDaam').value) || 0;
+              sqft = r * SQFT_PER_ROPANI + a * SQFT_PER_AANA + p * SQFT_PER_PAISA + d * SQFT_PER_DAAM;
+            } else if (m === 'bigha') {
+              const b = parseFloat(document.getElementById('inBigha').value) || 0;
+              const k = parseFloat(document.getElementById('inKattha').value) || 0;
+              const dh = parseFloat(document.getElementById('inDhur').value) || 0;
+              sqft = b * SQFT_PER_BIGHA + k * SQFT_PER_KATTHA + dh * SQFT_PER_DHUR;
+            } else if (m === 'sqft') {
+              sqft = parseFloat(document.getElementById('inFlatArea').value) || 0;
+            } else {
+              sqft = (parseFloat(document.getElementById('inFlatArea').value) || 0) * SQM_TO_SQFT;
+            }
+
+            const sqm = sqft / SQM_TO_SQFT;
+            const totalAana = sqft / SQFT_PER_AANA;
+            const totalKattha = sqft / SQFT_PER_KATTHA;
+
+            // R-A-P-D breakdown
+            let rem = sqft;
+            const rop = Math.floor(rem / SQFT_PER_ROPANI); rem -= rop * SQFT_PER_ROPANI;
+            const aan = Math.floor(rem / SQFT_PER_AANA); rem -= aan * SQFT_PER_AANA;
+            const pai = Math.floor(rem / SQFT_PER_PAISA); rem -= pai * SQFT_PER_PAISA;
+            const daa = (rem / SQFT_PER_DAAM).toFixed(2);
+
+            // B-K-D breakdown
+            let remB = sqft;
+            const big = Math.floor(remB / SQFT_PER_BIGHA); remB -= big * SQFT_PER_BIGHA;
+            const kat = Math.floor(remB / SQFT_PER_KATTHA); remB -= kat * SQFT_PER_KATTHA;
+            const dhu = (remB / SQFT_PER_DHUR).toFixed(2);
+
+            const rate = parseFloat(document.getElementById('landRateNpr').value) || 0;
+            let valHtml = '';
+            if (rate > 0) {
+              const units = m === 'bigha' ? totalKattha : totalAana;
+              const unitName = m === 'bigha' ? 'Kattha' : 'Aana';
+              const totalNpr = Math.round(units * rate);
+              const crores = (totalNpr / 10000000).toFixed(2);
+              const lakhs = (totalNpr / 100000).toFixed(2);
+              valHtml = `<div class="mt-3 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-300"><strong>Estimated Valuation (@ Rs. ${rate.toLocaleString()} / ${unitName}):</strong> Rs. ${totalNpr.toLocaleString()} (~Rs. ${lakhs} Lakh / Rs. ${crores} Crore)</div>`;
+            }
+
+            box.innerHTML = `
+              <h3 class="text-base font-extrabold text-emerald-700 dark:text-emerald-400 mb-3">Exact Nepal Cadastral Conversion</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-3">
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700">
+                  <span class="text-gray-500 block">Hill System (R-A-P-D)</span>
+                  <strong class="text-sm text-gray-900 dark:text-white">${rop} Ropani, ${aan} Aana, ${pai} Paisa, ${daa} Daam</strong>
+                  <div class="text-[11px] text-gray-500 mt-1">Total: ${totalAana.toFixed(3)} Aana</div>
+                </div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700">
+                  <span class="text-gray-500 block">Terai System (B-K-D)</span>
+                  <strong class="text-sm text-gray-900 dark:text-white">${big} Bigha, ${kat} Kattha, ${dhu} Dhur</strong>
+                  <div class="text-[11px] text-gray-500 mt-1">Total: ${totalKattha.toFixed(3)} Kattha</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                <div class="p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Square Feet</span><strong>${sqft.toFixed(2)} sq.ft</strong></div>
+                <div class="p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Square Meter</span><strong>${sqm.toFixed(2)} sq.m</strong></div>
+                <div class="p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Hectare / Acre</span><strong>${(sqm/10000).toFixed(4)} ha</strong></div>
+              </div>
+              ${valHtml}
+              <div class="mt-3 flex flex-wrap gap-4 text-xs">
+                <a href="/mero-kitta-nagarik-app-driving-license-online-form-nepal-guide-2026/" class="font-bold text-blue-600 dark:text-blue-400 hover:underline">Check Mero Kitta Online Map Guide &rarr;</a>
+                <a href="/land-solution-nepal-cadastral-calculator/" class="font-bold text-emerald-600 dark:text-emerald-400 hover:underline">Land Solution Cadastral Kitta-Kaat Software &rarr;</a>
+              </div>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        """,
+        "guide_title": "Understanding Ropani-Aana vs Bigha-Kattha & Mero Kitta Sq. Meter Values",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">On official Nepali Lalpurja and <a href="/mero-kitta-nagarik-app-driving-license-online-form-nepal-guide-2026/" class="text-blue-600 underline font-semibold">Mero Kitta</a> records, land area is often stored in square meters (sq. m) or R-A-P-D / B-K-D notation. One Ropani equals 508.74 sq. m (5,476 sq. ft), while one Kattha equals 338.63 sq. m (3,645 sq. ft).</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">For multi-parcel subdivision (Kitta Kaat) and irregular plot area geometry, explore <a href="/land-solution-nepal-cadastral-calculator/" class="text-blue-600 underline font-semibold">Land Solution Nepal Cadastral Software</a>.</p>
+        """
+    },
+    {
+        "slug": "nepal-salary-tax-ssf-calculator",
+        "icon": "💰",
+        "badge": "Nepal Income Tax & Payroll",
+        "h1": "Nepal Salary Tax, SSF & 5% IT Export Calculator (FY 2082/83)",
+        "title": "Nepal Salary Tax & SSF Calculator 2026 (Single/Married + 5% IT Tax) — Tech Boss",
+        "description": "Calculate annual & monthly Nepal income tax (Single vs Married slabs), 1% SST, SSF/PF/CIT deductions, net take-home NPR salary, and 5% foreign IT export tax.",
+        "capsule_title": "Nepal Tax Slabs & 5% IT Export Rule",
+        "capsule_text": "Salaried individuals in Nepal pay 1% Social Security Tax (SST) on the first Rs. 5,00,000 (Single) or Rs. 6,00,000 (Married), followed by progressive 10%, 20%, 30%, 36%, and 39% slabs. Registered SSF contributors are exempt from the 1% SST on the base slab. Foreign software/IT export remittances remain eligible for 5% final withholding tax.",
+        "tool_html": """
+        <section id="nepalTaxTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Monthly Gross Salary (NPR)</label>
+              <input id="taxMonthlySalary" type="number" min="0" step="1000" value="100000" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Annual Bonus / Festival Months</label>
+              <select id="taxSalaryMonths" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="12">12 Months (No Dashain Bonus)</option>
+                <option value="13" selected>13 Months (Incl. 1-Month Dashain Bonus)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Assessment Status</label>
+              <select id="taxMaritalStatus" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="single" selected>Single (Unmarried — Rs. 5L Base)</option>
+                <option value="married">Couple / Married (Rs. 6L Base)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">SSF / PF Deduction</label>
+              <select id="taxSsfMode" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="none">No SSF / PF (Standard 1% SST)</option>
+                <option value="ssf" selected>Enrolled in SSF (11% Employee on 60% Basic, 0% SST)</option>
+                <option value="pf10">EPF / CIT (10% Employee Deduction)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Annual Insurance Deduction (NPR)</label>
+              <input id="taxInsurance" type="number" min="0" max="40000" step="1000" value="0" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Income Mode</label>
+              <select id="taxIncomeType" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="local" selected>Domestic Nepal Payroll Salary</option>
+                <option value="it_export">Remote Foreign IT Export (5% Final TDS)</option>
+              </select>
+            </div>
+          </div>
+          <button id="calcNepalTaxBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow transition-colors">
+            💰 Calculate Annual &amp; Monthly Nepal Tax
+          </button>
+          <div id="nepalTaxResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const btn = document.getElementById('calcNepalTaxBtn');
+          const box = document.getElementById('nepalTaxResultBox');
+          if (!btn || !box) return;
+
+          btn.addEventListener('click', () => {
+            const monthly = parseFloat(document.getElementById('taxMonthlySalary').value) || 0;
+            const months = parseInt(document.getElementById('taxSalaryMonths').value, 10);
+            const marital = document.getElementById('taxMaritalStatus').value;
+            const ssfMode = document.getElementById('taxSsfMode').value;
+            const ins = Math.min(40000, parseFloat(document.getElementById('taxInsurance').value) || 0);
+            const incType = document.getElementById('taxIncomeType').value;
+
+            const annualGross = monthly * months;
+            if (incType === 'it_export') {
+              const tax5 = Math.round(annualGross * 0.05);
+              const netYear = annualGross - tax5;
+              const netMonth = Math.round(netYear / 12);
+              box.innerHTML = `
+                <h3 class="text-base font-extrabold text-emerald-700 dark:text-emerald-400 mb-3">Foreign IT Service Export (5% Final Withholding Tax)</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mb-3">
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Annual Gross</span><strong class="text-sm">Rs. ${Math.round(annualGross).toLocaleString()}</strong></div>
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">5% Final IT Tax</span><strong class="text-sm text-rose-600">Rs. ${tax5.toLocaleString()}</strong></div>
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Monthly Net Take-Home</span><strong class="text-sm text-emerald-600">Rs. ${netMonth.toLocaleString()}</strong></div>
+                </div>
+                <p class="text-xs text-gray-600 dark:text-gray-300 mb-2">Under Nepal's IT export tax rules, commercial banks deduct 5% final TDS upon receiving convertible foreign currency via SWIFT/Wise with clear software invoice remarks.</p>
+                <a href="/nepali-developers-international-payments-wise-payoneer-swift-2026/" class="text-xs font-bold text-blue-600 hover:underline">Read Nepali Developer International Payments &amp; 5% Tax Guide &rarr;</a>
+              `;
+              box.classList.remove('hidden');
+              return;
+            }
+
+            let annualFund = 0;
+            if (ssfMode === 'ssf') annualFund = Math.round((monthly * 0.60) * 0.11 * 12);
+            else if (ssfMode === 'pf10') annualFund = Math.round((monthly * 0.60) * 0.10 * 12);
+            const fundDeductible = Math.min(annualFund, annualGross / 3, 500000);
+            const taxable = Math.max(0, annualGross - fundDeductible - ins);
+
+            const baseSlab = marital === 'married' ? 600000 : 500000;
+            let rem = taxable;
+            let tax = 0;
+            const breakdown = [];
+
+            const s1 = Math.min(rem, baseSlab);
+            const r1 = ssfMode === 'ssf' ? 0 : 0.01;
+            const t1 = s1 * r1;
+            tax += t1; rem -= s1;
+            breakdown.push(`Slab 1 (${(r1*100).toFixed(0)}% on Rs. ${Math.round(s1).toLocaleString()}): Rs. ${Math.round(t1).toLocaleString()}`);
+
+            const brackets = [
+              [200000, 0.10, '10%'],
+              [300000, 0.20, '20%'],
+              [1000000, 0.30, '30%'],
+              [3000000, 0.36, '36%'],
+              [Infinity, 0.39, '39%']
+            ];
+            for (const [cap, rate, lbl] of brackets) {
+              if (rem <= 0) break;
+              const chunk = Math.min(rem, cap);
+              const t = chunk * rate;
+              tax += t; rem -= chunk;
+              breakdown.push(`${lbl} on Rs. ${Math.round(chunk).toLocaleString()}: Rs. ${Math.round(t).toLocaleString()}`);
+            }
+
+            const annualTax = Math.round(tax);
+            const monthlyTax = Math.round(annualTax / 12);
+            const monthlyFund = Math.round(annualFund / 12);
+            const monthlyInHand = Math.round((annualGross - annualTax - annualFund) / months);
+
+            box.innerHTML = `
+              <h3 class="text-base font-extrabold text-blue-700 dark:text-blue-400 mb-3">Nepal Annual &amp; Monthly Payroll Tax Summary</h3>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs mb-3">
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Taxable Income</span><strong>Rs. ${Math.round(taxable).toLocaleString()}</strong></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Annual Tax</span><strong class="text-rose-600">Rs. ${annualTax.toLocaleString()}</strong></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Monthly TDS / Fund</span><strong>Rs. ${monthlyTax.toLocaleString()} / ${monthlyFund.toLocaleString()}</strong></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Est. Monthly Net</span><strong class="text-emerald-600">Rs. ${monthlyInHand.toLocaleString()}</strong></div>
+              </div>
+              <ul class="text-xs text-gray-700 dark:text-gray-300 space-y-1 mb-3">${breakdown.map(b => `<li>• ${b}</li>`).join('')}</ul>
+              <a href="/mero-kitta-nagarik-app-driving-license-online-form-nepal-guide-2026/" class="text-xs font-bold text-blue-600 hover:underline">Need a Personal PAN Card? Check Nagarik App PAN Guide &rarr;</a>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        """,
+        "guide_title": "How Nepal Salary Tax, SSF & 5% IT Export TDS Are Calculated",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">In Nepal, you must hold a Personal PAN number (easily generated via <a href="/mero-kitta-nagarik-app-driving-license-online-form-nepal-guide-2026/" class="text-blue-600 underline font-semibold">Nagarik App</a>) for employer TDS reconciliation or <a href="/nepali-developers-international-payments-wise-payoneer-swift-2026/" class="text-blue-600 underline font-semibold">5% IT Export tax</a> bank certificates.</p>
+        """
+    },
+    {
+        "slug": "nepal-govt-photo-document-compressor",
+        "icon": "🪪",
+        "badge": "Nepal Govt Form Image Resizer",
+        "h1": "Nepal Govt Form Photo & Document Compressor (<100KB / <200KB)",
+        "title": "Nepal Govt Form Photo & Document Size Compressor (<100KB / <200KB) — Tech Boss",
+        "description": "Resize and compress passport photos, signatures, and citizenship scans below 100KB or 200KB locally in your browser for Loksewa, DoTM License, NID, e-Passport, and Mero Kitta.",
+        "capsule_title": "100% Private Browser-Local Compression",
+        "capsule_text": "Nepalese government portals (Loksewa, DoTM Driving License, NID, Mero Kitta, IRD PAN) reject image uploads above 100KB–200KB. This tool shrinks JPG dimensions and file size entirely inside your browser—your citizenship or passport photos never leave your device.",
+        "tool_html": """
+        <section id="nepalCompressTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Portal Preset Target</label>
+              <select id="compPreset" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="100|1000" selected>IRD PAN / Mero Kitta / DoTM License (&lt; 100 KB)</option>
+                <option value="200|1200">Loksewa Document Scan (&lt; 200 KB)</option>
+                <option value="50|450">Loksewa / Exam Passport Photo (&lt; 50 KB, 450px)</option>
+                <option value="30|350">Signature Scan (&lt; 30 KB, 350px)</option>
+                <option value="300|1400">NID / e-Passport High-Clarity Scan (&lt; 300 KB)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Select Image (JPG / PNG / WebP)</label>
+              <input id="compFileInput" type="file" accept="image/*" class="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-xs text-gray-900 dark:text-white" />
+            </div>
+          </div>
+          <button id="compRunBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition-colors">
+            🪪 Compress Image Locally (Zero Upload)
+          </button>
+          <div id="nepalCompResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const btn = document.getElementById('compRunBtn');
+          const fileIn = document.getElementById('compFileInput');
+          const preset = document.getElementById('compPreset');
+          const box = document.getElementById('nepalCompResultBox');
+          if (!btn || !fileIn || !box) return;
+
+          btn.addEventListener('click', () => {
+            const file = fileIn.files && fileIn.files[0];
+            if (!file) {
+              box.innerHTML = '<p class="text-xs font-bold text-rose-600">Please select an image file first.</p>';
+              box.classList.remove('hidden');
+              return;
+            }
+            const [maxKbStr, maxDimStr] = preset.value.split('|');
+            const targetBytes = parseInt(maxKbStr, 10) * 1024;
+            const maxDim = parseInt(maxDimStr, 10);
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              const img = new Image();
+              img.onload = () => {
+                let w = img.width, h = img.height;
+                if (w > maxDim || h > maxDim) {
+                  const ratio = Math.min(maxDim / w, maxDim / h);
+                  w = Math.round(w * ratio);
+                  h = Math.round(h * ratio);
+                }
+                const canvas = document.createElement('canvas');
+                canvas.width = w; canvas.height = h;
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, w, h);
+                ctx.drawImage(img, 0, 0, w, h);
+
+                let q = 0.90;
+                let dataUrl = canvas.toDataURL('image/jpeg', q);
+                const estBytes = (url) => Math.round((url.length - 'data:image/jpeg;base64,'.length) * 0.75);
+                while (estBytes(dataUrl) > targetBytes && q > 0.15) {
+                  q -= 0.07;
+                  dataUrl = canvas.toDataURL('image/jpeg', q);
+                }
+                while (estBytes(dataUrl) > targetBytes && w > 240) {
+                  w = Math.round(w * 0.8); h = Math.round(h * 0.8);
+                  canvas.width = w; canvas.height = h;
+                  ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h);
+                  ctx.drawImage(img, 0, 0, w, h);
+                  dataUrl = canvas.toDataURL('image/jpeg', 0.65);
+                }
+                const finalKb = (estBytes(dataUrl) / 1024).toFixed(1);
+                const origKb = (file.size / 1024).toFixed(1);
+                const dlName = file.name.replace(/\\.[^.]+$/, '') + '-compressed.jpg';
+
+                box.innerHTML = `
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                    <div>
+                      <h3 class="text-sm font-extrabold text-emerald-700 dark:text-emerald-400">Compressed Ready: ${finalKb} KB (from ${origKb} KB)</h3>
+                      <p class="text-xs text-gray-500">Output: ${w} x ${h} px JPEG (100% processed in your browser)</p>
+                    </div>
+                    <a href="${dataUrl}" download="${dlName}" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold text-center">⬇ Download JPG (${finalKb} KB)</a>
+                  </div>
+                  <img src="${dataUrl}" alt="Compressed preview" class="max-h-48 rounded-xl border border-gray-200 dark:border-slate-700" />
+                `;
+                box.classList.remove('hidden');
+              };
+              img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+          });
+        })();
+        """,
+        "guide_title": "Recommended Image Limits for Nepalese Govt Online Portals",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Most Nepal e-governance portals (Loksewa, DoTM Driving License, IRD PAN, NID, and e-Passport) enforce strict JPEG limits between 50KB and 200KB. Use the presets above and follow our <a href="/loksewa-online-application-form-payment-photo-size-fix-nepal-2026/" class="text-blue-600 underline font-semibold">Loksewa Online Form &amp; Upload Guide</a> or <a href="/mero-kitta-nagarik-app-driving-license-online-form-nepal-guide-2026/" class="text-blue-600 underline font-semibold">Mero Kitta &amp; Driving License Guide</a>.</p>
+        """
+    },
+    {
+        "slug": "preeti-to-unicode-nepali-converter",
+        "icon": "अ",
+        "badge": "Nepali Typography Utility",
+        "h1": "Preeti to Unicode Nepali Converter (Instant & Offline)",
+        "title": "Preeti to Unicode Nepali Converter Online (Free & Fast) — Tech Boss",
+        "description": "Convert legacy Preeti font text into clean Nepali Unicode instantly in your browser for government portals, emails, websites, and social media.",
+        "capsule_title": "Instant Preeti-to-Unicode Mapping",
+        "capsule_text": "Paste legacy Preeti text on the left to convert it into standard UTF-8 Nepali Unicode (Devanagari) with proper इकार (ि) placement, half-consonants, and Nepali numerals (०-९). Works 100% offline with 1-click copy.",
+        "tool_html": """
+        <section id="preetiTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Preeti Text Input</label>
+              <textarea id="preetiInput" rows="6" placeholder="e.g. g]kfn /fHo" class="w-full p-3.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white"></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Unicode Nepali Output</label>
+              <textarea id="unicodeOutput" rows="6" readonly placeholder="नेपाल राज्य" class="w-full p-3.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white"></textarea>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <button id="convertPreetiBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm">Convert to Unicode</button>
+            <button id="copyUnicodeBtn" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm">Copy Unicode</button>
+            <button id="clearPreetiBtn" class="px-4 py-2.5 rounded-xl bg-gray-200 dark:bg-slate-800 text-gray-700 dark:text-gray-300 font-bold text-xs sm:text-sm">Clear</button>
+          </div>
+          <p id="preetiStatus" class="hidden mt-3 text-xs font-bold text-emerald-600"></p>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const inp = document.getElementById('preetiInput');
+          const out = document.getElementById('unicodeOutput');
+          const btn = document.getElementById('convertPreetiBtn');
+          const copyBtn = document.getElementById('copyUnicodeBtn');
+          const clrBtn = document.getElementById('clearPreetiBtn');
+          const status = document.getElementById('preetiStatus');
+          if (!inp || !out || !btn) return;
+
+          const map = {
+            'c':'अ','cf':'आ','O':'इ','O{':'ई','p':'उ','pm':'ऊ','C':'ऋ','P':'ए','P]':'ऐ','cf]':'ओ','cf}':'औ',
+            's':'क','v':'ख','u':'ग','3':'घ','ª':'ङ','r':'च','5':'छ','h':'ज','´':'झ','`':'ञ',
+            '6':'ट','7':'ठ','8':'ड','9':'ढ','0f':'ण','t':'त','y':'थ','b':'द','w':'ध','g':'न',
+            'k':'प','km':'फ','a':'ब','e':'भ','d':'म','o':'य','/':'र','n':'ल','j':'व',
+            'z':'श','if':'ष',';':'स','x':'ह','q':'त्र','1':'ज्ञ','If':'क्ष','M':'ः','+':'ं',
+            'f':'ा','l':'ि','L':'ी','\'':'ु','"':'ू','[':'ृ',']':'े','}':'ै','f]':'ो','f}':'ौ',
+            '\\':'्','F':'ँ','S':'क्','V':'ख्','U':'ग','R':'च्','H':'ज्',
+            'T':'त्','Y':'थ्','W':'ध्','G':'न्','K':'प्','A':'ब्','E':'भ्','D':'म्','N':'ल्','J':'व्','Z':'श्',
+            '!':'१','@':'२','#':'३','$':'४','%':'५','^':'६','&':'७','*':'८','(':'९',')':'०',
+            '.':'।',',':',','?':'?'
+          };
+          const multiKeys = ['cf]','cf}','O{','P]','0f','km','If','if','f]','f}'];
+
+          function convert(text) {
+            let res = '';
+            let i = 0;
+            while (i < text.length) {
+              let matched = false;
+              for (const k of multiKeys) {
+                if (text.startsWith(k, i)) { res += map[k]; i += k.length; matched = true; break; }
+              }
+              if (!matched) {
+                const ch = text[i];
+                if (ch === 'l' && i + 1 < text.length) {
+                  // Pre-base i-matra: move after next consonant
+                  let next = text[i + 1];
+                  let mappedNext = map[next] || next;
+                  res += mappedNext + 'ि';
+                  i += 2;
+                } else {
+                  res += (map[ch] !== undefined ? map[ch] : ch);
+                  i++;
+                }
+              }
+            }
+            return res.replace(/([क-ह])्([ािीुूृेैोौ])/g, '$1$2');
+          }
+
+          btn.addEventListener('click', () => { out.value = convert(inp.value); });
+          inp.addEventListener('input', () => { out.value = convert(inp.value); });
+          copyBtn.addEventListener('click', () => {
+            if (!out.value) return;
+            navigator.clipboard.writeText(out.value).then(() => {
+              status.textContent = 'Copied Nepali Unicode to clipboard!';
+              status.classList.remove('hidden');
+              setTimeout(() => status.classList.add('hidden'), 2000);
+            });
+          });
+          clrBtn.addEventListener('click', () => { inp.value = ''; out.value = ''; });
+        })();
+        """,
+        "guide_title": "Why Unicode Is Required on Modern Nepal Websites & Govt Forms",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Legacy Preeti typing only displays correctly on computers with the Preeti TTF font installed. Modern portals like Nagarik App, Mero Kitta, Loksewa, and Google Search require standard UTF-8 Devanagari Unicode.</p>
+        """
+    },
+    {
+        "slug": "nepal-emi-loan-sip-calculator",
+        "icon": "🏦",
+        "badge": "Nepal Banking & SIP Planner",
+        "h1": "Nepal Bank Loan EMI & SIP Calculator (NPR)",
+        "title": "Nepal Home/Auto Loan EMI & SIP Compound Calculator (NPR) — Tech Boss",
+        "description": "Calculate monthly bank loan EMI, total interest in NPR for Nepal home/auto/education loans, or project long-term SIP mutual fund returns.",
+        "capsule_title": "Nepal Bank EMI & SIP Compounding Math",
+        "capsule_text": "Compare reducing-balance bank loan EMIs (NPR) at current Nepalese commercial bank interest rates (8%–14%) or calculate monthly SIP compounding returns before committing to a loan or mutual fund plan.",
+        "tool_html": """
+        <section id="nepalEmiTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Mode</label>
+              <select id="emiMode" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="emi" selected>Bank Loan EMI (NPR)</option>
+                <option value="sip">Monthly SIP Wealth (NPR)</option>
+              </select>
+            </div>
+            <div>
+              <label id="emiAmountLabel" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Loan Principal (NPR)</label>
+              <input id="emiPrincipal" type="number" min="1000" step="10000" value="2500000" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Annual Interest / Return (%)</label>
+              <input id="emiRate" type="number" min="1" max="40" step="0.1" value="10.5" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Tenure (Years)</label>
+              <input id="emiYears" type="number" min="1" max="40" step="1" value="10" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+          </div>
+          <button id="calcEmiBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm shadow transition-colors">
+            🏦 Calculate EMI / SIP Breakdown
+          </button>
+          <div id="nepalEmiResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const modeSel = document.getElementById('emiMode');
+          const lbl = document.getElementById('emiAmountLabel');
+          const prinIn = document.getElementById('emiPrincipal');
+          const btn = document.getElementById('calcEmiBtn');
+          const box = document.getElementById('nepalEmiResultBox');
+          if (!modeSel || !btn || !box) return;
+
+          modeSel.addEventListener('change', () => {
+            if (modeSel.value === 'sip') {
+              lbl.textContent = 'Monthly SIP Deposit (NPR)';
+              prinIn.value = '10000';
+            } else {
+              lbl.textContent = 'Loan Principal (NPR)';
+              prinIn.value = '2500000';
+            }
+          });
+
+          btn.addEventListener('click', () => {
+            const m = modeSel.value;
+            const P = parseFloat(prinIn.value) || 0;
+            const rAnn = parseFloat(document.getElementById('emiRate').value) || 0;
+            const yrs = parseFloat(document.getElementById('emiYears').value) || 1;
+            const n = Math.round(yrs * 12);
+            const r = (rAnn / 100) / 12;
+
+            if (m === 'emi') {
+              const emi = r > 0 ? (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) : P / n;
+              const totalPay = emi * n;
+              const totalInt = totalPay - P;
+              box.innerHTML = `
+                <h3 class="text-base font-extrabold text-amber-700 dark:text-amber-400 mb-3">Nepal Bank Loan EMI Breakdown (${yrs} Years @ ${rAnn}%)</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Monthly EMI</span><strong class="text-lg text-blue-600">Rs. ${Math.round(emi).toLocaleString()}</strong></div>
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Total Interest</span><strong class="text-lg text-rose-600">Rs. ${Math.round(totalInt).toLocaleString()}</strong></div>
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Total Repayment</span><strong class="text-lg text-gray-900 dark:text-white">Rs. ${Math.round(totalPay).toLocaleString()}</strong></div>
+                </div>
+              `;
+            } else {
+              const fv = r > 0 ? P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r) : P * n;
+              const invested = P * n;
+              const gain = fv - invested;
+              box.innerHTML = `
+                <h3 class="text-base font-extrabold text-emerald-700 dark:text-emerald-400 mb-3">Nepal SIP Wealth Projection (${yrs} Years @ ${rAnn}%)</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Total Invested</span><strong class="text-lg">Rs. ${Math.round(invested).toLocaleString()}</strong></div>
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Estimated Gain</span><strong class="text-lg text-emerald-600">Rs. ${Math.round(gain).toLocaleString()}</strong></div>
+                  <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Projected Value</span><strong class="text-lg text-blue-600">Rs. ${Math.round(fv).toLocaleString()}</strong></div>
+                </div>
+              `;
+            }
+            box.classList.remove('hidden');
+          });
+        })();
+        """,
+        "guide_title": "Evaluating Nepal Base Rates, Reducing Balance EMIs & SIP Compounding",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Nepalese commercial banks price home, auto, and education loans using Bank Base Rate + Premium under a reducing-balance schedule. Compare loan interest costs against long-term <a href="/meroshare-c-asba-demat-ipo-apply-nepal-error-fix-guide-2026/" class="text-blue-600 underline font-semibold">Meroshare / NEPSE SIP returns</a> before locking long tenures.</p>
+        """
+    },
 ]
 
 
@@ -903,7 +1517,8 @@ def render_extended_tools(root_dir, existing_tools_summary):
       </a>
       <nav class="flex items-center gap-2 sm:gap-4 text-xs font-semibold overflow-x-auto whitespace-nowrap">
         <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
-        <a href="/tools/" class="text-blue-600 dark:text-blue-400 font-bold">All 17 Tools</a>
+        <a href="/tools/" class="text-blue-600 dark:text-blue-400 font-bold">All 22 Tools</a>
+        <a href="/nepal/" class="text-emerald-600 dark:text-emerald-400 font-bold">Nepal Hub</a>
         <a href="/compare/" class="text-rose-600 dark:text-rose-400">Compare</a>
         <a href="/about/" class="hidden sm:inline text-gray-600 dark:text-gray-300">About</a>
         <a href="/contact/" class="hidden sm:inline text-gray-600 dark:text-gray-300">Contact</a>
@@ -940,7 +1555,7 @@ def render_extended_tools(root_dir, existing_tools_summary):
     <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
-        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 17 Tools &rarr;</a>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 22 Tools &rarr;</a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">{other_tools_html}</div>
     </section>
