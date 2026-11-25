@@ -40,38 +40,47 @@ def xml_escape(val):
         .replace('"', '&quot;')
     )
 
-def file_lastmod(base_dir, rel_path, fallback):
-    full = os.path.join(base_dir, rel_path)
-    if os.path.exists(full):
-        return datetime.fromtimestamp(os.path.getmtime(full)).strftime('%Y-%m-%d')
-    return fallback
+def load_existing_lastmods(sitemap_path):
+    """Preserve existing lastmod dates for static pages so rebuilds never fake-bump unchanged routes."""
+    existing = {}
+    if not os.path.exists(sitemap_path):
+        return existing
+    try:
+        with open(sitemap_path, 'r', encoding='utf-8') as f:
+            txt = f.read()
+        for m in re.finditer(r'<url>\s*<loc>([^<]+)</loc>\s*<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>', txt):
+            existing[m.group(1).strip()] = m.group(2).strip()
+    except Exception:
+        pass
+    return existing
 
+# (loc, rel_file, is_dynamic_hub)
 CORE_AND_TOOL_ROUTES = [
-    ("https://imtechboss.com/", "index.html"),
-    ("https://imtechboss.com/tools/", "tools/index.html"),
-    ("https://imtechboss.com/tools/pc-bottleneck-calculator/", "tools/pc-bottleneck-calculator/index.html"),
-    ("https://imtechboss.com/tools/llm-vram-calculator/", "tools/llm-vram-calculator/index.html"),
-    ("https://imtechboss.com/tools/can-my-pc-run-it/", "tools/can-my-pc-run-it/index.html"),
-    ("https://imtechboss.com/tools/ai-prompt-studio/", "tools/ai-prompt-studio/index.html"),
-    ("https://imtechboss.com/tools/developer-cheat-sheets/", "tools/developer-cheat-sheets/index.html"),
-    ("https://imtechboss.com/tools/gpu-matcher-quiz/", "tools/gpu-matcher-quiz/index.html"),
-    ("https://imtechboss.com/tools/pc-power-supply-calculator/", "tools/pc-power-supply-calculator/index.html"),
-    ("https://imtechboss.com/tools/wordpress-hosting-calculator/", "tools/wordpress-hosting-calculator/index.html"),
-    ("https://imtechboss.com/tools/monitor-ppi-viewing-distance-calculator/", "tools/monitor-ppi-viewing-distance-calculator/index.html"),
-    ("https://imtechboss.com/tools/windows-bsod-error-code-lookup/", "tools/windows-bsod-error-code-lookup/index.html"),
-    ("https://imtechboss.com/tools/ollama-command-generator/", "tools/ollama-command-generator/index.html"),
-    ("https://imtechboss.com/tools/dual-gpu-vram-split-calculator/", "tools/dual-gpu-vram-split-calculator/index.html"),
-    ("https://imtechboss.com/tools/json-jwt-cron-dev-toolkit/", "tools/json-jwt-cron-dev-toolkit/index.html"),
-    ("https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/", "tools/ssd-nvme-pcie-speed-calculator/index.html"),
-    ("https://imtechboss.com/tools/local-ai-electricity-cost-calculator/", "tools/local-ai-electricity-cost-calculator/index.html"),
-    ("https://imtechboss.com/tools/nepal-laptop-budget-finder/", "tools/nepal-laptop-budget-finder/index.html"),
-    ("https://imtechboss.com/tools/nepal-isp-router-mesh-advisor/", "tools/nepal-isp-router-mesh-advisor/index.html"),
-    ("https://imtechboss.com/compare/", "compare/index.html"),
-    ("https://imtechboss.com/archive/", "archive/index.html"),
-    ("https://imtechboss.com/stories/", "stories/index.html"),
-    ("https://imtechboss.com/nepal/", "nepal/index.html"),
-    ("https://imtechboss.com/author/binod-bhatt/", "author/binod-bhatt/index.html"),
-    ("https://imtechboss.com/about/", "about/index.html"),
+    ("https://imtechboss.com/", "index.html", True),
+    ("https://imtechboss.com/tools/", "tools/index.html", False),
+    ("https://imtechboss.com/tools/pc-bottleneck-calculator/", "tools/pc-bottleneck-calculator/index.html", False),
+    ("https://imtechboss.com/tools/llm-vram-calculator/", "tools/llm-vram-calculator/index.html", False),
+    ("https://imtechboss.com/tools/can-my-pc-run-it/", "tools/can-my-pc-run-it/index.html", False),
+    ("https://imtechboss.com/tools/ai-prompt-studio/", "tools/ai-prompt-studio/index.html", False),
+    ("https://imtechboss.com/tools/developer-cheat-sheets/", "tools/developer-cheat-sheets/index.html", False),
+    ("https://imtechboss.com/tools/gpu-matcher-quiz/", "tools/gpu-matcher-quiz/index.html", False),
+    ("https://imtechboss.com/tools/pc-power-supply-calculator/", "tools/pc-power-supply-calculator/index.html", False),
+    ("https://imtechboss.com/tools/wordpress-hosting-calculator/", "tools/wordpress-hosting-calculator/index.html", False),
+    ("https://imtechboss.com/tools/monitor-ppi-viewing-distance-calculator/", "tools/monitor-ppi-viewing-distance-calculator/index.html", False),
+    ("https://imtechboss.com/tools/windows-bsod-error-code-lookup/", "tools/windows-bsod-error-code-lookup/index.html", False),
+    ("https://imtechboss.com/tools/ollama-command-generator/", "tools/ollama-command-generator/index.html", False),
+    ("https://imtechboss.com/tools/dual-gpu-vram-split-calculator/", "tools/dual-gpu-vram-split-calculator/index.html", False),
+    ("https://imtechboss.com/tools/json-jwt-cron-dev-toolkit/", "tools/json-jwt-cron-dev-toolkit/index.html", False),
+    ("https://imtechboss.com/tools/ssd-nvme-pcie-speed-calculator/", "tools/ssd-nvme-pcie-speed-calculator/index.html", False),
+    ("https://imtechboss.com/tools/local-ai-electricity-cost-calculator/", "tools/local-ai-electricity-cost-calculator/index.html", False),
+    ("https://imtechboss.com/tools/nepal-laptop-budget-finder/", "tools/nepal-laptop-budget-finder/index.html", False),
+    ("https://imtechboss.com/tools/nepal-isp-router-mesh-advisor/", "tools/nepal-isp-router-mesh-advisor/index.html", False),
+    ("https://imtechboss.com/compare/", "compare/index.html", False),
+    ("https://imtechboss.com/archive/", "archive/index.html", True),
+    ("https://imtechboss.com/stories/", "stories/index.html", False),
+    ("https://imtechboss.com/nepal/", "nepal/index.html", True),
+    ("https://imtechboss.com/author/binod-bhatt/", "author/binod-bhatt/index.html", False),
+    ("https://imtechboss.com/about/", "about/index.html", False),
 ]
 
 def generate_sitemap():
@@ -79,6 +88,7 @@ def generate_sitemap():
     data_path = os.path.join(base_dir, 'js', 'data.js')
     sitemap_path = os.path.join(base_dir, 'sitemap.xml')
     urls_txt_path = os.path.join(base_dir, 'urls.txt')
+    dup_redir_path = os.path.join(base_dir, 'scripts', 'duplicate_redirects.json')
 
     with open(data_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -90,6 +100,28 @@ def generate_sitemap():
 
     data = json.loads(match.group(1))
     today = datetime.now().strftime("%Y-%m-%d")
+    existing_lastmods = load_existing_lastmods(sitemap_path)
+
+    dup_slugs = set()
+    if os.path.exists(dup_redir_path):
+        try:
+            with open(dup_redir_path, 'r', encoding='utf-8') as df:
+                dup_slugs = set(json.load(df).keys())
+        except Exception:
+            pass
+
+    noindex_slugs = {'top-5-ways-earn-money-online-2026'}
+    articles_sorted = []
+    for article in data:
+        aid = article.get('id', '')
+        if not aid or aid.startswith('blogger-') or aid in noindex_slugs or aid in dup_slugs:
+            continue
+        articles_sorted.append((clean_date(article.get('date', '')), article))
+
+    articles_sorted.sort(key=lambda x: x[0], reverse=True)
+    latest_article_date = articles_sorted[0][0] if articles_sorted else today
+    nepal_dates = [d for d, a in articles_sorted if 'nepal' in (a.get('category', '') + ' ' + a.get('id', '')).lower()]
+    latest_nepal_date = nepal_dates[0] if nepal_dates else latest_article_date
 
     xml_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -99,8 +131,11 @@ def generate_sitemap():
     ]
     plain_urls = []
 
-    for loc, rel_file in CORE_AND_TOOL_ROUTES:
-        lmod = file_lastmod(base_dir, rel_file, today)
+    for loc, rel_file, is_dynamic in CORE_AND_TOOL_ROUTES:
+        if is_dynamic:
+            lmod = latest_nepal_date if loc.endswith('/nepal/') else latest_article_date
+        else:
+            lmod = existing_lastmods.get(loc, '2026-11-23')
         xml_lines.append('  <url>')
         xml_lines.append(f'    <loc>{loc}</loc>')
         xml_lines.append(f'    <lastmod>{lmod}</lastmod>')
@@ -109,17 +144,8 @@ def generate_sitemap():
 
     xml_lines.append('  <!-- 2. Indexable Technical Guides & Nepal Tech Articles (Newest First) -->')
 
-    noindex_slugs = {'top-5-ways-earn-money-online-2026'}
-    articles_sorted = []
-    for article in data:
-        aid = article.get('id', '')
-        if not aid or aid.startswith('blogger-') or aid in noindex_slugs:
-            continue
-        articles_sorted.append((clean_date(article.get('date', '')), article))
-
-    articles_sorted.sort(key=lambda x: x[0], reverse=True)
-
     first_party_img_count = 0
+    global_seen_stock_imgs = set()
     for date, article in articles_sorted:
         aid = article['id']
         loc = f'https://imtechboss.com/{aid}/'
@@ -130,7 +156,7 @@ def generate_sitemap():
         xml_lines.append(f'    <loc>{loc}</loc>')
         xml_lines.append(f'    <lastmod>{date}</lastmod>')
 
-        # Collect first-party embedded /images/*.webp visuals first + featured 1200px image
+        # Collect first-party embedded /images/* visuals + unique hero image (avoid repeating stock Unsplash URLs)
         img_entries = []
         seen_imgs = set()
         body_html = article.get('content', '') or ''
@@ -146,8 +172,12 @@ def generate_sitemap():
 
         hero_url = clean_image(article.get('image', ''))
         if hero_url and hero_url not in seen_imgs:
-            seen_imgs.add(hero_url)
-            img_entries.append((xml_escape(hero_url), title))
+            is_first_party = hero_url.startswith('https://imtechboss.com/')
+            if is_first_party or hero_url not in global_seen_stock_imgs:
+                seen_imgs.add(hero_url)
+                if not is_first_party:
+                    global_seen_stock_imgs.add(hero_url)
+                img_entries.append((xml_escape(hero_url), title))
 
         for safe_img, img_title in img_entries:
             xml_lines.append('    <image:image>')
