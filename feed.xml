@@ -3,7 +3,7 @@
   <channel>
     <title>Tech Boss</title>
     <link>https://imtechboss.com</link>
-    <description>Latest Technology News, AI Breakthroughs, Software Guides &amp; Gaming</description>
+    <description>Nepal Digital Guides, Daily Calculators, Tech Benchmarks &amp; Practical Utilities</description>
     <language>en-us</language>
     <managingEditor>binodbhatt500k@gmail.com (Binod Bhatt)</managingEditor>
     <atom:link href="https://imtechboss.com/feed.xml" rel="self" type="application/rss+xml" />
@@ -310,17 +310,6 @@
       <enclosure url="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
     <item>
-      <title>OpenAI Sora Official Launch: Cinematic Benchmarks, Physics Accuracy, Pricing &amp; Alternatives Tested (2026)</title>
-      <link>https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</link>
-      <guid>https://imtechboss.com/openai-sora-official-launch-cinematic-benchmarks-pricing-alternatives-2026/</guid>
-      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Machine Learning</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="OpenAI Sora Official Launch: Cinematic Benchmarks, Physics Accuracy, Pricing &amp; Alternatives Tested (2026)" /&gt;&lt;/p&gt;&lt;p&gt;OpenAI Sora is officially available. We benchmark physics simulation, 1080p cinematic consistency, prompt adherence, pricing tiers, and top free alternatives.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
       <title>How to Fix DPC_WATCHDOG_VIOLATION (0x00000133) BSOD in Windows 11 (2026 Diagnostic Guide)</title>
       <link>https://imtechboss.com/how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11/</link>
       <guid>https://imtechboss.com/how-to-fix-dpc-watchdog-violation-0x00000133-bsod-windows-11/</guid>
@@ -352,61 +341,6 @@
       <media:content url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
       <media:thumbnail url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
       <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>How to Fix High CPU &amp; Memory Usage by 'System and Compressed Memory' in Windows 11 (2026 Guide)</title>
-      <link>https://imtechboss.com/how-to-fix-high-cpu-memory-system-compressed-memory-windows-11/</link>
-      <guid>https://imtechboss.com/how-to-fix-high-cpu-memory-system-compressed-memory-windows-11/</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <category>Windows &amp; OS</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix High CPU &amp; Memory Usage by 'System and Compressed Memory' in Windows 11 (2026 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Fix 100% CPU and RAM spikes caused by System and Compressed Memory in Windows 11. Step-by-step paging executive, SysMain, and memory compression tuning.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>Windows 11 24H2 BitLocker SSD Slowdown: Benchmarks &amp; How to Disable Software Encryption (2026 Guide)</title>
-      <link>https://imtechboss.com/windows-11-24h2-bitlocker-ssd-slowdown-benchmarks-fix-guide-2026/</link>
-      <guid>https://imtechboss.com/windows-11-24h2-bitlocker-ssd-slowdown-benchmarks-fix-guide-2026/</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <category>Hardware &amp; Components</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Windows 11 24H2 BitLocker SSD Slowdown: Benchmarks &amp; How to Disable Software Encryption (2026 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Windows 11 24H2 enables BitLocker by default, slashing NVMe SSD writes by up to 45%. Here are storage benchmarks and the exact fix to restore full speed.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>NVIDIA GeForce RTX 5070 &amp; RTX 5070 Ti Specs, 16GB GDDR7, Blackwell Architecture &amp; 1440p Benchmarks (2026)</title>
-      <link>https://imtechboss.com/nvidia-geforce-rtx-5070-ti-specs-benchmarks-1440p-gaming-2026/</link>
-      <guid>https://imtechboss.com/nvidia-geforce-rtx-5070-ti-specs-benchmarks-1440p-gaming-2026/</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <category>Hardware &amp; GPUs</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="NVIDIA GeForce RTX 5070 &amp; RTX 5070 Ti Specs, 16GB GDDR7, Blackwell Architecture &amp; 1440p Benchmarks (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Explore NVIDIA RTX 5070 and RTX 5070 Ti specs, GB205 silicon, 16GB GDDR7 memory, 1440p gaming benchmarks, and power efficiency against RTX 4070 Ti Super.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>OLED &amp; QD-OLED Monitor Burn-In Prevention Guide: Pixel Care, HDR Settings &amp; Longevity (2026)</title>
-      <link>https://imtechboss.com/oled-monitor-burn-in-prevention-care-guide-2026/</link>
-      <guid>https://imtechboss.com/oled-monitor-burn-in-prevention-care-guide-2026/</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <category>Mobile &amp; Hardware</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="OLED &amp; QD-OLED Monitor Burn-In Prevention Guide: Pixel Care, HDR Settings &amp; Longevity (2026)" /&gt;&lt;/p&gt;&lt;p&gt;Prevent OLED and QD-OLED monitor burn-in in Windows 11 with verified pixel cleaning routines, ABL adjustments, HDR calibration, and subpixel text fixes.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
-    </item>
-    <item>
-      <title>How to Fix DXGI_ERROR_DEVICE_HUNG &amp; GetDeviceRemovedReason Game Crash in Windows 11 (2026 Guide)</title>
-      <link>https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</link>
-      <guid>https://imtechboss.com/how-to-fix-dxgi-error-device-hung-directx-crash-windows-11/</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <category>Tech Guides</category>
-      <description>&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Fix DXGI_ERROR_DEVICE_HUNG &amp; GetDeviceRemovedReason Game Crash in Windows 11 (2026 Guide)" /&gt;&lt;/p&gt;&lt;p&gt;Resolve fatal DXGI_ERROR_DEVICE_HUNG and GetDeviceRemovedReason DirectX crashes in Windows 11 with verified TdrDelay tweaks, cache purges, and driver fixes.&lt;/p&gt;</description>
-      <media:content url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" medium="image" type="image/jpeg" />
-      <media:thumbnail url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-      <enclosure url="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="102400" />
     </item>
   </channel>
 </rss>
