@@ -61,11 +61,12 @@ def generate_worker():
         for a in data[:24]
     ]
 
-    meta_json = json.dumps(meta, ensure_ascii=False)
-    top_articles_json = json.dumps(top_articles, ensure_ascii=False)
     dup_json = json.dumps(duplicate_redirects, ensure_ascii=False)
 
     removed_slugs_list = [
+        "how-to-run-deepseek-r1-locally-windows-11-ollama-gpu-guide",
+        "top-5-free-ai-tools-2026",
+        "top-10-free-ai-tools-everyone-should-use-2026",
         "openai-gpt6-astra-computer-operator-ai-agent-2026",
         "apple-mac-mini-m6-first-2nm-chip-desktop-2026",
         "apple-iphone-18-pro-max-official-review-specs-2026",
@@ -165,10 +166,8 @@ def generate_worker():
     removed_json = json.dumps(removed_slugs_list, ensure_ascii=False)
 
     template = f"""// Cloudflare Pages Advanced Mode Worker
-// Automatically injects dynamic OpenGraph & Twitter metadata, plus Edge SSR Pre-Rendering for Google AdSense & SEO
+// Lightweight Canonical Routing, 404 Shield & Admin Protection (Zero Payload Bloat)
 
-const articlesMeta = {meta_json};
-const topArticles = {top_articles_json};
 const duplicateRedirects = {dup_json};
 const removedSlugs = new Set({removed_json});
 
@@ -228,15 +227,15 @@ export default {{
         }});
       }}
 
-      const ADMIN_SECRET = 'binod_boss_2026';
+      const ADMIN_SECRET = (env && env.ADMIN_SECRET) ? String(env.ADMIN_SECRET) : '';
 
-      // 1. Secure Admin Access Controller (Key / Cookie Authenticated)
+      // 1. Secure Admin Access Controller (Key / Cookie Authenticated via Cloudflare Secret)
       if (pathname === '/admin' || pathname === '/admin.html') {{
         const adminKey = url.searchParams.get('key');
         const cookieHeader = request.headers.get('Cookie') || '';
-        const hasAuthCookie = cookieHeader.includes('tb_admin_auth=granted_secure_2026');
+        const hasAuthCookie = ADMIN_SECRET && cookieHeader.includes('tb_admin_auth=granted_secure_2026');
 
-        if (adminKey === ADMIN_SECRET || hasAuthCookie) {{
+        if (ADMIN_SECRET && ((adminKey && adminKey === ADMIN_SECRET) || hasAuthCookie)) {{
           const response = await env.ASSETS.fetch(request);
           const newHeaders = new Headers(response.headers);
           if (adminKey === ADMIN_SECRET) {{
@@ -372,71 +371,7 @@ export default {{
         return response;
       }}
 
-      // 3. Homepage Edge SSR: Pre-render top articles into raw HTML for Google AdSense Review Crawlers
-      if (pathname === '/' || pathname === '/index.html') {{
-        const response = await env.ASSETS.fetch(request);
-        const hero = topArticles[0];
-        const heroTitle = (hero.title || '').replace(/"/g, '&quot;');
-        const heroDesc = (hero.excerpt || '').replace(/"/g, '&quot;');
-        const heroImg = hero.image || 'https://imtechboss.com/og-image.png';
-
-        let gridHtml = '';
-        for (let i = 0; i < topArticles.length; i++) {{
-          const a = topArticles[i];
-          const st = (a.title || '').replace(/"/g, '&quot;');
-          const se = (a.excerpt || '').replace(/"/g, '&quot;');
-          gridHtml += `
-            <article class="article-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm flex flex-col">
-              <div class="aspect-[16/10] overflow-hidden bg-gray-100">
-                <a href="/${{encodeURIComponent(a.id)}}/" aria-hidden="true" tabindex="-1">
-                  <img src="${{a.image}}" alt="${{st}}" class="w-full h-full object-cover" loading="lazy" />
-                </a>
-              </div>
-              <div class="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="text-[11px] text-gray-500 mb-2"><span>${{a.category || 'Tech'}}</span> &bull; <span>${{a.date || 'Recent'}}</span></div>
-                  <h2 class="font-bold text-base sm:text-lg text-gray-900 dark:text-gray-100 line-clamp-2">
-                    <a href="/${{encodeURIComponent(a.id)}}/">${{st}}</a>
-                  </h2>
-                  <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 line-clamp-2">${{se}}</p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-between items-center text-xs">
-                  <span class="font-semibold text-gray-700 dark:text-gray-300">Binod Bhatt</span>
-                  <a href="/${{encodeURIComponent(a.id)}}/" class="font-bold text-blue-600 hover:underline">Read Article &rarr;</a>
-                </div>
-              </div>
-            </article>
-          `;
-        }}
-
-        return new HTMLRewriter()
-          .on('div#featuredArticleContainer', {{
-            element(e) {{
-              e.setInnerContent(`
-                <a href="/${{encodeURIComponent(hero.id)}}/" class="block relative rounded-3xl overflow-hidden shadow-xl aspect-[16/9] md:aspect-[21/11] bg-slate-900 group cursor-pointer">
-                  <img src="${{heroImg}}" alt="${{heroTitle}}" class="w-full h-full object-cover opacity-80" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-10 text-white">
-                    <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-blue-600 text-white w-max mb-3">${{hero.category || 'Featured'}}</span>
-                    <h1 class="text-xl sm:text-2xl md:text-3xl font-bold font-serif-heading leading-tight mb-2">${{heroTitle}}</h1>
-                    <p class="text-xs sm:text-sm text-gray-300 line-clamp-2 mb-4 leading-relaxed">${{heroDesc}}</p>
-                    <div class="text-xs text-gray-400">By Binod Bhatt &bull; ${{hero.date || 'Recent'}}</div>
-                  </div>
-                </a>
-              `, {{ html: true }});
-            }}
-          }})
-          .on('div#articlesGrid', {{
-            element(e) {{
-              e.setInnerContent(gridHtml, {{ html: true }});
-            }}
-          }})
-          .transform(response);
-      }}
-
-
-
-
-
+      // 3. Serve pre-rendered static HTML assets directly (index.html & /<slug>/index.html are already 100% SSG pre-rendered)
       return await env.ASSETS.fetch(request);
     }} catch (err) {{
       return await env.ASSETS.fetch(request);

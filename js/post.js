@@ -116,7 +116,9 @@ function renderPostDetail() {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get("id");
 
-    // Gather articles
+    const isPrerendered = container.dataset.prerendered === "true";
+
+    // Gather articles (optional on pre-rendered static pages)
     let customArticles = [];
     try {
       const storedCustom = localStorage.getItem("pulse_custom_posts");
@@ -143,19 +145,42 @@ function renderPostDetail() {
     targetId = allArticles[0].id;
   }
 
-  if (!targetId || allArticles.length === 0) {
-    renderNotFound(container, "No story identifier was specified.");
-    return;
-  }
+  let article = targetId ? allArticles.find(a => String(a.id) === String(targetId)) : null;
 
-  const article = allArticles.find(a => String(a.id) === String(targetId));
+  // CRITICAL SEO SHIELD: Never overwrite pre-rendered static HTML with "Story Not Found" (prevents Google Soft 404)
+  if (!article && isPrerendered) {
+    const domH1 = container.querySelector("h1");
+    const domDesc = document.getElementById("metaDescription");
+    const domImg = document.getElementById("ogImage");
+    const domLikeCount = document.getElementById("likeCountDisplay");
+    const domCat = container.querySelector("a[href='/'] + span + span");
+    article = {
+      id: targetId || "post",
+      title: domH1 ? domH1.textContent.trim() : document.title.replace(/\s*\|\s*Tech Boss.*$/i, ""),
+      excerpt: domDesc ? (domDesc.getAttribute("content") || "") : "",
+      image: domImg ? (domImg.getAttribute("content") || "") : "",
+      category: domCat ? domCat.textContent.trim() : "Technology",
+      likes: domLikeCount ? (parseInt(domLikeCount.textContent, 10) || 12) : 12,
+      author: "Binod Bhatt"
+    };
+  }
 
   if (!article) {
-    renderNotFound(container, `We couldn't find the story you requested.`);
+    if (!isPrerendered && typeof initialArticles === "undefined" && !window.__tbDataFallbackLoaded) {
+      window.__tbDataFallbackLoaded = true;
+      const s = document.createElement("script");
+      s.src = "/js/data.js";
+      s.onload = () => renderPostDetail();
+      s.onerror = () => renderNotFound(container, "We couldn't load the story archive.");
+      document.head.appendChild(s);
+      return;
+    }
+    renderNotFound(container, "We couldn't find the story you requested.");
     return;
   }
 
-  // Update Page Title and Meta Tags (preserve <=65 char SERP title)
+  // Only mutate <head> meta & JSON-LD when NOT already pre-rendered by SSG
+  if (!isPrerendered) {
   let rawSerp = article.serp_title || article.title || "Tech Boss";
   if (rawSerp.length > 52) {
     const cut = rawSerp.slice(0, 49);
@@ -259,6 +284,7 @@ function renderPostDetail() {
       breadcrumbScript.textContent = JSON.stringify(breadcrumbData);
     }
   } catch (e) {}
+  } // end if (!isPrerendered)
 
   // Handle Likes
   let likeCount = Number.isFinite(parseInt(article.likes, 10)) ? parseInt(article.likes, 10) : 0;
@@ -283,32 +309,40 @@ function renderPostDetail() {
     }
   } catch (e) {}
 
-  // Calculate Accurate Dynamic Reading Time
+  // Calculate Accurate Dynamic Reading Time (skip heavy regex/TOC/FAQ generation when already SSG pre-rendered)
   const actualArticleContent = article.content || article.body || "";
-  const rawText = (actualArticleContent || article.excerpt || "").replace(/<[^>]*>/g, " ");
-  const wordCount = rawText.trim().split(/\s+/).filter(Boolean).length;
-  const calculatedMins = Math.max(1, Math.round(wordCount / 180));
-  const readTime = `${calculatedMins} min read`;
-
-  // Process Clean HTML Content & In-Article AdSense Injection
+  let readTime = article.readTime || "5 min read";
   let articleBodyHtml = "";
-  if (actualArticleContent && actualArticleContent.trim().length > 0) {
-    articleBodyHtml = injectInArticleAdSense(actualArticleContent);
-  } else if (article.excerpt) {
-    articleBodyHtml = `<p>${escapeHtml(article.excerpt)}</p>`;
-  } else {
-    articleBodyHtml = `<p>Full content for this story is coming soon.</p>`;
-  }
-
   let tocHtml = "";
-  if (articleBodyHtml) {
-    const tocResult = generateTableOfContents(articleBodyHtml);
-    tocHtml = tocResult.tocHtml;
-    articleBodyHtml = tocResult.updatedBody;
-  }
+  let keyTakeawaysHtml = "";
+  let faqSectionHtml = "";
+  let faqSchemaJson = null;
 
-  const keyTakeawaysHtml = generateKeyTakeaways(article);
-  const { faqHtml: faqSectionHtml, faqSchemaJson } = generateFaqSection(article);
+  if (!isPrerendered) {
+    const rawText = (actualArticleContent || article.excerpt || "").replace(/<[^>]*>/g, " ");
+    const wordCount = rawText.trim().split(/\s+/).filter(Boolean).length;
+    const calculatedMins = Math.max(1, Math.round(wordCount / 180));
+    readTime = `${calculatedMins} min read`;
+
+    if (actualArticleContent && actualArticleContent.trim().length > 0) {
+      articleBodyHtml = injectInArticleAdSense(actualArticleContent);
+    } else if (article.excerpt) {
+      articleBodyHtml = `<p>${escapeHtml(article.excerpt)}</p>`;
+    } else {
+      articleBodyHtml = `<p>Full content for this story is coming soon.</p>`;
+    }
+
+    if (articleBodyHtml) {
+      const tocResult = generateTableOfContents(articleBodyHtml);
+      tocHtml = tocResult.tocHtml;
+      articleBodyHtml = tocResult.updatedBody;
+    }
+
+    keyTakeawaysHtml = generateKeyTakeaways(article);
+    const faqRes = generateFaqSection(article);
+    faqSectionHtml = faqRes.faqHtml;
+    faqSchemaJson = faqRes.faqSchemaJson;
+  }
 
   const safeTitle = escapeHtml(article.title);
   const safeCat = escapeHtml(article.category || "General");
@@ -760,7 +794,9 @@ function renderPostDetail() {
     });
   }
   } catch (e) {
-    renderNotFound(container, "An unexpected error occurred while loading this story.");
+    if (container && container.dataset.prerendered !== "true") {
+      renderNotFound(container, "An unexpected error occurred while loading this story.");
+    }
     console.error(e);
   }
 }
@@ -1384,20 +1420,39 @@ function setupSpotlightSearchPost() {
   if (!searchModal || !searchInput || !searchResults) return;
 
   let allArticlesList = [];
-  try {
-    let custom = JSON.parse(localStorage.getItem("pulse_custom_posts") || "[]");
-    if (!Array.isArray(custom)) custom = [];
-    const base = (typeof initialArticles !== "undefined" && Array.isArray(initialArticles)) ? initialArticles : [];
-    allArticlesList = [...custom, ...base];
-  } catch (e) {
-    allArticlesList = (typeof initialArticles !== "undefined" && Array.isArray(initialArticles)) ? initialArticles : [];
+  function refreshSearchIndex() {
+    try {
+      let custom = JSON.parse(localStorage.getItem("pulse_custom_posts") || "[]");
+      if (!Array.isArray(custom)) custom = [];
+      const base = (typeof initialArticles !== "undefined" && Array.isArray(initialArticles)) ? initialArticles : [];
+      allArticlesList = [...custom, ...base];
+    } catch (e) {
+      allArticlesList = (typeof initialArticles !== "undefined" && Array.isArray(initialArticles)) ? initialArticles : [];
+    }
+    if (countBadge && allArticlesList.length > 0) {
+      countBadge.textContent = `${allArticlesList.length} stories indexed`;
+    }
   }
+  refreshSearchIndex();
 
-  if (countBadge) {
-    countBadge.textContent = `${allArticlesList.length} stories indexed`;
+  function ensureSearchIndexLoaded() {
+    if (allArticlesList.length > 0 || window.__tbSearchIndexLoading) return;
+    window.__tbSearchIndexLoading = true;
+    const s = document.createElement("script");
+    s.src = "/js/posts-index.js";
+    s.onload = () => {
+      window.__tbSearchIndexLoading = false;
+      refreshSearchIndex();
+      if (searchInput && searchInput.value.trim()) {
+        searchInput.dispatchEvent(new Event("input"));
+      }
+    };
+    s.onerror = () => { window.__tbSearchIndexLoading = false; };
+    document.head.appendChild(s);
   }
 
   function openSearch() {
+    ensureSearchIndexLoaded();
     searchModal.classList.remove("hidden");
     setTimeout(() => searchInput.focus(), 50);
   }
@@ -1591,9 +1646,6 @@ function renderRelatedArticles(currentArticle) {
 }
 
 function setupFloatingReadNext(currentArticle) {
-  const allArts = _getArticlesList();
-  if (!allArts || allArts.length < 2) return;
-
   function isNextPillDismissed() {
     try { return sessionStorage.getItem("tb_dismiss_next_pill") === "true"; } catch (e) { return false; }
   }
@@ -1604,11 +1656,30 @@ function setupFloatingReadNext(currentArticle) {
   // Don't show if user dismissed it in this session
   if (isNextPillDismissed()) return;
 
-  // Pick next story
-  const currentIndex = allArts.findIndex(a => a && a.id === currentArticle.id);
-  const nextArticle = (currentIndex >= 0 && currentIndex + 1 < allArts.length)
-    ? allArts[currentIndex + 1]
-    : allArts.find(a => a && a.id !== currentArticle.id);
+  let nextArticle = null;
+  const allArts = _getArticlesList();
+  if (allArts && allArts.length >= 2) {
+    const currentIndex = allArts.findIndex(a => a && a.id === currentArticle.id);
+    nextArticle = (currentIndex >= 0 && currentIndex + 1 < allArts.length)
+      ? allArts[currentIndex + 1]
+      : allArts.find(a => a && a.id !== currentArticle.id);
+  } else {
+    // Zero-JS-payload path: read directly from pre-rendered #relatedGrid
+    const firstRel = document.querySelector("#relatedGrid a[href]");
+    if (firstRel) {
+      const relHref = firstRel.getAttribute("href") || "";
+      const relId = relHref.replace(/^\/|\/$/g, "");
+      const relTitleEl = firstRel.querySelector("h4");
+      const relImgEl = firstRel.querySelector("img");
+      if (relId && relTitleEl) {
+        nextArticle = {
+          id: relId,
+          title: relTitleEl.textContent.trim(),
+          image: relImgEl ? relImgEl.getAttribute("src") : ""
+        };
+      }
+    }
+  }
 
   if (!nextArticle || nextArticle.id === currentArticle.id) return;
 
@@ -2013,8 +2084,10 @@ function setupArticleAudioPlayer(article, container) {
 
     try { window.speechSynthesis.cancel(); } catch (e) {}
     
-    const rawContent = (article.content || article.body || article.excerpt || '').replace(/<[^>]*>/g, ' ');
-    const fullText = `${article.title}. By Tech Boss. ${article.excerpt || ''}. ${rawContent}`;
+    const domBodyEl = container.querySelector(".article-body");
+    const domBodyText = domBodyEl ? (domBodyEl.innerText || domBodyEl.textContent || "") : "";
+    const rawContent = (article.content || article.body || domBodyText || article.excerpt || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const fullText = `${article.title}. By Binod Bhatt. ${article.excerpt || ''}. ${rawContent}`;
     const speechSnippet = fullText.substring(0, 3500);
 
     currentUtterance = new SpeechSynthesisUtterance(speechSnippet);

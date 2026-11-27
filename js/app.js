@@ -20,7 +20,22 @@ document.addEventListener("DOMContentLoaded", () => {
     initModals();
     initNewsletter();
     renderTrendingTopics();
-    renderArticles();
+    // Skip redundant initial DOM wipe when SSG already pre-rendered the default homepage (prevents CLS)
+    const preGrid = document.getElementById("articlesGrid");
+    const hasCustomPosts = (() => {
+      try {
+        const c = JSON.parse(localStorage.getItem("pulse_custom_posts") || "[]");
+        return Array.isArray(c) && c.length > 0;
+      } catch (e) { return false; }
+    })();
+    if (preGrid && preGrid.querySelectorAll(".article-card").length > 0 && !hasCustomPosts && !window.location.search) {
+      attachCardEvents();
+      if (articles.length > displayedCount) {
+        showLoadMoreButton(articles.length);
+      }
+    } else {
+      renderArticles();
+    }
     initSecretAdminTrigger();
     setupSpotlightSearch();
     initNotificationBell();
@@ -269,17 +284,23 @@ function matchesCategoryFilter(articleCat, filterCat) {
   const fCat = filterCat.toLowerCase().trim();
   if (aCat === fCat) return true;
 
+  if (fCat === "nepal tech" || fCat === "nepal") {
+    return aCat.includes("nepal");
+  }
   if (fCat === "ai & technology") {
-    return aCat.includes("ai") || aCat.includes("future tech") || aCat.includes("intelligence");
+    return aCat.includes("ai") || aCat.includes("future tech") || aCat.includes("intelligence") || aCat.includes("llm");
   }
   if (fCat === "hardware") {
-    return aCat.includes("hardware") || aCat.includes("computing") || aCat.includes("smartphone") || aCat.includes("gadget");
+    return aCat.includes("hardware") || aCat.includes("silicon") || aCat.includes("computing") || aCat.includes("smartphone") || aCat.includes("gadget") || aCat.includes("semiconductor");
   }
   if (fCat === "gaming") {
-    return aCat.includes("gaming") || aCat.includes("esport") || aCat.includes("game");
+    return aCat.includes("gaming") || aCat.includes("esport") || aCat.includes("game") || aCat.includes("console");
   }
-  if (fCat === "guides") {
-    return aCat.includes("guide") || aCat.includes("how-to") || aCat.includes("tutorial") || aCat.includes("education") || aCat.includes("notes");
+  if (fCat === "tech guides" || fCat === "guides") {
+    return aCat.includes("guide") || aCat.includes("how-to") || aCat.includes("tutorial") || aCat.includes("windows") || aCat.includes("software");
+  }
+  if (fCat === "cybersecurity") {
+    return aCat.includes("cyber") || aCat.includes("security") || aCat.includes("privacy");
   }
   if (fCat === "software & tech") {
     return aCat.includes("software") || aCat.includes("program") || aCat.includes("dev") || aCat.includes("cyber") || aCat.includes("utility") || aCat.includes("tech");
@@ -299,7 +320,7 @@ function initNavigation() {
 
   const categories = (typeof defaultCategories !== 'undefined' && Array.isArray(defaultCategories))
     ? defaultCategories
-    : ["All", "AI & Technology", "Hardware", "Gaming", "Guides", "Software & Tech"];
+    : ["All", "Nepal Tech", "Tech Guides", "AI & Technology", "Hardware", "Cybersecurity", "Gaming"];
 
   if (categoryNavBar) {
     categoryNavBar.innerHTML = categories.map(cat => `

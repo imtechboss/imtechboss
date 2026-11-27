@@ -266,7 +266,89 @@ def generate_faq_data(article):
         return _format_faq(custom_faqs)
     return '', []
 
+def _is_nepal_article(article):
+    cat = (article.get('category') or '').lower()
+    title = (article.get('title') or '').lower()
+    aid = (article.get('id') or '').lower()
+    nepal_keys = ['nepal', 'loksewa', 'meroshare', 'e-passport', 'nid', 'mero-kitta', 'bluebook', 'nagarik', 'worldlink', 'vianet', 'ntc', 'ncell', 'esewa', 'khalti']
+    return 'nepal' in cat or any(k in title or k in aid for k in nepal_keys)
+
 def generate_hubs_cross_promote(article):
+    if _is_nepal_article(article):
+        return '''
+    <div class="my-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-emerald-50/70 via-blue-50/30 to-white dark:from-slate-900 dark:via-emerald-950/20 dark:to-slate-900 border border-emerald-200/80 dark:border-slate-800 shadow-sm not-prose">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-emerald-200/60 dark:border-slate-800">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-600 text-white flex items-center justify-center text-xs font-black shadow-sm">🇳🇵</span>
+          <div>
+            <h4 class="font-extrabold text-sm sm:text-base text-gray-950 dark:text-white tracking-tight">Nepal Free Digital Utilities &amp; e-Gov Hub</h4>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400">Instant browser calculators &amp; converters built for Nepali forms, land records, and tax slabs.</p>
+          </div>
+        </div>
+        <a href="/nepal/" class="hidden sm:inline-flex px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-widest rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 hover:underline">Open Nepal Hub &rarr;</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        <a href="/tools/nepal-land-area-converter/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-emerald-500 dark:hover:border-emerald-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">📐</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-md">Cadastral Tool</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              Ropani &amp; Bigha Land Converter
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Convert Ropani-Aana-Paisa-Daam, Bigha-Kattha-Dhur, Sq. Feet, and Sq. Meters instantly.
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Convert Land Area</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+
+        <a href="/tools/nepal-govt-photo-document-compressor/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">🪪</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-md">100% Private</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Loksewa &amp; Govt Photo Resizer
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Compress passport photos, signatures, and citizenship scans under 100KB–200KB in your browser.
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Resize Photo/Docs</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+
+        <a href="/tools/nepal-salary-tax-ssf-calculator/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-base">💰</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded-md">IRD Tax Slabs</span>
+            </div>
+            <strong class="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              Nepal Salary Tax &amp; SSF Calculator
+            </strong>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Calculate unmarried/married IRD income tax slabs, CIT/SSF deductions, and net monthly take-home pay.
+            </p>
+          </div>
+          <span class="mt-3 text-[11px] font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Calculate Net Salary</span>
+            <span>&rarr;</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    '''
+
     cat = (article.get('category') or '').lower()
     title = (article.get('title') or '').lower()
     is_hardware = 'hard' in cat or 'gam' in cat or 'gpu' in title or 'cpu' in title or 'rtx' in title or 'ryzen' in title
@@ -325,7 +407,7 @@ def generate_hubs_cross_promote(article):
           </span>
         </a>
 
-        <a href="/deals" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+        <a href="/deals/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">🏷️</span>
@@ -351,7 +433,17 @@ def generate_methodology_box(article):
     cat = (article.get('category') or '').lower()
     title = (article.get('title') or '').lower()
 
-    if any(k in cat for k in ['hardware', 'semiconductor']) or any(k in title for k in ['gpu', 'cpu', 'intel', 'amd', 'ryzen', 'nvidia', 'rtx', 'tsmc', 'ddr5', 'motherboard', 'nvme', 'pc build', 'silicon']):
+    if _is_nepal_article(article):
+        badge = "Nepal Digital & e-Governance Verification Standard"
+        desc = "Portal steps, fee structures, tax slabs, and document specifications are cross-checked against official Government of Nepal departments, Nepal Rastra Bank circulars, and telecom/ISP tariffs."
+        specs = [
+            ("Official Portals", "DoNIDCR, DoP, PSC, CDS/Meroshare & DoTM"),
+            ("Finance & Tax", "IRD Income Tax Slabs & NRB FX Guidelines"),
+            ("Nepal Utilities", "Free /nepal/ Calculators & Photo Resizer"),
+            ("Local Updates", "Verified for Kathmandu Valley & Provincial Desks")
+        ]
+        icon = "🇳🇵"
+    elif any(k in cat for k in ['hardware', 'semiconductor']) or any(k in title for k in ['gpu', 'cpu', 'intel', 'amd', 'ryzen', 'nvidia', 'rtx', 'tsmc', 'ddr5', 'motherboard', 'nvme', 'pc build', 'silicon']):
         badge = "Hardware Editorial Verification Standard"
         desc = "Silicon specifications, TDP envelopes, memory bandwidth figures, and pricing tables are cross-checked against vendor datasheets, JEDEC/PCI-SIG standards, and architectural whitepapers."
         specs = [
@@ -439,7 +531,10 @@ def generate_author_bio(article):
     cat = (article.get('category') or '').lower()
     title = (article.get('title') or '').lower()
 
-    if any(k in cat for k in ['hosting', 'cloud', 'server']) or any(k in title for k in ['hosting', 'wordpress', 'vps', 'domain', 'server', 'cloud', 'cdn', 'litespeed']):
+    if _is_nepal_article(article):
+        role = "Founder &amp; Nepal Digital Systems Lead"
+        bio = "Kathmandu-based systems engineer and founder of Tech Boss, building offline-first Nepali digital utilities and step-by-step guides for e-Governance, banking, telecom, and local PC hardware."
+    elif any(k in cat for k in ['hosting', 'cloud', 'server']) or any(k in title for k in ['hosting', 'wordpress', 'vps', 'domain', 'server', 'cloud', 'cdn', 'litespeed']):
         role = "Cloud &amp; Web Infrastructure Lead"
         bio = "Founder and systems engineer at Tech Boss covering server optimization, LiteSpeed hosting architectures, TTFB latency benchmarks, and enterprise cloud infrastructure."
     elif any(k in cat for k in ['frontier ai', 'ai & technology', 'quantum', 'ai']) or any(k in title for k in ['ai', 'gpt', 'llm', 'claude', 'gemini', 'deepseek', 'model', 'ollama', 'neural']):
@@ -525,6 +620,10 @@ def render_article_inner_html(article):
         <img 
           src="{escape(img_url)}" 
           alt="{safe_title}" 
+          width="1200"
+          height="675"
+          fetchpriority="high"
+          decoding="async"
           class="w-full h-full object-cover object-center"
           loading="eager"
           onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'"
@@ -889,8 +988,50 @@ def build_all_static():
     articles = json.loads(match.group(1))
     print(f"Found {len(articles)} articles to pre-render.")
 
+    # Generate lightweight frontend metadata index (js/posts-index.js) without heavy HTML 'content' or 'faqs'
+    import hashlib
+    light_articles = [
+        {
+            'id': a.get('id', ''),
+            'title': a.get('title', ''),
+            'excerpt': a.get('excerpt', ''),
+            'category': a.get('category', 'Technology'),
+            'author': a.get('author', 'Binod Bhatt'),
+            'date': a.get('date', ''),
+            'readTime': a.get('readTime', '5 min read'),
+            'image': a.get('image', ''),
+            'tags': a.get('tags', [])
+        }
+        for a in articles
+    ]
+    posts_index_path = os.path.join(ROOT_DIR, 'js', 'posts-index.js')
+    posts_index_js = "var initialArticles = " + json.dumps(light_articles, ensure_ascii=False, separators=(',', ':')) + ";\n"
+    with open(posts_index_path, 'w', encoding='utf-8') as f:
+        f.write(posts_index_js)
+    print(f"✅ Generated lightweight js/posts-index.js ({len(posts_index_js.encode('utf-8')) / 1024:.1f} KB vs {len(content.encode('utf-8')) / 1024:.1f} KB full data.js)")
+
+    def asset_hash(rel_path):
+        full_p = os.path.join(ROOT_DIR, *rel_path.split('/'))
+        if os.path.exists(full_p):
+            with open(full_p, 'rb') as fp:
+                return hashlib.md5(fp.read()).hexdigest()[:8]
+        return "9.0"
+
+    v_css = asset_hash('css/styles.min.css')
+    v_idx = asset_hash('js/posts-index.js')
+    v_pages = asset_hash('js/pages.js')
+    v_post = asset_hash('js/post.js')
+    v_app = asset_hash('js/app.js')
+    v_vip = asset_hash('js/vip-drawer.js')
+
     with open(POST_TEMPLATE_PATH, 'r', encoding='utf-8') as f:
         template = f.read()
+
+    # Stamp content hashes on template assets so Googlebot & browsers never read stale JS/CSS
+    template = re.sub(r'/css/styles\.min\.css(?:\?v=[^"\']*)?', f'/css/styles.min.css?v={v_css}', template)
+    template = re.sub(r'/js/pages\.js(?:\?v=[^"\']*)?', f'/js/pages.js?v={v_pages}', template)
+    template = re.sub(r'/js/post\.js(?:\?v=[^"\']*)?', f'/js/post.js?v={v_post}', template)
+    template = re.sub(r'/js/vip-drawer\.js(?:\?v=[^"\']*)?', f'/js/vip-drawer.js?v={v_vip}', template)
 
     # Pre-clean base template asset paths so they are absolute root paths:
     # favicon.svg -> /favicon.svg
@@ -1079,6 +1220,10 @@ def update_homepage_prerender(articles):
             <img 
               src="{feat_img}" 
               alt="{feat_title}" 
+              width="1200"
+              height="675"
+              fetchpriority="high"
+              decoding="async"
               class="zoom-img w-full h-full object-cover opacity-80 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
               onerror="this.onerror=null; this.src=\'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80\'"
             >
@@ -1214,6 +1359,20 @@ def update_homepage_prerender(articles):
 
     badge_pattern = r'<span id="spotlightCountBadge">.*?</span>'
     idx_content = re.sub(badge_pattern, f'<span id="spotlightCountBadge">{len(articles)} stories indexed</span>', idx_content)
+
+    # Stamp content hashes on index.html assets so browsers & Googlebot always fetch fresh bundles
+    import hashlib
+    def _h(rel_p):
+        fp = os.path.join(ROOT_DIR, *rel_p.split('/'))
+        if os.path.exists(fp):
+            with open(fp, 'rb') as fobj:
+                return hashlib.md5(fobj.read()).hexdigest()[:8]
+        return '9.0'
+    idx_content = re.sub(r'/css/styles\.min\.css(?:\?v=[^"\']*)?', f'/css/styles.min.css?v={_h("css/styles.min.css")}', idx_content)
+    idx_content = re.sub(r'(?:/)?js/posts-index\.js(?:\?v=[^"\']*)?', f'/js/posts-index.js?v={_h("js/posts-index.js")}', idx_content)
+    idx_content = re.sub(r'(?:/)?js/pages\.js(?:\?v=[^"\']*)?', f'/js/pages.js?v={_h("js/pages.js")}', idx_content)
+    idx_content = re.sub(r'(?:/)?js/app\.js(?:\?v=[^"\']*)?', f'/js/app.js?v={_h("js/app.js")}', idx_content)
+    idx_content = re.sub(r'(?:/)?js/vip-drawer\.js(?:\?v=[^"\']*)?', f'/js/vip-drawer.js?v={_h("js/vip-drawer.js")}', idx_content)
 
     with open(index_path, 'w', encoding='utf-8') as f:
         f.write(idx_content)

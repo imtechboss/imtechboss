@@ -117,13 +117,11 @@
 
 
 
-  <!-- Google Fonts: Inter -->
-
+  <!-- Google Fonts: Inter (Non-Render-Blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 
 
@@ -185,56 +183,40 @@
 
               </span>
 
-              <span class="block text-[10px] uppercase font-semibold tracking-widest text-gray-500 dark:text-gray-400 -mt-0.5">
-
-                AI &amp; Gaming Journal
-
+              <span class="block text-[10px] uppercase font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 -mt-0.5">
+                Nepal Digital &amp; Tools Hub
               </span>
-
             </div>
-
           </a>
-
         </div>
 
-
-
         <!-- Navigation Actions -->
-
         <div class="flex items-center gap-2 sm:gap-3">
-
           <a 
-
             href="/"
-
             onclick="if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) { window.history.back(); return false; }"
-
             class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors"
-
           >
-
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-
             <span>All Stories</span>
-
           </a>
 
-
+          <a 
+            href="/nepal/" 
+            class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-bold rounded-full bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 transition-colors"
+            title="Nepal Digital Guides &amp; Utilities"
+          >
+            <span>🇳🇵</span>
+            <span>Nepal Hub</span>
+          </a>
 
           <a 
-
             href="/tools/" 
-
             class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-full bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/60 transition-colors"
-
             title="Free Interactive Tech Tools"
-
           >
-
             <span>🛠️</span>
-
-            <span>Tools</span>
-
+            <span>22 Tools</span>
           </a>
 
 
@@ -424,7 +406,9 @@
 
           <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
 
-          <a href="/tools/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tech Tools</a> &bull; <a href="/archive/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Topic Archive</a>
+          <a href="/nepal/" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline transition-colors">Nepal Hub</a> &bull;
+
+          <a href="/tools/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">22 Tools</a> &bull; <a href="/archive/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Topic Archive</a>
 
           <a href="/compare/" class="text-blue-600 dark:text-blue-400 font-bold hover:underline transition-colors">Compare</a>
 
@@ -487,7 +471,7 @@
       </div>
       <div class="p-3 bg-gray-50 dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-gray-500">
         <span>Shortcut: Press <kbd class="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-slate-800 font-mono">Ctrl + K</kbd> anytime</span>
-        <span id="spotlightCountBadge">170+ stories indexed</span>
+        <span id="spotlightCountBadge">128 stories indexed</span>
       </div>
     </div>
   </div>
@@ -504,15 +488,13 @@
 
 
 
-  <!-- Scripts -->
+  <!-- Scripts (Zero data.js on pre-rendered pages; Spotlight lazy-loads posts-index.js on Ctrl+K) -->
 
-  <script src="/js/data.js?v=8.0" defer></script>
+  <script src="/js/pages.js?v=9.0" defer></script>
 
-  <script src="/js/pages.js?v=8.0" defer></script>
+  <script src="/js/post.js?v=9.0" defer></script>
 
-  <script src="/js/post.js?v=8.0" defer></script>
-
-  <script src="/js/vip-drawer.js?v=8.0" defer></script>
+  <script src="/js/vip-drawer.js?v=9.0" defer></script>
 
   <script>
 

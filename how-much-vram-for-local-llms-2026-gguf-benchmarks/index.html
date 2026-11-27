@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preload" href="/css/styles.min.css?v=1.0" as="style">
+  <link rel="preload" href="/css/styles.min.css?v=72ae5ab3" as="style">
 
   <!-- Google tag (gtag.js) - Google Analytics 4 -->
 
@@ -117,13 +117,11 @@
 
 
 
-  <!-- Google Fonts: Inter -->
-
+  <!-- Google Fonts: Inter (Non-Render-Blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 
 
@@ -136,7 +134,7 @@
 
 
   <!-- Pure Compiled CSS (Zero External Scripts, Zero Redirects) -->
-  <link rel="stylesheet" href="/css/styles.min.css?v=1.0">
+  <link rel="stylesheet" href="/css/styles.min.css?v=72ae5ab3">
   
   <script id="articleJsonLd" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/#article", "isPartOf": {"@type": "WebPage", "@id": "https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/"}, "headline": "How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B & 70B GGUF Sizing Guide)", "description": "Calculate exact VRAM requirements for 7B, 14B, 32B, and 70B local LLMs on 8GB to 24GB GPUs. Compare Q4_K_M vs Q8_0 GGUF weights, KV cache, and context limits.", "image": ["https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=1200&q=80"], "datePublished": "2026-11-15T00:00:00Z", "dateModified": "2026-11-15T00:00:00Z", "inLanguage": "en-US", "mainEntityOfPage": "https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/", "author": {"@type": "Person", "name": "Binod Bhatt", "jobTitle": "Lead Systems & Hardware Engineer", "url": "https://imtechboss.com/author/binod-bhatt/", "sameAs": ["https://imtechboss.com/author/binod-bhatt/", "https://binodbhatt.com.np", "https://github.com/binodbhatt"], "worksFor": {"@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com"}, "knowsAbout": ["Artificial Intelligence", "GPU Benchmarking", "Cloud Infrastructure", "Cybersecurity", "Systems Engineering"]}, "publisher": {"@type": "Organization", "name": "Tech Boss", "url": "https://imtechboss.com", "logo": {"@type": "ImageObject", "url": "https://imtechboss.com/og-image.png"}}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#aioAnswerCapsule", "h1"]}}, {"@type": "BreadcrumbList", "@id": "https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imtechboss.com/"}, {"@type": "ListItem", "position": 2, "name": "AI & Technology", "item": "https://imtechboss.com/?category=AI & Technology"}, {"@type": "ListItem", "position": 3, "name": "How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B & 70B GGUF Sizing Guide)", "item": "https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/"}]}, {"@type": "FAQPage", "@id": "https://imtechboss.com/how-much-vram-for-local-llms-2026-gguf-benchmarks/#faq", "mainEntity": [{"@type": "Question", "name": "What happens when a local model exceeds GPU VRAM by even 1GB?", "acceptedAnswer": {"@type": "Answer", "text": "Inference runners like llama.cpp and Ollama split the neural network layers, offloading overflowing layers onto system DDR4 or DDR5 RAM via the PCIe bus. Because system RAM bandwidth (40 to 90 GB/s) is 10 to 20 times slower than GPU VRAM (500 to 1,792 GB/s), token generation speed drops dramatically from 50+ tokens per second down to single digits."}}, {"@type": "Question", "name": "Does 4-bit Q4_K_M quantization noticeably hurt model accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Across HumanEval, MMLU, and GSM8K benchmarks, Q4_K_M retains over 98.2% of the reasoning capability of 16-bit unquantized models for architectures larger than 14B parameters. For compact 3B to 7B models, selecting Q5_K_M or Q6_K is recommended to prevent syntax hallucinations."}}, {"@type": "Question", "name": "How do you calculate KV cache memory for large context windows?", "acceptedAnswer": {"@type": "Answer", "text": "KV cache memory is calculated as: 2 * Layers * Hidden Dimensions * Context Length * (Bytes per KV Token). For a 32B model with 64 layers at a 32,768 context length, uncompressed FP16 KV cache consumes over 8.5 GB of VRAM alone. Enabling Q8_0 KV quantization reduces that cache down to approximately 4.3 GB."}}]}]}</script>
 </head>
@@ -187,56 +185,40 @@
 
               </span>
 
-              <span class="block text-[10px] uppercase font-semibold tracking-widest text-gray-500 dark:text-gray-400 -mt-0.5">
-
-                AI &amp; Gaming Journal
-
+              <span class="block text-[10px] uppercase font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 -mt-0.5">
+                Nepal Digital &amp; Tools Hub
               </span>
-
             </div>
-
           </a>
-
         </div>
 
-
-
         <!-- Navigation Actions -->
-
         <div class="flex items-center gap-2 sm:gap-3">
-
           <a 
-
             href="/"
-
             onclick="if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) { window.history.back(); return false; }"
-
             class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 transition-colors"
-
           >
-
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-
             <span>All Stories</span>
-
           </a>
 
-
+          <a 
+            href="/nepal/" 
+            class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-bold rounded-full bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 transition-colors"
+            title="Nepal Digital Guides &amp; Utilities"
+          >
+            <span>🇳🇵</span>
+            <span>Nepal Hub</span>
+          </a>
 
           <a 
-
             href="/tools/" 
-
             class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-full bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/60 transition-colors"
-
             title="Free Interactive Tech Tools"
-
           >
-
             <span>🛠️</span>
-
-            <span>Tools</span>
-
+            <span>22 Tools</span>
           </a>
 
 
@@ -456,6 +438,10 @@
         <img 
           src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
           alt="How Much VRAM Do You Really Need for Local LLMs in 2026? (7B, 14B, 32B &amp; 70B GGUF Sizing Guide)" 
+          width="1200"
+          height="675"
+          fetchpriority="high"
+          decoding="async"
           class="w-full h-full object-cover object-center"
           loading="eager"
           onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'"
@@ -805,7 +791,7 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
           </span>
         </a>
 
-        <a href="/deals" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+        <a href="/deals/" class="group p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/70 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-1">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-base">🏷️</span>
@@ -930,13 +916,13 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
         <div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-5">
 
           <a 
-            href="/how-to-run-local-llms-apple-silicon-mac-ollama-lm-studio-mlx/" 
+            href="/lm-studio-tutorial-complete-guide-2026/" 
             class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
           >
             <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
               <img 
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
-                alt="How to Run Local LLMs on Apple Silicon Mac in 2026: Ollama vs. LM Studio vs. Apple MLX (Speed, Unified Memory &amp; Setup Guide)" 
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
+                alt="LM Studio Tutorial 2026: Download, Setup &amp; Run Any AI Model Locally with GPU (Windows &amp; Mac)" 
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80'"
@@ -946,23 +932,23 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
               AI &amp; Technology
             </span>
             <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
-              How to Run Local LLMs on Apple Silicon Mac in 2026: Ollama vs. LM Studio vs. Apple MLX (Speed, Unified Memory &amp; Setup Guide)
+              LM Studio Tutorial 2026: Download, Setup &amp; Run Any AI Model Locally with GPU (Windows &amp; Mac)
             </h4>
             <div class="mt-auto pt-2 text-[10px] text-gray-400 flex items-center justify-between">
-              <span>2026-10-26</span>
+              <span>2026-11-15</span>
               <span class="font-semibold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">Read Story &rarr;</span>
             </div>
           </a>
         
 
           <a 
-            href="/meta-prometheus-1-million-gpu-ai-supercluster-liquid-cooling-specs-2026/" 
+            href="/best-local-ai-models-for-coding-2026-qwen-coder-vs-deepseek-benchmarks/" 
             class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
           >
             <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
               <img 
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
-                alt="Meta Unveils &#x27;Prometheus&#x27;: Inside the 1-Million-GPU Liquid-Cooled Frontier AI Supercluster" 
+                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
+                alt="Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks &amp; VRAM Guide" 
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80'"
@@ -972,23 +958,23 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
               AI &amp; Technology
             </span>
             <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
-              Meta Unveils &#x27;Prometheus&#x27;: Inside the 1-Million-GPU Liquid-Cooled Frontier AI Supercluster
+              Best Local AI Models for Coding in 2026: Qwen 2.5 Coder 32B vs DeepSeek R1 Benchmarks &amp; VRAM Guide
             </h4>
             <div class="mt-auto pt-2 text-[10px] text-gray-400 flex items-center justify-between">
-              <span>2026-10-25</span>
+              <span>2026-11-14</span>
               <span class="font-semibold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">Read Story &rarr;</span>
             </div>
           </a>
         
 
           <a 
-            href="/cursor-vs-windsurf-vs-vscode-roo-code-ram-performance-benchmark-2026/" 
+            href="/14b-vs-32b-vs-70b-local-llms-24gb-vram-quantization-speed-guide-2026/" 
             class="group flex flex-col bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all p-3"
           >
             <div class="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-800 mb-3">
               <img 
-                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
-                alt="Cursor vs Windsurf vs VS Code + Roo Code: Real-World RAM Usage, Context Indexing &amp; Local LLM Benchmark (2026)" 
+                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" 
+                alt="14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)" 
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80'"
@@ -998,10 +984,10 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
               AI &amp; Technology
             </span>
             <h4 class="font-bold text-xs sm:text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
-              Cursor vs Windsurf vs VS Code + Roo Code: Real-World RAM Usage, Context Indexing &amp; Local LLM Benchmark (2026)
+              14B vs 32B vs 70B Local LLMs on 24GB VRAM: Quantization, Context Length &amp; Speed Guide (2026)
             </h4>
             <div class="mt-auto pt-2 text-[10px] text-gray-400 flex items-center justify-between">
-              <span>2026-10-22</span>
+              <span>2026-11-08</span>
               <span class="font-semibold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">Read Story &rarr;</span>
             </div>
           </a>
@@ -1037,7 +1023,9 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
 
           <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
 
-          <a href="/tools/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tech Tools</a> &bull; <a href="/archive/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Topic Archive</a>
+          <a href="/nepal/" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline transition-colors">Nepal Hub</a> &bull;
+
+          <a href="/tools/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">22 Tools</a> &bull; <a href="/archive/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Topic Archive</a>
 
           <a href="/compare/" class="text-blue-600 dark:text-blue-400 font-bold hover:underline transition-colors">Compare</a>
 
@@ -1100,7 +1088,7 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
       </div>
       <div class="p-3 bg-gray-50 dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-gray-500">
         <span>Shortcut: Press <kbd class="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-slate-800 font-mono">Ctrl + K</kbd> anytime</span>
-        <span id="spotlightCountBadge">170+ stories indexed</span>
+        <span id="spotlightCountBadge">128 stories indexed</span>
       </div>
     </div>
   </div>
@@ -1117,15 +1105,13 @@ export OLLAMA_KV_CACHE_TYPE="q8_0"
 
 
 
-  <!-- Scripts -->
+  <!-- Scripts (Zero data.js on pre-rendered pages; Spotlight lazy-loads posts-index.js on Ctrl+K) -->
 
-  <script src="/js/data.js?v=8.0" defer></script>
+  <script src="/js/pages.js?v=316793a6" defer></script>
 
-  <script src="/js/pages.js?v=8.0" defer></script>
+  <script src="/js/post.js?v=8663a7e3" defer></script>
 
-  <script src="/js/post.js?v=8.0" defer></script>
-
-  <script src="/js/vip-drawer.js?v=8.0" defer></script>
+  <script src="/js/vip-drawer.js?v=23bb0c06" defer></script>
 
   <script>
 
