@@ -145,14 +145,24 @@ function getDevToTags(article) {
 async function publishArticleToDevTo(article, options = {}) {
   const canonicalUrl = `https://imtechboss.com/${article.id}/`;
   
-  // Format body markdown from full article content or excerpt
-  let bodyMarkdown = '';
-  if (article.content && article.content.length > 200) {
-    bodyMarkdown = htmlToMarkdown(article.content);
-  } else {
-    bodyMarkdown = `${article.excerpt || ''}\n\n`;
-    bodyMarkdown += `### About This Technical Analysis\nIn late 2026, technology is evolving faster than ever. This guide explores the core technical architecture, benchmark metrics, and practical implementations.\n\n`;
+  // Safe Summary-Only Syndication (prevents DR 90+ DEV.to from outranking original imtechboss.com URLs)
+  const plainText = (article.content || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+  const headings = [...(article.content || '').matchAll(/<h2[^>]*>(.*?)<\/h2>/gi)]
+    .map(m => m[1].replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim())
+    .filter(Boolean)
+    .slice(0, 5);
+
+  const summarySnippet = article.excerpt || plainText.slice(0, 260) + (plainText.length > 260 ? '...' : '');
+  let bodyMarkdown = `> **TL;DR:** ${summarySnippet}\n\n`;
+  if (headings.length > 0) {
+    bodyMarkdown += `### What This Guide Covers\n\n`;
+    bodyMarkdown += headings.map(h => `- **${h}**`).join('\n') + '\n\n';
   }
+  bodyMarkdown += `### Read the Full Interactive Guide\n\nRead the complete benchmarks, tables, and step-by-step instructions on **[Tech Boss (${article.title})](${canonicalUrl})**.\n`;
   
   // Append canonical citation and dynamic tailored CTA footer
   const cat = (article.category || '').toLowerCase();
