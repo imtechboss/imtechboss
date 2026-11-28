@@ -80,6 +80,11 @@ CORE_AND_TOOL_ROUTES = [
     ("https://imtechboss.com/tools/nepal-govt-photo-document-compressor/", "tools/nepal-govt-photo-document-compressor/index.html", False),
     ("https://imtechboss.com/tools/preeti-to-unicode-nepali-converter/", "tools/preeti-to-unicode-nepali-converter/index.html", False),
     ("https://imtechboss.com/tools/nepal-emi-loan-sip-calculator/", "tools/nepal-emi-loan-sip-calculator/index.html", False),
+    ("https://imtechboss.com/tools/nepali-date-converter-bs-to-ad/", "tools/nepali-date-converter-bs-to-ad/index.html", False),
+    ("https://imtechboss.com/tools/romanized-nepali-to-unicode-typing/", "tools/romanized-nepali-to-unicode-typing/index.html", False),
+    ("https://imtechboss.com/tools/nepal-gpa-percentage-calculator/", "tools/nepal-gpa-percentage-calculator/index.html", False),
+    ("https://imtechboss.com/tools/nea-electricity-bill-calculator-nepal/", "tools/nea-electricity-bill-calculator-nepal/index.html", False),
+    ("https://imtechboss.com/tools/nepal-forex-remittance-calculator/", "tools/nepal-forex-remittance-calculator/index.html", False),
     ("https://imtechboss.com/compare/", "compare/index.html", False),
     ("https://imtechboss.com/archive/", "archive/index.html", True),
     ("https://imtechboss.com/stories/", "stories/index.html", False),
@@ -140,7 +145,7 @@ def generate_sitemap():
         if is_dynamic:
             lmod = latest_nepal_date if loc.endswith('/nepal/') else latest_article_date
         else:
-            lmod = existing_lastmods.get(loc, '2026-11-23')
+            lmod = existing_lastmods.get(loc, today)
         xml_lines.append('  <url>')
         xml_lines.append(f'    <loc>{loc}</loc>')
         xml_lines.append(f'    <lastmod>{lmod}</lastmod>')

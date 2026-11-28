@@ -1422,6 +1422,549 @@ EXTENDED_TOOLS = [
         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Nepalese commercial banks price home, auto, and education loans using Bank Base Rate + Premium under a reducing-balance schedule. Compare loan interest costs against long-term <a href="/meroshare-c-asba-demat-ipo-apply-nepal-error-fix-guide-2026/" class="text-blue-600 underline font-semibold">Meroshare / NEPSE SIP returns</a> before locking long tenures.</p>
         """
     },
+    {
+        "slug": "nepali-date-converter-bs-to-ad",
+        "icon": "📅",
+        "badge": "Bikram Sambat & Gregorian Calendar",
+        "h1": "Nepali Date Converter (BS ↔ AD) & Exact Age Calculator",
+        "title": "Nepali Date Converter (BS to AD & AD to BS) + Age Calculator (2026) — Tech Boss",
+        "description": "Convert Nepali Bikram Sambat (BS) dates to English Gregorian (AD) dates and AD to BS accurately for Citizenship, Passport, NID, and Loksewa forms, plus exact age calculation.",
+        "capsule_title": "Accurate BS ↔ AD Date Conversion for Official Forms",
+        "capsule_text": "Convert dates between Bikram Sambat (BS 2000–2090) and Gregorian (AD 1943–2033) directly in your browser. Verify exact birthdates and issue dates for Nepal e-Passport, NID, PAN, and Loksewa applications, and compute exact age in years, months, and days.",
+        "tool_html": """
+        <section id="nepaliDateTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <button id="modeBsToAd" class="px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold shadow">BS &rarr; AD (नेपाली &rarr; English)</button>
+            <button id="modeAdToBs" class="px-4 py-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs font-bold">AD &rarr; BS (English &rarr; नेपाली)</button>
+          </div>
+          <div id="bsInputGroup" class="grid grid-cols-3 gap-3 mb-5">
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">BS Year (2000–2090)</label><input id="bsYearIn" type="number" min="2000" max="2090" value="2056" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">BS Month</label><select id="bsMonthIn" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white"><option value="1">1 - Baishakh (बैशाख)</option><option value="2">2 - Jestha (जेठ)</option><option value="3">3 - Ashadh (असार)</option><option value="4">4 - Shrawan (साउन)</option><option value="5">5 - Bhadra (भदौ)</option><option value="6" selected>6 - Ashwin (असोज)</option><option value="7">7 - Kartik (कार्तिक)</option><option value="8">8 - Mangsir (मंसिर)</option><option value="9">9 - Poush (पुष)</option><option value="10">10 - Magh (माघ)</option><option value="11">11 - Falgun (फागुन)</option><option value="12">12 - Chaitra (चैत)</option></select></div>
+            <div><label class="block text-[11px] font-bold text-gray-500 mb-1">BS Day (1–32)</label><input id="bsDayIn" type="number" min="1" max="32" value="15" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" /></div>
+          </div>
+          <div id="adInputGroup" class="hidden mb-5">
+            <label class="block text-[11px] font-bold text-gray-500 mb-1">Select Gregorian Date (AD)</label>
+            <input id="adDateIn" type="date" value="1999-10-01" min="1943-04-14" max="2034-04-13" class="w-full sm:w-72 px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+          </div>
+          <button id="convertNepDateBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition-colors">
+            📅 Convert Date &amp; Calculate Age
+          </button>
+          <div id="nepDateResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          // Compact verified BS calendar month lengths (2000 BS to 2090 BS), anchor: 2000-01-01 BS = 1943-04-14 AD
+          const BS_DATA = {
+            2000:[30,32,31,32,31,30,30,30,29,30,29,31],2001:[31,31,32,31,31,31,30,29,30,29,30,30],2002:[31,31,32,32,31,30,30,29,30,29,30,30],2003:[31,32,31,32,31,30,30,30,29,29,30,31],2004:[30,32,31,32,31,30,30,30,29,30,29,31],
+            2005:[31,31,32,31,31,31,30,29,30,29,30,30],2006:[31,31,32,32,31,30,30,29,30,29,30,30],2007:[31,32,31,32,31,30,30,30,29,29,30,31],2008:[31,31,31,32,31,31,29,30,30,29,29,31],2009:[31,31,32,31,31,31,30,29,30,29,30,30],
+            2010:[31,31,32,32,31,30,30,29,30,29,30,30],2011:[31,32,31,32,31,30,30,30,29,29,30,31],2012:[31,31,31,32,31,31,29,30,30,29,30,30],2013:[31,31,32,31,31,31,30,29,30,29,30,30],2014:[31,31,32,32,31,30,30,29,30,29,30,30],
+            2015:[31,32,31,32,31,30,30,30,29,29,30,31],2016:[31,31,31,32,31,31,29,30,30,29,30,30],2017:[31,31,32,31,31,31,30,29,30,29,30,30],2018:[31,32,31,32,31,30,30,29,30,29,30,30],2019:[31,32,31,32,31,30,30,30,29,30,29,31],
+            2020:[31,31,31,32,31,31,30,29,30,29,30,30],2021:[31,31,32,31,31,31,30,29,30,29,30,30],2022:[31,32,31,32,31,30,30,30,29,29,30,30],2023:[31,32,31,32,31,30,30,30,29,30,29,31],2024:[31,31,31,32,31,31,30,29,30,29,30,30],
+            2025:[31,31,32,31,31,31,30,29,30,29,30,30],2026:[31,32,31,32,31,30,30,30,29,29,30,31],2027:[30,32,31,32,31,30,30,30,29,30,29,31],2028:[31,31,32,31,31,31,30,29,30,29,30,30],2029:[31,31,32,31,32,30,30,29,30,29,30,30],
+            2030:[31,32,31,32,31,30,30,30,29,29,30,31],2031:[30,32,31,32,31,30,30,30,29,30,29,31],2032:[31,31,32,31,31,31,30,29,30,29,30,30],2033:[31,31,32,32,31,30,30,29,30,29,30,30],2034:[31,32,31,32,31,30,30,30,29,29,30,31],
+            2035:[30,32,31,32,31,31,29,30,30,29,29,31],2036:[31,31,32,31,31,31,30,29,30,29,30,30],2037:[31,31,32,32,31,30,30,29,30,29,30,30],2038:[31,32,31,32,31,30,30,30,29,29,30,31],2039:[31,31,31,32,31,31,29,30,30,29,30,30],
+            2040:[31,31,32,31,31,31,30,29,30,29,30,30],2041:[31,31,32,32,31,30,30,29,30,29,30,30],2042:[31,32,31,32,31,30,30,30,29,29,30,31],2043:[31,31,31,32,31,31,29,30,30,29,30,30],2044:[31,31,32,31,31,31,30,29,30,29,30,30],
+            2045:[31,32,31,32,31,30,30,29,30,29,30,30],2046:[31,32,31,32,31,30,30,30,29,29,30,31],2047:[31,31,31,32,31,31,30,29,30,29,30,30],2048:[31,31,32,31,31,31,30,29,30,29,30,30],2049:[31,32,31,32,31,30,30,30,29,29,30,30],
+            2050:[31,32,31,32,31,30,30,30,29,30,29,31],2051:[31,31,31,32,31,31,30,29,30,29,30,30],2052:[31,31,32,31,31,31,30,29,30,29,30,30],2053:[31,32,31,32,31,30,30,30,29,29,30,30],2054:[31,32,31,32,31,30,30,30,29,30,29,31],
+            2055:[31,31,32,31,31,31,30,29,30,29,30,30],2056:[31,31,32,31,32,30,30,29,30,29,30,30],2057:[31,32,31,32,31,30,30,30,29,29,30,31],2058:[30,32,31,32,31,30,30,30,29,30,29,31],2059:[31,31,32,31,31,31,30,29,30,29,30,30],
+            2060:[31,31,32,32,31,30,30,29,30,29,30,30],2061:[31,32,31,32,31,30,30,30,29,29,30,31],2062:[30,32,31,32,31,31,29,30,29,30,29,31],2063:[31,31,32,31,31,31,30,29,30,29,30,30],2064:[31,31,32,32,31,30,30,29,30,29,30,30],
+            2065:[31,32,31,32,31,30,30,30,29,29,30,31],2066:[31,31,31,32,31,31,29,30,30,29,29,31],2067:[31,31,32,31,31,31,30,29,30,29,30,30],2068:[31,31,32,32,31,30,30,29,30,29,30,30],2069:[31,32,31,32,31,30,30,30,29,29,30,31],
+            2070:[31,31,31,32,31,31,29,30,30,29,30,30],2071:[31,31,32,31,31,31,30,29,30,29,30,30],2072:[31,32,31,32,31,30,30,29,30,29,30,30],2073:[31,32,31,32,31,30,30,30,29,29,30,31],2074:[31,31,31,32,31,31,30,29,30,29,30,30],
+            2075:[31,31,32,31,31,31,30,29,30,29,30,30],2076:[31,32,31,32,31,30,30,30,29,29,30,30],2077:[31,32,31,32,31,30,30,30,29,30,29,31],2078:[31,31,31,32,31,31,30,29,30,29,30,30],2079:[31,31,32,31,31,31,30,29,30,29,30,30],
+            2080:[31,32,31,32,31,30,30,30,29,29,30,30],2081:[31,31,32,32,31,30,30,30,29,30,30,30],2082:[30,32,31,32,31,30,30,30,29,30,30,30],2083:[31,31,32,31,31,30,30,30,29,30,30,30],2084:[31,31,32,31,31,30,30,30,29,30,30,30],
+            2085:[31,32,31,32,30,31,30,30,29,30,30,30],2086:[30,32,31,32,31,30,30,30,29,30,30,30],2087:[31,31,32,31,31,31,30,30,29,30,30,30],2088:[30,31,32,32,30,31,30,30,29,30,30,30],2089:[30,32,31,32,31,30,30,30,29,30,30,30],
+            2090:[30,32,31,32,31,30,30,30,29,30,30,30]
+          };
+          const BS_MONTHS = ['Baishakh','Jestha','Ashadh','Shrawan','Bhadra','Ashwin','Kartik','Mangsir','Poush','Magh','Falgun','Chaitra'];
+          const BS_MONTHS_NP = ['बैशाख','जेठ','असार','साउन','भदौ','असोज','कार्तिक','मंसिर','पुष','माघ','फागुन','चैत'];
+          const DAYS_EN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+          const DAYS_NP = ['आइतबार','सोमबार','मङ्गलबार','बुधबार','बिहिबार','शुक्रबार','शनिबार'];
+          const ANCHOR_AD = Date.UTC(1943, 3, 14); // 2000-01-01 BS
+
+          let mode = 'bs2ad';
+          const btnBs = document.getElementById('modeBsToAd');
+          const btnAd = document.getElementById('modeAdToBs');
+          const bsGrp = document.getElementById('bsInputGroup');
+          const adGrp = document.getElementById('adInputGroup');
+          const runBtn = document.getElementById('convertNepDateBtn');
+          const box = document.getElementById('nepDateResultBox');
+          if (!btnBs || !runBtn || !box) return;
+
+          btnBs.addEventListener('click', () => {
+            mode = 'bs2ad';
+            bsGrp.classList.remove('hidden'); adGrp.classList.add('hidden');
+            btnBs.className = 'px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold shadow';
+            btnAd.className = 'px-4 py-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs font-bold';
+          });
+          btnAd.addEventListener('click', () => {
+            mode = 'ad2bs';
+            adGrp.classList.remove('hidden'); bsGrp.classList.add('hidden');
+            btnAd.className = 'px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold shadow';
+            btnBs.className = 'px-4 py-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs font-bold';
+          });
+
+          function calcAge(adDate) {
+            const now = new Date();
+            if (adDate > now) return 'Future date';
+            let y = now.getFullYear() - adDate.getUTCFullYear();
+            let m = now.getMonth() - adDate.getUTCMonth();
+            let d = now.getDate() - adDate.getUTCDate();
+            if (d < 0) { m--; d += 30; }
+            if (m < 0) { y--; m += 12; }
+            return `${y} years, ${m} months, ${d} days`;
+          }
+
+          runBtn.addEventListener('click', () => {
+            let bsY, bsM, bsD, adObj;
+            if (mode === 'bs2ad') {
+              bsY = parseInt(document.getElementById('bsYearIn').value, 10);
+              bsM = parseInt(document.getElementById('bsMonthIn').value, 10);
+              bsD = parseInt(document.getElementById('bsDayIn').value, 10);
+              if (!BS_DATA[bsY] || bsM < 1 || bsM > 12 || bsD < 1 || bsD > BS_DATA[bsY][bsM - 1]) {
+                box.innerHTML = `<p class="text-xs font-bold text-rose-600">Invalid BS date. Year ${bsY} month ${bsM} has ${BS_DATA[bsY] ? BS_DATA[bsY][bsM - 1] : 30} days.</p>`;
+                box.classList.remove('hidden'); return;
+              }
+              let totalDays = 0;
+              for (let y = 2000; y < bsY; y++) totalDays += BS_DATA[y].reduce((a, b) => a + b, 0);
+              for (let m = 0; m < bsM - 1; m++) totalDays += BS_DATA[bsY][m];
+              totalDays += (bsD - 1);
+              adObj = new Date(ANCHOR_AD + totalDays * 86400000);
+            } else {
+              const val = document.getElementById('adDateIn').value;
+              if (!val) return;
+              const [ay, am, ad] = val.split('-').map(Number);
+              adObj = new Date(Date.UTC(ay, am - 1, ad));
+              let diff = Math.round((adObj.getTime() - ANCHOR_AD) / 86400000);
+              if (diff < 0) { box.innerHTML = '<p class="text-xs font-bold text-rose-600">Date must be after 1943-04-14 AD.</p>'; box.classList.remove('hidden'); return; }
+              bsY = 2000;
+              while (BS_DATA[bsY]) {
+                const yrDays = BS_DATA[bsY].reduce((a, b) => a + b, 0);
+                if (diff < yrDays) break;
+                diff -= yrDays; bsY++;
+              }
+              if (!BS_DATA[bsY]) { box.innerHTML = '<p class="text-xs font-bold text-rose-600">Date out of supported range (2000–2090 BS).</p>'; box.classList.remove('hidden'); return; }
+              bsM = 1;
+              for (let m = 0; m < 12; m++) {
+                if (diff < BS_DATA[bsY][m]) { bsM = m + 1; bsD = diff + 1; break; }
+                diff -= BS_DATA[bsY][m];
+              }
+            }
+            const adIso = adObj.toISOString().slice(0, 10);
+            const adHuman = adObj.toLocaleDateString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' });
+            const dow = adObj.getUTCDay();
+            box.innerHTML = `
+              <h3 class="text-base font-extrabold text-emerald-700 dark:text-emerald-400 mb-3">Exact BS &harr; AD Conversion Result</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-3">
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700">
+                  <span class="text-gray-500 block">Bikram Sambat (BS)</span>
+                  <strong class="text-base text-gray-900 dark:text-white">${bsY} ${BS_MONTHS[bsM-1]} ${bsD} (${bsY}-${String(bsM).padStart(2,'0')}-${String(bsD).padStart(2,'0')})</strong>
+                  <div class="text-xs text-emerald-600 dark:text-emerald-400 font-bold mt-1">${BS_MONTHS_NP[bsM-1]} ${bsD}, ${bsY} • ${DAYS_NP[dow]}</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700">
+                  <span class="text-gray-500 block">Gregorian (AD)</span>
+                  <strong class="text-base text-gray-900 dark:text-white">${adHuman} (${adIso})</strong>
+                  <div class="text-xs text-blue-600 dark:text-blue-400 font-bold mt-1">${DAYS_EN[dow]} • Age: ${calcAge(adObj)}</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-4 text-xs">
+                <a href="/personal-pan-card-online-registration-ird-search-nepal-guide-2026/" class="font-bold text-blue-600 hover:underline">Personal PAN Online Guide &rarr;</a>
+                <a href="/nepal-e-passport-online-application-appointment-renewal-guide-2026/" class="font-bold text-emerald-600 hover:underline">e-Passport Appointment Guide &rarr;</a>
+              </div>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        """,
+        "guide_title": "Why Accurate BS to AD Conversion Matters on Nepali Portals",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Government systems like <a href="/national-id-card-nid-nepal-online-form-biometric-status-guide-2026/" class="text-blue-600 underline font-semibold">DoNIDCR (NID)</a>, <a href="/nepal-e-passport-online-application-appointment-renewal-guide-2026/" class="text-blue-600 underline font-semibold">Department of Passports</a>, and <a href="/personal-pan-card-online-registration-ird-search-nepal-guide-2026/" class="text-blue-600 underline font-semibold">IRD PAN</a> validate your Bikram Sambat birthdate against its exact Gregorian equivalent. A one-day discrepancy can trigger CIMS mismatch errors.</p>
+        """
+    },
+    {
+        "slug": "romanized-nepali-to-unicode-typing",
+        "icon": "✍️",
+        "badge": "Nepali Phonetic Unicode Typing",
+        "h1": "Romanized Nepali to Unicode Typing Tool (Instant Devanagari)",
+        "title": "Romanized Nepali to Unicode Typing Tool (English to Nepali Devanagari) — Tech Boss",
+        "description": "Type Nepali in English phonetics (e.g. namaste nepal) and convert instantaneously into clean Nepali Devanagari Unicode for Loksewa, NID, PAN, Facebook, and Word documents.",
+        "capsule_title": "Instant Phonetic Nepali Unicode Typing (Zero Install)",
+        "capsule_text": "Type words like 'namaste nepal', 'kathmandu', or 'mero desh' using a normal English keyboard and get clean Unicode Devanagari instantly—no keyboard layout install needed. Works offline in your browser with 1-click copy.",
+        "tool_html": """
+        <section id="romanNepaliTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Type Romanized Nepali (English Keyboard)</label>
+              <textarea id="romanInput" rows="6" placeholder="Type here e.g. namaste nepal, mero naam binod ho..." class="w-full p-3.5 rounded-2xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Live Nepali Unicode (देवनागरी)</label>
+              <textarea id="unicodeOutput" rows="6" readonly placeholder="नमस्ते नेपाल..." class="w-full p-3.5 rounded-2xl bg-emerald-50/40 dark:bg-slate-800/90 border border-emerald-200 dark:border-slate-700 text-base text-gray-900 dark:text-white focus:outline-none"></textarea>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-2">
+              <button id="copyRomanUniBtn" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow transition-colors">📋 Copy Nepali Unicode</button>
+              <button id="sampleRomanBtn" class="px-4 py-2.5 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-bold text-xs">✨ Try Sample</button>
+              <button id="clearRomanBtn" class="px-4 py-2.5 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-bold text-xs">Clear</button>
+            </div>
+            <span id="romanStats" class="text-xs text-gray-500 dark:text-gray-400 font-mono">0 words • 0 chars</span>
+          </div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const inp = document.getElementById('romanInput');
+          const out = document.getElementById('unicodeOutput');
+          const copyBtn = document.getElementById('copyRomanUniBtn');
+          const sampleBtn = document.getElementById('sampleRomanBtn');
+          const clearBtn = document.getElementById('clearRomanBtn');
+          const stats = document.getElementById('romanStats');
+          if (!inp || !out) return;
+
+          const CONS = {
+            'ksh':'क्ष','chh':'छ','gya':'ज्ञ','tra':'त्र',
+            'kh':'ख','gh':'घ','ng':'ङ','ch':'च','jh':'झ','yn':'ञ',
+            'Th':'ठ','Dh':'ढ','th':'थ','dh':'ध','ph':'फ','bh':'भ','sh':'श','Sh':'ष',
+            'k':'क','g':'ग','c':'च','j':'ज','T':'ट','D':'ड','N':'ण','t':'त','d':'द','n':'न',
+            'p':'प','f':'फ','b':'ब','m':'म','y':'य','r':'र','l':'ल','w':'व','v':'व','s':'स','h':'ह'
+          };
+          const VOW_IND = {'aa':'आ','ai':'ऐ','au':'औ','ee':'ई','oo':'ऊ','ri':'ऋ','a':'अ','i':'इ','u':'उ','e':'ए','o':'ओ'};
+          const VOW_MAT = {'aa':'ा','ai':'ै','au':'ौ','ee':'ी','oo':'ू','ri':'ृ','a':'','i':'ि','u':'ु','e':'े','o':'ो'};
+          const DIGITS = {'0':'०','1':'१','2':'२','3':'३','4':'४','5':'५','6':'६','7':'७','8':'८','9':'९'};
+          const CONS_KEYS = Object.keys(CONS).sort((a,b)=>b.length-a.length);
+          const VOW_KEYS = Object.keys(VOW_IND).sort((a,b)=>b.length-a.length);
+
+          function convertWord(w) {
+            if (!w) return '';
+            let res = '', i = 0;
+            while (i < w.length) {
+              if (DIGITS[w[i]]) { res += DIGITS[w[i]]; i++; continue; }
+              if (w[i] === '.') { res += '।'; i++; continue; }
+              if (w[i] === '*') { res += 'ँ'; i++; continue; }
+              let cKey = CONS_KEYS.find(k => w.startsWith(k, i));
+              if (cKey) {
+                res += CONS[cKey];
+                i += cKey.length;
+                if (cKey === 'gya' || cKey === 'tra') continue;
+                let vKey = VOW_KEYS.find(k => w.startsWith(k, i));
+                if (vKey) {
+                  res += VOW_MAT[vKey];
+                  i += vKey.length;
+                } else if (i < w.length && /[a-zA-Z]/.test(w[i])) {
+                  res += '्';
+                }
+                continue;
+              }
+              let vKey = VOW_KEYS.find(k => w.startsWith(k, i));
+              if (vKey) {
+                res += VOW_IND[vKey];
+                i += vKey.length;
+                continue;
+              }
+              res += w[i]; i++;
+            }
+            return res;
+          }
+
+          function update() {
+            const raw = inp.value;
+            const converted = raw.split(/(\s+)/).map(tok => /^\s+$/.test(tok) ? tok : convertWord(tok)).join('');
+            out.value = converted;
+            const words = converted.trim() ? converted.trim().split(/\s+/).length : 0;
+            if (stats) stats.textContent = `${words} words • ${converted.length} chars`;
+          }
+
+          inp.addEventListener('input', update);
+          if (sampleBtn) sampleBtn.addEventListener('click', () => { inp.value = 'namaste nepal. mero desh sundar chha.'; update(); });
+          if (clearBtn) clearBtn.addEventListener('click', () => { inp.value = ''; update(); });
+          if (copyBtn) copyBtn.addEventListener('click', () => {
+            if (!out.value) return;
+            navigator.clipboard?.writeText(out.value);
+            copyBtn.textContent = '✅ Copied!';
+            setTimeout(() => copyBtn.textContent = '📋 Copy Nepali Unicode', 1800);
+          });
+        })();
+        """,
+        "guide_title": "Typing Nepali Unicode for Loksewa, NID & Government Forms",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Modern Nepali portals (<a href="/national-id-card-nid-nepal-online-form-biometric-status-guide-2026/" class="text-blue-600 underline font-semibold">NID</a>, <a href="/loksewa-online-application-form-payment-photo-size-fix-nepal-2026/" class="text-blue-600 underline font-semibold">Loksewa</a>, and <a href="/personal-pan-card-online-registration-ird-search-nepal-guide-2026/" class="text-blue-600 underline font-semibold">IRD PAN</a>) require standard Devanagari Unicode text rather than legacy Preeti font. Already have Preeti text? Use our <a href="/tools/preeti-to-unicode-nepali-converter/" class="text-blue-600 underline font-semibold">Preeti to Unicode Converter</a>.</p>
+        """
+    },
+    {
+        "slug": "nepal-gpa-percentage-calculator",
+        "icon": "🎓",
+        "badge": "SEE, +2 NEB & TU Academic Grading",
+        "h1": "SEE, +2 NEB & TU GPA to Percentage Calculator Nepal",
+        "title": "SEE, +2 NEB & TU GPA to Percentage Calculator Nepal (2026) — Tech Boss",
+        "description": "Convert SEE, +2 NEB (2078/2080+ Letter Grading), and TU/PU/KU CGPA to exact Percentage, Letter Grade, and Division for NOC, university admission, and Loksewa forms.",
+        "capsule_title": "Official Nepal Letter Grading Scale (4.0 GPA)",
+        "capsule_text": "Under NEB's Letter Grading Directive 2078+, 3.61–4.00 is A+ (90–100%), 3.21–3.60 is A (80–90%), 2.81–3.20 is B+ (70–80%), and 2.41–2.80 is B (60–70%). Convert single GPA values or compute weighted GPA across subjects instantly.",
+        "tool_html": """
+        <section id="nepalGpaTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Conversion Mode</label>
+              <select id="gpaBoardMode" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="gpa2pct" selected>GPA (0.0 – 4.0) &rarr; Equivalent Percentage &amp; Grade</option>
+                <option value="pct2gpa">Percentage (0% – 100%) &rarr; NEB / SEE GPA &amp; Grade</option>
+              </select>
+            </div>
+            <div>
+              <label id="gpaInputLbl" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Enter GPA (e.g. 3.45)</label>
+              <input id="gpaValInput" type="number" min="0" max="100" step="0.01" value="3.45" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+          </div>
+          <button id="calcGpaBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow transition-colors">
+            🎓 Calculate Grade, GPA &amp; Percentage
+          </button>
+          <div id="nepalGpaResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const modeSel = document.getElementById('gpaBoardMode');
+          const lbl = document.getElementById('gpaInputLbl');
+          const inp = document.getElementById('gpaValInput');
+          const btn = document.getElementById('calcGpaBtn');
+          const box = document.getElementById('nepalGpaResultBox');
+          if (!modeSel || !btn || !box) return;
+
+          modeSel.addEventListener('change', () => {
+            if (modeSel.value === 'gpa2pct') { lbl.textContent = 'Enter GPA (0.00 – 4.00)'; inp.value = '3.45'; }
+            else { lbl.textContent = 'Enter Percentage (0 – 100%)'; inp.value = '82.5'; }
+          });
+
+          function gradeFromPct(p) {
+            if (p >= 90) return { g:'A+', desc:'Outstanding (Distinction)', div:'Distinction' };
+            if (p >= 80) return { g:'A', desc:'Excellent (Distinction)', div:'Distinction' };
+            if (p >= 70) return { g:'B+', desc:'Very Good (First Division)', div:'First Division' };
+            if (p >= 60) return { g:'B', desc:'Good (First Division)', div:'First Division' };
+            if (p >= 50) return { g:'C+', desc:'Satisfactory (Second Division)', div:'Second Division' };
+            if (p >= 40) return { g:'C', desc:'Acceptable (Second Division)', div:'Second Division' };
+            if (p >= 35) return { g:'D', desc:'Basic (Pass)', div:'Pass' };
+            return { g:'NG', desc:'Non-Graded (Below 35%)', div:'Non-Graded' };
+          }
+
+          btn.addEventListener('click', () => {
+            const v = parseFloat(inp.value) || 0;
+            let gpa, pct;
+            if (modeSel.value === 'gpa2pct') {
+              gpa = Math.min(4, Math.max(0, v));
+              pct = Math.min(100, gpa * 25);
+            } else {
+              pct = Math.min(100, Math.max(0, v));
+              gpa = Math.min(4, pct / 25);
+            }
+            const info = gradeFromPct(pct);
+            box.innerHTML = `
+              <h3 class="text-base font-extrabold text-sky-700 dark:text-sky-400 mb-3">NEB / SEE / TU Grading Equivalent</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mb-3">
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">GPA (4.0 Scale)</span><strong class="text-lg text-gray-900 dark:text-white">${gpa.toFixed(2)} GPA</strong></div>
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Equivalent Percentage</span><strong class="text-lg text-emerald-600">${pct.toFixed(2)}%</strong></div>
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Letter Grade &amp; Division</span><strong class="text-lg text-blue-600">${info.g} (${info.div})</strong></div>
+              </div>
+              <p class="text-xs text-gray-600 dark:text-gray-300 mb-2"><strong>Assessment:</strong> ${info.desc}. Formula used: standard Nepal 4.0-scale conversion (Percentage = GPA &times; 25). For foreign university applications, check our <a href="/noc-no-objection-certificate-nepal-online-application-study-abroad-2026/" class="text-blue-600 font-bold hover:underline">Nepal NOC Online Guide &rarr;</a></p>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        """,
+        "guide_title": "How SEE, +2 NEB & University GPA Conversions Work in Nepal",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">When applying for <a href="/noc-no-objection-certificate-nepal-online-application-study-abroad-2026/" class="text-blue-600 underline font-semibold">MoEST NOC</a>, <a href="/loksewa-online-application-form-payment-photo-size-fix-nepal-2026/" class="text-blue-600 underline font-semibold">Loksewa PSC vacancies</a>, or international scholarships, forms often request either a 4.0 GPA or percentage. Always attach your official transcript grading legend when submitting applications.</p>
+        """
+    },
+    {
+        "slug": "nea-electricity-bill-calculator-nepal",
+        "icon": "⚡",
+        "badge": "Nepal Electricity Authority Tariff",
+        "h1": "NEA Electricity Bill & Inverter Backup Calculator Nepal",
+        "title": "NEA Electricity Bill Calculator Nepal (5A/15A/30A/60A) + Inverter Backup — Tech Boss",
+        "description": "Calculate your monthly Nepal Electricity Authority (NEA) domestic electricity bill across 5A, 15A, 30A, and 60A single-phase slabs, plus estimate inverter battery backup hours.",
+        "capsule_title": "Official NEA Domestic Slab Tariff Estimator",
+        "capsule_text": "Enter your monthly kWh units and meter ampere rating (5A, 15A, 30A, or 60A) to calculate your exact NEA minimum service charge, progressive energy charge per slab, 2% early payment rebate, and optional home inverter backup duration.",
+        "tool_html": """
+        <section id="neaBillTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Meter Rating (Single Phase)</label>
+              <select id="neaAmpere" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="5" selected>5 Ampere (Standard Home)</option>
+                <option value="15">15 Ampere (Induction / AC Home)</option>
+                <option value="30">30 Ampere (Large House / Office)</option>
+                <option value="60">60 Ampere (Heavy Residential)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Monthly Units Consumed (kWh)</label>
+              <input id="neaUnits" type="number" min="0" step="1" value="120" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Optional Inverter Load (Watts)</label>
+              <input id="neaInvWatts" type="number" min="0" step="20" value="250" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+          </div>
+          <button id="calcNeaBillBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm shadow transition-colors">
+            ⚡ Calculate NEA Bill &amp; Inverter Runtime
+          </button>
+          <div id="neaBillResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const btn = document.getElementById('calcNeaBillBtn');
+          const box = document.getElementById('neaBillResultBox');
+          if (!btn || !box) return;
+
+          btn.addEventListener('click', () => {
+            const amp = parseInt(document.getElementById('neaAmpere').value, 10);
+            const u = Math.max(0, parseFloat(document.getElementById('neaUnits').value) || 0);
+            const watts = Math.max(0, parseFloat(document.getElementById('neaInvWatts').value) || 0);
+
+            // Official NEA progressive domestic energy slab rates (NPR/unit)
+            const slabs = [
+              [20, amp === 5 ? 0 : 4.0],
+              [10, 6.5],
+              [20, 8.0],
+              [50, 9.5],
+              [50, 9.5],
+              [100, 10.0],
+              [150, 11.0],
+              [Infinity, 12.0]
+            ];
+            let rem = u, energy = 0;
+            for (const [cap, rate] of slabs) {
+              if (rem <= 0) break;
+              const chunk = Math.min(rem, cap);
+              energy += chunk * rate;
+              rem -= chunk;
+            }
+            // Service charge by ampere & consumption tier
+            let service = 30;
+            if (amp === 5) service = u <= 20 ? 30 : u <= 30 ? 50 : u <= 50 ? 50 : u <= 100 ? 75 : u <= 250 ? 100 : 150;
+            else if (amp === 15) service = u <= 20 ? 50 : u <= 50 ? 75 : u <= 100 ? 100 : u <= 250 ? 125 : 175;
+            else if (amp === 30) service = u <= 20 ? 75 : u <= 50 ? 100 : u <= 100 ? 125 : u <= 250 ? 150 : 200;
+            else service = u <= 50 ? 125 : u <= 100 ? 150 : u <= 250 ? 200 : 250;
+
+            const total = Math.round(energy + service);
+            const rebate2 = Math.round(total * 0.98);
+            // 150Ah 12V tubular battery usable ~1.44 kWh (80% efficiency)
+            const backupHrs = watts > 0 ? (1440 / watts).toFixed(1) : '—';
+
+            box.innerHTML = `
+              <h3 class="text-base font-extrabold text-amber-700 dark:text-amber-400 mb-3">Estimated Monthly NEA Electricity Bill (${amp}A Meter)</h3>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs mb-3">
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Energy Charge</span><strong>Rs. ${Math.round(energy).toLocaleString()}</strong></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Service Charge</span><strong>Rs. ${service}</strong></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Total Bill</span><strong class="text-base text-amber-600">Rs. ${total.toLocaleString()}</strong></div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">With 2% Rebate (7d)</span><strong class="text-base text-emerald-600">Rs. ${rebate2.toLocaleString()}</strong></div>
+              </div>
+              <p class="text-xs text-gray-600 dark:text-gray-300"><strong>Inverter Backup Estimate (1x 150Ah 12V Tubular Battery @ ${watts}W load):</strong> ~<strong>${backupHrs} hours</strong>. Pay within 7 days of meter reading via <a href="/connectips-esewa-khalti-transfer-limit-charges-kyc-fix-nepal-2026/" class="text-blue-600 font-bold hover:underline">ConnectIPS, eSewa or Khalti</a> to claim the 2% NEA rebate.</p>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        """,
+        "guide_title": "Saving Money on NEA Domestic Bills & 2% Early Payment Rebate",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">NEA gives a 2% rebate when you settle your bill within 7 days of meter reading using digital wallets or <a href="/connectips-esewa-khalti-transfer-limit-charges-kyc-fix-nepal-2026/" class="text-blue-600 underline font-semibold">ConnectIPS</a>. Households using induction stoves and geysers should upgrade from 5A to a 15A/30A meter to prevent MCB tripping.</p>
+        """
+    },
+    {
+        "slug": "nepal-forex-remittance-calculator",
+        "icon": "💱",
+        "badge": "NRB Forex & Remittance NPR",
+        "h1": "Nepal Forex & Remittance Calculator (USD, AUD, AED, QAR, GBP → NPR)",
+        "title": "Nepal Forex & Remittance Converter (USD/AUD/AED/QAR/SAR to NPR) — Tech Boss",
+        "description": "Convert USD, AUD, GBP, EUR, CAD, AED, QAR, SAR, MYR, and JPY to Nepali Rupees (NPR), estimate bank remittance fees, and compare 5% IT export TDS net payout.",
+        "capsule_title": "Instant Foreign Currency & Remittance Payout to NPR",
+        "capsule_text": "Select any major foreign currency sent to Nepal, adjust today's NRB/bank buying rate if needed, deduct optional transfer fees or 5% IT export tax, and see exact Nepali Rupees (NPR) received in your bank account.",
+        "tool_html": """
+        <section id="nepalForexTool" class="tool-section max-w-4xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Currency</label>
+              <select id="fxCurrency" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white">
+                <option value="USD|135.50" selected>USD — US Dollar</option>
+                <option value="AUD|88.20">AUD — Australian Dollar</option>
+                <option value="GBP|171.80">GBP — British Pound</option>
+                <option value="EUR|143.50">EUR — Euro</option>
+                <option value="CAD|96.80">CAD — Canadian Dollar</option>
+                <option value="AED|36.88">AED — UAE Dirham</option>
+                <option value="QAR|37.18">QAR — Qatari Riyal</option>
+                <option value="SAR|36.08">SAR — Saudi Riyal</option>
+                <option value="MYR|30.40">MYR — Malaysian Ringgit</option>
+                <option value="JPY|0.88">JPY — Japanese Yen</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Amount</label>
+              <input id="fxAmount" type="number" min="0" step="10" value="1000" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Rate (NPR / 1 Unit)</label>
+              <input id="fxRate" type="number" min="0" step="0.01" value="135.50" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-bold text-gray-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">Transfer Type</label>
+              <select id="fxType" class="w-full px-3 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm font-semibold text-gray-900 dark:text-white">
+                <option value="remit" selected>Family Remittance (0% Tax)</option>
+                <option value="it5">IT Export / Freelance (5% TDS)</option>
+              </select>
+            </div>
+          </div>
+          <button id="calcForexBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow transition-colors">
+            💱 Convert to Nepali Rupees (NPR)
+          </button>
+          <div id="nepalForexResultBox" class="hidden mt-6 p-5 rounded-2xl bg-gray-50 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700"></div>
+        </section>
+        """,
+        "tool_js": """
+        (function() {
+          const curSel = document.getElementById('fxCurrency');
+          const rateIn = document.getElementById('fxRate');
+          const amtIn = document.getElementById('fxAmount');
+          const typeSel = document.getElementById('fxType');
+          const btn = document.getElementById('calcForexBtn');
+          const box = document.getElementById('nepalForexResultBox');
+          if (!curSel || !btn || !box) return;
+
+          curSel.addEventListener('change', () => {
+            const [, defRate] = curSel.value.split('|');
+            rateIn.value = defRate;
+          });
+
+          btn.addEventListener('click', () => {
+            const [code] = curSel.value.split('|');
+            const amt = Math.max(0, parseFloat(amtIn.value) || 0);
+            const rate = Math.max(0, parseFloat(rateIn.value) || 0);
+            const grossNpr = amt * rate;
+            const tds = typeSel.value === 'it5' ? grossNpr * 0.05 : 0;
+            const netNpr = Math.round(grossNpr - tds);
+            const lakhs = (netNpr / 100000).toFixed(2);
+
+            box.innerHTML = `
+              <h3 class="text-base font-extrabold text-teal-700 dark:text-teal-400 mb-3">${amt.toLocaleString()} ${code} to Nepali Rupees (NPR)</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mb-3">
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Gross NPR (@ Rs. ${rate})</span><strong class="text-base">Rs. ${Math.round(grossNpr).toLocaleString()}</strong></div>
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Tax / 5% IT TDS</span><strong class="text-base text-rose-600">Rs. ${Math.round(tds).toLocaleString()}</strong></div>
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"><span class="text-gray-500 block">Net Bank Payout</span><strong class="text-base text-emerald-600">Rs. ${netNpr.toLocaleString()} (~${lakhs} Lakh)</strong></div>
+              </div>
+              <div class="flex flex-wrap gap-4 text-xs">
+                <a href="/nepali-developers-international-payments-wise-payoneer-swift-2026/" class="font-bold text-blue-600 hover:underline">Wise, Payoneer &amp; SWIFT Nepal Guide &rarr;</a>
+                <a href="/noc-no-objection-certificate-nepal-online-application-study-abroad-2026/" class="font-bold text-emerald-600 hover:underline">NOC Tuition Wire Guide &rarr;</a>
+              </div>
+            `;
+            box.classList.remove('hidden');
+          });
+        })();
+        """,
+        "guide_title": "Maximizing NPR Exchange Rates on Remittances & Freelance Wires",
+        "guide_html": """
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Always compare your bank's buying rate against Nepal Rastra Bank's daily published forex reference before wiring funds. For remote IT professionals receiving USD/EUR/GBP, check our <a href="/nepali-developers-international-payments-wise-payoneer-swift-2026/" class="text-blue-600 underline font-semibold">International Payments &amp; 5% IT Export Tax Guide</a>.</p>
+        """
+    },
 ]
 
 
@@ -1555,7 +2098,7 @@ def render_extended_tools(root_dir, existing_tools_summary):
     <section class="border-t border-gray-200 dark:border-slate-800 pt-8 mb-8">
       <div class="flex items-center justify-between mb-4">
         <h3 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Explore More Free Interactive Tools</h3>
-        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 22 Tools &rarr;</a>
+        <a href="/tools/" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All 27 Tools &rarr;</a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">{other_tools_html}</div>
     </section>
